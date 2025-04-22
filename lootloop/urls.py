@@ -19,5 +19,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('landing.urls')),  # Links the landing app’s URLs to the root path
+    path('', include('landing.urls')),
 ]

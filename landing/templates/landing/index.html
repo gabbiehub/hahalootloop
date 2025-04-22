@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'landing/globals.css' %}" />
+    <link rel="stylesheet" href="{% static 'landing/style.css' %}" />
+    <style>
+      /* Modal Overlay */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      .modal-overlay.active {
+        display: block !important; /* Override potential conflicts */
+      }
+
+      /* Modal Styles */
+      .log-in-modal {
+        width: 827px;
+        height: 553px;
+        background-color: #ffffff;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .log-in-modal.active {
+        display: block !important; /* Override potential conflicts */
+      }
+
+      .log-in-modal .overlap {
+        position: relative;
+        height: 553px;
+      }
+
+      .log-in-modal .blue-solid {
+        position: absolute;
+        width: 369px;
+        height: 553px;
+        top: 0;
+        left: 458px;
+        background-color: #001d3d;
+      }
+
+      .log-in-modal .white-background {
+        position: absolute;
+        width: 459px;
+        height: 553px;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+      }
+
+      .log-in-modal .text-wrapper {
+        position: absolute;
+        width: 49px;
+        top: 159px;
+        left: 86px;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #000814;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .div {
+        position: absolute;
+        width: 142px;
+        top: 189px;
+        left: 97px;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #d9d9d9;
+        font-size: 13px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .log-in-modal .p {
+        position: absolute;
+        top: 119px;
+        left: 108px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 12px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .log-in-modal .text-wrapper-2 {
+        position: absolute;
+        top: 309px;
+        left: 90px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: normal;
+        text-decoration: underline;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .don-t-have-an {
+        position: absolute;
+        top: 499px;
+        left: 140px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .span {
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+      }
+
+      .log-in-modal .text-wrapper-3 {
+        text-decoration: underline;
+      }
+
+      .log-in-modal .text-wrapper-4 {
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+      .log-in-modal .text-wrapper-5 {
+        position: absolute;
+        width: 72px;
+        top: 404px;
+        left: 194px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .log-in-modal .rectangle {
+        width: 288px;
+        height: 39px;
+        top: 180px;
+        left: 86px;
+        position: absolute;
+        border: 1px solid;
+        border-color: #000814;
+      }
+
+      .log-in-modal .text-wrapper-6 {
+        position: absolute;
+        width: 93px;
+        top: 239px;
+        left: 86px;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #000814;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .text-wrapper-7 {
+        position: absolute;
+        width: 142px;
+        top: 273px;
+        left: 97px;
+        font-family: "Inter-Medium", Helvetica;
+        font-weight: 500;
+        color: #d9d9d9;
+        font-size: 13px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .log-in-modal .rectangle-2 {
+        width: 288px;
+        height: 39px;
+        top: 260px;
+        left: 86px;
+        position: absolute;
+        border: 1px solid;
+        border-color: #000814;
+      }
+
+      .log-in-modal .close-window {
+        position: absolute;
+        width: 30px;
+        height: 46px;
+        top: 20px;
+        left: 30px;
+        cursor: pointer;
+        background-color: #ccc; /* Temporary background to ensure visibility */
+        text-align: center;
+        line-height: 46px;
+        font-size: 20px;
+      }
+
+      .log-in-modal .text-wrapper-8 {
+        position: absolute;
+        width: 98px;
+        top: 69px;
+        left: 181px;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000814;
+        font-size: 29px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+
+      .log-in-modal .sign-up {
+        position: absolute;
+        width: 151px;
+        height: 32px;
+        top: 350px;
+        left: 155px;
+      }
+
+      .log-in-modal .overlap-group {
+        position: relative;
+        width: 149px;
+        height: 32px;
+        background-color: #ffc300;
+      }
+
+      .log-in-modal .text-wrapper-9 {
+        position: absolute;
+        width: 62px;
+        height: 16px;
+        top: 7px;
+        left: 43px;
+        font-family: "Jaro-Regular", Helvetica;
+        font-weight: 400;
+        color: #ffffff;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .google-button {
+        position: absolute;
+        width: 91px;
+        height: 29px;
+        top: 440px;
+        left: 69px;
+      }
+
+      .log-in-modal .overlap-2 {
+        position: relative;
+        width: 89px;
+        height: 29px;
+      }
+
+      .log-in-modal .text-wrapper-10 {
+        position: absolute;
+        top: 9px;
+        left: 37px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .rectangle-3 {
+        width: 89px;
+        height: 29px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        border: 1px solid;
+        border-color: #000814;
+      }
+
+      .log-in-modal .fb-button {
+        position: absolute;
+        width: 91px;
+        height: 29px;
+        top: 440px;
+        left: 185px;
+      }
+
+      .log-in-modal .text-wrapper-11 {
+        position: absolute;
+        top: 9px;
+        left: 28px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      .log-in-modal .apple-id-button {
+        position: absolute;
+        width: 91px;
+        height: 29px;
+        top: 440px;
+        left: 301px;
+      }
+
+      .log-in-modal .text-wrapper-12 {
+        position: absolute;
+        top: 9px;
+        left: 34px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #000814;
+        font-size: 10px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      /* Ensure login button is clickable */
+      .log-in {
+        position: relative;
+        z-index: 1000;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="landing-page">
+      <div class="div">
+        <div class="overlap">
+          <div class="log-in" id="loginButton">
+            <div class="overlap-group"><div class="text-wrapper">login</div></div>
+          </div>
+          <div class="group">
+            <div class="overlap-2">
+              <p class="your-collection-s">Your collection’s missing piece is just a trade away!</p>
+              <p class="p">Showcase your collection, connect with fellow collectors, and complete your set today!</p>
+            </div>
+          </div>
+          <div class="items">
+            <div class="overlap-3">
+              <div class="text-wrapper-2">200K+</div>
+              <div class="text-wrapper-3">Items</div>
+            </div>
+          </div>
+          <div class="trades">
+            <div class="overlap-3">
+              <div class="text-wrapper-2">300K+</div>
+              <div class="text-wrapper-3">Trades</div>
+            </div>
+          </div>
+          <div class="users">
+            <div class="overlap-4">
+              <div class="text-wrapper-4">400K+</div>
+              <div class="text-wrapper-5">Users</div>
+            </div>
+          </div>
+          <p class="text-wrapper-6">Keep your loot in the loop.</p>
+          <div class="sign-up">
+            <div class="div-wrapper"><div class="text-wrapper-7">sign up</div></div>
+          </div>
+          <div class="overlap-5">
+            <div class="group-2">
+              <div class="overlap-6">
+                <img class="rectangle" src="" data-placeholder="true" />
+                <div class="text-wrapper-8">Home</div>
+              </div>
+              <div class="text-wrapper-9">About Us</div>
+              <div class="text-wrapper-10">FAQ</div>
+            </div>
+            <div class="discover">
+              <div class="item">
+                <div class="text-wrapper-11">item 1 Name #id</div>
+                <div class="text-wrapper-12">Author Name</div>
+                <div class="rectangle-2"></div>
+                <img class="untitled-design" src="" data-placeholder="true"  />
+              </div>
+              <div class="item-2">
+                <div class="text-wrapper-11">item 2 Name #id</div>
+                <div class="text-wrapper-12">Author Name</div>
+                <div class="rectangle-2"></div>
+                <img class="img" src="" data-placeholder="true"  />
+              </div>
+              <div class="item-3">
+                <div class="text-wrapper-11">item 3 Name #id</div>
+                <div class="text-wrapper-12">Author Name</div>
+                <div class="rectangle-2"></div>
+                <img class="untitled-design" src="" data-placeholder="true" />
+              </div>
+              <div class="item-4">
+                <div class="text-wrapper-11">item 4 Name #id</div>
+                <div class="text-wrapper-12">Author Name</div>
+                <div class="rectangle-2"></div>
+                <img class="untitled-design" src="" data-placeholder="true" />
+              </div>
+              <div class="text-wrapper-13">Discover</div>
+              <div class="see-all">See all ></div>
+            </div>
+            <div class="rectangle-3"></div>
+            <div class="group-3">
+              <img class="ellipse" src="" data-placeholder="true" />
+              <div class="ellipse-2"></div>
+              <div class="ellipse-3"></div>
+              <div class="ellipse-4"></div>
+              <div class="ellipse-5"></div>
+            </div>
+            <div class="text-wrapper-14">Trending</div>
+            <div class="see-all-2">See all ></div>
+            <div class="frame">
+              <div class="overlap-group-wrapper">
+                <div class="overlap-group-2">
+                  <div class="text-wrapper-15">item 3 Name #id</div>
+                  <div class="text-wrapper-16">Author Name</div>
+                  <img class="image" src="" data-placeholder="true" />
+                  <div class="rectangle-4"></div>
+                  <img class="untitled-design-4" src="" data-placeholder="true" />
+                </div>
+              </div>
+              <div class="overlap-wrapper">
+                <div class="overlap-7">
+                  <div class="text-wrapper-17">item 2 Name #id</div>
+                  <div class="text-wrapper-18">Author Name</div>
+                  <img class="bone" src="" data-placeholder="true" />
+                  <div class="rectangle-5"></div>
+                  <img class="untitled-design-5" src="" data-placeholder="true" />
+                </div>
+              </div>
+              <img class="item-5" src="" data-placeholder="true" />
+              <img class="item-6" src="" data-placeholder="true" />
+              <div class="group-4">
+                <div class="overlap-7">
+                  <div class="text-wrapper-17">item 4 Name #id</div>
+                  <div class="text-wrapper-19">Author Name</div>
+                  <div class="rectangle-5"></div>
+                  <img class="image-2" src="" data-placeholder="true" />
+                  <img class="untitled-design-5" src="" data-placeholder="true" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="group-5">
+              <div class="overlap-8">
+                <<img class="black-white-modern" src="{% static 'landing/img/black-white-modern-simple-creative-studio-huge-logo-3-1.png' %}" />
+                <img class="black-white-modern-2" src="{% static 'landing/img/black-white-modern-simple-creative-studio-huge-logo-2-1.png' %}" />
+                <img class="oo" src="{% static 'landing/img/oo-2-1.png' %}" />
+                <img class="oo-2" src="{% static 'landing/img/oo-1-1.png' %}" />
+                <img class="black-white-modern-3" src="{% static 'landing/img/black-white-modern-simple-creative-studio-huge-logo-4-1.png' %}" />
+              </div>
+            </div>
+            <div class="rectangle-6"></div>
+            <p class="register-to-unlock">Register to unlock all features.</p>
+            <div class="group-6">
+              <div class="overlap-9"><div class="text-wrapper-20">Register</div></div>
+            </div>
+          </div>
+        </div>
+        <img class="lootloop-trnsparent" src="{%static 'landing/img/lootloop-trnsparent-1.png' %}" />
+      </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Modal Content -->
+    <div class="log-in-modal" id="loginModal">
+      <div class="overlap">
+        <div class="blue-solid"></div>
+        <div class="white-background"></div>
+        <div class="text-wrapper">E-mail</div>
+        <div class="div">loot@loop.com</div>
+        <p class="p">Enter your details to log in to your account.</p>
+        <div class="text-wrapper-2">Forgot your password?</div>
+        <p class="don-t-have-an">
+          <span class="span">Don’t have an account?</span>
+          <span class="text-wrapper-3"> </span>
+          <span class="text-wrapper-4">Register now.</span>
+          <span class="text-wrapper-3"> </span>
+        </p>
+        <div class="text-wrapper-5">Or Sign in with</div>
+        <div class="rectangle"></div>
+        <div class="text-wrapper-6">Password</div>
+        <div class="text-wrapper-7">lootloop123aa</div>
+        <div class="rectangle-2"></div>
+        <div class="close-window" id="closeModal">X</div>
+        <div class="text-wrapper-8">Sign in</div>
+        <div class="sign-up">
+          <div class="overlap-group"><div class="text-wrapper-9">Sign in</div></div>
+        </div>
+        <div class="google-button">
+          <div class="overlap-2">
+            <div class="text-wrapper-10">Google</div>
+            <div class="rectangle-3"></div>
+          </div>
+        </div>
+        <div class="fb-button">
+          <div class="overlap-2">
+            <div class="text-wrapper-11">Facebook</div>
+            <div class="rectangle-3"></div>
+          </div>
+        </div>
+        <div class="apple-id-button">
+          <div class="overlap-2">
+            <div class="text-wrapper-12">Apple ID</div>
+            <div class="rectangle-3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Get elements
+        const loginButton = document.getElementById('loginButton');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Debug: Check if elements are found
+        console.log('Login Button:', loginButton);
+        console.log('Modal Overlay:', modalOverlay);
+        console.log('Login Modal:', loginModal);
+        console.log('Close Modal:', closeModal);
+
+        if (!loginButton || !modalOverlay || !loginModal || !closeModal) {
+          console.error('One or more elements not found!');
+          return;
+        }
+
+        // Show modal when login button is clicked
+        loginButton.addEventListener('click', () => {
+          console.log('Login button clicked!');
+          modalOverlay.classList.add('active');
+          loginModal.classList.add('active');
+        });
+
+        // Hide modal when close button is clicked
+        closeModal.addEventListener('click', () => {
+          console.log('Close button clicked!');
+          modalOverlay.classList.remove('active');
+          loginModal.classList.remove('active');
+        });
+
+        // Hide modal when clicking outside the modal
+        modalOverlay.addEventListener('click', () => {
+          console.log('Overlay clicked!');
+          modalOverlay.classList.remove('active');
+          loginModal.classList.remove('active');
+        });
+
+        // Prevent modal content clicks from closing the modal
+        loginModal.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      });
+    </script>
+  </body>
+</html>
