@@ -1,0 +1,326 @@
+.registration-page {
+    width: 1920px;
+    height: 1080px;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url('/static/img/registration/big blue bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    margin: 0;
+  }
+  
+  .registration-page .overlap {
+    position: relative;
+    height: 1080px;
+  }
+  
+  .registration-page .group {
+    position: absolute;
+    width: 564px;
+    height: 715px;
+    top: 182px;
+    left: 1188px;
+  }
+  
+  .registration-page .overlap-group {
+    position: relative;
+    width: 550px;
+    height: 715px;
+    background-color: #ffffff;
+  }
+  
+  .registration-page .div-wrapper {
+    position: absolute;
+    width: 380px;
+    height: 43px;
+    top: 204px;
+    left: 78px;
+    border: 1px solid;
+    border-color: #000814;
+  }
+  
+  .registration-page .text-wrapper {
+    position: absolute;
+    width: 300px;
+    top: 14px;
+    left: 10px; 
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #000000;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: normal;
+    padding: 0 10px; 
+    box-sizing: border-box;
+  }
+  
+  .registration-page .text-wrapper[type="email"] {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 90%; 
+    padding: 0;
+    overflow: visible; 
+  }
+  
+  .registration-page .div {
+    position: absolute;
+    width: 250px;
+    top: 104px;
+    left: 147px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000814;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .p {
+    position: absolute;
+    width: 282px;
+    top: 148px;
+    left: 135px;
+    opacity: 0.7;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #737373;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .text-wrapper-2 {
+    position: absolute;
+    width: 374px;
+    top: 252px;
+    left: 100px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000e6;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 12px;
+  }
+  
+  .registration-page .text-wrapper-3 {
+    position: absolute;
+    width: 54px;
+    top: 182px;
+    left: 88px;
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #000814;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .rectangle {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: 260px;
+    left: 82px;
+  }
+  
+  .registration-page .text-wrapper-4 {
+    position: absolute;
+    width: 79px;
+    top: 322px;
+    left: 235px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .google-button {
+    position: absolute;
+    width: 100px;
+    height: 32px;
+    top: 361px;
+    left: 98px;
+  }
+  
+  .registration-page .overlap-group-2 {
+    position: relative;
+    width: 98px;
+    height: 32px;
+  }
+  
+  .registration-page .text-wrapper-5 {
+    position: absolute;
+    width: 37px;
+    top: 10px;
+    left: 41px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .google {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 8px;
+    left: 12px;
+  }
+  
+  .registration-page .rectangle-2 {
+    position: absolute;
+    width: 98px;
+    height: 32px;
+    top: 0;
+    left: 0;
+    border: 1px solid;
+    border-color: #000814;
+  }
+  
+  .registration-page .fb-button {
+    position: absolute;
+    width: 100px;
+    height: 32px;
+    top: 361px;
+    left: 226px;
+  }
+  
+  .registration-page .text-wrapper-6 {
+    position: absolute;
+    width: 52px;
+    top: 10px;
+    left: 31px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .facebook {
+    position: absolute;
+    width: 24px;
+    height: 20px;
+    top: 7px;
+    left: 7px;
+  }
+  
+  .registration-page .apple-id-button {
+    position: absolute;
+    width: 100px;
+    height: 32px;
+    top: 361px;
+    left: 353px;
+  }
+  
+  .registration-page .text-wrapper-7 {
+    position: absolute;
+    width: 44px;
+    top: 10px;
+    left: 37px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .ple {
+    position: absolute;
+    width: 19px;
+    height: 20px;
+    top: 7px;
+    left: 12px;
+  }
+  
+  .registration-page .line {
+    left: 92px;
+    position: absolute;
+    width: 133px;
+    height: 1px;
+    top: 329px;
+    object-fit: cover;
+  }
+  
+  .registration-page .img {
+    left: 323px;
+    position: absolute;
+    width: 133px;
+    height: 1px;
+    top: 329px;
+    object-fit: cover;
+  }
+  
+  .registration-page .arrow-wrapper {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 605px;
+    left: 252px;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #737373;
+  }
+  
+  .registration-page .arrow {
+    position: absolute;
+    width: 19px;
+    height: 15px;
+    top: 14px;
+    left: 12px;
+  }
+  
+  .registration-page .already-have-an {
+    position: absolute;
+    width: 177px;
+    top: 657px;
+    left: 186px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .registration-page .span {
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #000814;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+  
+  .registration-page .text-wrapper-8 {
+    text-decoration: underline;
+  }
+  
+  .registration-page .text-wrapper-9 {
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
+  .registration-page .black-white-modern {
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    top: 60px;
+    left: 60px;
+    object-fit: cover;
+  }

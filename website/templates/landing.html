@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lootloop</title>
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landing/landing.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landing/landing-modals.css' %}">
+</head>
+<body>
+    <div class="landing-page">
+        <div class="div">
+            <div class="overlap">
+                <div class="log-in" id="loginButton" role="button" aria-label="Open login modal">
+                    <div class="overlap-group"><div class="text-wrapper">login</div></div>
+                </div>
+                <div class="group">
+                    <div class="overlap-2">
+                        <p class="your-collection-s">Your collection’s missing piece is just a trade away!</p>
+                        <p class="p">Showcase your collection, connect with fellow collectors, and complete your set today!</p>
+                    </div>
+                </div>
+                <div class="items">
+                    <div class="overlap-3">
+                        <div class="text-wrapper-2">200K+</div>
+                        <div class="text-wrapper-3">Items</div>
+                    </div>
+                </div>
+                <div class="trades">
+                    <div class="overlap-3">
+                        <div class="text-wrapper-2">300K+</div>
+                        <div class="text-wrapper-3">Trades</div>
+                    </div>
+                </div>
+                <div class="users">
+                    <div class="overlap-4">
+                        <div class="text-wrapper-4">400K+</div>
+                        <div class="text-wrapper-5">Users</div>
+                    </div>
+                </div>
+                <p class="text-wrapper-6">Keep your loot in the loop.</p>
+                <a href="{% url 'registration' %}" class="sign-up-link">
+                    <div class="sign-up">
+                        <div class="div-wrapper"><div class="text-wrapper-7">sign up</div></div>
+                    </div>
+                </a>
+                <div class="overlap-5">
+                    <div class="group-2">
+                        <div class="overlap-6">
+                            <img class="rectangle" src="{% static 'img/landing/home-icon.png' %}" alt="Home placeholder" />
+                            <div class="text-wrapper-8">Home</div>
+                        </div>
+                        <div class="text-wrapper-9"><a href="javascript:void(0)">About Us</a></div>
+                        <div class="text-wrapper-10"><a href="javascript:void(0)">FAQ</a></div>
+                    </div>
+                    <div class="discover">
+                        <div class="item">
+                            <div class="text-wrapper-11">item 1 Name #id</div>
+                            <div class="text-wrapper-12">Author Name</div>
+                            <div class="rectangle-2"></div>
+                            <img class="untitled-design" src="{% static 'img/landing/item-icon-1.png' %}" alt="Item 1 placeholder" />
+                        </div>
+                        <div class="item-2">
+                            <div class="text-wrapper-11">item 2 Name #id</div>
+                            <div class="text-wrapper-12">Author Name</div>
+                            <div class="rectangle-2"></div>
+                            <img class="img" src="{% static 'img/landing/item-image-2.png' %}" alt="Item 2 placeholder" />
+                        </div>
+                        <div class="item-3">
+                            <div class="text-wrapper-11">item 3 Name #id</div>
+                            <div class="text-wrapper-12">Author Name</div>
+                            <div class="rectangle-2"></div>
+                            <img class="untitled-design" src="{% static 'img/landing/item-icon-3.png' %}" alt="Item 3 placeholder" />
+                        </div>
+                        <div class="item-4">
+                            <div class="text-wrapper-11">item 4 Name #id</div>
+                            <div class="text-wrapper-12">Author Name</div>
+                            <div class="rectangle-2"></div>
+                            <img class="untitled-design" src="{% static 'img/landing/item-icon-4.png' %}" alt="Item 4 placeholder" />
+                        </div>
+                        <div class="text-wrapper-13">Discover</div>
+                        <div class="see-all"><a href="javascript:void(0)">See all ></a></div>
+                    </div>
+                    <div class="rectangle-3"></div>
+                    <div class="group-3">
+                        <img class="ellipse" src="{% static 'img/landing/trending-preview-1.png' %}" alt="Ellipse placeholder" />
+                        <div class="ellipse-2"></div>
+                        <div class="ellipse-3"></div>
+                        <div class="ellipse-4"></div>
+                        <div class="ellipse-5"></div>
+                    </div>
+                    <div class="text-wrapper-14">Trending</div>
+                    <div class="see-all-2"><a href="javascript:void(0)">See all ></a></div>
+                    <div class="frame">
+                        <div class="overlap-group-wrapper">
+                            <div class="overlap-group-2">
+                                <div class="text-wrapper-15">item 3 Name #id</div>
+                                <div class="text-wrapper-16">Author Name</div>
+                                <img class="image" src="{% static 'img/landing/frame-item-image-1.png' %}" alt="Trending item 3 placeholder" />
+                                <div class="rectangle-4"></div>
+                                <img class="untitled-design-4" src="{% static 'img/landing/frame-item-icon-1.png' %}" alt="Trending item 3 icon" />
+                            </div>
+                        </div>
+                        <div class="overlap-wrapper">
+                            <div class="overlap-7">
+                                <div class="text-wrapper-17">item 2 Name #id</div>
+                                <div class="text-wrapper-18">Author Name</div>
+                                <img class="bone" src="{% static 'img/landing/trending item 2.png' %}" alt="Trending item 2 placeholder" />
+                                <div class="rectangle-5"></div>
+                                <img class="untitled-design-5" src="{% static 'img/landing/frame-item-icon-2.png' %}" alt="Trending item 2 icon" />
+                            </div>
+                        </div>
+                        <div class="group-4">
+                            <div class="overlap-7">
+                                <div class="text-wrapper-19">item 4 Name #id</div>
+                                <div class="text-wrapper-19">Author Name</div>
+                                <div class="rectangle-5"></div>
+                                <img class="image-2" src="{% static 'img/landing/trending-item-image-4.png' %}" alt="Trending item 4 placeholder" />
+                                <img class="untitled-design-5" src="{% static 'img/landing/frame-item-icon-3.png' %}" alt="Trending item 4 icon" />
+                            </div>
+                        </div>
+                        <img class="item-5" src="{% static 'img/landing/trending-item-image-5.png' %}" alt="Trending item 5 placeholder" />
+                        <img class="item-6" src="{% static 'img/landing/trending-item-image-6.png' %}" alt="Trending item 6 placeholder" />
+                    </div>
+                    <div class="group-5">
+                        <div class="overlap-8">
+                            <img class="black-white-modern" src="{% static 'img/landing/preview item 1.png' %}" alt="Logo 1" />
+                            <img class="black-white-modern-2" src="{% static 'img/landing/preview item 2.png' %}" alt="Logo 2" />
+                            <img class="oo" src="{% static 'img/landing/preview item 3.png' %}" alt="Logo 3" />
+                            <img class="oo-2" src="{% static 'img/landing/preview item 4.png' %}" alt="Logo 4" />
+                            <img class="black-white-modern-3" src="{% static 'img/landing/preview item 5.png' %}" alt="Logo 5" />
+                        </div>
+                    </div>
+                    <div class="rectangle-6"></div>
+                    <p class="register-to-unlock">Register to unlock all features.</p>
+                    <div class="group-6">
+                        <div class="overlap-9"><div class="text-wrapper-20">Register</div></div>
+                    </div>
+                </div>
+            </div>
+            <img class="lootloop-trnsparent" src="{% static 'img/logo.png' %}" alt="Lootloop logo" />
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Login Modal -->
+    <div class="modal log-in-modal" id="loginModal">
+        <div class="overlap">
+            <div class="blue-solid"><img class="oo-2" src="{% static 'img/modals/blue bg.png' %}" alt="Blue solid background" /></div>
+            <div class="white-background"></div>
+            <p class="p">Enter your details to log in to your account.</p>
+            <form id="loginForm" method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="text-wrapper">E-mail</div>
+                <div class="div">
+                    <input type="email" name="email" placeholder="loot@loop.com" required aria-label="Email address" />
+                </div>
+                <div class="text-wrapper-6">Password</div>
+                <div class="text-wrapper-7">
+                    <input type="password" name="password" placeholder="lootloop123aa" required aria-label="Password" />
+                </div>
+            </form>
+            <div class="text-wrapper-2" id="forgotPasswordLink" role="button" aria-label="Forgot password">Forgot your password?</div>
+            <p class="don-t-have-an">
+                <span class="span">Don’t have an account?</span>
+                <span class="text-wrapper-3"> </span>
+                <a href="{% url 'registration' %}" class="text-wrapper-4">Register now.</a>
+                <span class="text-wrapper-3"> </span>
+            </p>
+            <div class="text-wrapper-5">Or Sign in with</div>
+            <div class="rectangle"></div>
+            <div class="rectangle-2"></div>
+            <div class="close-window" id="closeLoginModal" role="button" aria-label="Close login modal">X</div>
+            <div class="text-wrapper-8">Sign in</div>
+            <div class="sign-up" onclick="document.getElementById('loginForm').submit();" role="button" aria-label="Submit login">
+                <div class="overlap-group"><div class="text-wrapper-9">Sign in</div></div>
+            </div>
+            <div class="google-button">
+                <div class="overlap-2">
+                    <img class="icons" src="{% static 'img/modals/Google.png' %}" alt="Google icon" />
+                    <div class="text-wrapper-10">Google</div>
+                    <div class="rectangle-3"></div>
+                </div>
+            </div>
+            <div class="fb-button">
+                <div class="overlap-2">
+                    <img class="icons" src="{% static 'img/modals/facebook.png' %}" alt="Facebook icon" />
+                    <div class="text-wrapper-11">Facebook</div>
+                    <div class="rectangle-3"></div>
+                </div>
+            </div>
+            <div class="apple-id-button">
+                <div class="overlap-2">
+                    <img class="icons" src="{% static 'img/modals/Apple.png' %}" alt="Apple ID icon" />
+                    <div class="text-wrapper-12">Apple ID</div>
+                    <div class="rectangle-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal forgot-password-modal" id="forgotPasswordModal">
+        <div class="overlap">
+            <div class="white-background"></div>
+            <div class="text-wrapper">E-mail</div>
+            <div class="div">
+                <form id="forgotPasswordForm" method="POST" action="{% url 'forgot_password' %}">
+                    {% csrf_token %}
+                    <input type="email" name="email" placeholder="loot@loop.com" required aria-label="Email for password reset" />
+                </form>
+            </div>
+            <p class="p">Don’t worry! It happens. Please enter the address associated with your account.</p>
+            <div class="rectangle"></div>
+            <div class="text-wrapper-2">Forgot Password</div>
+            <div class="reset-pass" id="sendCodeButton" type="button" role="button" aria-label="Send reset code">
+                <div class="overlap-group"><div class="text-wrapper-3">Send code</div></div>
+            </div>
+            <div class="group" id="returnToLogin" role="button" aria-label="Return to login">
+                <div class="overlap-2">
+                    <div class="text-wrapper-4">Return to Log in</div>
+                    <img class="left" src="{% static 'img/Left.png' %}" alt="Return arrow" />
+                </div>
+            </div>
+            <div class="close-window" id="closeForgotModal" role="button" aria-label="Close forgot password modal">X</div>
+            <img class="lock" src="{% static 'img/modals/lock.png' %}" alt="Lock icon" />
+        </div>
+    </div>
+
+    <!-- Code Verification Modal -->
+    <div class="modal enter-code-modal" id="enterCodeModal">
+        <div class="overlap">
+            <div class="white-background"></div>
+            <div class="text-wrapper">Verification code</div>
+            <p class="div">We just emailed you the code to reset your password.</p>
+            <div class="text-wrapper-2">Check your mail!</div>
+            <div class="reset-pass" id="resetPasswordButton" type="button" role="button" aria-label="Proceed to reset password">
+                <div class="overlap-group"><div class="text-wrapper-3">Reset password</div></div>
+            </div>
+            <div class="close-window" id="closeEnterCodeModal" role="button" aria-label="Close code verification modal">X</div>
+            <img class="mail-box" src="{% static 'img/modals/MailBox.png' %}" alt="Mailbox icon" />
+            <div class="group" id="returnToLoginFromCode" role="button" aria-label="Return to login from code verification">
+                <div class="overlap-2">
+                    <div class="text-wrapper-4">Return to Log in</div>
+                    <img class="left" src="{% static 'img/Left.png' %}" alt="Return arrow" />
+                </div>
+            </div>
+            <div class="group-2">
+                <div class="honeycomb"><input type="text" maxlength="1" aria-label="Verification code digit 1" /></div>
+                <div class="honeycomb-3"><input type="text" maxlength="1" aria-label="Verification code digit 2" /></div>
+                <div class="img"><input type="text" maxlength="1" aria-label="Verification code digit 3" /></div>
+                <div class="honeycomb-2"><input type="text" maxlength="1" aria-label="Verification code digit 4" /></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div class="modal reset-password-modal" id="resetPasswordModal">
+        <div class="overlap">
+            <div class="white-background"></div>
+            <p class="text-wrapper-41">Kindly set your new password.</p>
+            <div class="div-2">Reset Password</div>
+            <div class="reset-pass" id="submitResetPassword" onclick="document.getElementById('resetPasswordForm').submit();" role="button" aria-label="Set new password">
+                <div class="overlap-group"><div class="text-wrapper-42">Set Password</div></div>
+            </div>
+            <div class="close-window" id="closeResetModal" role="button" aria-label="Close reset password modal">X</div>
+            <div class="text-wrapper-43">New Password</div>
+            <div class="text-wrapper-44">Confirm Password</div>
+            <div class="div-3">
+                <form id="resetPasswordForm" method="POST" action="{% url 'reset_password' %}">
+                    {% csrf_token %}
+                    <input type="password" name="new_password" placeholder= "Enter new password" required aria-label="New password" />
+                    <input type="password" name="confirm_password" placeholder="Confirm new password" required aria-label="Confirm password" />
+                </form>
+            </div>
+            <div class="rectangle"></div>
+            <div class="rectangle-2"></div>
+            <img class="hide" src="{% static 'img/modals/Hide.png' %}" alt="Hide password icon" />
+            <img class="hide-2" src="{% static 'img/modals/Hide.png' %}" alt="Hide confirm password icon" />
+            <img class="keys" src="{% static 'img/modals/keys.png' %}" alt="Keys icon" />
+            <div class="group" id="returnToLoginFromReset" role="button" aria-label="Return to login from reset password">
+                <div class="overlap-2">
+                    <div class="text-wrapper-45">Return to Log in</div>
+                    <img class="left" src="{% static 'img/Left.png' %}" alt="Return arrow" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/landing-modals.js' %}"></script>
+</body>
+</html>

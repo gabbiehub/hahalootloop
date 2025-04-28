@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collector's Hub</title>
+    <link rel="stylesheet" href="static/css/globals.css" />
+    <link rel="stylesheet" href="static/css/homepage/homepage.css" />
+  </head>
+  <body>
+    <div class="home-page">
+      <header class="group-18">
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chat">Chat</a></li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#notifications">Notifications</a></li>
+          </ul>
+        </nav>
+        <form role="search" class="search-form" id="search-form">
+          <label for="search" class="visually-hidden">Search</label>
+          <input type="search" id="search" name="search" placeholder="Search..." />
+          <button type="submit" aria-label="Search">
+            <img src="static/img/homepage/search.png" alt="" class="search" />
+          </button>
+        </form>
+        <button class="upload-btn" id="upload-btn">Upload Item</button>
+      </header>
+      <main class="overlap">
+        <section class="featured-item">
+          <h2 class="visually-hidden">Featured Item</h2>
+          <div class="carousel-items" id="carousel">
+            <div class="carousel-item">
+              <img src="static/img/homepage/gojo-figurine-8.png" alt="Gojo Figurine" class="gojo-figurine" />
+              <div class="overlap-group-2">
+                <h3 class="text-wrapper-4">Gojo Figurine</h3>
+                <div class="rectangle-3" aria-hidden="true"></div>
+                <p class="text-wrapper-6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="group-3">
+            <button class="back-wrapper" aria-label="Previous item" id="prev-btn">
+              <img src="static/img/homepage/back.png" alt="" class="img-2" />
+            </button>
+            <button class="forward-wrapper" aria-label="Next item" id="next-btn">
+              <img src="static/img/homepage/forward.png" alt="" class="img-2" />
+            </button>
+          </div>
+        </section>
+        <section class="categories">
+          <h2 class="visually-hidden">Categories</h2>
+          <ul>
+            <li class="overlap-2">
+              <img src="static/img/homepage/untitled9-20250307010353-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Antiques</span>
+            </li>
+            <li class="overlap-3">
+              <img src="static/img/homepage/figurine-2-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Figurines</span>
+            </li>
+            <li class="overlap-4">
+              <img src="static/img/homepage/books-1-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Books</span>
+            </li>
+            <li class="overlap-5">
+              <img src="static/img/homepage/jewelry-icon-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Jewelry</span>
+            </li>
+            <li class="overlap-6">
+              <img src="static/img/homepage/furniture-2.png" alt="" class="img" />
+              <span class="text-wrapper-3">Furniture</span>
+            </li>
+            <li class="overlap-7">
+              <img src="static/img/homepage/cars-2.png" alt="" class="img" />
+              <span class="text-wrapper-3">Cars</span>
+            </li>
+            <li class="overlap-8">
+              <img src="static/img/homepage/untitled11-20250307011634-1-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Currency</span>
+            </li>
+            <li class="overlap-9">
+              <img src="static/img/homepage/untitled10-20250307005639-1.png" alt="" class="img" />
+              <span class="text-wrapper-3">Toys</span>
+            </li>
+          </ul>
+        </section>
+        <section class="recommended">
+          <h2 class="text-wrapper-7">Recommended</h2>
+          <ul>
+            <li class="overlap-12">
+              <img src="static/img/homepage/image-75.png" alt="Recommended item 1" class="recommended-img" />
+              <div class="rectangle-4" aria-hidden="true"></div>
+              <img src="static/img/homepage/rating-11.png" alt="Rating" class="img-3" />
+            </li>
+            <li class="overlap-13">
+              <img src="static/img/homepage/image-2.png" alt="Recommended item 2" class="recommended-img" />
+              <div class="rectangle-5" aria-hidden="true"></div>
+              <img src="static/img/homepage/rating-8.png" alt="Rating" class="rating-2" />
+            </li>
+            <li class="overlap-14">
+              <img src="static/img/homepage/image-5.png" alt="Recommended item 3" class="recommended-img" />
+              <div class="rectangle-6" aria-hidden="true"></div>
+              <img src="static/img/homepage/rating.png" alt="Rating" class="rating-2" />
+            </li>
+          </ul>
+        </section>
+        <section class="favorites">
+          <h2 class="text-wrapper-8">Favorites</h2>
+          <ul>
+            <li class="overlap-15">
+              <article class="group-4">
+                <h3 class="text-wrapper-9">Open for Trade</h3>
+                <time datetime="2027-05-04" class="text-wrapper-10">04 / 05 / 2027</time>
+                <p class="text-wrapper-11">
+                  Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original
+                  box.
+                </p>
+                <p class="text-wrapper-12">Prefer to trade</p>
+                <span class="text-wrapper-13">Mark Africa</span>
+                <img src="static/img/homepage/image-7.png" alt="Gojo Pop-Up Parade figure" class="image" />
+              </article>
+              <div class="rectangle-4" aria-hidden="true"></div>
+              <img src="static/img/homepage/star.png" alt="Favorite" class="img-3" />
+            </li>
+          </ul>
+          <div class="overlap-17">
+            <button class="add-favorite" id="add-favorite">
+              <img src="static/img/homepage/plus.png" alt="" class="plus" />
+              <span class="add-to-your">Add to your <br />favorites</span>
+            </button>
+          </div>
+        </section>
+        <section class="trade-requests">
+          <h2 class="text-wrapper-20">Trade Requests</h2>
+          <ul>
+            <li class="overlap-group">
+              <article class="group">
+                <h3 class="text-wrapper">John Maigue</h3>
+                <p class="div">Trade Request</p>
+                <time datetime="2029-01-01" class="p">01 / 01 / 2029</time>
+                <p class="text-wrapper-2">
+                  This is the missing piece! My vintage typewriter collection won't be complete without it.
+                </p>
+              </article>
+              <img src="static/img/homepage/image-4.png" alt="Vintage typewriter" class="image" />
+              <div class="rectangle" aria-hidden="true"></div>
+              <img src="static/img/homepage/rating-9.png" alt="Rating" class="rating" />
+              <div class="rectangle-2" aria-hidden="true"></div>
+              <div class="ellipse" aria-hidden="true"></div>
+              <img src="static/img/homepage/16.png" alt="" class="element" />
+              <button class="forward" aria-label="View details">
+                <img src="static/img/homepage/forward-2.png" alt="" />
+              </button>
+            </li>
+            <li class="group-5">
+              <article>
+                <h3 class="text-wrapper-14">Gabriel Imperial</h3>
+                <p class="text-wrapper-15">Trade Request</p>
+                <time datetime="2029-03-02" class="text-wrapper-16">02 / 03 / 2029</time>
+                <p class="text-wrapper-17">
+                  I've been hunting for this little guy forever! Anyone holding onto one of these?
+                </p>
+                <img src="static/img/homepage/15.png" alt="" class="element-2" />
+              </article>
+            </li>
+            <li class="group-6">
+              <article>
+                <h3 class="text-wrapper-14">Kathryn Molaer</h3>
+                <p class="text-wrapper-18">Collection Showcase</p>
+                <time datetime="2028-12-31" class="text-wrapper-16">12 / 31 / 2028</time>
+                <p class="text-wrapper-17">
+                  Years of searching, countless stories within these pages—my library of treasures is finally complete!
+                </p>
+                <img src="static/img/homepage/13.png" alt="" class="element-2" />
+              </article>
+            </li>
+            <li class="group-7">
+              <article>
+                <h3 class="text-wrapper-15">Wishlist</h3>
+                <time datetime="2027-05-04" class="text-wrapper-16">04 / 05 / 2027</time>
+                <p class="text-wrapper-17">
+                  Thinking of getting this beauty for Grandpa—nothing like the classics to bring back golden memories!
+                </p>
+                <span class="text-wrapper-19">Mark Africa</span>
+                <img src="static/img/homepage/14.png" alt="" class="element-2" />
+              </article>
+            </li>
+          </ul>
+        </section>
+        <section class="collection-showcases">
+          <h2 class="text-wrapper-21">Collection Showcases</h2>
+          <ul>
+            <li class="overlap-group-3">
+              <article class="group-14">
+                <h3 class="text-wrapper">John Maigue</h3>
+                <p class="div">Trade Request</p>
+                <time datetime="2029-01-01" class="p">01 / 01 / 2029</time>
+                <p class="text-wrapper-2">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+                </p>
+              </article>
+              <img src="static/img/homepage/image-8.png" alt="Showcase item" class="image-3" />
+              <div class="rectangle-7" aria-hidden="true"></div>
+              <img src="static/img/homepage/rating-10.png" alt="Rating" class="rating-3" />
+              <div class="rectangle-2" aria-hidden="true"></div>
+              <div class="ellipse-2" aria-hidden="true"></div>
+              <img src="static/img/homepage/21.png" alt="" class="element-3" />
+              <button class="forward-2" aria-label="View details">
+                <img src="static/img/homepage/forward-4.png" alt="" />
+              </button>
+            </li>
+            <li class="group-15">
+              <article>
+                <h3 class="text-wrapper-14">Gabriel Imperial</h3>
+                <p class="text-wrapper-15">Showcase</p>
+                <time datetime="2029-03-02" class="text-wrapper-16">02 / 03 / 2029</time>
+                <p class="text-wrapper-17">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+                </p>
+                <img src="static/img/homepage/15-2.png" alt="" class="element-2" />
+              </article>
+            </li>
+            <li class="group-16">
+              <article>
+                <h3 class="text-wrapper-14">Kathryn Molaer</h3>
+                <p class="text-wrapper-18">Showcase</p>
+                <time datetime="2028-12-31" class="text-wrapper-16">12 / 31 / 2028</time>
+                <p class="text-wrapper-17">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+                </p>
+                <img src="static/img/homepage/13-3.png" alt="" class="element-2" />
+              </article>
+            </li>
+            <li class="group-17">
+              <article>
+                <h3 class="text-wrapper-15">Showcase</h3>
+                <time datetime="2027-05-04" class="text-wrapper-16">04 / 05 / 2027</time>
+                <p class="text-wrapper-17">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+                </p>
+                <span class="text-wrapper-19">Mark Africa</span>
+                <img src="static/img/homepage/14-2.png" alt="" class="element-2" />
+              </article>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <aside class="rectangle-9">
+        <nav>
+          <ul>
+            <li class="home-wrapper">
+              <a href="#home" aria-label="Home">
+                <img src="static/img/homepage/home.png" alt="" class="home" />
+              </a>
+            </li>
+            <li>
+              <a href="#chat" aria-label="Chat">
+                <img src="static/img/homepage/chat-room.png" alt="" class="chat-room" />
+              </a>
+            </li>
+            <li>
+              <a href="#settings" aria-label="Settings">
+                <img src="static/img/homepage/settings.png" alt="" class="settings" />
+              </a>
+            </li>
+            <li>
+              <a href="#notifications" aria-label="Notifications">
+                <img src="static/img/homepage/doorbell.png" alt="" class="doorbell" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a href="#profile" aria-label="Profile">
+          <img src="static/img/homepage/a-2-1.png" alt="User avatar" class="a" />
+        </a>
+      </aside>
+      <img src="static/img/homepage/transparent-icon-1.png" alt="Logo" class="transparent-icon" />
+    </div>
+    <script src="static/js/homepage.js"></script>
+  </body>
+</html>
