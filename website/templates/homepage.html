@@ -1,286 +1,269 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Collector's Hub</title>
-    <link rel="stylesheet" href="static/css/globals.css" />
-    <link rel="stylesheet" href="static/css/homepage/homepage.css" />
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage/homepage.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage/homepage-modals.css' %}" />
   </head>
   <body>
     <div class="home-page">
-      <header class="group-18">
-        <nav>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#chat">Chat</a></li>
-            <li><a href="#settings">Settings</a></li>
-            <li><a href="#notifications">Notifications</a></li>
-          </ul>
-        </nav>
-        <form role="search" class="search-form" id="search-form">
-          <label for="search" class="visually-hidden">Search</label>
-          <input type="search" id="search" name="search" placeholder="Search..." />
-          <button type="submit" aria-label="Search">
-            <img src="static/img/homepage/search.png" alt="" class="search" />
-          </button>
-        </form>
-        <button class="upload-btn" id="upload-btn">Upload Item</button>
-      </header>
-      <main class="overlap">
-        <section class="featured-item">
-          <h2 class="visually-hidden">Featured Item</h2>
-          <div class="carousel-items" id="carousel">
-            <div class="carousel-item">
-              <img src="static/img/homepage/gojo-figurine-8.png" alt="Gojo Figurine" class="gojo-figurine" />
-              <div class="overlap-group-2">
-                <h3 class="text-wrapper-4">Gojo Figurine</h3>
-                <div class="rectangle-3" aria-hidden="true"></div>
+      <div class="group-18 fixed-top">
+        <div class="rectangle-8"></div>
+        <div class="overlap-group-wrapper">
+          <div class="search-wrapper"><img class="search" src="{% static 'img/homepage/search.png' %}" alt="Search" /></div>
+        </div>
+      </div>
+      <div class="overlap">
+        <div class="overlap-group">
+          <div class="group">
+            <div class="text-wrapper">John Maigue</div>
+            <div class="div">Trade Request</div>
+            <p class="p">01 / 01 / 2029</p>
+            <p class="text-wrapper-2">
+              This is the missing piece! My vintage typewriter collection won't be complete without it.
+            </p>
+          </div>
+          <img class="image" src="{% static 'img/homepage/gabriel profile.png' %}" alt="Vintage typewriter" />
+          <div class="rectangle"></div>
+          <img class="rating" src="{% static 'img/homepage/rating item 7.png' %}" alt="Rating" />
+          <div class="rectangle-2"></div>
+          <div class="ellipse"></div>
+          <img class="element" src="{% static 'img/homepage/16.png' %}" alt="" />
+          <img class="forward" src="{% static 'img/homepage/yellow forward.png' %}" alt="" />
+        </div>
+        <div class="overlap-2">
+          <img class="img" src="{% static 'img/homepage/antiques.png' %}" alt="Antiques icon" />
+          <div class="text-wrapper-3">Antiques</div>
+        </div>
+        <div class="overlap-3">
+          <div class="text-wrapper-3">Figurines</div>
+          <img class="img" src="{% static 'img/homepage/figurine.png' %}" alt="Figurines icon" />
+        </div>
+        <div class="overlap-4">
+          <div class="text-wrapper-3">Books</div>
+          <img class="img" src="{% static 'img/homepage/books.png' %}" alt="Books icon" />
+        </div>
+        <div class="overlap-5">
+          <div class="text-wrapper-3">Jewelry</div>
+          <img class="img" src="{% static 'img/homepage/jewelry.png' %}" alt="Jewelry icon" />
+        </div>
+        <div class="overlap-6">
+          <div class="text-wrapper-3">Furniture</div>
+          <img class="img" src="{% static 'img/homepage/furniture.png' %}" alt="Furniture icon" />
+        </div>
+        <div class="overlap-7">
+          <div class="text-wrapper-3">Cars</div>
+          <img class="img" src="{% static 'img/homepage/cars.png' %}" alt="Cars icon" />
+        </div>
+        <div class="overlap-8">
+          <div class="text-wrapper-3">Currency</div>
+          <img class="img" src="{% static 'img/homepage/currency.png' %}" alt="Currency icon" />
+        </div>
+        <div class="overlap-9">
+          <div class="text-wrapper-3">Toys</div>
+          <img class="img" src="{% static 'img/homepage/toys.png' %}" alt="Toys icon" />
+        </div>
+        <div class="overlap-10">
+          <div class="group-2">
+            <div class="overlap-group-2">
+              <div class="text-wrapper-4">Gojo Figurine</div>
+              <div class="rectangle-3"></div>
+              <div class="overlap-11">
+                <div class="text-wrapper-5">exercitation...</div>
                 <p class="text-wrapper-6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                 </p>
               </div>
             </div>
+            <img class="gojo-figurine" src="{% static 'img/homepage/gojo figurine.png' %}" alt="Gojo Figurine" />
           </div>
           <div class="group-3">
-            <button class="back-wrapper" aria-label="Previous item" id="prev-btn">
-              <img src="static/img/homepage/back.png" alt="" class="img-2" />
-            </button>
-            <button class="forward-wrapper" aria-label="Next item" id="next-btn">
-              <img src="static/img/homepage/forward.png" alt="" class="img-2" />
-            </button>
+            <div class="back-wrapper"><img class="img-2" src="{% static 'img/homepage/back.png' %}" alt="Back" /></div>
+            <div class="forward-wrapper"><img class="img-2" src="{% static 'img/homepage/forward.png' %}" alt="Forward" /></div>
           </div>
-        </section>
-        <section class="categories">
-          <h2 class="visually-hidden">Categories</h2>
-          <ul>
-            <li class="overlap-2">
-              <img src="static/img/homepage/untitled9-20250307010353-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Antiques</span>
-            </li>
-            <li class="overlap-3">
-              <img src="static/img/homepage/figurine-2-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Figurines</span>
-            </li>
-            <li class="overlap-4">
-              <img src="static/img/homepage/books-1-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Books</span>
-            </li>
-            <li class="overlap-5">
-              <img src="static/img/homepage/jewelry-icon-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Jewelry</span>
-            </li>
-            <li class="overlap-6">
-              <img src="static/img/homepage/furniture-2.png" alt="" class="img" />
-              <span class="text-wrapper-3">Furniture</span>
-            </li>
-            <li class="overlap-7">
-              <img src="static/img/homepage/cars-2.png" alt="" class="img" />
-              <span class="text-wrapper-3">Cars</span>
-            </li>
-            <li class="overlap-8">
-              <img src="static/img/homepage/untitled11-20250307011634-1-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Currency</span>
-            </li>
-            <li class="overlap-9">
-              <img src="static/img/homepage/untitled10-20250307005639-1.png" alt="" class="img" />
-              <span class="text-wrapper-3">Toys</span>
-            </li>
-          </ul>
-        </section>
-        <section class="recommended">
-          <h2 class="text-wrapper-7">Recommended</h2>
-          <ul>
-            <li class="overlap-12">
-              <img src="static/img/homepage/image-75.png" alt="Recommended item 1" class="recommended-img" />
-              <div class="rectangle-4" aria-hidden="true"></div>
-              <img src="static/img/homepage/rating-11.png" alt="Rating" class="img-3" />
-            </li>
-            <li class="overlap-13">
-              <img src="static/img/homepage/image-2.png" alt="Recommended item 2" class="recommended-img" />
-              <div class="rectangle-5" aria-hidden="true"></div>
-              <img src="static/img/homepage/rating-8.png" alt="Rating" class="rating-2" />
-            </li>
-            <li class="overlap-14">
-              <img src="static/img/homepage/image-5.png" alt="Recommended item 3" class="recommended-img" />
-              <div class="rectangle-6" aria-hidden="true"></div>
-              <img src="static/img/homepage/rating.png" alt="Rating" class="rating-2" />
-            </li>
-          </ul>
-        </section>
-        <section class="favorites">
-          <h2 class="text-wrapper-8">Favorites</h2>
-          <ul>
-            <li class="overlap-15">
-              <article class="group-4">
-                <h3 class="text-wrapper-9">Open for Trade</h3>
-                <time datetime="2027-05-04" class="text-wrapper-10">04 / 05 / 2027</time>
-                <p class="text-wrapper-11">
-                  Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original
-                  box.
-                </p>
-                <p class="text-wrapper-12">Prefer to trade</p>
-                <span class="text-wrapper-13">Mark Africa</span>
-                <img src="static/img/homepage/image-7.png" alt="Gojo Pop-Up Parade figure" class="image" />
-              </article>
-              <div class="rectangle-4" aria-hidden="true"></div>
-              <img src="static/img/homepage/star.png" alt="Favorite" class="img-3" />
-            </li>
-          </ul>
-          <div class="overlap-17">
-            <button class="add-favorite" id="add-favorite">
-              <img src="static/img/homepage/plus.png" alt="" class="plus" />
-              <span class="add-to-your">Add to your <br />favorites</span>
-            </button>
+        </div>
+        <div class="text-wrapper-7">Recommended</div>
+        <div class="text-wrapper-8">Favorites</div>
+        <div class="overlap-12">
+          <div class="rectangle-4"></div>
+          <img class="img-3" src="{% static 'img/homepage/rating item 1.png' %}" alt="Rating" />
+        </div>
+        <div class="overlap-13">
+          <div class="rectangle-5"></div>
+          <img class="rating-2" src="{% static 'img/homepage/rating item 2.png' %}" alt="Rating" />
+        </div>
+        <div class="overlap-14">
+          <div class="rectangle-6"></div>
+          <img class="rating-2" src="{% static 'img/homepage/rating item 3.png' %}" alt="Rating" />
+        </div>
+        <div class="overlap-15">
+          <div class="group-4">
+            <img class="element" src="{% static 'img/homepage/14-3.png' %}" alt="" />
+            <div class="text-wrapper-9">Open for Trade</div>
+            <p class="text-wrapper-10">04 / 05 / 2027</p>
+            <div class="overlap-16">
+              <p class="text-wrapper-11">
+                Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original
+                box.
+              </p>
+              <div class="text-wrapper-12">Prefer to trade</div>
+            </div>
+            <div class="div-wrapper"><div class="text-wrapper-13">Mark Africa</div></div>
+            <img class="image" src="{% static 'img/homepage/john profile.png' %}" alt="Gojo Pop-Up Parade figure" />
           </div>
-        </section>
-        <section class="trade-requests">
-          <h2 class="text-wrapper-20">Trade Requests</h2>
-          <ul>
-            <li class="overlap-group">
-              <article class="group">
-                <h3 class="text-wrapper">John Maigue</h3>
-                <p class="div">Trade Request</p>
-                <time datetime="2029-01-01" class="p">01 / 01 / 2029</time>
-                <p class="text-wrapper-2">
-                  This is the missing piece! My vintage typewriter collection won't be complete without it.
-                </p>
-              </article>
-              <img src="static/img/homepage/image-4.png" alt="Vintage typewriter" class="image" />
-              <div class="rectangle" aria-hidden="true"></div>
-              <img src="static/img/homepage/rating-9.png" alt="Rating" class="rating" />
-              <div class="rectangle-2" aria-hidden="true"></div>
-              <div class="ellipse" aria-hidden="true"></div>
-              <img src="static/img/homepage/16.png" alt="" class="element" />
-              <button class="forward" aria-label="View details">
-                <img src="static/img/homepage/forward-2.png" alt="" />
-              </button>
-            </li>
-            <li class="group-5">
-              <article>
-                <h3 class="text-wrapper-14">Gabriel Imperial</h3>
-                <p class="text-wrapper-15">Trade Request</p>
-                <time datetime="2029-03-02" class="text-wrapper-16">02 / 03 / 2029</time>
-                <p class="text-wrapper-17">
-                  I've been hunting for this little guy forever! Anyone holding onto one of these?
-                </p>
-                <img src="static/img/homepage/15.png" alt="" class="element-2" />
-              </article>
-            </li>
-            <li class="group-6">
-              <article>
-                <h3 class="text-wrapper-14">Kathryn Molaer</h3>
-                <p class="text-wrapper-18">Collection Showcase</p>
-                <time datetime="2028-12-31" class="text-wrapper-16">12 / 31 / 2028</time>
-                <p class="text-wrapper-17">
-                  Years of searching, countless stories within these pages—my library of treasures is finally complete!
-                </p>
-                <img src="static/img/homepage/13.png" alt="" class="element-2" />
-              </article>
-            </li>
-            <li class="group-7">
-              <article>
-                <h3 class="text-wrapper-15">Wishlist</h3>
-                <time datetime="2027-05-04" class="text-wrapper-16">04 / 05 / 2027</time>
-                <p class="text-wrapper-17">
-                  Thinking of getting this beauty for Grandpa—nothing like the classics to bring back golden memories!
-                </p>
-                <span class="text-wrapper-19">Mark Africa</span>
-                <img src="static/img/homepage/14.png" alt="" class="element-2" />
-              </article>
-            </li>
-          </ul>
-        </section>
-        <section class="collection-showcases">
-          <h2 class="text-wrapper-21">Collection Showcases</h2>
-          <ul>
-            <li class="overlap-group-3">
-              <article class="group-14">
-                <h3 class="text-wrapper">John Maigue</h3>
-                <p class="div">Trade Request</p>
-                <time datetime="2029-01-01" class="p">01 / 01 / 2029</time>
-                <p class="text-wrapper-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-                </p>
-              </article>
-              <img src="static/img/homepage/image-8.png" alt="Showcase item" class="image-3" />
-              <div class="rectangle-7" aria-hidden="true"></div>
-              <img src="static/img/homepage/rating-10.png" alt="Rating" class="rating-3" />
-              <div class="rectangle-2" aria-hidden="true"></div>
-              <div class="ellipse-2" aria-hidden="true"></div>
-              <img src="static/img/homepage/21.png" alt="" class="element-3" />
-              <button class="forward-2" aria-label="View details">
-                <img src="static/img/homepage/forward-4.png" alt="" />
-              </button>
-            </li>
-            <li class="group-15">
-              <article>
-                <h3 class="text-wrapper-14">Gabriel Imperial</h3>
-                <p class="text-wrapper-15">Showcase</p>
-                <time datetime="2029-03-02" class="text-wrapper-16">02 / 03 / 2029</time>
-                <p class="text-wrapper-17">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-                </p>
-                <img src="static/img/homepage/15-2.png" alt="" class="element-2" />
-              </article>
-            </li>
-            <li class="group-16">
-              <article>
-                <h3 class="text-wrapper-14">Kathryn Molaer</h3>
-                <p class="text-wrapper-18">Showcase</p>
-                <time datetime="2028-12-31" class="text-wrapper-16">12 / 31 / 2028</time>
-                <p class="text-wrapper-17">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-                </p>
-                <img src="static/img/homepage/13-3.png" alt="" class="element-2" />
-              </article>
-            </li>
-            <li class="group-17">
-              <article>
-                <h3 class="text-wrapper-15">Showcase</h3>
-                <time datetime="2027-05-04" class="text-wrapper-16">04 / 05 / 2027</time>
-                <p class="text-wrapper-17">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-                </p>
-                <span class="text-wrapper-19">Mark Africa</span>
-                <img src="static/img/homepage/14-2.png" alt="" class="element-2" />
-              </article>
-            </li>
-          </ul>
-        </section>
-      </main>
-      <aside class="rectangle-9">
-        <nav>
-          <ul>
-            <li class="home-wrapper">
-              <a href="#home" aria-label="Home">
-                <img src="static/img/homepage/home.png" alt="" class="home" />
-              </a>
-            </li>
-            <li>
-              <a href="#chat" aria-label="Chat">
-                <img src="static/img/homepage/chat-room.png" alt="" class="chat-room" />
-              </a>
-            </li>
-            <li>
-              <a href="#settings" aria-label="Settings">
-                <img src="static/img/homepage/settings.png" alt="" class="settings" />
-              </a>
-            </li>
-            <li>
-              <a href="#notifications" aria-label="Notifications">
-                <img src="static/img/homepage/doorbell.png" alt="" class="doorbell" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <a href="#profile" aria-label="Profile">
-          <img src="static/img/homepage/a-2-1.png" alt="User avatar" class="a" />
-        </a>
-      </aside>
-      <img src="static/img/homepage/transparent-icon-1.png" alt="Logo" class="transparent-icon" />
+          <div class="rectangle-4"></div>
+          <img class="img-3" src="{% static 'img/homepage/star.png' %}" alt="Favorite" />
+        </div>
+        <div class="overlap-17">
+          <img class="plus" src="{% static 'img/homepage/plus.png' %}" alt="Plus" />
+          <div class="add-to-your">Add to your <br />favorites</div>
+        </div>
+        <div class="group-5">
+          <div class="text-wrapper-14">Gabriel Imperial</div>
+          <div class="text-wrapper-15">Trade Request</div>
+          <p class="text-wrapper-16">02 / 03 / 2029</p>
+          <p class="text-wrapper-17">
+            I've been hunting for this little guy forever! Anyone holding onto one of these?
+          </p>
+          <img class="element-2" src="{% static 'img/homepage/15.png' %}" alt="" />
+        </div>
+        <div class="group-6">
+          <div class="text-wrapper-14">Kathryn Molaer</div>
+          <div class="text-wrapper-18">Collection Showcase</div>
+          <p class="text-wrapper-16">12 / 31 / 2028</p>
+          <p class="text-wrapper-17">
+            Years of searching, countless stories within these pages—my library of treasures is finally complete!
+          </p>
+          <img class="element-2" src="{% static 'img/homepage/13.png' %}" alt="" />
+        </div>
+        <div class="group-7">
+          <div class="text-wrapper-15">Wishlist</div>
+          <p class="text-wrapper-16">04 / 05 / 2027</p>
+          <p class="text-wrapper-17">
+            Thinking of getting this beauty for Grandpa—nothing like the classics to bring back golden memories!
+          </p>
+          <div class="text-wrapper-19">Mark Africa</div>
+          <img class="element-2" src="{% static 'img/homepage/14.png' %}" alt="" />
+        </div>
+        <div class="group-8">
+          <div class="overlap-18">
+            <div class="rectangle-4"></div>
+            <img class="img-3" src="{% static 'img/homepage/rating item 4.png' %}" alt="Rating" />
+          </div>
+          <div class="overlap-19">
+            <div class="rectangle-5"></div>
+            <img class="rating-2" src="{% static 'img/homepage/rating item 5.png' %}" alt="Rating" />
+          </div>
+        </div>
+      </div>
+      <div class="rectangle-9">
+        <div class="home-wrapper"><img class="home" src="{% static 'img/homepage/home.png' %}" alt="Home" /></div>
+        <img class="chat-room" id="chatButton" src="{% static 'img/homepage/chat room.png' %}" alt="Chat room" style="cursor: pointer;" role="button" aria-label="Open chat modal" />
+        <img class="settings" src="{% static 'img/homepage/settings.png' %}" alt="Settings" />
+        <img class="doorbell" src="{% static 'img/homepage/notif.png' %}" alt="Notifications" />
+        <img class="a" src="{% static 'img/homepage/profile.png' %}" alt="User avatar" />
+      </div>
+      <img class="transparent-icon" src="{% static 'img/logo.png' %}" alt="Logo" />
+
+      <!-- Modal Overlay -->
+      <div class="modal-overlay" id="modalOverlay"></div>
+
+      <!-- Chat Modal -->
+      <div class="modal chat-modal" id="chatModal">
+        <div class="overlap">
+          <div class="close-window" id="closeChatModal" role="button" aria-label="Close chat modal">X</div>
+          <div class="text-wrapper">Chat</div>
+          <div class="search-bar">
+            <div class="overlap-group">
+              <img class="search" src="{% static 'img/homepage/search.png' %}" alt="Search" />
+              <div class="rectangle"></div>
+              <div class="div">Search</div>
+            </div>
+          </div>
+          <div class="text-wrapper-2">Last chats</div>
+          <div class="overlap">
+            <div class="overlap-2">
+              <div class="text-wrapper-3">Write your message</div>
+              <img class="attach" src="{% static 'img/homepage/attach.png' %}" alt="Attach" />
+            </div>
+            <img class="pfp" src="{% static 'img/homepage/send.png' %}" alt="Profile picture" />
+          </div>
+          <div class="overlap-3">
+            <div class="sino-kausap">
+              <div class="overlap-4">
+                <img class="img" src="{% static 'img/homepage/pfp 1.png' %}" alt="KatsuraDa profile picture" />
+                <div class="text-wrapper-4">KatsuraDa</div>
+              </div>
+            </div>
+            <div class="message-opssen">
+              <img class="pfp-2" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 2" />
+              <img class="pfp-3" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 3" />
+              <img class="pfp-4" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 4" />
+              <img class="pfp-5" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 5" />
+              <img class="pfp-6" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 6" />
+              <div class="text-ko">
+                <div class="hey-i-saw-your-wrapper">
+                  <p class="hey-i-saw-your">
+                    Hey! I saw your collection. Ganda ng figurines mo ah. Matagal ka<br />na nagko-collect?
+                  </p>
+                </div>
+              </div>
+              <div class="group">
+                <div class="hi-yes-medyo-matagal-wrapper">
+                  <p class="hi-yes-medyo-matagal">
+                    Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng <br />Jujutsu Kaisen
+                    characters
+                  </p>
+                </div>
+              </div>
+              <div class="overlap-wrapper">
+                <div class="div-wrapper"><p class="p">Si gojo ba favorite mo? dami mong gojo eh</p></div>
+              </div>
+              <div class="overlap-group-wrapper">
+                <div class="overlap-5">
+                  <img class="vector" src="{% static 'img/homepage/vector-7.svg' %}" alt="Message bubble" />
+                  <p class="text-wrapper-5">Oo, halata na nga eh HAHA</p>
+                </div>
+              </div>
+              <div class="overlap-6"><p class="text-wrapper-6">si gojo rin favorite ko</p></div>
+              <div class="group-2">
+                <div class="overlap-7"><p class="text-wrapper-7">madalas ka ba bumibili online?</p></div>
+              </div>
+              <div class="group-3">
+                <div class="overlap-8">
+                  <img class="vector-2" src="{% static 'img/homepage/vector-10.svg' %}" alt="Message bubble" />
+                  <p class="text-wrapper-8">Minsan sa online, pero minsan sa mga malls din kung meron</p>
+                </div>
+              </div>
+              <div class="group-4">
+                <div class="overlap-9"><div class="text-wrapper-9">Ahh talaga ba? Nice</div></div>
+              </div>
+              <div class="group-5">
+                <div class="kita-ko-nga-meron-ka-wrapper">
+                  <p class="kita-ko-nga-meron-ka">
+                    kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind <br />boxes?
+                  </p>
+                </div>
+              </div>
+              <div class="overlap-10">
+                <p class="text-wrapper-9">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
+              </div>
+            </div>
+            <div class="text-wrapper-10">@zurajanai</div>
+            <div class="group-6">
+              <div class="overlap-11"><div class="text-wrapper-11">View profile</div></div>
+            </div>
+          </div>
+          <img class="chats" src="{% static 'img/homepage/chats.png' %}" alt="Chats background" />
+          <div class="pencil-wrapper"><img class="pencil" src="{% static 'img/homepage/pencil.png' %}" alt="Pencil icon" /></div>
+        </div>
+      </div>
     </div>
-    <script src="static/js/homepage.js"></script>
+    <script src="{% static 'js/homepage-modals.js' %}"></script>
   </body>
 </html>
