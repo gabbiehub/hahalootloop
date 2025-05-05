@@ -176,7 +176,9 @@
       <!-- Chat Modal -->
       <div class="modal chat-modal" id="chatModal">
         <div class="overlap">
-          <div class="close-window" id="closeChatModal" role="button" aria-label="Close chat modal">X</div>
+          <button class="close-window" id="closeChatModal" role="button" aria-label="Close chat modal">
+            <img src="{% static 'img/homepage/close window.png' %}" alt="Close window">
+          </button>
           <div class="text-wrapper">Chat</div>
           <div class="search-bar">
             <div class="overlap-group">
@@ -186,82 +188,57 @@
             </div>
           </div>
           <div class="text-wrapper-2">Last chats</div>
-          <div class="overlap">
-            <div class="overlap-2">
-              <div class="text-wrapper-3">Write your message</div>
-              <img class="attach" src="{% static 'img/homepage/attach.png' %}" alt="Attach" />
-            </div>
-            <img class="pfp" src="{% static 'img/homepage/send.png' %}" alt="Profile picture" />
+          <div class="chats"></div>
+          <div class="overlap-2">
+            <div class="text-wrapper-3">Write your message</div>
           </div>
+          <button class="attach-button" id="openUploadModal" aria-label="Open upload modal">
+            <img class="attach" src="{% static 'img/homepage/attach.png' %}" alt="Attach file">
+          </button>
+          <img class="send-button" src="{% static 'img/homepage/send.png' %}" alt="Send message">
           <div class="overlap-3">
             <div class="sino-kausap">
               <div class="overlap-4">
-                <img class="img" src="{% static 'img/homepage/pfp 1.png' %}" alt="KatsuraDa profile picture" />
-                <div class="text-wrapper-4">KatsuraDa</div>
+                <img class="img" src="{% static 'img/homepage/pfp 1.png' %}" alt="KatsuraDa profile picture">
+                <div class="name-wrapper">
+                  <div class="text-wrapper-4">KatsuraDa</div>
+                  <div class="text-wrapper-10">@zurajanai</div>
+                </div>
+                <div class="group-6">
+                  <div class="overlap-11">
+                    <div class="text-wrapper-11">View profile</div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="message-opssen">
-              <img class="pfp-2" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 2" />
-              <img class="pfp-3" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 3" />
-              <img class="pfp-4" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 4" />
-              <img class="pfp-5" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 5" />
-              <img class="pfp-6" src="{% static 'img/homepage/pfp 1.png' %}" alt="Profile picture 6" />
-              <div class="text-ko">
-                <div class="hey-i-saw-your-wrapper">
-                  <p class="hey-i-saw-your">
-                    Hey! I saw your collection. Ganda ng figurines mo ah. Matagal ka<br />na nagko-collect?
-                  </p>
-                </div>
-              </div>
-              <div class="group">
-                <div class="hi-yes-medyo-matagal-wrapper">
-                  <p class="hi-yes-medyo-matagal">
-                    Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng <br />Jujutsu Kaisen
-                    characters
-                  </p>
-                </div>
-              </div>
-              <div class="overlap-wrapper">
-                <div class="div-wrapper"><p class="p">Si gojo ba favorite mo? dami mong gojo eh</p></div>
-              </div>
-              <div class="overlap-group-wrapper">
-                <div class="overlap-5">
-                  <img class="vector" src="{% static 'img/homepage/vector-7.svg' %}" alt="Message bubble" />
-                  <p class="text-wrapper-5">Oo, halata na nga eh HAHA</p>
-                </div>
-              </div>
-              <div class="overlap-6"><p class="text-wrapper-6">si gojo rin favorite ko</p></div>
-              <div class="group-2">
-                <div class="overlap-7"><p class="text-wrapper-7">madalas ka ba bumibili online?</p></div>
-              </div>
-              <div class="group-3">
-                <div class="overlap-8">
-                  <img class="vector-2" src="{% static 'img/homepage/vector-10.svg' %}" alt="Message bubble" />
-                  <p class="text-wrapper-8">Minsan sa online, pero minsan sa mga malls din kung meron</p>
-                </div>
-              </div>
-              <div class="group-4">
-                <div class="overlap-9"><div class="text-wrapper-9">Ahh talaga ba? Nice</div></div>
-              </div>
-              <div class="group-5">
-                <div class="kita-ko-nga-meron-ka-wrapper">
-                  <p class="kita-ko-nga-meron-ka">
-                    kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind <br />boxes?
-                  </p>
-                </div>
-              </div>
-              <div class="overlap-10">
-                <p class="text-wrapper-9">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
-              </div>
-            </div>
-            <div class="text-wrapper-10">@zurajanai</div>
-            <div class="group-6">
-              <div class="overlap-11"><div class="text-wrapper-11">View profile</div></div>
-            </div>
+            <div class="message-opssen"></div>
           </div>
-          <img class="chats" src="{% static 'img/homepage/chats.png' %}" alt="Chats background" />
-          <div class="pencil-wrapper"><img class="pencil" src="{% static 'img/homepage/pencil.png' %}" alt="Pencil icon" /></div>
+          <div class="pencil-wrapper">
+            <img class="pencil" src="{% static 'img/homepage/pencil.png' %}" alt="Pencil icon" />
+          </div>
         </div>
+      </div>
+
+      <!-- Upload Modal Overlay -->
+      <div class="upload-modal-overlay" id="uploadModalOverlay"></div>
+
+      <!-- Upload Modal -->
+      <div class="upload-pic-sa-chat" id="uploadModal">
+        <div class="overlap-group">
+          <div class="overlap">
+            <img class="upload-image" src="{% static 'img/homepage/upload.png' %}" alt="Upload placeholder image" />
+            <p class="drag-drop-to-upload">Drag & drop to upload</p>
+            <div class="text-wrapper">Files supported: JPG, PNG</div>
+          </div>
+          <div class="div">
+            <div class="text-wrapper-2">or</div>
+            <button class="rectangle browse-button" aria-label="Browse files">
+              <div class="text-wrapper-3">Browse</div>
+            </button>
+          </div>
+        </div>
+        <div class="text-wrapper-4">Upload File</div>
+        <img class="close-window" id="closeUploadModal" src="{% static 'img/homepage/close window.png' %}" alt="Close upload modal" />
       </div>
     </div>
     <script src="{% static 'js/homepage-modals.js' %}"></script>
