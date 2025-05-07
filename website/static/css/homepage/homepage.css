@@ -14,13 +14,48 @@
   left: 0;
 }
 
+.home-page .overlap-12 {
+  position: absolute;
+  width: 300px;
+  height: 270px;
+  top: 511px;
+  left: 102px;
+  background-image: url('{% static "img/homepage/sections/recommended 1.png" %}');
+  background-size: 100% 100%;
+  border-radius: 8px;
+}
+
+.home-page .overlap-13 {
+  position: absolute;
+  width: 300px;
+  height: 270px;
+  top: 511px;
+  left: 441px;
+  background-image: url('{% static "img/homepage/sections/recommended 2.png" %}');
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 8px;
+}
+
+.home-page .overlap-14 {
+  position: absolute;
+  width: 300px;
+  height: 270px;
+  top: 511px;
+  left: 780px;
+  background-image: url('{% static "img/homepage/sections/recommended 3.png" %}');
+  background-size: cover;
+  background-position: 50% 50%;
+  border-radius: 8px;
+}
+
 .home-page .overlap-18 {
   position: absolute;
   width: 300px;
   height: 270px;
   top: 0;
   left: 0;
-  background-image: url('{% static "img/homepage/image-6.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-6.png" %}');
   background-size: 100% 100%;
   border-radius: 8px;
 }
@@ -31,7 +66,7 @@
   height: 270px;
   top: 0;
   left: 339px;
-  background-image: url('{% static "img/homepage/image-3.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-3.png" %}');
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 8px;
@@ -43,7 +78,7 @@
   height: 270px;
   top: 0;
   left: 678px;
-  background-image: url('{% static "img/homepage/image-11.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-11.png" %}');
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 8px;
@@ -171,7 +206,7 @@
   height: 270px;
   top: 1px;
   left: 0;
-  background-image: url('{% static "img/homepage/image-10.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-10.png" %}');
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 8px;
@@ -183,7 +218,7 @@
   height: 270px;
   top: 1px;
   left: 339px;
-  background-image: url('{% static "img/homepage/image-12.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-12.png" %}');
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 8px;
@@ -195,7 +230,7 @@
   height: 270px;
   top: 1px;
   left: 678px;
-  background-image: url('{% static "img/homepage/image-9.png" %}');
+  background-image: url('{% static "img/homepage/sections/image-9.png" %}');
   background-size: cover;
   background-position: 50% 50%;
   border-radius: 8px;
