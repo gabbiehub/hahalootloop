@@ -1,0 +1,1336 @@
+.user-profile-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+  
+  .user-profile-page .sidebar {
+    position: fixed;
+    width: 130px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-image: url(/static/img/homepage%20modals/rectangle.png);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    z-index: 1000;
+  }
+  
+  .user-profile-page .logo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 15px;
+    left: 15px;
+    object-fit: cover;
+    z-index: 1001;
+  }
+  
+  .user-profile-page .sidebar-home,
+  .user-profile-page .sidebar-profile {
+    position: relative;
+    margin: 20px 0;
+  }
+  
+  .user-profile-page .home-icon,
+  .user-profile-page .user-profile,
+  .user-profile-page .chat-icon,
+  .user-profile-page .settings-icon,
+  .user-profile-page .notifications-icon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin: 25px 0;
+  }
+  
+  .user-profile-page .home-highlight,
+  .user-profile-page .profile-highlight {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+    z-index: -1;
+  }
+  
+  .user-profile-page .chat-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 25px 0;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .overlap {
+    position: absolute;
+    width: calc(100% - 130px);
+    height: auto;
+    top: 0;
+    left: 130px;
+  }
+  
+  .user-profile-page .overlap-group {
+    position: relative;
+    width: 100%;
+    height: 772px;
+    top: 0;
+    left: 0;
+  }
+  
+  .user-profile-page .image {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .user-profile-page .prof-info {
+    position: absolute;
+    width: 281px;
+    height: 584px;
+    top: 188px;
+    left: 114px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .user-profile-page .text-wrapper {
+    position: absolute;
+    width: 274px;
+    top: 280px;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .group {
+    position: absolute;
+    width: 235px;
+    height: 58px;
+    top: 441px;
+    left: 20px;
+  }
+  
+  .user-profile-page .div {
+    position: relative;
+    width: 237px;
+    height: 58px;
+  }
+  
+  .user-profile-page .following {
+    position: absolute;
+    width: 84px;
+    height: 56px;
+    top: 1px;
+    left: 0;
+  }
+  
+  .user-profile-page .overlap-group-2 {
+    position: relative;
+    width: 80px;
+    height: 56px;
+  }
+  
+  .user-profile-page .text-wrapper-2 {
+    position: absolute;
+    width: 50px;
+    top: 0;
+    left: 15px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-3 {
+    position: absolute;
+    width: 80px;
+    top: 35px;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .followers {
+    position: absolute;
+    width: 84px;
+    height: 57px;
+    top: 1px;
+    left: 80px;
+  }
+  
+  .user-profile-page .overlap-2 {
+    position: relative;
+    width: 80px;
+    height: 57px;
+  }
+  
+  .user-profile-page .text-wrapper-4 {
+    position: absolute;
+    width: 80px;
+    top: 36px;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .trades {
+    position: absolute;
+    width: 82px;
+    height: 57px;
+    top: 0;
+    left: 155px;
+  }
+  
+  .user-profile-page .overlap-3 {
+    position: relative;
+    height: 57px;
+  }
+  
+  .user-profile-page .text-wrapper-5 {
+    width: 50px;
+    top: 0;
+    left: 20px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 28px;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .overlap-group-wrapper {
+    position: absolute;
+    width: 82px;
+    height: 21px;
+    top: 37px;
+    left: 0;
+  }
+  
+  .user-profile-page .overlap-group-3 {
+    position: relative;
+    width: 80px;
+    height: 21px;
+  }
+  
+  .user-profile-page .text-wrapper-6 {
+    position: absolute;
+    width: 80px;
+    top: 0;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .eva-question-mark {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 0;
+    left: 64px;
+  }
+  
+  .user-profile-page .majesticons-share {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 213px;
+    left: 213px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .overlap-4 {
+    position: absolute;
+    width: 248px;
+    height: 35px;
+    top: 549px;
+    left: 14px;
+  }
+  
+  .user-profile-page .group-2 {
+    position: absolute;
+    width: 248px;
+    height: 35px;
+    top: 0;
+    left: 0;
+  }
+  
+  .user-profile-page .div-wrapper {
+    position: absolute;
+    width: 123px;
+    height: 34px;
+    top: 1px;
+    left: 0;
+  }
+  
+  .user-profile-page .overlap-group-4 {
+    position: relative;
+    width: 121px;
+    height: 34px;
+  }
+  
+  .user-profile-page .rectangle {
+    position: absolute;
+    width: 119px;
+    height: 34px;
+    top: 0;
+    left: 0;
+    background-color: #ffcc07;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .text-wrapper-7 {
+    position: absolute;
+    width: 105px;
+    top: 3px;
+    left: 16px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 19px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .overlap-wrapper {
+    position: absolute;
+    width: 121px;
+    height: 34px;
+    top: 0;
+    left: 129px;
+  }
+  
+  .user-profile-page .overlap-5 {
+    position: relative;
+    width: 119px;
+    height: 34px;
+    background-color: #ffcc07;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .text-wrapper-8 {
+    position: absolute;
+    width: 80px;
+    top: 3px;
+    left: 24px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 19px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .mi-edit {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 5px;
+    left: 0;
+  }
+  
+  .user-profile-page .uil-signout {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 5px;
+    left: 136px;
+  }
+  
+  .user-profile-page .overlap-6 {
+    position: absolute;
+    width: 175px;
+    height: 53px;
+    top: 209px;
+    left: 38px;
+  }
+  
+  .user-profile-page .text-wrapper-9 {
+    position: absolute;
+    width: 175px;
+    top: 0;
+    left: 0;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-10 {
+    position: absolute;
+    width: 80px;
+    top: 33px;
+    left: 65px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .line,
+  .user-profile-page .img {
+    position: absolute;
+    width: 250px;
+    height: 1px;
+    left: 13px;
+    object-fit: cover;
+  }
+  
+  .user-profile-page .line {
+    top: 430px;
+  }
+  
+  .user-profile-page .img {
+    top: 513px;
+  }
+  
+  .user-profile-page .a {
+    width: 200px;
+    height: 200px;
+    left: 38px;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-profile-page .nav {
+    position: absolute;
+    width: 822px;
+    height: 60px;
+    top: 275px;
+    left: 497px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-profile-page .nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .nav-item.active .nav-highlight {
+    display: block;
+  }
+  
+  .user-profile-page .nav-highlight {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+    z-index: -1;
+    display: none;
+  }
+  
+  .user-profile-page .nav-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .user-profile-page .nav-text {
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 20px;
+  }
+  
+  .user-profile-page .nav-item:hover .nav-text {
+    color: #ffcc07;
+  }
+  
+  .user-profile-page .frame {
+    position: absolute;
+    width: 802px;
+    height: 755px;
+    top: 343px;
+    left: 509px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  
+  .user-profile-page .frame::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+  
+  .user-profile-page .fb {
+    position: relative;
+    width: 756px;
+    height: 1457px;
+    top: 10px;
+    left: 22px;
+  }
+  
+  .user-profile-page .post {
+    position: absolute;
+    width: 731px;
+    height: 632px;
+    top: 530px;
+    left: 13px;
+  }
+  
+  .user-profile-page .overlap-7 {
+    position: relative;
+    width: 725px;
+    height: 632px;
+    background-color: #f2efef;
+    border-radius: 10px;
+  }
+  
+  .user-profile-page .overlap-8 {
+    position: absolute;
+    width: 198px;
+    height: 46px;
+    top: 10px;
+    left: 15px;
+  }
+  
+  .user-profile-page .text-wrapper-11 {
+    position: absolute;
+    width: 160px;
+    top: 2px;
+    left: 38px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 21px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-12 {
+    position: absolute;
+    width: 111px;
+    top: 25px;
+    left: 52px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .a-2 {
+    width: 45px;
+    height: 45px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-profile-page .p {
+    position: absolute;
+    width: 673px;
+    top: 66px;
+    left: 19px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .group-3 {
+    position: absolute;
+    width: 671px;
+    height: 463px;
+    top: 110px;
+    left: 27px;
+  }
+  
+  .user-profile-page .overlap-group-5 {
+    position: relative;
+    height: 463px;
+  }
+  
+  .user-profile-page .image-2 {
+    position: absolute;
+    width: 339px;
+    height: 462px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .user-profile-page .image-3 {
+    position: absolute;
+    width: 332px;
+    height: 462px;
+    top: 1px;
+    left: 339px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .user-profile-page .group-4 {
+    position: absolute;
+    width: 178px;
+    height: 36px;
+    top: 585px;
+    left: 28px;
+  }
+  
+  .user-profile-page .text-wrapper-13 {
+    width: 9px;
+    top: 7px;
+    left: 39px;
+    font-family: "Inter-Medium", Helvetica, sans-serif;
+    font-weight: 500;
+    color: #ffc300;
+    font-size: 15px;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-14 {
+    width: 11px;
+    top: 7px;
+    left: 105px;
+    font-family: "Inter-Medium", Helvetica, sans-serif;
+    font-weight: 500;
+    color: #737373;
+    font-size: 15px;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-15 {
+    width: 11px;
+    top: 8px;
+    left: 161px;
+    font-family: "Inter-Medium", Helvetica, sans-serif;
+    font-weight: 500;
+    color: #737373;
+    font-size: 15px;
+    position: absolute;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .facebook-like {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .facebook-like-2 {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 4px;
+    left: 63px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .mdi-comment {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    left: 125px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .oi-ellipses {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 17px;
+    left: 680px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .line-2 {
+    position: absolute;
+    width: 752px;
+    height: 1px;
+    top: 490px;
+    left: 4px;
+    object-fit: cover;
+  }
+  
+  .user-profile-page .frame-2 {
+    position: absolute;
+    width: 736px;
+    height: 292px;
+    top: 162px;
+    left: 0;
+  }
+  
+  .user-profile-page .highlights {
+    position: absolute;
+    width: 711px;
+    height: 225px;
+    top: 54px;
+    left: 4px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .user-profile-page .image-4,
+  .user-profile-page .image-5,
+  .user-profile-page .image-6,
+  .user-profile-page .image-7 {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .user-profile-page .text-wrapper-16 {
+    position: absolute;
+    width: 190px;
+    top: -3px;
+    left: 4px;
+    font-family: "Inter-Bold", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #000000;
+    font-size: 35px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .group-5 {
+    position: absolute;
+    width: 752px;
+    height: 121px;
+    top: 0;
+    left: 6px;
+  }
+  
+  .user-profile-page .overlap-9 {
+    position: relative;
+    width: 750px;
+    height: 121px;
+  }
+  
+  .user-profile-page .rectangle-2 {
+    position: absolute;
+    width: 750px;
+    height: 120px;
+    top: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .user-profile-page .rectangle-3 {
+    position: absolute;
+    width: 750px;
+    height: 45px;
+    top: 76px;
+    left: 0;
+    background-color: #021d3d;
+  }
+  
+  .user-profile-page .group-6 {
+    position: absolute;
+    width: 92px;
+    height: 24px;
+    top: 86px;
+    left: 17px;
+    display: flex;
+    gap:  to 10px;
+  }
+  
+  .user-profile-page .vector,
+  .user-profile-page .group-7,
+  .user-profile-page .vector-2 {
+    height: 24px;
+    object-fit: contain;
+  }
+  
+  .user-profile-page .a-3 {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 6px;
+    left: 9px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-profile-page .rectangle-4 {
+    position: absolute;
+    width: 628px;
+    height: 43px;
+    top: 17px;
+    left: 98px;
+    border-radius: 50px;
+    border: 0px none;
+    box-shadow: inset 0px 4px 21.3px -11px #00000040;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.01) 0%,
+      rgba(102, 102, 102, 0.1) 100%
+    );
+  }
+  
+  .user-profile-page .text-wrapper-17 {
+    position: absolute;
+    width: 447px;
+    top: 27px;
+    left: 119px;
+    opacity: 0.5;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .group-8 {
+    position: absolute;
+    width: 677px;
+    height: 148px;
+    top: 1309px;
+    left: 13px;
+  }
+  
+  .user-profile-page .overlap-10 {
+    position: absolute;
+    width: 675px;
+    height: 30px;
+    top: 0;
+    left: 0;
+  }
+  
+  .user-profile-page .text-wrapper-18 {
+    position: absolute;
+    width: 494px;
+    top: 0;
+    left: 91px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 21px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .line-3,
+  .user-profile-page .line-4 {
+    position: absolute;
+    width: 266px;
+    height: 1px;
+    top: 14px;
+    object-fit: cover;
+  }
+  
+  .user-profile-page .line-3 {
+    left: 0;
+  }
+  
+  .user-profile-page .line-4 {
+    left: 409px;
+  }
+  
+  .user-profile-page .line-5 {
+    position: absolute;
+    width: 266px;
+    height: 1px;
+    top: 148px;
+    left: 205px;
+    object-fit: cover;
+  }
+  
+  .user-profile-page .latest-updates {
+    position: absolute;
+    width: 357px;
+    height: 354px;
+    top: 285px;
+    right: 50px;
+  }
+  
+  .user-profile-page .overlap-12 {
+    position: relative;
+    width: 355px;
+    height: 354px;
+    background-color: #d9d9d9;
+    border-radius: 10px;
+  }
+  
+  .user-profile-page .overlap-13 {
+    position: absolute;
+    width: 326px;
+    height: 187px;
+    top: 10px;
+    left: 22px;
+  }
+  
+  .user-profile-page .text-wrapper-23 {
+    position: absolute;
+    width: 215px;
+    top: 0;
+    left: 0;
+    font-family: "Inter-Bold", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #000000;
+    font-size: 27px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .overlap-14 {
+    position: absolute;
+    width: 326px;
+    height: 147px;
+    top: 40px;
+    left: 0;
+  }
+  
+  .user-profile-page .bluey,
+  .user-profile-page .katsu,
+  .user-profile-page .dory,
+  .user-profile-page .cora {
+    position: absolute;
+    width: 326px;
+    height: 60px;
+  }
+  
+  .user-profile-page .bluey {
+    top: 87px;
+  }
+  
+  .user-profile-page .katsu {
+    top: 9px;
+  }
+  
+  .user-profile-page .dory {
+    top: 211px;
+    left: 22px;
+  }
+  
+  .user-profile-page .cora {
+    top: 282px;
+    left: 22px;
+  }
+  
+  .user-profile-page .overlap-group-6,
+  .user-profile-page .overlap-15 {
+    position: absolute;
+    width: 253px;
+    height: 58px;
+    left: 69px;
+  }
+  
+  .user-profile-page .overlap-group-6 {
+    top: 0;
+  }
+  
+  .user-profile-page .overlap-15 {
+    top: 2px;
+  }
+  
+  .user-profile-page .text-wrapper-24 {
+    position: absolute;
+    width: 253px;
+    top: 1px;
+    left: 0;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-25 {
+    position: absolute;
+    width: 57px;
+    top: 42px;
+    left: 4px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .img-2,
+  .user-profile-page .pfp {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .user-profile-page .pfp {
+    width: 63px;
+    height: 63px;
+  }
+  
+  .user-profile-page .line-6 {
+    position: absolute;
+    width: 2px;
+    height: 89px;
+    top: 0;
+    left: 322px;
+  }
+  
+  .user-profile-page .text-wrapper-26,
+  .user-profile-page .text-wrapper-28 {
+    position: absolute;
+    width: 253px;
+    left: 69px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-26 {
+    top: 12px;
+  }
+  
+  .user-profile-page .text-wrapper-28 {
+    top: 15px;
+  }
+  
+  .user-profile-page .text-wrapper-27,
+  .user-profile-page .text-wrapper-29 {
+    position: absolute;
+    width: 57px;
+    left: 73px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-27 {
+    top: 35px;
+  }
+  
+  .user-profile-page .text-wrapper-29 {
+    top: 38px;
+  }
+  
+  .user-profile-page .suggestions {
+    position: absolute;
+    width: 357px;
+    height: 354px;
+    top: 682px;
+    right: 50px;
+  }
+  
+  .user-profile-page .overlap-16 {
+    position: absolute;
+    width: 331px;
+    height: 178px;
+    top: 11px;
+    left: 21px;
+  }
+  
+  .user-profile-page .text-wrapper-30 {
+    position: absolute;
+    width: 215px;
+    top: 0;
+    left: 1px;
+    font-family: "Inter-Bold", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #000000;
+    font-size: 27px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .asunta,
+  .user-profile-page .ruleth,
+  .user-profile-page .pat,
+  .user-profile-page .dha {
+    position: absolute;
+    width: 330px;
+    height: 60px;
+  }
+  
+  .user-profile-page .asunta {
+    top: 118px;
+    left: 1px;
+  }
+  
+  .user-profile-page .ruleth {
+    top: 39px;
+    left: 0;
+  }
+  
+  .user-profile-page .pat {
+    top: 209px;
+    left: 21px;
+  }
+  
+  .user-profile-page .dha {
+    top: 282px;
+    left: 22px;
+  }
+  
+  .user-profile-page .text-wrapper-31,
+  .user-profile-page .text-wrapper-34,
+  .user-profile-page .text-wrapper-35,
+  .user-profile-page .text-wrapper-36 {
+    position: absolute;
+    width: 250px;
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .text-wrapper-31 {
+    top: 6px;
+    left: 78px;
+  }
+  
+  .user-profile-page .text-wrapper-34 {
+    top: 3px;
+    left: 79px;
+  }
+  
+  .user-profile-page .text-wrapper-35 {
+    top: 5px;
+    left: 79px;
+  }
+  
+  .user-profile-page .text-wrapper-36 {
+    top: 8px;
+    left: 78px;
+  }
+  
+  .user-profile-page .group-9,
+  .user-profile-page .group-10,
+  .user-profile-page .group-11,
+  .user-profile-page .group-12 {
+    position: absolute;
+    width: 168px;
+    height: 21px;
+    left: 70px;
+  }
+  
+  .user-profile-page .group-9 {
+    top: 30px;
+  }
+  
+  .user-profile-page .group-10 {
+    top: 27px;
+    left: 71px;
+  }
+  
+  .user-profile-page .group-11 {
+    top: 28px;
+    left: 71px;
+  }
+  
+  .user-profile-page .group-12 {
+    top: 31px;
+  }
+  
+  .user-profile-page .follow {
+    position: absolute;
+    width: 82px;
+    height: 21px;
+    top: 0;
+    left: 0;
+  }
+  
+  .user-profile-page .rectangle-6 {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    background-color: #ffcc07;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .text-wrapper-32 {
+    position: absolute;
+    width: 40px;
+    top: 1px;
+    left: 19px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .remove {
+    position: absolute;
+    width: 82px;
+    height: 20px;
+    top: 0;
+    left: 88px;
+  }
+  
+  .user-profile-page .overlap-17 {
+    position: relative;
+    width: 80px;
+    height: 20px;
+    background-color: #033566;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .user-profile-page .text-wrapper-33 {
+    position: absolute;
+    width: 54px;
+    top: 0;
+    left: 13px;
+    font-family: "Jaro-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .user-profile-page .line-7 {
+    position: absolute;
+    width: 2px;
+    height: 89px;
+    top: 39px;
+    left: 322px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .user-profile-page .overlap {
+      width: 100%;
+      left: 130px;
+    }
+  
+    .user-profile-page .frame {
+      width: 60%;
+      left: 350px;
+    }
+  
+    .user-profile-page .latest-updates,
+    .user-profile-page .suggestions {
+      right: 20px;
+    }
+  
+    .user-profile-page .nav {
+      width: 600px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .user-profile-page .sidebar {
+      width: 80px;
+    }
+  
+    .user-profile-page .overlap {
+      left: 80px;
+      width: calc(100% - 80px);
+    }
+  
+    .user-profile-page .prof-info {
+      width: 90%;
+      left: 5%;
+    }
+  
+    .user-profile-page .frame {
+      width: 90%;
+      left: 5%;
+      top: 600px;
+    }
+  
+    .user-profile-page .nav {
+      width: 90%;
+      left: 5%;
+      justify-content: space-around;
+    }
+  
+    .user-profile-page .nav-item {
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .user-profile-page .nav-text {
+      font-size: 16px;
+    }
+  
+    .user-profile-page .latest-updates,
+    .user-profile-page .suggestions {
+      display: none;
+    }
+  }

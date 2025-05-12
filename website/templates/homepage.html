@@ -24,7 +24,7 @@
             <div class="request-type">Trade Request</div>
             <p class="request-date">01 / 01 / 2029</p>
             <p class="request-description">
-              This is the missing piece! My vintage typewriter collection won’t be complete without it.
+              This is the missing piece! My vintage typewriter collection won't be complete without it.
             </p>
           </div>
           <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 4.png' %}" alt="Recommended 4" />
@@ -83,7 +83,7 @@
             <img class="gojo-figurine-banner" src="{% static 'img/homepage/gojo figurine.png' %}" alt="Gojo Figurine Banner" />
           </div>
           <div class="banner-navigation">
-            <div class="nav-back"><img class="nav-back-icon" src="%7B%25%20static%20'img/homepage/back.png'%20%25%7D" alt="Navigation Back" /></div>
+            <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
             <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
           </div>
         </div>
@@ -128,7 +128,7 @@
           <div class="favorite-3-type">Trade Request</div>
           <p class="favorite-3-date">02 / 03 / 2029</p>
           <p class="favorite-3-description">
-            I’ve been hunting for this little guy forever! Anyone holding onto one of these?
+            I've been hunting for this little guy forever! Anyone holding onto one of these?
           </p>
           <img class="gabriel-profile" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
         </div>
@@ -288,13 +288,15 @@
         </button>
         <img class="settings-icon" src="{% static 'img/homepage/settings.png' %}" alt="Settings Icon" />
         <img class="notifications-icon" src="{% static 'img/homepage/notif.png' %}" alt="Notifications Icon" />
-        <img class="user-profile" src="{% static 'img/homepage/profile.png' %}" alt="User Profile" />
+        <a href="{% url 'profile' %}">
+          <img class="user-profile" src="{% static 'img/homepage/profile.png' %}" alt="User Profile" />
+        </a>
       </div>
-      <img class="logo" src="{% static 'img/logo.png' %}" alt="Logo" />
+      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
       <!-- Message Modal -->
       <div class="modal" id="messageModal">
         <div class="modal-content">
-          <span class="close-button" id="closeModal">&times;</span>
+          <span class="close-button" id="closeModal">×</span>
           <h2>Messages</h2>
           <div class="chat-list">
             <div class="chat-item">
@@ -320,21 +322,36 @@
       </div>
     </div>
     <script>
+      // Get DOM elements
       const chatButton = document.getElementById('chatButton');
       const messageModal = document.getElementById('messageModal');
       const closeModal = document.getElementById('closeModal');
+      const messageInput = document.getElementById('messageInput');
 
-      chatButton.addEventListener('click', () => {
-        messageModal.style.display = 'block';
+      // Toggle modal when chat button is clicked
+      chatButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        messageModal.style.display = 'flex';
+        messageInput.focus(); // Auto-focus the input field when modal opens
       });
 
+      // Close modal when close button is clicked
       closeModal.addEventListener('click', () => {
         messageModal.style.display = 'none';
       });
 
+      // Close modal when clicking outside
       window.addEventListener('click', (event) => {
         if (event.target === messageModal) {
           messageModal.style.display = 'none';
+        }
+      });
+
+      // Handle Enter key in message input
+      messageInput.addEventListener('keypress', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          document.querySelector('.send-button').click();
         }
       });
     </script>

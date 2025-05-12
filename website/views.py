@@ -34,3 +34,9 @@ def set_password(request):
 
 def homepage(request):
     return render(request, 'homepage.html')
+
+def profile_view(request):
+    return render(request, 'profile.html')
+
+def get_chat_messages(request):
+    return render(request, 'chat_messages.html')
