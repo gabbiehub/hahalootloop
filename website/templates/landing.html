@@ -14,7 +14,7 @@
         <div class="div">
             <div class="overlap">
                 <div class="log-in" id="loginButton" role="button" aria-label="Open login modal">
-                    <div class="overlap-group"><div class="text-wrapper">login</div></div>
+                    <div class="overlap-group"><div class="text-wrapper">Login</div></div>
                 </div>
                 <div class="group">
                     <div class="overlap-2">
@@ -43,7 +43,7 @@
                 <p class="text-wrapper-6">Keep your loot in the loop.</p>
                 <a href="{% url 'registration' %}" class="sign-up-link">
                     <div class="sign-up">
-                        <div class="div-wrapper"><div class="text-wrapper-7">sign up</div></div>
+                        <div class="div-wrapper"><div class="text-wrapper-7">Sign up</div></div>
                     </div>
                 </a>
                 <div class="overlap-5">
@@ -134,10 +134,12 @@
                         </div>
                     </div>
                     <div class="rectangle-6"></div>
-                    <p class="register-to-unlock">Register to unlock all features.</p>
-                    <div class="group-6">
-                        <div class="overlap-9"><div class="text-wrapper-20">Register</div></div>
-                    </div>
+                    <p class="register-to-unlock">Register to unlock all features.</p>                    
+                    <a href="{% url 'registration' %}" class="sign-up-link">
+                        <div class="group-6">
+                            <div class="overlap-9"><div class="text-wrapper-20">Register</div></div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <img class="lootloop-trnsparent" src="{% static 'img/logo.png' %}" alt="Lootloop logo" />
