@@ -4,7 +4,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Collector's Hub</title>
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <link rel="stylesheet" href="{% static 'css/homepage/homepage.css' %}" />
@@ -84,7 +83,7 @@
             <img class="gojo-figurine-banner" src="{% static 'img/homepage/gojo figurine.png' %}" alt="Gojo Figurine Banner" />
           </div>
           <div class="banner-navigation">
-            <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+            <div class="nav-back"><img class="nav-back-icon" src="%7B%25%20static%20'img/homepage/back.png'%20%25%7D" alt="Navigation Back" /></div>
             <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
           </div>
         </div>
@@ -257,7 +256,7 @@
               <p class="showcase-6-description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
               </p>
-              <img class="kathryn-profile-3" src="{% static 'img/homepage/sections/kathTakryn profile.png' %}" alt="Kathryn Profile" />
+              <img class="kathryn-profile-3" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
             </div>
             <div class="showcase-7">
               <div class="showcase-7-type">Showcase</div>
@@ -279,15 +278,65 @@
       </div>
       <div class="sidebar">
         <div class="sidebar-home">
-          <img class="home-highlight" src="{% static 'img/homepage/nav bar select.png' %}" alt="Home Highlight" />
+          <div class="home-highlight home">
+            <img src="{% static 'img/homepage/nav bar select.png' %}" alt="Home Highlight" />
+          </div>
           <img class="home-icon" src="{% static 'img/homepage/home.png' %}" alt="Home Icon" />
         </div>
-        <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat Icon" />
+        <button class="chat-button" id="chatButton" aria-label="Open chat">
+          <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat Icon" />
+        </button>
         <img class="settings-icon" src="{% static 'img/homepage/settings.png' %}" alt="Settings Icon" />
         <img class="notifications-icon" src="{% static 'img/homepage/notif.png' %}" alt="Notifications Icon" />
         <img class="user-profile" src="{% static 'img/homepage/profile.png' %}" alt="User Profile" />
       </div>
       <img class="logo" src="{% static 'img/logo.png' %}" alt="Logo" />
+      <!-- Message Modal -->
+      <div class="modal" id="messageModal">
+        <div class="modal-content">
+          <span class="close-button" id="closeModal">&times;</span>
+          <h2>Messages</h2>
+          <div class="chat-list">
+            <div class="chat-item">
+              <img src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" class="chat-profile" />
+              <div class="chat-details">
+                <div class="chat-user">John Maigue</div>
+                <div class="chat-preview">Hey, still got that Gojo figure?</div>
+              </div>
+            </div>
+            <div class="chat-item">
+              <img src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" class="chat-profile" />
+              <div class="chat-details">
+                <div class="chat-user">Mark Africa</div>
+                <div class="chat-preview">Interested in trading for a vintage coin?</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." id="messageInput" />
+            <button class="send-button">Send</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <script>
+      const chatButton = document.getElementById('chatButton');
+      const messageModal = document.getElementById('messageModal');
+      const closeModal = document.getElementById('closeModal');
+
+      chatButton.addEventListener('click', () => {
+        messageModal.style.display = 'block';
+      });
+
+      closeModal.addEventListener('click', () => {
+        messageModal.style.display = 'none';
+      });
+
+      window.addEventListener('click', (event) => {
+        if (event.target === messageModal) {
+          messageModal.style.display = 'none';
+        }
+      });
+    </script>
   </body>
 </html>
