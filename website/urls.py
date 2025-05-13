@@ -1,6 +1,7 @@
 from django.urls import path
-from website import views
-from website.views import landing, registration, login, forgot_password, reset_password, set_username, set_password, homepage
+from website.views import landing, registration, login, forgot_password, reset_password, set_username, set_password, homepage, profile_view, get_chat_messages, upload_item
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', landing, name='landing'),
@@ -11,6 +12,8 @@ urlpatterns = [
     path('set-username/', set_username, name='set_username'),
     path('set-password/', set_password, name='set_password'),
     path('homepage/', homepage, name='homepage'),
-    path('profile/', views.profile_view, name='profile'),
-    path('chat/messages/', views.get_chat_messages, name='chat_messages'),
+    path('profile/', profile_view, name='profile'),
+    path('chat/messages/', get_chat_messages, name='chat_messages'),
+    path('upload-item/', upload_item, name='upload_item'),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

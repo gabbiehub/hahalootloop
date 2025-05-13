@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/homepage/homepage-modals.css' %}" />
   </head>
   <body>
+    {% csrf_token %}
     <div class="home-page">
       <div class="group-18 fixed-top">
         <div class="rectangle-8"></div>
@@ -321,83 +322,203 @@
         </div>
       </div>
     </div>
-    <!-- Upload Item Modal -->
-    <div class="modal" id="uploadModal">
-      <div class="modal-content item-upload-page">
-        <span class="close-button" id="closeUploadModal">×</span>
-        <div class="overlap">
-          <div class="rectangle"></div>
-          <div class="text-wrapper">Next</div>
-          <img class="up" src="{% static 'img/up.png' %}" alt="Up Arrow" />
+    <!-- Basic Information Modal -->
+<div class="modal" id="basicInfoModal">
+  <div class="modal-content item-upload-page">
+    <span class="close-button" id="closeBasicInfoModal">×</span>
+    <div class="overlap">
+      <div class="rectangle"></div>
+      <div class="text-wrapper">Next</div>
+      <img class="up" src="{% static 'img/up.png' %}" alt="Up Arrow" />
+    </div>
+    <div class="upload-file-group">
+      <div class="overlap-group" id="dropZone">
+        <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
+        <div class="div">
+          <p class="drag-drop-to-upload">Drag & drop to upload</p>
+          <div class="text-wrapper-2">Files supported: JPG, PNG</div>
         </div>
-        <div class="upload-file-group">
-          <div class="overlap-group" id="dropZone">
-            <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
-            <div class="div">
-              <p class="drag-drop-to-upload">Drag & drop to upload</p>
-              <div class="text-wrapper-2">Files supported: JPG, PNG</div>
-            </div>
-            <div class="text-wrapper-3">or</div>
-            <div class="div-wrapper">
-              <input type="file" id="fileInput" class="hidden-file-input" accept="image/jpeg,image/png" />
-              <div class="text-wrapper-4" onclick="document.getElementById('fileInput').click()">Upload File</div>
-            </div>
-          </div>
+        <div class="text-wrapper-3">or</div>
+        <div class="div-wrapper">
+          <input type="file" id="fileInput" class="hidden-file-input" accept="image/jpeg,image/png" />
+          <div class="text-wrapper-4" onclick="document.getElementById('fileInput').click()">Upload File</div>
         </div>
-        <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
-        <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
-        <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
-        <div class="text-wrapper-5">Basic Information</div>
-        <div class="text-wrapper-6">Detailed Information</div>
-        <div class="text-wrapper-7">Preview and Uploading</div>
-        <div class="text-wrapper-8">Basic Information</div>
-        <div class="text-wrapper-9">Name</div>
-        <div class="text-wrapper-10">Description</div>
-        <div class="text-wrapper-11">Item Type</div>
-        <p class="p">Create shelf or add to existing</p>
-        <div class="text-wrapper-12">Tradability</div>
-        <div class="rectangle-2">
-          <input type="text" id="itemName" placeholder="Enter item name" />
-        </div>
-        <div class="rectangle-3">
-          <textarea id="itemDescription" placeholder="Describe your item"></textarea>
-        </div>
-        <div class="dropdown-menu" id="itemTypeDropdown">
-          <div class="text-wrapper-13">Select type</div>
-          <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
-          <div class="dropdown-options" style="display: none;">
-            <div class="option" data-value="Antiques">Antiques</div>
-            <div class="option" data-value="Figurines">Figurines</div>
-            <div class="option" data-value="Books">Books</div>
-            <div class="option" data-value="Jewelry">Jewelry</div>
-            <div class="option" data-value="Furniture">Furniture</div>
-            <div class="option" data-value="Cars">Cars</div>
-            <div class="option" data-value="Currency">Currency</div>
-            <div class="option" data-value="Toys">Toys</div>
-          </div>
-        </div>
-        <div class="dropdown-menu-2" id="shelfDropdown">
-          <div class="text-wrapper-13">Select type</div>
-          <img class="vector" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
-          <div class="dropdown-options" style="display: none;">
-            <div class="option" data-value="Create New">Create New</div>
-            <div class="option" data-value="Existing Shelf 1">Existing Shelf 1</div>
-            <div class="option" data-value="Existing Shelf 2">Existing Shelf 2</div>
-          </div>
-        </div>
-        <div class="component" id="tradabilityToggle">
-          <div class="overlap-2"><div class="text-wrapper-14">Enabled</div></div>
-          <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
-        </div>
-        <div class="text-wrapper-16">Upload Photo</div>
       </div>
     </div>
+    <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+    <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
+    <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
+    <div class="text-wrapper-5">Basic Information</div>
+    <div class="text-wrapper-6">Detailed Information</div>
+    <div class="text-wrapper-7">Preview and Uploading</div>
+    <div class="text-wrapper-8">Basic Information</div>
+    <div class="text-wrapper-9">Name</div>
+    <div class="text-wrapper-10">Description</div>
+    <div class="text-wrapper-11">Item Type</div>
+    <p class="p">Create shelf or add to existing</p>
+    <div class="text-wrapper-12">Tradability</div>
+    <div class="rectangle-2">
+      <input type="text" id="itemName" placeholder="Enter item name" />
+    </div>
+    <div class="rectangle-3">
+      <textarea id="itemDescription" placeholder="Describe your item"></textarea>
+    </div>
+    <div class="dropdown-menu" id="itemTypeDropdown">
+      <div class="text-wrapper-13">Select type</div>
+      <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
+      <div class="dropdown-options" style="display: none;">
+        <div class="option" data-value="Antiques">Antiques</div>
+        <div class="option" data-value="Figurines">Figurines</div>
+        <div class="option" data-value="Books">Books</div>
+        <div class="option" data-value="Jewelry">Jewelry</div>
+        <div class="option" data-value="Furniture">Furniture</div>
+        <div class="option" data-value="Cars">Cars</div>
+        <div class="option" data-value="Currency">Currency</div>
+        <div class="option" data-value="Toys">Toys</div>
+      </div>
+    </div>
+    <div class="dropdown-menu-2" id="shelfDropdown">
+      <div class="text-wrapper-13">Select type</div>
+      <img class="vector" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
+      <div class="dropdown-options" style="display: none;">
+        <div class="option" data-value="Create New">Create New</div>
+        <div class="option" data-value="Existing Shelf 1">Existing Shelf 1</div>
+        <div class="option" data-value="Existing Shelf 2">Existing Shelf 2</div>
+      </div>
+    </div>
+    <div class="component" id="tradabilityToggle">
+      <div class="overlap-2"><div class="text-wrapper-14">Enabled</div></div>
+      <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
+    </div>
+    <div class="text-wrapper-16">Upload Photo</div>
+  </div>
+</div>
+  <!--UPLOAD MODALS-->
+  <!-- Detailed Information Modal -->
+  <div class="modal" id="detailedInfoModal" style="display: none;">
+    <div class="modal-content item-upload-page">
+      <span class="close-button" id="closeDetailedInfoModal">×</span>
+      <div class="overlap">
+        <div class="rectangle"></div>
+        <div class="text-wrapper">Next</div>
+        <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
+      </div>
+      <div class="overlap-group">
+        <div class="rectangle"></div>
+        <div class="div">Back</div>
+        <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
+      </div>
+      <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+      <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
+      <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
+      <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+      <div class="text-wrapper-2">Basic Information</div>
+      <div class="text-wrapper-3">Detailed Information</div>
+      <div class="text-wrapper-4">Preview and Uploading</div>
+      <div class="text-wrapper-5">More Details</div>
+      <div class="text-wrapper-6">Date Acquired</div>
+      <div class="text-wrapper-7">Other Notes</div>
+      <div class="text-wrapper-8">Upload Receipt</div>
+      <div class="text-wrapper-9">Dimensions</div>
+      <div class="text-wrapper-10">Weight</div>
+      <div class="text-wrapper-11">Condition</div>
+      <div class="overlap-2">
+        <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
+        <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
+      </div>
+      <div class="rectangle-2">
+        <input type="text" id="otherNotes" placeholder="Enter notes" />
+      </div>
+      <div class="upload-file-group">
+        <div class="overlap-group-2" id="receiptDropZone">
+          <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
+          <div class="overlap-3">
+            <p class="drag-drop-to-upload">Drag & drop to upload</p>
+            <div class="text-wrapper-14">Files supported: JPG, PNG</div>
+          </div>
+          <div class="text-wrapper-15">or</div>
+          <div class="div-wrapper">
+            <input type="file" id="receiptInput" class="hidden-file-input" accept="image/jpeg,image/png" />
+            <div class="text-wrapper-16" onclick="document.getElementById('receiptInput').click()">Upload File</div>
+          </div>
+        </div>
+      </div>
+      <div class="rectangle-3">
+        <input type="text" id="dimensions" placeholder="Enter dimensions" />
+      </div>
+      <div class="rectangle-4">
+        <input type="text" id="weight" placeholder="Enter weight" />
+      </div>
+      <div class="dropdown-menu">
+        <div class="text-wrapper-13">Select type</div>
+        <img class="vector-2" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
+        <div class="dropdown-options" style="display: none;">
+          <div class="option" data-value="New">New</div>
+          <div class="option" data-value="Like New">Like New</div>
+          <div class="option" data-value="Used">Used</div>
+          <div class="option" data-value="Damaged">Damaged</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Preview and Uploading Modal -->
+<div class="modal" id="previewModal" style="display: none;">
+  <div class="modal-content item-upload-page">
+    <span class="close-button" id="closePreviewModal">×</span>
+    <div class="overlap-group">
+      <div class="rectangle"></div>
+      <div class="div">Back</div>
+      <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
+    </div>
+    <div class="overlap">
+      <div class="rectangle"></div>
+      <div class="text-wrapper">Upload</div>
+      <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
+    </div>
+    <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+    <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
+    <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
+    <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+    <div class="text-wrapper-2">Basic Information</div>
+    <div class="text-wrapper-3">Detailed Information</div>
+    <div class="text-wrapper-4">Preview and Uploading</div>
+    <div class="text-wrapper-5">Preview Your Item</div>
+    <!-- Placeholder for preview content -->
+    <div class="preview-content">
+      <p>Item preview will be displayed here.</p>
+    </div>
+  </div>
+</div>
 <script>
   // Get DOM elements for message modal
   const chatButton = document.getElementById('chatButton');
   const messageModal = document.getElementById('messageModal');
   const closeModal = document.getElementById('closeModal');
   const messageInput = document.getElementById('messageInput');
+
+  // Get DOM elements for upload modals
+  const uploadButton = document.getElementById('uploadButton');
+  const basicInfoModal = document.getElementById('basicInfoModal');
+  const detailedInfoModal = document.getElementById('detailedInfoModal');
+  const previewModal = document.getElementById('previewModal');
+  const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
+  const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
+  const closePreviewModal = document.getElementById('closePreviewModal');
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const receiptDropZone = document.getElementById('receiptDropZone');
+  const receiptInput = document.getElementById('receiptInput');
+  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
+  const shelfDropdown = document.getElementById('shelfDropdown');
+  const tradabilityToggle = document.getElementById('tradabilityToggle');
+  const conditionDropdown = document.querySelector('#detailedInfoModal .dropdown-menu');
+  let tradability = 'Enabled';
+  let currentItemId = null;
+
+  // Function to get CSRF token
+  function getCsrfToken() {
+    return document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+  }
 
   // Toggle message modal
   chatButton.addEventListener('click', (event) => {
@@ -423,37 +544,33 @@
     }
   });
 
-  // Get DOM elements for upload modal
-  const uploadButton = document.getElementById('uploadButton');
-  const uploadModal = document.getElementById('uploadModal');
-  const closeUploadModal = document.getElementById('closeUploadModal');
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('fileInput');
-  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
-  const shelfDropdown = document.getElementById('shelfDropdown');
-  const tradabilityToggle = document.getElementById('tradabilityToggle');
-  let tradability = 'Enabled';
-
-  // Open upload modal
+  // Open basic info modal
   uploadButton.addEventListener('click', (event) => {
     event.preventDefault();
-    uploadModal.style.display = 'flex';
+    basicInfoModal.style.display = 'flex';
     document.getElementById('itemName').focus();
   });
 
-  // Close upload modal
-  closeUploadModal.addEventListener('click', () => {
-    uploadModal.style.display = 'none';
+  // Close modals
+  [closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
+    closeButton.addEventListener('click', () => {
+      basicInfoModal.style.display = 'none';
+      detailedInfoModal.style.display = 'none';
+      previewModal.style.display = 'none';
+      resetForm();
+    });
   });
 
-  // Close modal when clicking outside
   window.addEventListener('click', (event) => {
-    if (event.target === uploadModal) {
-      uploadModal.style.display = 'none';
+    if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
+      basicInfoModal.style.display = 'none';
+      detailedInfoModal.style.display = 'none';
+      previewModal.style.display = 'none';
+      resetForm();
     }
   });
 
-  // Drag and drop file upload
+  // Drag and drop file upload (Basic Info)
   dropZone.addEventListener('dragover', (event) => {
     event.preventDefault();
     dropZone.style.borderColor = '#003566';
@@ -470,25 +587,53 @@
     const files = event.dataTransfer.files;
     if (files.length > 0) {
       fileInput.files = files;
-      handleFileUpload(files[0]);
+      handleFileUpload(files[0], dropZone);
     }
   });
 
   fileInput.addEventListener('change', (event) => {
     const files = event.target.files;
     if (files.length > 0) {
-      handleFileUpload(files[0]);
+      handleFileUpload(files[0], dropZone);
     }
   });
 
-  function handleFileUpload(file) {
+  // Drag and drop receipt upload (Detailed Info)
+  receiptDropZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    receiptDropZone.style.borderColor = '#003566';
+  });
+
+  receiptDropZone.addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    receiptDropZone.style.borderColor = '#003566';
+  });
+
+  receiptDropZone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    receiptDropZone.style.borderColor = '#003566';
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+      receiptInput.files = files;
+      handleFileUpload(files[0], receiptDropZone);
+    }
+  });
+
+  receiptInput.addEventListener('change', (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      handleFileUpload(files[0], receiptDropZone);
+    }
+  });
+
+  function handleFileUpload(file, dropZoneElement) {
     const validTypes = ['image/jpeg', 'image/png'];
     if (validTypes.includes(file.type)) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        dropZone.style.backgroundImage = `url(${e.target.result})`;
-        dropZone.style.backgroundSize = 'cover';
-        dropZone.style.backgroundPosition = 'center';
+        dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
+        dropZoneElement.style.backgroundSize = 'cover';
+        dropZoneElement.style.backgroundPosition = 'center';
       };
       reader.readAsDataURL(file);
     } else {
@@ -497,7 +642,7 @@
   }
 
   // Dropdown functionality
-  [itemTypeDropdown, shelfDropdown].forEach(dropdown => {
+  [itemTypeDropdown, shelfDropdown, conditionDropdown].forEach(dropdown => {
     dropdown.addEventListener('click', () => {
       const options = dropdown.querySelector('.dropdown-options');
       options.style.display = options.style.display === 'block' ? 'none' : 'block';
@@ -539,47 +684,140 @@
     }
   });
 
-  // Form submission with AJAX
-  document.querySelector('.overlap').addEventListener('click', async (event) => {
+  // Reset form function
+  function resetForm() {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemDescription').value = '';
+    itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+    shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+    dropZone.style.backgroundImage = 'none';
+    tradability = 'Enabled';
+    tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
+    tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
+    tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
+    tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+    document.getElementById('dateAcquired').value = '';
+    document.getElementById('otherNotes').value = '';
+    receiptDropZone.style.backgroundImage = 'none';
+    document.getElementById('dimensions').value = '';
+    document.getElementById('weight').value = '';
+    conditionDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+    currentItemId = null;
+  }
+
+  // Basic Info submission
+  document.querySelector('#basicInfoModal .overlap').addEventListener('click', async (event) => {
     event.preventDefault();
+    
+    // Collect form data
+    const name = document.getElementById('itemName').value.trim();
+    const description = document.getElementById('itemDescription').value.trim();
+    const itemType = itemTypeDropdown.querySelector('.text-wrapper-13').textContent;
+    const shelf = shelfDropdown.querySelector('.text-wrapper-13').textContent;
+
+    // Validate required fields
+    if (!name) {
+      alert('Please enter the item name.');
+      return;
+    }
+    if (!description) {
+      alert('Please enter the item description.');
+      return;
+    }
+    if (itemType === 'Select type') {
+      alert('Please select an item type.');
+      return;
+    }
+    if (shelf === 'Select type') {
+      alert('Please select a shelf.');
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('name', document.getElementById('itemName').value);
-    formData.append('description', document.getElementById('itemDescription').value);
-    formData.append('itemType', itemTypeDropdown.querySelector('.text-wrapper-13').textContent);
-    formData.append('shelf', shelfDropdown.querySelector('.text-wrapper-13').textContent);
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('itemType', itemType);
+    formData.append('shelf', shelf);
     formData.append('tradability', tradability);
     if (fileInput.files[0]) formData.append('file', fileInput.files[0]);
 
     try {
-const response = await fetch("/upload-item/", {  // Hardcoded URL for testing
-  method: 'POST',
-  body: formData,
-  headers: {
-    'X-CSRFToken': '{{ csrf_token }}',
-  },
-});
+      const response = await fetch("/upload-item/", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': getCsrfToken(),
+        },
+      });
       const result = await response.json();
       if (result.status === 'success') {
-        alert('Item uploaded successfully!');
-        uploadModal.style.display = 'none';
-        // Reset form
-        document.getElementById('itemName').value = '';
-        document.getElementById('itemDescription').value = '';
-        itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-        shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-        dropZone.style.backgroundImage = 'none';
-        tradability = 'Enabled';
-        tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
-        tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
-        tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
-        tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+        currentItemId = result.item_id;
+        basicInfoModal.style.display = 'none';
+        detailedInfoModal.style.display = 'flex';
+        document.getElementById('dateAcquired').focus();
       } else {
         alert('Error: ' + result.message);
       }
     } catch (error) {
       console.error('Error uploading item:', error);
-      alert('An error occurred while uploading the item.');
+      alert('An error occurred while uploading the item: ' + error.message);
     }
+  });
+
+  // Detailed Info submission
+  document.querySelector('#detailedInfoModal .overlap').addEventListener('click', async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('item_id', currentItemId);
+    formData.append('dateAcquired', document.getElementById('dateAcquired').value);
+    formData.append('otherNotes', document.getElementById('otherNotes').value);
+    formData.append('dimensions', document.getElementById('dimensions').value);
+    formData.append('weight', document.getElementById('weight').value);
+    formData.append('condition', conditionDropdown.querySelector('.text-wrapper-13').textContent);
+    if (receiptInput.files[0]) formData.append('receipt', receiptInput.files[0]);
+
+    try {
+      const response = await fetch("/upload-item/", {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-CSRFToken': getCsrfToken(),
+        },
+      });
+      const result = await response.json();
+      if (result.status === 'success') {
+        detailedInfoModal.style.display = 'none';
+        previewModal.style.display = 'flex';
+      } else {
+        alert('Error: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Error updating item details:', error);
+      alert('An error occurred while updating the item details: ' + error.message);
+    }
+  });
+
+  // Back buttons
+  document.querySelector('#detailedInfoModal .overlap-group').addEventListener('click', (event) => {
+    event.preventDefault();
+    detailedInfoModal.style.display = 'none';
+    basicInfoModal.style.display = 'flex';
+    document.getElementById('itemName').focus();
+  });
+
+  document.querySelector('#previewModal .overlap-group').addEventListener('click', (event) => {
+    event.preventDefault();
+    previewModal.style.display = 'none';
+    detailedInfoModal.style.display = 'flex';
+    document.getElementById('dateAcquired').focus();
+  });
+
+  // Final upload (placeholder for now)
+  document.querySelector('#previewModal .overlap').addEventListener('click', (event) => {
+    event.preventDefault();
+    alert('Item fully uploaded! (Placeholder)');
+    previewModal.style.display = 'none';
+    resetForm();
   });
 </script>
   </body>
