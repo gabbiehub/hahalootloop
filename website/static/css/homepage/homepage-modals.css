@@ -102,3 +102,525 @@
 .send-button:hover {
   background-color: #0056b3;
 }
+
+/* Upload Modal */
+#uploadModal .modal-content {
+  max-width: 600px;
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  color: #333;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-group input[type="file"] {
+  padding: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #737373;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  font-size: 14px;
+  width: 100%;
+}
+
+.submit-button:hover {
+  background-color: #5a5a5a;
+}
+
+/* Upload Modal */
+#uploadModal .item-upload-page {
+  width: 1400px;
+  height: 800px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+#uploadModal .modal-content {
+  max-width: 1400px;
+  height: 800px;
+  padding: 0;
+}
+
+#uploadModal .overlap {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  top: 615px;
+  left: 1148px;
+}
+
+#uploadModal .rectangle {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  background-color: #ffc300;
+}
+
+#uploadModal .text-wrapper {
+  position: absolute;
+  top: 4px;
+  left: 19px;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .up {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 8px;
+  left: 62px;
+}
+
+#uploadModal .upload-file-group {
+  position: absolute;
+  width: 508px;
+  height: 500px;
+  top: 150px;
+  left: 150px;
+}
+
+#uploadModal .overlap-group {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  border: 1px dashed #003566;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#uploadModal .pfp {
+  position: absolute;
+  width: 124px;
+  height: 124px;
+  top: 125px;
+  left: 187px;
+  object-fit: cover;
+}
+
+#uploadModal .div {
+  position: absolute;
+  width: 213px;
+  height: 43px;
+  top: 250px;
+  left: 144px;
+}
+
+#uploadModal .drag-drop-to-upload {
+  position: absolute;
+  width: 213px;
+  top: 0;
+  left: 0;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000814;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-2 {
+  position: absolute;
+  top: 27px;
+  left: 41px;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-3 {
+  position: absolute;
+  top: 294px;
+  left: 242px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000814;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .div-wrapper {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  top: 321px;
+  left: 190px;
+  background-color: #ffc300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#uploadModal .text-wrapper-4 {
+  top: 5px;
+  left: 14px;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 20px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .hidden-file-input {
+  display: none;
+}
+
+#uploadModal .line {
+  position: absolute;
+  width: 350px;
+  height: 3px;
+  top: 72px;
+  left: 150px;
+}
+
+#uploadModal .img {
+  position: absolute;
+  width: 350px;
+  height: 3px;
+  top: 72px;
+  left: 525px;
+}
+
+#uploadModal .line-2 {
+  position: absolute;
+  width: 350px;
+  height: 3px;
+  top: 72px;
+  left: 900px;
+}
+
+#uploadModal .close-window {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 58px;
+  left: 1315px;
+  cursor: pointer;
+}
+
+#uploadModal .text-wrapper-5 {
+  position: absolute;
+  top: 79px;
+  left: 150px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffc300;
+  font-size: 12px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-6 {
+  position: absolute;
+  top: 79px;
+  left: 525px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #b9b9b9;
+  font-size: 12px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-7 {
+  position: absolute;
+  top: 79px;
+  left: 900px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #b9b9b9;
+  font-size: 12px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-8 {
+  position: absolute;
+  height: 30px;
+  top: 149px;
+  left: 700px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000814;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+#uploadModal .text-wrapper-9 {
+  position: absolute;
+  top: 199px;
+  left: 700px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-10 {
+  position: absolute;
+  top: 279px;
+  left: 698px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-11 {
+  position: absolute;
+  top: 424px;
+  left: 698px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .p {
+  position: absolute;
+  top: 504px;
+  left: 700px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-12 {
+  position: absolute;
+  top: 424px;
+  left: 998px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .rectangle-2 {
+  position: absolute;
+  width: 550px;
+  height: 35px;
+  top: 225px;
+  left: 698px;
+  border: 1px solid #b9b9b9;
+}
+
+#uploadModal .rectangle-2 input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0 10px;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  color: #333;
+}
+
+#uploadModal .rectangle-3 {
+  position: absolute;
+  width: 550px;
+  height: 100px;
+  top: 305px;
+  left: 698px;
+  border: 1px solid #b9b9b9;
+}
+
+#uploadModal .rectangle-3 textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 10px;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  color: #333;
+  resize: vertical;
+}
+
+#uploadModal .dropdown-menu,
+#uploadModal .dropdown-menu-2 {
+  display: flex;
+  width: 250px;
+  height: 35px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  position: absolute;
+  top: 450px;
+  left: 698px;
+  border: 1px solid #b9b9b9;
+  cursor: pointer;
+}
+
+#uploadModal .dropdown-menu-2 {
+  top: 542px;
+}
+
+#uploadModal .text-wrapper-13 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1.00px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #b9b9b9;
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .vector {
+  position: relative;
+  width: 11.42px;
+  height: 7.14px;
+  margin-right: -0.73px;
+}
+
+#uploadModal .dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  background-color: #fff;
+  border: 1px solid #b9b9b9;
+  border-top: none;
+  z-index: 10;
+}
+
+#uploadModal .dropdown-options .option {
+  padding: 10px;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+#uploadModal .dropdown-options .option:hover {
+  background-color: #f0f0f0;
+}
+
+#uploadModal .component {
+  position: absolute;
+  width: 250px;
+  height: 35px;
+  top: 450px;
+  left: 998px;
+}
+
+#uploadModal .overlap-2 {
+  position: absolute;
+  width: 125px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  background-color: #ffd60a;
+  cursor: pointer;
+}
+
+#uploadModal .text-wrapper-14 {
+  position: absolute;
+  top: 8px;
+  left: 38px;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #003566;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .overlap-3 {
+  position: absolute;
+  width: 125px;
+  height: 35px;
+  top: 0;
+  left: 125px;
+  border: 1px solid #b9b9b9;
+  cursor: pointer;
+}
+
+#uploadModal .text-wrapper-15 {
+  position: absolute;
+  top: 7px;
+  left: 36px;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #b9b9b9;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#uploadModal .text-wrapper-16 {
+  top: 654px;
+  left: 354px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  position: absolute;
+  letter-spacing: 0;
+  line-height: normal;
+}

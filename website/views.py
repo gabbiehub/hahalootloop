@@ -40,3 +40,32 @@ def profile_view(request):
 
 def get_chat_messages(request):
     return render(request, 'chat_messages.html')
+
+#upload item modal
+from django.contrib.auth.decorators import login_required
+from .models import Item
+from django.http import JsonResponse
+import os
+
+@login_required
+def upload_item(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+        category = request.POST.get('itemType')
+        shelf = request.POST.get('shelf')
+        tradability = request.POST.get('tradability') == 'Enabled'
+        image = request.FILES.get('file')
+        
+        item = Item(
+            user=request.user,
+            name=name,
+            description=description,
+            category=category,
+            shelf=shelf,
+            tradability=tradability,
+            image=image
+        )
+        item.save()
+        return JsonResponse({'status': 'success', 'message': 'Item uploaded successfully'})
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)

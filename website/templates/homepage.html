@@ -273,7 +273,7 @@
       </div>
       <div class="upload-item-label">Upload Item:</div>
       <div class="header">
-        <div class="header-button">Upload Item</div>
+        <div class="header-button" id="uploadButton">Upload Item</div>
         <div class="search-bar"><img class="search-icon" src="{% static 'img/homepage/search.png' %}" alt="Search Icon" /></div>
       </div>
       <div class="sidebar">
@@ -321,39 +321,266 @@
         </div>
       </div>
     </div>
-    <script>
-      // Get DOM elements
-      const chatButton = document.getElementById('chatButton');
-      const messageModal = document.getElementById('messageModal');
-      const closeModal = document.getElementById('closeModal');
-      const messageInput = document.getElementById('messageInput');
+    <!-- Upload Item Modal -->
+    <div class="modal" id="uploadModal">
+      <div class="modal-content item-upload-page">
+        <span class="close-button" id="closeUploadModal">×</span>
+        <div class="overlap">
+          <div class="rectangle"></div>
+          <div class="text-wrapper">Next</div>
+          <img class="up" src="{% static 'img/up.png' %}" alt="Up Arrow" />
+        </div>
+        <div class="upload-file-group">
+          <div class="overlap-group" id="dropZone">
+            <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
+            <div class="div">
+              <p class="drag-drop-to-upload">Drag & drop to upload</p>
+              <div class="text-wrapper-2">Files supported: JPG, PNG</div>
+            </div>
+            <div class="text-wrapper-3">or</div>
+            <div class="div-wrapper">
+              <input type="file" id="fileInput" class="hidden-file-input" accept="image/jpeg,image/png" />
+              <div class="text-wrapper-4" onclick="document.getElementById('fileInput').click()">Upload File</div>
+            </div>
+          </div>
+        </div>
+        <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+        <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
+        <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
+        <div class="text-wrapper-5">Basic Information</div>
+        <div class="text-wrapper-6">Detailed Information</div>
+        <div class="text-wrapper-7">Preview and Uploading</div>
+        <div class="text-wrapper-8">Basic Information</div>
+        <div class="text-wrapper-9">Name</div>
+        <div class="text-wrapper-10">Description</div>
+        <div class="text-wrapper-11">Item Type</div>
+        <p class="p">Create shelf or add to existing</p>
+        <div class="text-wrapper-12">Tradability</div>
+        <div class="rectangle-2">
+          <input type="text" id="itemName" placeholder="Enter item name" />
+        </div>
+        <div class="rectangle-3">
+          <textarea id="itemDescription" placeholder="Describe your item"></textarea>
+        </div>
+        <div class="dropdown-menu" id="itemTypeDropdown">
+          <div class="text-wrapper-13">Select type</div>
+          <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
+          <div class="dropdown-options" style="display: none;">
+            <div class="option" data-value="Antiques">Antiques</div>
+            <div class="option" data-value="Figurines">Figurines</div>
+            <div class="option" data-value="Books">Books</div>
+            <div class="option" data-value="Jewelry">Jewelry</div>
+            <div class="option" data-value="Furniture">Furniture</div>
+            <div class="option" data-value="Cars">Cars</div>
+            <div class="option" data-value="Currency">Currency</div>
+            <div class="option" data-value="Toys">Toys</div>
+          </div>
+        </div>
+        <div class="dropdown-menu-2" id="shelfDropdown">
+          <div class="text-wrapper-13">Select type</div>
+          <img class="vector" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
+          <div class="dropdown-options" style="display: none;">
+            <div class="option" data-value="Create New">Create New</div>
+            <div class="option" data-value="Existing Shelf 1">Existing Shelf 1</div>
+            <div class="option" data-value="Existing Shelf 2">Existing Shelf 2</div>
+          </div>
+        </div>
+        <div class="component" id="tradabilityToggle">
+          <div class="overlap-2"><div class="text-wrapper-14">Enabled</div></div>
+          <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
+        </div>
+        <div class="text-wrapper-16">Upload Photo</div>
+      </div>
+    </div>
+<script>
+  // Get DOM elements for message modal
+  const chatButton = document.getElementById('chatButton');
+  const messageModal = document.getElementById('messageModal');
+  const closeModal = document.getElementById('closeModal');
+  const messageInput = document.getElementById('messageInput');
 
-      // Toggle modal when chat button is clicked
-      chatButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        messageModal.style.display = 'flex';
-        messageInput.focus(); // Auto-focus the input field when modal opens
-      });
+  // Toggle message modal
+  chatButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    messageModal.style.display = 'flex';
+    messageInput.focus();
+  });
 
-      // Close modal when close button is clicked
-      closeModal.addEventListener('click', () => {
-        messageModal.style.display = 'none';
-      });
+  closeModal.addEventListener('click', () => {
+    messageModal.style.display = 'none';
+  });
 
-      // Close modal when clicking outside
-      window.addEventListener('click', (event) => {
-        if (event.target === messageModal) {
-          messageModal.style.display = 'none';
-        }
-      });
+  window.addEventListener('click', (event) => {
+    if (event.target === messageModal) {
+      messageModal.style.display = 'none';
+    }
+  });
 
-      // Handle Enter key in message input
-      messageInput.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          document.querySelector('.send-button').click();
-        }
+  messageInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      document.querySelector('.send-button').click();
+    }
+  });
+
+  // Get DOM elements for upload modal
+  const uploadButton = document.getElementById('uploadButton');
+  const uploadModal = document.getElementById('uploadModal');
+  const closeUploadModal = document.getElementById('closeUploadModal');
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
+  const shelfDropdown = document.getElementById('shelfDropdown');
+  const tradabilityToggle = document.getElementById('tradabilityToggle');
+  let tradability = 'Enabled';
+
+  // Open upload modal
+  uploadButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    uploadModal.style.display = 'flex';
+    document.getElementById('itemName').focus();
+  });
+
+  // Close upload modal
+  closeUploadModal.addEventListener('click', () => {
+    uploadModal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside
+  window.addEventListener('click', (event) => {
+    if (event.target === uploadModal) {
+      uploadModal.style.display = 'none';
+    }
+  });
+
+  // Drag and drop file upload
+  dropZone.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    dropZone.style.borderColor = '#003566';
+  });
+
+  dropZone.addEventListener('dragleave', (event) => {
+    event.preventDefault();
+    dropZone.style.borderColor = '#003566';
+  });
+
+  dropZone.addEventListener('drop', (event) => {
+    event.preventDefault();
+    dropZone.style.borderColor = '#003566';
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+      fileInput.files = files;
+      handleFileUpload(files[0]);
+    }
+  });
+
+  fileInput.addEventListener('change', (event) => {
+    const files = event.target.files;
+    if (files.length > 0) {
+      handleFileUpload(files[0]);
+    }
+  });
+
+  function handleFileUpload(file) {
+    const validTypes = ['image/jpeg', 'image/png'];
+    if (validTypes.includes(file.type)) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        dropZone.style.backgroundImage = `url(${e.target.result})`;
+        dropZone.style.backgroundSize = 'cover';
+        dropZone.style.backgroundPosition = 'center';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert('Please upload a JPG or PNG file.');
+    }
+  }
+
+  // Dropdown functionality
+  [itemTypeDropdown, shelfDropdown].forEach(dropdown => {
+    dropdown.addEventListener('click', () => {
+      const options = dropdown.querySelector('.dropdown-options');
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  document.querySelectorAll('.dropdown-options .option').forEach(option => {
+    option.addEventListener('click', (e) => {
+      const dropdown = e.target.closest('.dropdown-menu, .dropdown-menu-2');
+      dropdown.querySelector('.text-wrapper-13').textContent = e.target.textContent;
+      dropdown.querySelector('.dropdown-options').style.display = 'none';
+    });
+  });
+
+  window.addEventListener('click', (event) => {
+    if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
+      document.querySelectorAll('.dropdown-options').forEach(options => {
+        options.style.display = 'none';
       });
-    </script>
+    }
+  });
+
+  // Tradability toggle
+  tradabilityToggle.addEventListener('click', (event) => {
+    const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+    const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+    if (tradability === 'Enabled') {
+      overlap2.style.backgroundColor = '#b9b9b9';
+      overlap3.style.backgroundColor = '#ffd60a';
+      overlap2.querySelector('.text-wrapper-14').style.color = '#b9b9b9';
+      overlap3.querySelector('.text-wrapper-15').style.color = '#003566';
+      tradability = 'Disabled';
+    } else {
+      overlap2.style.backgroundColor = '#ffd60a';
+      overlap3.style.backgroundColor = '#ffffff';
+      overlap2.querySelector('.text-wrapper-14').style.color = '#003566';
+      overlap3.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+      tradability = 'Enabled';
+    }
+  });
+
+  // Form submission with AJAX
+  document.querySelector('.overlap').addEventListener('click', async (event) => {
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('name', document.getElementById('itemName').value);
+    formData.append('description', document.getElementById('itemDescription').value);
+    formData.append('itemType', itemTypeDropdown.querySelector('.text-wrapper-13').textContent);
+    formData.append('shelf', shelfDropdown.querySelector('.text-wrapper-13').textContent);
+    formData.append('tradability', tradability);
+    if (fileInput.files[0]) formData.append('file', fileInput.files[0]);
+
+    try {
+const response = await fetch("/upload-item/", {  // Hardcoded URL for testing
+  method: 'POST',
+  body: formData,
+  headers: {
+    'X-CSRFToken': '{{ csrf_token }}',
+  },
+});
+      const result = await response.json();
+      if (result.status === 'success') {
+        alert('Item uploaded successfully!');
+        uploadModal.style.display = 'none';
+        // Reset form
+        document.getElementById('itemName').value = '';
+        document.getElementById('itemDescription').value = '';
+        itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+        shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+        dropZone.style.backgroundImage = 'none';
+        tradability = 'Enabled';
+        tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
+        tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
+        tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
+        tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+      } else {
+        alert('Error: ' + result.message);
+      }
+    } catch (error) {
+      console.error('Error uploading item:', error);
+      alert('An error occurred while uploading the item.');
+    }
+  });
+</script>
   </body>
 </html>

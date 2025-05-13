@@ -1950,7 +1950,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none;
+  cursor: pointer; /* Add cursor pointer */
 }
 
 .home-page .search-bar {
