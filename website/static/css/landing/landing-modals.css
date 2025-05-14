@@ -1,460 +1,1157 @@
-/* Modal Overlay */
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-/* Modal Base Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    background-color: #ffffff;
-    max-width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-/* Login Modal */
+/* Log-in Modal */
 .log-in-modal {
-    width: clamp(300px, 80vw, 827px);
+  width: 43.07vw;
+  height: 28.80vw;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
 .log-in-modal .overlap {
-    position: relative;
-    display: flex;
-    flex-direction: row;
+  position: relative;
+  height: 100%;
 }
 
-.blue-solid {
-    flex: 0 0 clamp(200px, 30vw, 369px);
-    background-color: #001d3d;
+.log-in-modal .blue-solid {
+  position: absolute;
+  width: 19.22vw;
+  height: 100%;
+  top: 0;
+  left: 23.85vw;
+  background-color: #001d3d;
 }
 
-.oo-2 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.log-in-modal .blue-solid .oo-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("../img/modals/blue bg.png");
+  background-size: cover;
 }
 
-.white-background {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 2rem;
-}
-
-.log-in-modal .p {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    color: #000814;
-    margin-bottom: 1rem;
+.log-in-modal .white-background {
+  position: absolute;
+  width: 23.91vw;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
 }
 
 .log-in-modal .text-wrapper {
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    color: #000814;
-    margin-bottom: 0.5rem;
+  position: absolute;
+  top: 8.28vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
-.log-in-modal .div,
-.log-in-modal .text-wrapper-7 {
-    width: clamp(200px, 60%, 288px);
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    color: #000000;
-    margin-bottom: 1rem;
+.log-in-modal .div {
+  position: absolute;
+  width: 15.00vw;
+  top: 9.84vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.68vw;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
+  padding: 0 0.52vw;
+  box-sizing: border-box;
 }
 
-.log-in-modal input {
-    width: 100%;
-    border: 1px solid #000814;
-    background: transparent;
-    padding: 0.5rem;
+.log-in-modal .div input {
+  border: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
 }
 
-.log-in-modal .rectangle,
-.log-in-modal .rectangle-2 {
-    width: clamp(200px, 60%, 288px);
-    height: 39px;
-    border: 1px solid #000814;
-    position: absolute;
-    pointer-events: none;
+.log-in-modal .div input:focus {
+  outline: none;
+}
+
+.log-in-modal .p {
+  position: absolute;
+  top: 6.20vw;
+  left: 5.63vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.63vw;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .log-in-modal .text-wrapper-2 {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
-    text-decoration: underline;
-    cursor: pointer;
+  position: absolute;
+  top: 16.09vw;
+  left: 4.69vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .log-in-modal .don-t-have-an {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
+  position: absolute;
+  top: 25.99vw;
+  left: 7.29vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.log-in-modal .span {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+}
+
+.log-in-modal .text-wrapper-3 {
+  text-decoration: underline;
 }
 
 .log-in-modal .text-wrapper-4 {
-    font-weight: 700;
-    text-decoration: underline;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .log-in-modal .text-wrapper-5 {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
-    text-align: center;
-    margin: 1rem 0;
+  position: absolute;
+  width: 3.75vw;
+  top: 21.04vw;
+  left: 10.10vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.log-in-modal .rectangle {
+  width: 15.00vw;
+  height: 2.03vw;
+  top: 9.38vw;
+  left: 4.48vw;
+  position: absolute;
+  border: 0.05vw solid;
+  border-color: #000814;
+  pointer-events: none;
+  z-index: 9;
+}
+
+.log-in-modal .text-wrapper-6 {
+  position: absolute;
+  width: 4.84vw;
+  top: 12.45vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.log-in-modal .text-wrapper-7 {
+  position: absolute;
+  width: 15.00vw;
+  top: 13.54vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.68vw;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
+  padding: 0 0.52vw;
+  box-sizing: border-box;
+}
+
+.log-in-modal .text-wrapper-7 input {
+  border: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+
+.log-in-modal .text-wrapper-7 input:focus {
+  outline: none;
+}
+
+.log-in-modal .rectangle-2 {
+  width: 15.00vw;
+  height: 2.03vw;
+  top: 13.54vw;
+  left: 4.48vw;
+  position: absolute;
+  border: 0.05vw solid;
+  border-color: #000814;
+  pointer-events: none;
+  z-index: 9;
 }
 
 .log-in-modal .close-window {
-    width: 30px;
-    height: 30px;
-    background-color: #ccc;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
+  position: absolute;
+  width: 1.56vw;
+  height: 2.40vw;
+  top: 1.04vw;
+  left: 1.56vw;
+  cursor: pointer;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 2.40vw;
+  font-size: 1.04vw;
 }
 
 .log-in-modal .text-wrapper-8 {
-    font-family: "Inter-Bold", Helvetica;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: #000814;
-    margin-bottom: 1rem;
+  position: absolute;
+  width: 5.10vw;
+  top: 3.59vw;
+  left: 9.43vw;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000814;
+  font-size: 1.51vw;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .log-in-modal .sign-up {
-    width: clamp(100px, 20vw, 151px);
-    height: 32px;
-    margin: 1rem auto;
+  position: absolute;
+  width: 7.86vw;
+  height: 1.67vw;
+  top: 18.23vw;
+  left: 8.07vw;
 }
 
 .log-in-modal .overlap-group {
-    background-color: #ffc300;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc300;
 }
 
 .log-in-modal .text-wrapper-9 {
-    font-family: "Jaro-Regular", Helvetica;
-    font-size: clamp(0.8rem, 1vw, 1rem);
-    color: #ffffff;
+  position: absolute;
+  width: 41%;
+  height: 50%;
+  top: 22%;
+  left: 29%;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 0.83vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
-.google-button,
-.fb-button,
-.apple-id-button {
-    width: clamp(80px, 15vw, 91px);
-    height: 29px;
-    border: 1px solid #000814;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
+.log-in-modal .google-button {
+  position: absolute;
+  width: 4.74vw;
+  height: 1.51vw;
+  top: 22.92vw;
+  left: 3.59vw;
 }
 
-.icons {
-    width: 16px;
-    height: 16px;
+.log-in-modal .google-button .icons {
+  position: absolute;
+  width: 0.83vw;
+  height: 0.83vw;
+  top: 24%;
+  left: 11%;
+  background-image: url("../img/modals/Google.png");
+  background-size: cover;
 }
 
-.text-wrapper-10,
-.text-wrapper-11,
-.text-wrapper-12 {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
+.log-in-modal .overlap-2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.log-in-modal .text-wrapper-10 {
+  position: absolute;
+  top: 31%;
+  left: 41%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.log-in-modal .rectangle-3 {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 0.05vw solid;
+  border-color: #000814;
+}
+
+.log-in-modal .fb-button {
+  position: absolute;
+  width: 4.74vw;
+  height: 1.51vw;
+  top: 22.92vw;
+  left: 9.64vw;
+}
+
+.log-in-modal .fb-button .icons {
+  position: absolute;
+  width: 0.83vw;
+  height: 0.83vw;
+  top: 24%;
+  left: 11%;
+  background-image: url("../img/modals/facebook.png");
+  background-size: cover;
+}
+
+.log-in-modal .text-wrapper-11 {
+  position: absolute;
+  top: 31%;
+  left: 31%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.log-in-modal .apple-id-button {
+  position: absolute;
+  width: 4.74vw;
+  height: 1.51vw;
+  top: 22.92vw;
+  left: 15.68vw;
+}
+
+.log-in-modal .apple-id-button .icons {
+  position: absolute;
+  width: 0.83vw;
+  height: 0.83vw;
+  top: 24%;
+  left: 11%;
+  background-image: url("../img/modals/Apple.png");
+  background-size: cover;
+}
+
+.log-in-modal .text-wrapper-12 {
+  position: absolute;
+  top: 31%;
+  left: 37%;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
 /* Forgot Password Modal */
 .forgot-password-modal {
-    width: clamp(300px, 80vw, 458px);
-    padding: 2rem;
+  width: 23.85vw;
+  height: 28.80vw;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.forgot-password-modal .overlap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.forgot-password-modal .white-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
 }
 
 .forgot-password-modal .text-wrapper {
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    color: #000814;
+  position: absolute;
+  width: 2.55vw;
+  top: 15.68vw;
+  left: 4.43vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
 .forgot-password-modal .div {
-    width: clamp(200px, 60%, 288px);
-    margin-bottom: 1rem;
+  position: absolute;
+  width: 15.00vw;
+  top: 17.34vw;
+  left: 4.43vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.68vw;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 0 0.52vw;
+  box-sizing: border-box;
 }
 
-.forgot-password-modal input {
-    width: 100%;
-    border: 1px solid #000814;
-    padding: 0.5rem;
+.forgot-password-modal .div input {
+  border: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+
+.forgot-password-modal .div input:focus {
+  outline: none;
 }
 
 .forgot-password-modal .p {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    color: #000814;
-    text-align: center;
+  position: absolute;
+  width: 12.97vw;
+  top: 12.97vw;
+  left: 5.63vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.63vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .forgot-password-modal .rectangle {
-    width: clamp(200px, 60%, 288px);
-    height: 39px;
-    border: 1px solid #000814;
-    position: absolute;
-    pointer-events: none;
+  position: absolute;
+  width: 15.00vw;
+  height: 2.03vw;
+  top: 16.88vw;
+  left: 4.43vw;
+  border: 0.05vw solid;
+  border-color: #000814;
+  pointer-events: none;
+  z-index: 9;
 }
 
 .forgot-password-modal .text-wrapper-2 {
-    font-family: "Inter-Bold", Helvetica;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: #000814;
+  position: absolute;
+  width: 12.66vw;
+  top: 10.63vw;
+  left: 5.94vw;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000814;
+  font-size: 1.51vw;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .forgot-password-modal .reset-pass {
-    width: clamp(150px, 50%, 224px);
-    height: 32px;
-    margin: 1rem auto;
+  position: absolute;
+  width: 11.67vw;
+  height: 1.67vw;
+  top: 20.57vw;
+  left: 6.35vw;
 }
 
 .forgot-password-modal .overlap-group {
-    background-color: #ffc300;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc300;
 }
 
 .forgot-password-modal .text-wrapper-3 {
-    font-family: "Jaro-Regular", Helvetica;
-    font-size: clamp(0.8rem, 1vw, 1rem);
-    color: #ffffff;
+  position: absolute;
+  width: 47%;
+  height: 47%;
+  top: 25%;
+  left: 26%;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 0.83vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
 .forgot-password-modal .group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
+  position: absolute;
+  width: 8.13vw;
+  height: 0.68vw;
+  top: 23.54vw;
+  left: 8.54vw;
+  cursor: pointer;
+}
+
+.forgot-password-modal .overlap-2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .forgot-password-modal .text-wrapper-4 {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .forgot-password-modal .left {
-    width: 28px;
-    height: 13px;
+  position: absolute;
+  width: 1.46vw;
+  height: 0.68vw;
+  top: 0;
+  left: 8%;
+  background-image: url("../img/Left.png");
+  background-size: cover;
+}
+
+.forgot-password-modal .close-window {
+  position: absolute;
+  width: 1.56vw;
+  height: 2.40vw;
+  top: 1.56vw;
+  left: 1.82vw;
+  cursor: pointer;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 2.40vw;
+  font-size: 1.04vw;
 }
 
 .forgot-password-modal .lock {
-    width: clamp(80px, 20vw, 125px);
-    height: auto;
-    margin: 0 auto 1rem;
-    display: block;
+  position: absolute;
+  width: 6.51vw;
+  height: 6.51vw;
+  top: 3.28vw;
+  left: 8.85vw;
+  object-fit: cover;
+  background-image: url("../img/modals/lock.png");
+  background-size: cover;
 }
 
 /* Code Verification Modal */
 .enter-code-modal {
-    width: clamp(300px, 80vw, 458px);
-    padding: 2rem;
+  width: 23.85vw;
+  height: 28.80vw;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.enter-code-modal .overlap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.enter-code-modal .white-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1;
 }
 
 .enter-code-modal .text-wrapper {
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    color: #000814;
+  position: absolute;
+  width: 7.19vw;
+  top: 15.36vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .enter-code-modal .div {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    color: #000814;
-    text-align: center;
+  position: absolute;
+  width: 12.97vw;
+  top: 12.97vw;
+  left: 5.63vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.63vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
 }
 
 .enter-code-modal .text-wrapper-2 {
-    font-family: "Inter-Bold", Helvetica;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: #000814;
+  position: absolute;
+  width: 12.66vw;
+  top: 10.63vw;
+  left: 5.94vw;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000814;
+  font-size: 1.51vw;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
 }
 
 .enter-code-modal .reset-pass {
-    width: clamp(150px, 50%, 224px);
-    height: 32px;
-    margin: 1rem auto;
+  position: absolute;
+  width: 11.67vw;
+  height: 1.67vw;
+  top: 21.93vw;
+  left: 6.15vw;
+  z-index: 10;
 }
 
 .enter-code-modal .overlap-group {
-    background-color: #ffc300;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc300;
 }
 
 .enter-code-modal .text-wrapper-3 {
-    font-family: "Jaro-Regular", Helvetica;
-    font-size: clamp(0.8rem, 1vw, 1rem);
-    color: #ffffff;
+  position: absolute;
+  width: 47%;
+  height: 47%;
+  top: 25%;
+  left: 26%;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 0.83vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.enter-code-modal .close-window {
+  position: absolute;
+  width: 1.56vw;
+  height: 2.40vw;
+  top: 1.15vw;
+  left: 1.46vw;
+  cursor: pointer;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 2.40vw;
+  font-size: 1.04vw;
+  z-index: 10;
 }
 
 .enter-code-modal .mail-box {
-    width: clamp(80px, 20vw, 131px);
-    height: auto;
-    margin: 0 auto 1rem;
-    display: block;
+  position: absolute;
+  width: 6.82vw;
+  height: 6.82vw;
+  top: 3.75vw;
+  left: 8.44vw;
+  object-fit: cover;
+  z-index: 10;
+  background-image: url("/static/img/modals/MailBox.png");
+  background-size: cover;
+  border: none;
+  outline: none;
 }
 
 .enter-code-modal .group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
+  position: absolute;
+  width: 8.13vw;
+  height: 0.68vw;
+  top: 24.90vw;
+  left: 8.28vw;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.enter-code-modal .overlap-2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.enter-code-modal .text-wrapper-4 {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.enter-code-modal .left {
+  position: absolute;
+  width: 1.46vw;
+  height: 0.68vw;
+  top: 0;
+  left: 8%;
+  background-image: url("/static/img/Left.png");
+  background-size: cover;
+  border: none;
+  outline: none;
 }
 
 .enter-code-modal .group-2 {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
+  position: absolute;
+  width: 13.59vw;
+  height: 2.97vw;
+  top: 17.55vw;
+  left: 5.31vw;
+  z-index: 10;
 }
 
-.honeycomb,
-.honeycomb-3,
+.enter-code-modal .honeycomb,
+.enter-code-modal .honeycomb-3,
 .enter-code-modal .img,
-.honeycomb-2 {
-    width: clamp(40px, 10vw, 57px);
-    height: clamp(40px, 10vw, 57px);
+.enter-code-modal .honeycomb-2 {
+  position: absolute;
+  width: 2.97vw;
+  height: 2.97vw;
 }
 
-.enter-code-modal input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-image: url("{% static 'img/landing modals/honeycomb.png' %}");
-    background-size: cover;
-    text-align: center;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: #000814;
+.enter-code-modal .honeycomb {
+  left: 0;
+  top: 0;
 }
 
-.enter-code-modal input:focus {
-    border: none;
-    outline: none;
+.enter-code-modal .honeycomb-3 {
+  left: 3.54vw;
+  top: 0;
+}
+
+.enter-code-modal .img {
+  left: 7.08vw;
+  top: 0;
+}
+
+.enter-code-modal .honeycomb-2 {
+  left: 10.63vw;
+  top: 0;
+}
+
+.enter-code-modal .honeycomb input,
+.enter-code-modal .honeycomb-3 input,
+.enter-code-modal .img input,
+.enter-code-modal .honeycomb-2 input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-image: url("/static/img/landing modals/honeycomb.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 1.25vw;
+  text-align: center;
+  color: #000814;
+  z-index: 11;
+  pointer-events: auto;
+  overflow: visible;
+}
+
+.enter-code-modal .honeycomb input:focus,
+.enter-code-modal .honeycomb-3 input:focus,
+.enter-code-modal .img input:focus,
+.enter-code-modal .honeycomb-2 input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Reset Password Modal */
 .reset-password-modal {
-    width: clamp(300px, 80vw, 458px);
-    padding: 2rem;
+  width: 23.85vw;
+  height: 28.80vw;
+  background-color: #ffffff;
+  overflow: hidden;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.reset-password-modal .overlap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.reset-password-modal .white-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 1;
 }
 
 .reset-password-modal .text-wrapper-41 {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    color: #000814;
-    text-align: center;
+  position: absolute;
+  width: 12.97vw;
+  top: 12.97vw;
+  left: 5.63vw;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.63vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
 }
 
 .reset-password-modal .div-2 {
-    font-family: "Inter-Bold", Helvetica;
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: #000814;
+  position: absolute;
+  width: 12.66vw;
+  top: 10.63vw;
+  left: 5.63vw;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000814;
+  font-size: 1.51vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
 }
 
 .reset-password-modal .reset-pass {
-    width: clamp(150px, 50%, 224px);
-    height: 32px;
-    margin: 1rem auto;
+  position: absolute;
+  width: 11.67vw;
+  height: 1.67vw;
+  top: 23.59vw;
+  left: 6.20vw;
+  z-index: 10;
 }
 
 .reset-password-modal .overlap-group {
-    background-color: #ffc300;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc300;
 }
 
 .reset-password-modal .text-wrapper-42 {
-    font-family: "Jaro-Regular", Helvetica;
-    font-size: clamp(0.8rem, 1vw, 1rem);
-    color: #ffffff;
+  position: absolute;
+  width: 47%;
+  height: 47%;
+  top: 25%;
+  left: 26%;
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 0.83vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
 }
 
-.reset-password-modal .text-wrapper-43,
+.reset-password-modal .close-window {
+  position: absolute;
+  width: 1.56vw;
+  height: 2.40vw;
+  top: 1.15vw;
+  left: 1.46vw;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 2.40vw;
+  font-size: 1.04vw;
+}
+
+.reset-password-modal .text-wrapper-43 {
+  position: absolute;
+  width: 5.99vw;
+  top: 15.21vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  z-index: 10;
+}
+
 .reset-password-modal .text-wrapper-44 {
-    font-size: clamp(0.9rem, 1vw, 1rem);
-    color: #000814;
+  position: absolute;
+  width: 7.40vw;
+  top: 19.38vw;
+  left: 4.48vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000814;
+  font-size: 0.83vw;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  z-index: 10;
 }
 
-.reset-password-modal .div-3 {
-    width: clamp(200px, 60%, 288px);
-    margin-bottom: 1rem;
+.reset-password-modal .rectangle {
+  position: absolute;
+  width: 15.00vw;
+  height: 2.03vw;
+  top: 16.41vw;
+  left: 4.48vw;
+  border: 0.05vw solid;
+  border-color: #000814;
+  pointer-events: none;
+  z-index: 9;
 }
 
-.reset-password-modal input {
-    width: 100%;
-    border: 1px solid #000814;
-    padding: 0.5rem;
-}
-
-.reset-password-modal .rectangle,
 .reset-password-modal .rectangle-2 {
-    width: clamp(200px, 60%, 288px);
-    height: 39px;
-    border: 1px solid #000814;
-    position: absolute;
-    pointer-events: none;
+  position: absolute;
+  width: 15.00vw;
+  height: 2.03vw;
+  top: 20.57vw;
+  left: 4.48vw;
+  border: 0.05vw solid;
+  border-color: #000814;
+  pointer-events: none;
+  z-index: 9;
 }
 
-.reset-password-modal .hide,
+.reset-password-modal .hide {
+  position: absolute;
+  width: 1.46vw;
+  height: 1.04vw;
+  top: 16.93vw;
+  left: 17.71vw;
+  z-index: 10;
+  background-image: url("../img/modals/Hide.png");
+  background-size: cover;
+}
+
 .reset-password-modal .hide-2 {
-    width: 28px;
-    height: 20px;
-    position: absolute;
-    right: 10px;
+  position: absolute;
+  width: 1.46vw;
+  height: 1.04vw;
+  top: 21.09vw;
+  left: 17.71vw;
+  z-index: 10;
+  background-image: url("../img/modals/Hide.png");
+  background-size: cover;
 }
 
 .reset-password-modal .keys {
-    width: clamp(80px, 20vw, 129px);
-    height: auto;
-    margin: 0 auto 1rem;
-    display: block;
+  position: absolute;
+  width: 6.72vw;
+  height: 7.40vw;
+  top: 3.28vw;
+  left: 8.54vw;
+  z-index: 10;
+  background-image: url("../img/modals/keys.png");
+  background-size: cover;
 }
 
 .reset-password-modal .group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
+  position: absolute;
+  width: 8.13vw;
+  height: 0.68vw;
+  top: 26.56vw;
+  left: 8.13vw;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.reset-password-modal .overlap-2 {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .reset-password-modal .text-wrapper-45 {
-    font-size: clamp(0.6rem, 0.8vw, 0.7rem);
-    color: #000814;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000814;
+  font-size: 0.52vw;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
-/* Media Queries */
-@media (max-width: 1280px) {
-    .log-in-modal .overlap {
-        flex-direction: column;
-    }
-
-    .blue-solid {
-        display: none;
-    }
-
-    .white-background {
-        width: 100%;
-    }
+.reset-password-modal .left {
+  position: absolute;
+  width: 1.46vw;
+  height: 0.68vw;
+  top: 0;
+  left: 8%;
+  background-image: url("../img/Left.png");
+  background-size: cover;
 }
 
-@media (max-width: 480px) {
-    .modal {
-        width: 95%;
-        padding: 1rem;
-    }
+.reset-password-modal .div-3,
+.reset-password-modal .div-4 {
+  position: absolute;
+  width: 15.00vw;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 0.68vw;
+  letter-spacing: 0;
+  line-height: normal;
+  z-index: 10;
+  padding: 0 0.52vw;
+  box-sizing: border-box;
+}
 
-    .enter-code-modal .group-2 {
-        flex-wrap: wrap;
-    }
+.reset-password-modal .div-3 {
+  top: 16.41vw;
+  left: 4.48vw;
+}
 
-    .honeycomb,
-    .honeycomb-3,
-    .enter-code-modal .img,
-    .honeycomb-2 {
-        width: 40px;
-        height: 40px;
-    }
+.reset-password-modal .div-4 {
+  top: 20.57vw;
+  left: 4.48vw;
+}
+
+.reset-password-modal .div-3 input,
+.reset-password-modal .div-4 input {
+  border: 0;
+  width: 100%;
+  height: 2.03vw;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+
+.reset-password-modal .div-3 input::placeholder,
+.reset-password-modal .div-4 input::placeholder {
+  color: #999;
+  opacity: 1;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  font-size: 0.68vw;
+}
+
+.reset-password-modal .div-3 input:focus,
+.reset-password-modal .div-4 input:focus {
+  outline: none;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
