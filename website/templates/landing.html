@@ -49,7 +49,7 @@
                 <div class="overlap-5">
                     <div class="group-2">
                         <div class="overlap-6">
-                            <img class="rectangle" src="{% static 'img/landing/rectangle.png' %}" alt="Home placeholder" />
+                            <img class="rectangle" src="{% static 'img/landing/home-icon.png' %}" alt="Home placeholder" />
                             <div class="text-wrapper-8">Home</div>
                         </div>
                         <div class="text-wrapper-9"><a href="javascript:void(0)">About Us</a></div>
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="rectangle-6"></div>
-                    <p class="register-to-unlock">Register to unlock all features.</p>
+                    <p class="register-to-unlock">Register to unlock all features.</p>                    
                     <a href="{% url 'registration' %}" class="sign-up-link">
                         <div class="group-6">
                             <div class="overlap-9"><div class="text-wrapper-20">Register</div></div>
@@ -275,7 +275,7 @@
             <div class="div-3">
                 <form id="resetPasswordForm" method="POST" action="{% url 'reset_password' %}">
                     {% csrf_token %}
-                    <input type="password" name="new_password" placeholder="Enter new password" required aria-label="New password" />
+                    <input type="password" name="new_password" placeholder= "Enter new password" required aria-label="New password" />
                     <input type="password" name="confirm_password" placeholder="Confirm new password" required aria-label="Confirm password" />
                 </form>
             </div>
