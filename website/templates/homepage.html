@@ -526,7 +526,7 @@
   </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
   // Get DOM elements for message modal
   const chatButton = document.getElementById('chatButton');
   const messageModal = document.getElementById('messageModal');
@@ -1110,6 +1110,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (detailedImage) detailedImage.src = '{% static "img/item-image-area.png" %}';
     if (previewImage) previewImage.src = '{% static "img/item-image-area.png" %}';
   }
+
+  // Redirect to item details page on post click
+  const postClasses = [
+    'recommended-1', 'recommended-2', 'recommended-3', 'recommended-4',
+    'favorite-1', 'favorite-3', 'favorite-4', 'favorite-5',
+    'trade-request-1', 'trade-request-2', 'trade-request-3', 'trade-request-4',
+    'trade-request-5', 'trade-request-6', 'trade-request-7',
+    'showcase-1', 'showcase-2', 'showcase-3', 'showcase-4',
+    'showcase-5', 'showcase-6', 'showcase-7'
+  ];
+
+  postClasses.forEach(className => {
+    const post = document.querySelector(`.${className}`);
+    if (post) {
+      post.addEventListener('click', (event) => {
+        event.preventDefault();
+        // Redirect to static item details page
+        // Backend: Update to include item ID, e.g., `/item-details/${itemId}/`
+        window.location.href = '/item-details/';
+      });
+    }
+  });
 });
 </script>
   </body>
