@@ -395,71 +395,58 @@
 </div>
   <!--UPLOAD MODALS-->
   <!-- Detailed Information Modal -->
-  <div class="modal" id="detailedInfoModal" style="display: none;">
-    <div class="modal-content item-upload-page">
-      <div class="overlap">
-        <div class="rectangle"></div>
-        <div class="text-wrapper">Next</div>
-        <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
-      </div>
-      <div class="overlap-group">
-        <div class="rectangle"></div>
-        <div class="div">Back</div>
-        <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
-      </div>
-      <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
-      <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="yellow Line" />
-      <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
-      <img class="close-window" id="closeDetailedInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
-      <div class="text-wrapper-2">Basic Information</div>
-      <div class="text-wrapper-3">Detailed Information</div>
-      <div class="text-wrapper-4">Preview and Uploading</div>
-      <div class="text-wrapper-5">More Details</div>
-      <div class="text-wrapper-6">Date Acquired</div>
-      <div class="text-wrapper-7">Other Notes</div>
-      <div class="text-wrapper-8">Upload Receipt</div>
-      <div class="text-wrapper-9">Dimensions</div>
-      <div class="text-wrapper-10">Weight</div>
-      <div class="text-wrapper-11">Condition</div>
-      <div class="overlap-2">
-        <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
-        <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
-      </div>
-      <div class="rectangle-2">
-        <input type="text" id="dimensions" placeholder="Enter dimensions" />
-      </div>
-      <div class="upload-file-group">
-        <div class="overlap-group-2" id="receiptDropZone">
-          <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
-          <div class="overlap-3">
-            <p class="drag-drop-to-upload">Drag & drop to upload</p>
-            <div class="text-wrapper-14">Files supported: JPG, PNG</div>
-          </div>
-          <div class="text-wrapper-15">or</div>
-          <div class="div-wrapper">
-            <input type="file" id="receiptInput" class="hidden-file-input" accept="image/jpeg,image/png" />
-            <div class="text-wrapper-16" onclick="document.getElementById('receiptInput').click()">Upload File</div>
-          </div>
-        </div>
-      </div>
-      <div class="rectangle-3">
-        <input type="text" id="weight" placeholder="Enter weight" />
-      </div>
-      <div class="rectangle-4">
-        <input type="text" id="otherNotes" placeholder="Enter notes" />
-      </div>
-      <div class="dropdown-menu">
-        <div class="text-wrapper-13">Select type</div>
-        <img class="vector-2" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
-        <div class="dropdown-options" style="display: none;">
-          <div class="option" data-value="New">New</div>
-          <div class="option" data-value="Like New">Like New</div>
-          <div class="option" data-value="Used">Used</div>
-          <div class="option" data-value="Damaged">Damaged</div>
-        </div>
+<!-- Detailed Information Modal -->
+<div class="modal" id="detailedInfoModal" style="display: none;">
+  <div class="modal-content item-upload-page">
+    <div class="overlap">
+      <div class="rectangle"></div>
+      <div class="text-wrapper">Next</div>
+      <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
+    </div>
+    <div class="overlap-group">
+      <div class="rectangle"></div>
+      <div class="div">Back</div>
+      <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
+    </div>
+    <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
+    <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="Yellow Line" />
+    <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
+    <img class="close-window" id="closeDetailedInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
+    <div class="text-wrapper-2">Basic Information</div>
+    <div class="text-wrapper-3">Detailed Information</div>
+    <div class="text-wrapper-4">Preview and Uploading</div>
+    <div class="text-wrapper-5">More Details</div>
+    <img class="item-image-area" id="detailedImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
+    <div class="text-wrapper-6">Date Acquired</div>
+    <div class="text-wrapper-7">Other Notes</div>
+    <div class="text-wrapper-9">Dimensions</div>
+    <div class="text-wrapper-10">Weight</div>
+    <div class="text-wrapper-11">Condition</div>
+    <div class="overlap-2">
+      <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
+      <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
+    </div>
+    <div class="rectangle-2">
+      <input type="text" id="dimensions" placeholder="Enter dimensions" />
+    </div>
+    <div class="rectangle-3">
+      <input type="text" id="weight" placeholder="Enter weight" />
+    </div>
+    <div class="dropdown-menu" id="conditionDropdown">
+      <div class="text-wrapper-13">Select type</div>
+      <img class="vector-2" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
+      <div class="dropdown-options" style="display: none;">
+        <div class="option" data-value="New">New</div>
+        <div class="option" data-value="Like New">Like New</div>
+        <div class="option" data-value="Used">Used</div>
+        <div class="option" data-value="Damaged">Damaged</div>
       </div>
     </div>
+    <div class="rectangle-4">
+      <textarea id="otherNotes" placeholder="Enter notes"></textarea>
+    </div>
   </div>
+</div>
   <!-- Preview and Uploading Modal -->
 <!-- Preview and Uploading Modal -->
 <div class="modal" id="previewModal" style="display: none;">
@@ -530,426 +517,591 @@
   </div>
 </div>
 <script>
+document.addEventListener('DOMContentLoaded', () => {
   // Get DOM elements for message modal
-const chatButton = document.getElementById('chatButton');
-const messageModal = document.getElementById('messageModal');
-const closeModal = document.getElementById('closeModal');
-const messageInput = document.getElementById('messageInput');
+  const chatButton = document.getElementById('chatButton');
+  const messageModal = document.getElementById('messageModal');
+  const closeModal = document.getElementById('closeModal');
+  const messageInput = document.getElementById('messageInput');
 
-// Get DOM elements for upload modals
-const uploadButton = document.getElementById('uploadButton');
-const basicInfoModal = document.getElementById('basicInfoModal');
-const detailedInfoModal = document.getElementById('detailedInfoModal');
-const previewModal = document.getElementById('previewModal');
-const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
-const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
-const closePreviewModal = document.getElementById('closePreviewModal');
-const dropZone = document.getElementById('dropZone');
-const fileInput = document.getElementById('fileInput');
-const receiptDropZone = document.getElementById('receiptDropZone');
-const receiptInput = document.getElementById('receiptInput');
-const itemTypeDropdown = document.getElementById('itemTypeDropdown');
-const shelfDropdown = document.getElementById('shelfDropdown');
-const tradabilityToggle = document.getElementById('tradabilityToggle');
-const conditionDropdown = document.querySelector('#detailedInfoModal .dropdown-menu');
-let tradability = 'Enabled';
-let currentItemId = null;
-let itemData = {};
+  // Get DOM elements for upload modals
+  const uploadButton = document.getElementById('uploadButton');
+  const basicInfoModal = document.getElementById('basicInfoModal');
+  const detailedInfoModal = document.getElementById('detailedInfoModal');
+  const previewModal = document.getElementById('previewModal');
+  const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
+  const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
+  const closePreviewModal = document.getElementById('closePreviewModal');
+  const dropZone = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
+  const shelfDropdown = document.getElementById('shelfDropdown');
+  const tradabilityToggle = document.getElementById('tradabilityToggle');
+  const conditionDropdown = document.getElementById('conditionDropdown');
+  let tradability = 'Enabled';
+  let currentItemId = null;
+  let itemData = {};
 
-// Function to get CSRF token
-function getCsrfToken() {
-  return document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-}
-
-// Toggle message modal
-chatButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  messageModal.style.display = 'flex';
-  messageInput.focus();
-});
-
-closeModal.addEventListener('click', () => {
-  messageModal.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-  if (event.target === messageModal) {
-    messageModal.style.display = 'none';
+  // Function to get CSRF token
+  function getCsrfToken() {
+    const tokenElement = document.querySelector('input[name="csrfmiddlewaretoken"]');
+    if (!tokenElement) {
+      console.error('CSRF token element not found. Ensure <input name="csrfmiddlewaretoken"> exists.');
+      return '';
+    }
+    return tokenElement.value;
   }
-});
 
-messageInput.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter') {
-    event.preventDefault();
-    document.querySelector('.send-button').click();
+  // Toggle message modal
+  if (chatButton && messageModal && closeModal && messageInput) {
+    chatButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      messageModal.style.display = 'flex';
+      messageInput.focus();
+    });
+
+    closeModal.addEventListener('click', () => {
+      messageModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+      if (event.target === messageModal) {
+        messageModal.style.display = 'none';
+      }
+    });
+
+    messageInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        const sendButton = document.querySelector('.send-button');
+        if (sendButton) sendButton.click();
+      }
+    });
+  } else {
+    console.warn('Message modal elements missing:', {
+      chatButton: !!chatButton,
+      messageModal: !!messageModal,
+      closeModal: !!closeModal,
+      messageInput: !!messageInput
+    });
   }
-});
 
-// Open basic info modal
-uploadButton.addEventListener('click', (event) => {
-  event.preventDefault();
-  basicInfoModal.style.display = 'flex';
-  document.getElementById('itemName').focus();
-});
+  // Open basic info modal
+  if (uploadButton && basicInfoModal) {
+    uploadButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      basicInfoModal.style.display = 'flex';
+      const itemName = document.getElementById('itemName');
+      if (itemName) itemName.focus();
+    });
+  } else {
+    console.warn('Upload button or basicInfoModal missing:', {
+      uploadButton: !!uploadButton,
+      basicInfoModal: !!basicInfoModal
+    });
+  }
 
-// Close modals
-[closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
-  closeButton.addEventListener('click', () => {
-    basicInfoModal.style.display = 'none';
-    detailedInfoModal.style.display = 'none';
-    previewModal.style.display = 'none';
-    resetForm();
+  // Close modals
+  [closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
+    if (closeButton) {
+      closeButton.addEventListener('click', () => {
+        if (basicInfoModal) basicInfoModal.style.display = 'none';
+        if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+        if (previewModal) previewModal.style.display = 'none';
+        resetForm();
+      });
+    }
   });
-});
 
-window.addEventListener('click', (event) => {
-  if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
-    basicInfoModal.style.display = 'none';
-    detailedInfoModal.style.display = 'none';
-    previewModal.style.display = 'none';
-    resetForm();
+  window.addEventListener('click', (event) => {
+    if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
+      if (basicInfoModal) basicInfoModal.style.display = 'none';
+      if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+      if (previewModal) previewModal.style.display = 'none';
+      resetForm();
+    }
+  });
+
+  // Drag and drop file upload (Basic Info)
+  if (dropZone && fileInput) {
+    dropZone.addEventListener('dragover', (event) => {
+      event.preventDefault();
+      dropZone.style.borderColor = '#003566';
+    });
+
+    dropZone.addEventListener('dragleave', (event) => {
+      event.preventDefault();
+      dropZone.style.borderColor = '#003566';
+    });
+
+    dropZone.addEventListener('drop', (event) => {
+      event.preventDefault();
+      dropZone.style.borderColor = '#003566';
+      const files = event.dataTransfer.files;
+      if (files.length > 0) {
+        fileInput.files = files;
+        handleFileUpload(files[0], dropZone);
+      }
+    });
+
+    fileInput.addEventListener('change', (event) => {
+      const files = event.target.files;
+      if (files.length > 0) {
+        handleFileUpload(files[0], dropZone);
+      }
+    });
+  } else {
+    console.warn('File upload elements missing:', {
+      dropZone: !!dropZone,
+      fileInput: !!fileInput
+    });
   }
-});
 
-// Drag and drop file upload (Basic Info)
-dropZone.addEventListener('dragover', (event) => {
-  event.preventDefault();
-  dropZone.style.borderColor = '#003566';
-});
-
-dropZone.addEventListener('dragleave', (event) => {
-  event.preventDefault();
-  dropZone.style.borderColor = '#003566';
-});
-
-dropZone.addEventListener('drop', (event) => {
-  event.preventDefault();
-  dropZone.style.borderColor = '#003566';
-  const files = event.dataTransfer.files;
-  if (files.length > 0) {
-    fileInput.files = files;
-    handleFileUpload(files[0], dropZone);
-  }
-});
-
-fileInput.addEventListener('change', (event) => {
-  const files = event.target.files;
-  if (files.length > 0) {
-    handleFileUpload(files[0], dropZone);
-  }
-});
-
-// Drag and drop receipt upload (Detailed Info)
-receiptDropZone.addEventListener('dragover', (event) => {
-  event.preventDefault();
-  receiptDropZone.style.borderColor = '#003566';
-});
-
-receiptDropZone.addEventListener('dragleave', (event) => {
-  event.preventDefault();
-  receiptDropZone.style.borderColor = '#003566';
-});
-
-receiptDropZone.addEventListener('drop', (event) => {
-  event.preventDefault();
-  receiptDropZone.style.borderColor = '#003566';
-  const files = event.dataTransfer.files;
-  if (files.length > 0) {
-    receiptInput.files = files;
-    handleFileUpload(files[0], receiptDropZone);
-  }
-});
-
-receiptInput.addEventListener('change', (event) => {
-  const files = event.target.files;
-  if (files.length > 0) {
-    handleFileUpload(files[0], receiptDropZone);
-  }
-});
-
-function handleFileUpload(file, dropZoneElement) {
-  const validTypes = ['image/jpeg', 'image/png'];
-  if (validTypes.includes(file.type)) {
+  function handleFileUpload(file, dropZoneElement) {
+    const validTypes = ['image/jpeg', 'image/png'];
+    if (!validTypes.includes(file.type)) {
+      alert('Please upload a JPG or PNG file.');
+      return;
+    }
     const reader = new FileReader();
     reader.onload = (e) => {
       dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
       dropZoneElement.style.backgroundSize = 'cover';
       dropZoneElement.style.backgroundPosition = 'center';
+      // Hide upload text and icon
+      const pfp = dropZoneElement.querySelector('.pfp');
+      const overlap3 = dropZoneElement.querySelector('.overlap-3');
+      const textWrapper15 = dropZoneElement.querySelector('.text-wrapper-15');
+      const divWrapper = dropZoneElement.querySelector('.div-wrapper');
+      if (pfp) pfp.style.display = 'none';
+      if (overlap3) overlap3.style.display = 'none';
+      if (textWrapper15) textWrapper15.style.display = 'none';
+      if (divWrapper) divWrapper.style.display = 'none';
     };
     reader.readAsDataURL(file);
-  } else {
-    alert('Please upload a JPG or PNG file.');
-  }
-}
-
-// Dropdown functionality
-[itemTypeDropdown, shelfDropdown, conditionDropdown].forEach(dropdown => {
-  dropdown.addEventListener('click', () => {
-    const options = dropdown.querySelector('.dropdown-options');
-    options.style.display = options.style.display === 'block' ? 'none' : 'block';
-  });
-});
-
-document.querySelectorAll('.dropdown-options .option').forEach(option => {
-  option.addEventListener('click', (e) => {
-    const dropdown = e.target.closest('.dropdown-menu, .dropdown-menu-2');
-    dropdown.querySelector('.text-wrapper-13').textContent = e.target.textContent;
-    dropdown.querySelector('.dropdown-options').style.display = 'none';
-  });
-});
-
-window.addEventListener('click', (event) => {
-  if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
-    document.querySelectorAll('.dropdown-options').forEach(options => {
-      options.style.display = 'none';
-    });
-  }
-});
-
-// Tradability toggle
-tradabilityToggle.addEventListener('click', (event) => {
-  const overlap2 = tradabilityToggle.querySelector('.overlap-2');
-  const overlap3 = tradabilityToggle.querySelector('.overlap-3');
-  if (tradability === 'Enabled') {
-    overlap2.style.backgroundColor = '#b9b9b9';
-    overlap3.style.backgroundColor = '#ffd60a';
-    overlap2.querySelector('.text-wrapper-14').style.color = '#b9b9b9';
-    overlap3.querySelector('.text-wrapper-15').style.color = '#003566';
-    tradability = 'Disabled';
-  } else {
-    overlap2.style.backgroundColor = '#ffd60a';
-    overlap3.style.backgroundColor = '#ffffff';
-    overlap2.querySelector('.text-wrapper-14').style.color = '#003566';
-    overlap3.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
-    tradability = 'Enabled';
-  }
-});
-
-// Basic Info submission
-document.querySelector('#basicInfoModal .overlap').addEventListener('click', async (event) => {
-  event.preventDefault();
-  
-  // Collect form data
-  const name = document.getElementById('itemName').value.trim();
-  const description = document.getElementById('itemDescription').value.trim();
-  const itemType = itemTypeDropdown.querySelector('.text-wrapper-13').textContent;
-  const shelf = shelfDropdown.querySelector('.text-wrapper-13').textContent;
-
-  // Validate required fields
-  if (!name) {
-    alert('Please enter the item name.');
-    return;
-  }
-  if (!description) {
-    alert('Please enter the item description.');
-    return;
-  }
-  if (itemType === 'Select type') {
-    alert('Please select an item type.');
-    return;
-  }
-  if (shelf === 'Select type') {
-    alert('Please select a shelf.');
-    return;
   }
 
-  // Store data
-  itemData = {
-    name,
-    description,
-    itemType,
-    shelf,
-    tradability,
-    file: fileInput.files[0]
-  };
-
-  const formData = new FormData();
-  formData.append('name', name);
-  formData.append('description', description);
-  formData.append('itemType', itemType);
-  formData.append('shelf', shelf);
-  formData.append('tradability', tradability);
-  if (fileInput.files[0]) formData.append('file', fileInput.files[0]);
-
-  try {
-    const response = await fetch("/upload-item/", {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-CSRFToken': getCsrfToken(),
-      },
-    });
-    const result = await response.json();
-    if (result.status === 'success') {
-      currentItemId = result.item_id;
-      basicInfoModal.style.display = 'none';
-      detailedInfoModal.style.display = 'flex';
-      document.getElementById('dateAcquired').focus();
-    } else {
-      alert('Error: ' + result.message);
-    }
-  } catch (error) {
-    console.error('Error uploading item:', error);
-    alert('An error occurred while uploading the item: ' + error.message);
-  }
-});
-
-// Detailed Info submission
-document.querySelector('#detailedInfoModal .overlap').addEventListener('click', async (event) => {
-  event.preventDefault();
-
-  // Collect detailed info
-  const dateAcquired = document.getElementById('dateAcquired').value;
-  const otherNotes = document.getElementById('otherNotes').value;
-  const dimensions = document.getElementById('dimensions').value;
-  const weight = document.getElementById('weight').value;
-  const condition = conditionDropdown.querySelector('.text-wrapper-13').textContent;
-
-  // Update itemData
-  itemData = {
-    ...itemData,
-    dateAcquired,
-    otherNotes,
-    dimensions,
-    weight,
-    condition,
-    receipt: receiptInput.files[0]
-  };
-
-  const formData = new FormData();
-  formData.append('item_id', currentItemId);
-  formData.append('dateAcquired', dateAcquired);
-  formData.append('otherNotes', otherNotes);
-  formData.append('dimensions', dimensions);
-  formData.append('weight', weight);
-  formData.append('condition', condition);
-  if (receiptInput.files[0]) formData.append('receipt', receiptInput.files[0]);
-
-  try {
-    const response = await fetch("/upload-item/", {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-CSRFToken': getCsrfToken(),
-      },
-    });
-    const result = await response.json();
-    if (result.status === 'success') {
-      detailedInfoModal.style.display = 'none';
-      previewModal.style.display = 'flex';
-
-      // Populate preview modal
-      document.getElementById('previewName').textContent = itemData.name;
-      document.getElementById('previewDescription').textContent = itemData.description || 'No description provided';
-      document.getElementById('previewNotes').textContent = itemData.otherNotes || 'No additional notes';
-      document.getElementById('previewTradability').textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
-      document.getElementById('previewYear').textContent = itemData.dateAcquired || 'Not specified';
-      document.getElementById('previewDimensions').textContent = itemData.dimensions || 'Not specified';
-      document.getElementById('previewWeight').textContent = itemData.weight || 'Not specified';
-      document.getElementById('previewCondition').textContent = itemData.condition !== 'Select type' ? itemData.condition : 'Not specified';
-      document.getElementById('previewAuthor').textContent = 'Current User'; // Replace with backend user data
-      document.getElementById('previewRating').textContent = '4.5'; // Placeholder, update with backend data
-      document.getElementById('commentCount').textContent = '0'; // Placeholder, update with backend data
-
-      // Display uploaded image
-      if (itemData.file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          document.getElementById('previewImage').src = e.target.result;
-        };
-        reader.readAsDataURL(itemData.file);
+  // Dropdown functionality
+  const dropdowns = [itemTypeDropdown, shelfDropdown, conditionDropdown].filter(d => d);
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const options = dropdown.querySelector('.dropdown-options');
+      if (options) {
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+      } else {
+        console.warn(`Dropdown options not found for ${dropdown.id}`);
       }
-    } else {
-      alert('Error: ' + result.message);
-    }
-  } catch (error) {
-    console.error('Error updating item details:', error);
-    alert('An error occurred while updating the item details: ' + error.message);
-  }
-});
-
-// Comment submission
-document.querySelector('#previewModal .submit-comment').addEventListener('click', (event) => {
-  event.preventDefault();
-  const comment = document.getElementById('commentInput').value.trim();
-  if (comment) {
-    // Placeholder: Send comment to backend
-    console.log('Comment submitted:', comment);
-    document.getElementById('commentInput').value = '';
-    document.getElementById('commentCount').textContent = parseInt(document.getElementById('commentCount').textContent) + 1;
-    alert('Comment submitted! (Placeholder)');
-  } else {
-    alert('Please enter a comment.');
-  }
-});
-
-// Back buttons
-document.querySelector('#detailedInfoModal .overlap-group').addEventListener('click', (event) => {
-  event.preventDefault();
-  detailedInfoModal.style.display = 'none';
-  basicInfoModal.style.display = 'flex';
-  document.getElementById('itemName').focus();
-});
-
-document.querySelector('#previewModal .overlap-group').addEventListener('click', (event) => {
-  event.preventDefault();
-  previewModal.style.display = 'none';
-  detailedInfoModal.style.display = 'flex';
-  document.getElementById('dateAcquired').focus();
-});
-
-// Final upload
-document.querySelector('#previewModal .overlap').addEventListener('click', async (event) => {
-  event.preventDefault();
-
-  const formData = new FormData();
-  formData.append('item_id', currentItemId);
-  formData.append('final_submit', true); // Signal final submission
-
-  try {
-    const response = await fetch("/upload-item/", {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-CSRFToken': getCsrfToken(),
-      },
     });
-    const result = await response.json();
-    if (result.status === 'success') {
-      alert('Item successfully uploaded!');
-      previewModal.style.display = 'none';
-      resetForm();
-    } else {
-      alert('Error: ' + result.message);
+
+    const options = dropdown.querySelectorAll('.dropdown-options .option');
+    options.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const textWrapper = dropdown.querySelector('.text-wrapper-13');
+        if (textWrapper) {
+          textWrapper.textContent = e.target.textContent;
+        }
+        const optionsContainer = e.target.closest('.dropdown-options');
+        if (optionsContainer) {
+          optionsContainer.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Close dropdowns when clicking outside
+  window.addEventListener('click', (event) => {
+    if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
+      document.querySelectorAll('.dropdown-options').forEach(options => {
+        options.style.display = 'none';
+      });
     }
-  } catch (error) {
-    console.error('Error finalizing upload:', error);
-    alert('An error occurred while finalizing the upload: ' + error.message);
+  });
+
+  // Tradability toggle
+  if (tradabilityToggle) {
+    tradabilityToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+      const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+      const text14 = overlap2 ? overlap2.querySelector('.text-wrapper-14') : null;
+      const text15 = overlap3 ? overlap3.querySelector('.text-wrapper-15') : null;
+      
+      if (tradability === 'Enabled') {
+        if (overlap2) overlap2.style.backgroundColor = '#b9b9b9';
+        if (overlap3) overlap3.style.backgroundColor = '#ffd60a';
+        if (text14) text14.style.color = '#b9b9b9';
+        if (text15) text15.style.color = '#003566';
+        tradability = 'Disabled';
+      } else {
+        if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
+        if (overlay3) overlap3.style.backgroundColor = '#ffffff';
+        if (text14) text14.style.color = '#003566';
+        if (text15) text15.style.color = '#b9b9b9';
+        tradability = 'Enabled';
+      }
+    });
+  } else {
+    console.warn('tradabilityToggle element not found');
+  }
+
+  // Basic Info submission
+  const basicNextButton = document.querySelector('#basicInfoModal .overlap');
+  if (basicNextButton) {
+    basicNextButton.addEventListener('click', async (event) => {
+      event.preventDefault();
+      
+      if (!basicInfoModal || !detailedInfoModal) {
+        console.error('Modal elements missing:', {
+          basicInfoModal: !!basicInfoModal,
+          detailedInfoModal: !!detailedInfoModal
+        });
+        alert('Error: Modal elements not found. Please check that <div id="basicInfoModal"> and <div id="detailedInfoModal"> exist in the HTML.');
+        return;
+      }
+
+      // Collect form data
+      const itemName = document.getElementById('itemName');
+      const itemDescription = document.getElementById('itemDescription');
+      if (!itemName || !itemDescription || !itemTypeDropdown || !shelfDropdown || !fileInput) {
+        console.error('Form elements missing:', {
+          itemName: !!itemName,
+          itemDescription: !!itemDescription,
+          itemTypeDropdown: !!itemTypeDropdown,
+          shelfDropdown: !!shelfDropdown,
+          fileInput: !!fileInput
+        });
+        alert('Error: Form elements not found. Please check IDs: itemName, itemDescription, itemTypeDropdown, shelfDropdown, fileInput.');
+        return;
+      }
+
+      const name = itemName.value.trim();
+      const description = itemDescription.value.trim();
+      const itemType = itemTypeDropdown.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+      const shelf = shelfDropdown.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+
+      // Validate required fields
+      if (!name) {
+        alert('Please enter the item name.');
+        return;
+      }
+      if (!description) {
+        alert('Please enter the item description.');
+        return;
+      }
+      if (itemType === 'Select type') {
+        alert('Please select an item type.');
+        return;
+      }
+      if (shelf === 'Select type') {
+        alert('Please select a shelf.');
+        return;
+      }
+      if (!fileInput.files[0]) {
+        alert('Please upload an item image.');
+        return;
+      }
+
+      // Store data
+      itemData = {
+        name,
+        description,
+        itemType,
+        shelf,
+        tradability,
+        file: fileInput.files[0]
+      };
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('description', description);
+      formData.append('itemType', itemType);
+      formData.append('shelf', shelf);
+      formData.append('tradability', tradability);
+      formData.append('file', fileInput.files[0]);
+
+      try {
+        const response = await fetch("/upload-item/", {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': getCsrfToken(),
+          },
+        });
+        const result = await response.json();
+        if (result.status === 'success') {
+          currentItemId = result.item_id;
+          basicInfoModal.style.display = 'none';
+          detailedInfoModal.style.display = 'flex';
+          const dateAcquired = document.getElementById('dateAcquired');
+          if (dateAcquired) dateAcquired.focus();
+
+          // Display item image in detailedInfoModal
+          if (itemData.file) {
+            const detailedImage = document.getElementById('detailedImage');
+            if (detailedImage) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                detailedImage.src = e.target.result;
+              };
+              reader.readAsDataURL(itemData.file);
+            } else {
+              console.warn('detailedImage element not found');
+            }
+          }
+        } else {
+          alert('Error: ' + result.message);
+        }
+      } catch (error) {
+        console.error('Error uploading item:', error);
+        alert('An error occurred while uploading the item: ' + error.message);
+      }
+    });
+  } else {
+    console.error('Basic Info Next button not found. Ensure <div class="overlap"> exists inside #basicInfoModal.');
+  }
+
+  // Detailed Info submission
+  const detailedNextButton = document.querySelector('#detailedInfoModal .overlap');
+  if (detailedNextButton) {
+    detailedNextButton.addEventListener('click', async (event) => {
+      event.preventDefault();
+
+      // Collect detailed info
+      const dateAcquired = document.getElementById('dateAcquired');
+      const otherNotes = document.getElementById('otherNotes');
+      const dimensions = document.getElementById('dimensions');
+      const weight = document.getElementById('weight');
+      const condition = conditionDropdown?.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+
+      // Update itemData
+      itemData = {
+        ...itemData,
+        dateAcquired: dateAcquired?.value || '',
+        otherNotes: otherNotes?.value || '',
+        dimensions: dimensions?.value || '',
+        weight: weight?.value || '',
+        condition
+      };
+
+      const formData = new FormData();
+      formData.append('item_id', currentItemId);
+      formData.append('dateAcquired', itemData.dateAcquired);
+      formData.append('otherNotes', itemData.otherNotes);
+      formData.append('dimensions', itemData.dimensions);
+      formData.append('weight', itemData.weight);
+      formData.append('condition', itemData.condition);
+
+      try {
+        const response = await fetch("/upload-item/", {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': getCsrfToken(),
+          },
+        });
+        const result = await response.json();
+        if (result.status === 'success') {
+          if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+          if (previewModal) previewModal.style.display = 'flex';
+
+          // Populate preview modal
+          const previewName = document.getElementById('previewName');
+          const previewDescription = document.getElementById('previewDescription');
+          const previewNotes = document.getElementById('previewNotes');
+          const previewTradability = document.getElementById('previewTradability');
+          const previewYear = document.getElementById('previewYear');
+          const previewDimensions = document.getElementById('previewDimensions');
+          const previewWeight = document.getElementById('previewWeight');
+          const previewCondition = document.getElementById('previewCondition');
+          const previewAuthor = document.getElementById('previewAuthor');
+          const previewRating = document.getElementById('previewRating');
+          const commentCount = document.getElementById('commentCount');
+
+          if (previewName) previewName.textContent = itemData.name;
+          if (previewDescription) previewDescription.textContent = itemData.description || 'No description provided';
+          if (previewNotes) previewNotes.textContent = itemData.otherNotes || 'No additional notes';
+          if (previewTradability) previewTradability.textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
+          if (previewYear) previewYear.textContent = itemData.dateAcquired || 'Not specified';
+          if (previewDimensions) previewDimensions.textContent = itemData.dimensions || 'Not specified';
+          if (previewWeight) previewWeight.textContent = itemData.weight || 'Not specified';
+          if (previewCondition) previewCondition.textContent = itemData.condition !== 'Select type' ? itemData.condition : 'Not specified';
+          if (previewAuthor) previewAuthor.textContent = 'Current User'; // Replace with backend user data
+          if (previewRating) previewRating.textContent = '4.5'; // Placeholder
+          if (commentCount) commentCount.textContent = '0'; // Placeholder
+
+          // Display uploaded image
+          if (itemData.file) {
+            const previewImage = document.getElementById('previewImage');
+            if (previewImage) {
+              const reader = new FileReader();
+              reader.onload = (e) => {
+                previewImage.src = e.target.result;
+              };
+              reader.readAsDataURL(itemData.file);
+            }
+          }
+        } else {
+          alert('Error: ' + result.message);
+        }
+      } catch (error) {
+        console.error('Error updating item details:', error);
+        alert('An error occurred while updating the item details: ' + error.message);
+      }
+    });
+  }
+
+  // Comment submission
+  const submitCommentButton = document.querySelector('#previewModal .submit-comment');
+  if (submitCommentButton) {
+    submitCommentButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      const commentInput = document.getElementById('commentInput');
+      if (!commentInput) {
+        console.error('Comment input not found');
+        return;
+      }
+      const comment = commentInput.value.trim();
+      if (comment) {
+        console.log('Comment submitted:', comment);
+        commentInput.value = '';
+        const commentCount = document.getElementById('commentCount');
+        if (commentCount) {
+          commentCount.textContent = parseInt(commentCount.textContent) + 1;
+        }
+        alert('Comment submitted! (Placeholder)');
+      } else {
+        alert('Please enter a comment.');
+      }
+    });
+  }
+
+  // Back buttons
+  const detailedBackButton = document.querySelector('#detailedInfoModal .overlap-group');
+  if (detailedBackButton) {
+    detailedBackButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+      if (basicInfoModal) basicInfoModal.style.display = 'flex';
+      const itemName = document.getElementById('itemName');
+      if (itemName) itemName.focus();
+    });
+  }
+
+  const previewBackButton = document.querySelector('#previewModal .overlap-group');
+  if (previewBackButton) {
+    previewBackButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (previewModal) previewModal.style.display = 'none';
+      if (detailedInfoModal) detailedInfoModal.style.display = 'flex';
+      const dateAcquired = document.getElementById('dateAcquired');
+      if (dateAcquired) dateAcquired.focus();
+
+      // Re-display item image in detailedInfoModal
+      if (itemData.file) {
+        const detailedImage = document.getElementById('detailedImage');
+        if (detailedImage) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            detailedImage.src = e.target.result;
+          };
+          reader.readAsDataURL(itemData.file);
+        }
+      }
+    });
+  }
+
+  // Final upload
+  const previewNextButton = document.querySelector('#previewModal .overlap');
+  if (previewNextButton) {
+    previewNextButton.addEventListener('click', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData();
+      formData.append('item_id', currentItemId);
+      formData.append('final_submit', true);
+
+      try {
+        const response = await fetch("/upload-item/", {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'X-CSRFToken': getCsrfToken(),
+          },
+        });
+        const result = await response.json();
+        if (result.status === 'success') {
+          alert('Item successfully uploaded!');
+          if (previewModal) previewModal.style.display = 'none';
+          resetForm();
+        } else {
+          alert('Error: ' + result.message);
+        }
+      } catch (error) {
+        console.error('Error finalizing upload:', error);
+        alert('An error occurred while finalizing the upload: ' + error.message);
+      }
+    });
+  }
+
+  // Reset form
+  function resetForm() {
+    const itemName = document.getElementById('itemName');
+    const itemDescription = document.getElementById('itemDescription');
+    const dateAcquired = document.getElementById('dateAcquired');
+    const otherNotes = document.getElementById('otherNotes');
+    const dimensions = document.getElementById('dimensions');
+    const weight = document.getElementById('weight');
+    
+    if (itemName) itemName.value = '';
+    if (itemDescription) itemDescription.value = '';
+    if (itemTypeDropdown) {
+      const itemTypeText = itemTypeDropdown.querySelector('.text-wrapper-13');
+      if (itemTypeText) itemTypeText.textContent = 'Select type';
+    }
+    if (shelfDropdown) {
+      const shelfText = shelfDropdown.querySelector('.text-wrapper-13');
+      if (shelfText) shelfText.textContent = 'Select type';
+    }
+    if (dropZone) {
+      dropZone.style.backgroundImage = 'none';
+      const pfp = dropZone.querySelector('.pfp');
+      const overlap3 = dropZone.querySelector('.overlap-3');
+      const textWrapper15 = dropZone.querySelector('.text-wrapper-15');
+      const divWrapper = dropZone.querySelector('.div-wrapper');
+      if (pfp) pfp.style.display = 'block';
+      if (overlap3) overlap3.style.display = 'block';
+      if (textWrapper15) textWrapper15.style.display = 'block';
+      if (divWrapper) divWrapper.style.display = 'block';
+    }
+    tradability = 'Enabled';
+    if (tradabilityToggle) {
+      const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+      const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+      const text14 = overlap2 ? overlap2.querySelector('.text-wrapper-14') : null;
+      const text15 = overlap3 ? overlap3.querySelector('.text-wrapper-15') : null;
+      if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
+      if (overlap3) overlap3.style.backgroundColor = '#ffffff';
+      if (text14) text14.style.color = '#003566';
+      if (text15) text15.style.color = '#b9b9b9';
+    }
+    if (dateAcquired) dateAcquired.value = '';
+    if (otherNotes) otherNotes.value = '';
+    if (dimensions) dimensions.value = '';
+    if (weight) weight.value = '';
+    if (conditionDropdown) {
+      const conditionText = conditionDropdown.querySelector('.text-wrapper-13');
+      if (conditionText) conditionText.textContent = 'Select type';
+    }
+    currentItemId = null;
+    itemData = {};
+    const detailedImage = document.getElementById('detailedImage');
+    const previewImage = document.getElementById('previewImage');
+    if (detailedImage) detailedImage.src = '{% static "img/item-image-area.png" %}';
+    if (previewImage) previewImage.src = '{% static "img/item-image-area.png" %}';
   }
 });
-
-// Reset form
-function resetForm() {
-  document.getElementById('itemName').value = '';
-  document.getElementById('itemDescription').value = '';
-  itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-  shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-  dropZone.style.backgroundImage = 'none';
-  tradability = 'Enabled';
-  tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
-  tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
-  tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
-  tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
-  document.getElementById('dateAcquired').value = '';
-  document.getElementById('otherNotes').value = '';
-  receiptDropZone.style.backgroundImage = 'none';
-  document.getElementById('dimensions').value = '';
-  document.getElementById('weight').value = '';
-  conditionDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-  currentItemId = null;
-  itemData = {};
-  document.getElementById('previewImage').src = '{% static "img/item-image-area.png" %}';
-}
 </script>
   </body>
 </html>

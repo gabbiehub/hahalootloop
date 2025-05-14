@@ -630,6 +630,7 @@
 
 
 /* Detailed Information Modal */
+/* Detailed Information Modal */
 #detailedInfoModal .item-upload-page {
   width: 1400px;
   height: 800px;
@@ -648,16 +649,16 @@
   width: 100px;
   height: 35px;
   top: 615px;
-  left: 1148px;
+  left: 1150px;
 }
 
 #detailedInfoModal .rectangle {
+  position: absolute;
   width: 100px;
+  height: 35px;
   top: 0;
   left: 0;
   background-color: #ffc300;
-  position: absolute;
-  height: 35px;
 }
 
 #detailedInfoModal .text-wrapper {
@@ -685,7 +686,7 @@
   width: 100px;
   height: 35px;
   top: 615px;
-  left: 698px;
+  left: 153px;
 }
 
 #detailedInfoModal .div {
@@ -709,27 +710,27 @@
 }
 
 #detailedInfoModal .line {
-  left: 150px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 150px;
 }
 
 #detailedInfoModal .line-2 {
-  left: 525px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 525px;
 }
 
 #detailedInfoModal .line-3 {
-  left: 900px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 900px;
 }
 
 #detailedInfoModal .close-window {
@@ -783,8 +784,8 @@
 #detailedInfoModal .text-wrapper-5 {
   position: absolute;
   height: 30px;
-  top: 149px;
-  left: 698px;
+  top: 124px;
+  left: 779px;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   color: #000814;
@@ -795,70 +796,19 @@
   white-space: nowrap;
 }
 
+#detailedInfoModal .item-image-area {
+  position: absolute;
+  width: 521px;
+  height: 550px;
+  top: 150px;
+  left: 150px;
+  object-fit: cover;
+}
+
 #detailedInfoModal .text-wrapper-6 {
   position: absolute;
-  top: 199px;
-  left: 700px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #737373;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-7 {
-  position: absolute;
-  top: 199px;
-  left: 1000px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #737373;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-8 {
-  top: 654px;
-  left: 348px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #737373;
-  font-size: 14px;
-  position: absolute;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-9 {
-  position: absolute;
-  top: 279px;
-  left: 698px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #737373;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-10 {
-  position: absolute;
-  top: 359px;
-  left: 698px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #737373;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-11 {
-  position: absolute;
-  top: 439px;
-  left: 698px;
+  top: 150px;
+  left: 779px;
   font-family: "Inter-Bold", Helvetica;
   font-weight: 700;
   color: #737373;
@@ -871,8 +821,8 @@
   position: absolute;
   width: 250px;
   height: 35px;
-  top: 225px;
-  left: 698px;
+  top: 175px;
+  left: 779px;
   border: 1px solid #b9b9b9;
 }
 
@@ -899,13 +849,25 @@
   background: transparent;
 }
 
-#detailedInfoModal .rectangle-2 {
-  width: 250px;
-  top: 305px;
-  left: 698px;
-  border: 1px solid #b9b9b9;
+#detailedInfoModal .text-wrapper-9 {
   position: absolute;
+  top: 150px;
+  left: 1061px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#detailedInfoModal .rectangle-2 {
+  position: absolute;
+  width: 250px;
   height: 35px;
+  top: 175px;
+  left: 1061px;
+  border: 1px solid #b9b9b9;
 }
 
 #detailedInfoModal .rectangle-2 input {
@@ -918,13 +880,25 @@
   color: #333;
 }
 
-#detailedInfoModal .rectangle-3 {
-  width: 250px;
-  top: 385px;
-  left: 698px;
-  border: 1px solid #b9b9b9;
+#detailedInfoModal .text-wrapper-10 {
   position: absolute;
+  top: 235px;
+  left: 779px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#detailedInfoModal .rectangle-3 {
+  position: absolute;
+  width: 250px;
   height: 35px;
+  top: 260px;
+  left: 779px;
+  border: 1px solid #b9b9b9;
 }
 
 #detailedInfoModal .rectangle-3 input {
@@ -937,24 +911,33 @@
   color: #333;
 }
 
+#detailedInfoModal .text-wrapper-11 {
+  position: absolute;
+  top: 235px;
+  left: 1061px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
 #detailedInfoModal .dropdown-menu {
-  display: flex;
+  position: absolute;
   width: 250px;
   height: 35px;
+  top: 260px;
+  left: 1061px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 15px;
-  position: absolute;
-  top: 465px;
-  left: 698px;
   border: 1px solid #b9b9b9;
   cursor: pointer;
 }
 
 #detailedInfoModal .text-wrapper-13 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1.00px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #b9b9b9;
@@ -964,10 +947,8 @@
 }
 
 #detailedInfoModal .vector-2 {
-  position: relative;
   width: 11.42px;
   height: 7.14px;
-  margin-right: -0.73px;
 }
 
 #detailedInfoModal .dropdown-options {
@@ -993,129 +974,37 @@
   background-color: #f0f0f0;
 }
 
-#detailedInfoModal .upload-file-group {
+#detailedInfoModal .text-wrapper-7 {
   position: absolute;
-  width: 508px;
-  height: 500px;
-  top: 150px;
-  left: 150px;
-}
-
-#detailedInfoModal .overlap-group-2 {
-  position: relative;
-  width: 500px;
-  height: 500px;
-  border: 1px dashed #003566;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#detailedInfoModal .pfp {
-  position: absolute;
-  width: 124px;
-  height: 124px;
-  top: 125px;
-  left: 187px;
-  object-fit: cover;
-}
-
-#detailedInfoModal .overlap-3 {
-  position: absolute;
-  width: 213px;
-  height: 43px;
-  top: 250px;
-  left: 144px;
-}
-
-#detailedInfoModal .drag-drop-to-upload {
-  position: absolute;
-  width: 213px;
-  top: 0;
-  left: 0;
-  font-family: "Inter-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #000814;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-14 {
-  position: absolute;
-  top: 27px;
-  left: 41px;
-  font-family: "Jaro-Regular", Helvetica;
-  font-weight: 400;
+  top: 320px;
+  left: 779px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
   color: #737373;
-  font-size: 13px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .text-wrapper-15 {
-  position: absolute;
-  top: 294px;
-  left: 242px;
-  font-family: "Inter-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #000814;
   font-size: 14px;
   letter-spacing: 0;
   line-height: normal;
 }
 
-#detailedInfoModal .div-wrapper {
-  position: absolute;
-  width: 120px;
-  height: 35px;
-  top: 321px;
-  left: 190px;
-  background-color: #ffc300;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-#detailedInfoModal .text-wrapper-16 {
-  top: 5px;
-  left: 14px;
-  font-family: "Jaro-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff;
-  font-size: 20px;
-  position: absolute;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-#detailedInfoModal .hidden-file-input {
-  display: none;
-}
-
 #detailedInfoModal .rectangle-4 {
   position: absolute;
-  width: 250px;
-  height: 195px;
-  top: 225px;
-  left: 1000px;
+  width: 532px;
+  height: 255px;
+  top: 345px;
+  left: 779px;
   border: 1px solid #b9b9b9;
 }
 
-#detailedInfoModal .rectangle-4 input {
+#detailedInfoModal .rectangle-4 textarea {
   width: 100%;
   height: 100%;
   border: none;
-  padding: 0 10px;
+  padding: 10px;
   font-family: "Inter-Regular", Helvetica;
   font-size: 14px;
   color: #333;
   resize: vertical;
 }
-
 /* Preview and Uploading Modal */
 /* Preview and Uploading Modal */
 #previewModal .item-upload-page {
