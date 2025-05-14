@@ -461,18 +461,18 @@
     </div>
   </div>
   <!-- Preview and Uploading Modal -->
+<!-- Preview and Uploading Modal -->
 <div class="modal" id="previewModal" style="display: none;">
   <div class="modal-content item-upload-page">
-   <!--  <span class="close-button" id="closePreviewModal">×</span>-->
+    <div class="overlap">
+      <div class="rectangle"></div>
+      <div class="text-wrapper">Upload</div>
+      <img class="up" src="{% static 'img/image.png' %}" alt="Upload Arrow" />
+    </div>
     <div class="overlap-group">
       <div class="rectangle"></div>
       <div class="div">Back</div>
       <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
-    </div>
-    <div class="overlap">
-      <div class="rectangle"></div>
-      <div class="text-wrapper">Upload</div>
-      <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
     </div>
     <img class="line" src="{% static 'img/line-11.svg' %}" alt="Line" />
     <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
@@ -481,10 +481,47 @@
     <div class="text-wrapper-2">Basic Information</div>
     <div class="text-wrapper-3">Detailed Information</div>
     <div class="text-wrapper-4">Preview and Uploading</div>
-    <div class="text-wrapper-5">Preview Your Item</div>
-    <!-- Placeholder for preview content -->
-    <div class="preview-content">
-      <p>Item preview will be displayed here.</p>
+    <img class="item-image-area" id="previewImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
+    <div class="preview-details">
+      <h3 id="previewName">Jujutsu Kaisen Satoru Gojo Past Edition</h3>
+      <p class="text-wrapper-22" id="previewAuthor">Author Name</p>
+      <div class="rating-section">
+        <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
+        <span class="text-wrapper-20" id="previewRating">4.5</span>
+      </div>
+      <p class="text-wrapper-7" id="previewTradability">Available for trade</p>
+      <hr class="line-4" />
+      <h5 class="text-wrapper-18">Description:</h5>
+      <p class="p" id="previewDescription">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua...
+      </p>
+      <div class="overlap-5">
+        <p class="year-acquired"><span class="span">Year Acquired:</span></p>
+        <span class="text-wrapper-12" id="previewYear">2024</span>
+      </div>
+      <div class="overlap-6">
+        <p class="text-wrapper-13">Dimensions:</p>
+        <span class="text-wrapper-12" id="previewDimensions">6in x 4in</span>
+      </div>
+      <p class="weight"><span class="span">Weight:</span> <span class="text-wrapper-16" id="previewWeight">357grams</span></p>
+      <p class="text-wrapper-14">Condition:</p>
+      <span class="text-wrapper-15" id="previewCondition">No Damage</span>
+      <div class="overlap-3">
+        <div class="rectangle contact-owner"></div>
+        <div class="text-wrapper-6">Contact Owner</div>
+      </div>
+      <hr class="line-5" />
+      <h5 class="text-wrapper-8">Comments</h5>
+      <div class="comment-section overlap-group">
+        <div class="overlap-7">
+          <div class="text-wrapper-21" id="commentCount">0</div>
+        </div>
+        <input type="text" class="text-wrapper-5 comment-input" id="commentInput" placeholder="Add a comment..." />
+        <div class="div-wrapper">
+          <div class="text-wrapper-4 submit-comment">Submit</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -818,6 +855,218 @@
     previewModal.style.display = 'none';
     resetForm();
   });
+  // Store form data globally to pass between modals
+let itemData = {};
+
+// Basic Info submission (modified to store data)
+document.querySelector('#basicInfoModal .overlap').addEventListener('click', async (event) => {
+  event.preventDefault();
+  
+  // Collect form data
+  const name = document.getElementById('itemName').value.trim();
+  const description = document.getElementById('itemDescription').value.trim();
+  const itemType = itemTypeDropdown.querySelector('.text-wrapper-13').textContent;
+  const shelf = shelfDropdown.querySelector('.text-wrapper-13').textContent;
+
+  // Validate required fields
+  if (!name) {
+    alert('Please enter the item name.');
+    return;
+  }
+  if (!description) {
+    alert('Please enter the item description.');
+    return;
+  }
+  if (itemType === 'Select type') {
+    alert('Please select an item type.');
+    return;
+  }
+  if (shelf === 'Select type') {
+    alert('Please select a shelf.');
+    return;
+  }
+
+  // Store data
+  itemData = {
+    name,
+    description,
+    itemType,
+    shelf,
+    tradability,
+    file: fileInput.files[0]
+  };
+
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('description', description);
+  formData.append('itemType', itemType);
+  formData.append('shelf', shelf);
+  formData.append('tradability', tradability);
+  if (fileInput.files[0]) formData.append('file', fileInput.files[0]);
+
+  try {
+    const response = await fetch("/upload-item/", {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRFToken': getCsrfToken(),
+      },
+    });
+    const result = await response.json();
+    if (result.status === 'success') {
+      currentItemId = result.item_id;
+      basicInfoModal.style.display = 'none';
+      detailedInfoModal.style.display = 'flex';
+      document.getElementById('dateAcquired').focus();
+    } else {
+      alert('Error: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error uploading item:', error);
+    alert('An error occurred while uploading the item: ' + error.message);
+  }
+});
+
+// Detailed Info submission (modified to store data and populate preview)
+document.querySelector('#detailedInfoModal .overlap').addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  // Collect detailed info
+  const dateAcquired = document.getElementById('dateAcquired').value;
+  const otherNotes = document.getElementById('otherNotes').value;
+  const dimensions = document.getElementById('dimensions').value;
+  const weight = document.getElementById('weight').value;
+  const condition = conditionDropdown.querySelector('.text-wrapper-13').textContent;
+
+  // Update itemData
+  itemData = {
+    ...itemData,
+    dateAcquired,
+    otherNotes,
+    dimensions,
+    weight,
+    condition,
+    receipt: receiptInput.files[0]
+  };
+
+  const formData = new FormData();
+  formData.append('item_id', currentItemId);
+  formData.append('dateAcquired', dateAcquired);
+  formData.append('otherNotes', otherNotes);
+  formData.append('dimensions', dimensions);
+  formData.append('weight', weight);
+  formData.append('condition', condition);
+  if (receiptInput.files[0]) formData.append('receipt', receiptInput.files[0]);
+
+  try {
+    const response = await fetch("/upload-item/", {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRFToken': getCsrfToken(),
+      },
+    });
+    const result = await response.json();
+    if (result.status === 'success') {
+      detailedInfoModal.style.display = 'none';
+      previewModal.style.display = 'flex';
+
+      // Populate preview modal
+      document.getElementById('previewName').textContent = itemData.name;
+      document.getElementById('previewDescription').textContent = itemData.description;
+      document.getElementById('previewTradability').textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
+      document.getElementById('previewYear').textContent = itemData.dateAcquired || 'Not specified';
+      document.getElementById('previewDimensions').textContent = itemData.dimensions || 'Not specified';
+      document.getElementById('previewWeight').textContent = itemData.weight || 'Not specified';
+      document.getElementById('previewCondition').textContent = itemData.condition !== 'Select type' ? itemData.condition : 'Not specified';
+      document.getElementById('previewAuthor').textContent = 'Current User'; // Replace with backend user data
+      document.getElementById('previewRating').textContent = '4.5'; // Placeholder, update with backend data
+      document.getElementById('commentCount').textContent = '0'; // Placeholder, update with backend data
+
+      // Display uploaded image
+      if (itemData.file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          document.getElementById('previewImage').src = e.target.result;
+        };
+        reader.readAsDataURL(itemData.file);
+      }
+    } else {
+      alert('Error: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error updating item details:', error);
+    alert('An error occurred while updating the item details: ' + error.message);
+  }
+});
+
+// Comment submission (placeholder)
+document.querySelector('#previewModal .submit-comment').addEventListener('click', (event) => {
+  event.preventDefault();
+  const comment = document.getElementById('commentInput').value.trim();
+  if (comment) {
+    // Placeholder: Send comment to backend
+    console.log('Comment submitted:', comment);
+    document.getElementById('commentInput').value = '';
+    document.getElementById('commentCount').textContent = parseInt(document.getElementById('commentCount').textContent) + 1;
+    alert('Comment submitted! (Placeholder)');
+  } else {
+    alert('Please enter a comment.');
+  }
+});
+
+// Final upload
+document.querySelector('#previewModal .overlap').addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const formData = new FormData();
+  formData.append('item_id', currentItemId);
+  formData.append('final_submit', true); // Signal final submission
+
+  try {
+    const response = await fetch("/upload-item/", {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRFToken': getCsrfToken(),
+      },
+    });
+    const result = await response.json();
+    if (result.status === 'success') {
+      alert('Item successfully uploaded!');
+      previewModal.style.display = 'none';
+      resetForm();
+    } else {
+      alert('Error: ' + result.message);
+    }
+  } catch (error) {
+    console.error('Error finalizing upload:', error);
+    alert('An error occurred while finalizing the upload: ' + error.message);
+  }
+});
+
+// Reset form (modified to clear itemData)
+function resetForm() {
+  document.getElementById('itemName').value = '';
+  document.getElementById('itemDescription').value = '';
+  itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+  shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+  dropZone.style.backgroundImage = 'none';
+  tradability = 'Enabled';
+  tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
+  tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
+  tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
+  tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+  document.getElementById('dateAcquired').value = '';
+  document.getElementById('otherNotes').value = '';
+  receiptDropZone.style.backgroundImage = 'none';
+  document.getElementById('dimensions').value = '';
+  document.getElementById('weight').value = '';
+  conditionDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
+  currentItemId = null;
+  itemData = {};
+  document.getElementById('previewImage').src = '{% static "img/item-image-area.png" %}';
+}
 </script>
   </body>
 </html>

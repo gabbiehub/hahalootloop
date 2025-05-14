@@ -1117,6 +1117,7 @@
 }
 
 /* Preview and Uploading Modal */
+/* Preview and Uploading Modal */
 #previewModal .item-upload-page {
   width: 1400px;
   height: 800px;
@@ -1134,23 +1135,23 @@
   position: absolute;
   width: 100px;
   height: 35px;
-  top: 615px;
-  left: 1148px;
+  top: 709px;
+  left: 1150px;
 }
 
 #previewModal .rectangle {
+  position: absolute;
   width: 100px;
+  height: 35px;
   top: 0;
   left: 0;
   background-color: #ffc300;
-  position: absolute;
-  height: 35px;
 }
 
 #previewModal .text-wrapper {
   position: absolute;
   top: 4px;
-  left: 19px;
+  left: 11px;
   font-family: "Jaro-Regular", Helvetica;
   font-weight: 400;
   color: #ffffff;
@@ -1164,15 +1165,15 @@
   width: 20px;
   height: 20px;
   top: 8px;
-  left: 62px;
+  left: 69px;
 }
 
 #previewModal .overlap-group {
   position: absolute;
   width: 100px;
   height: 35px;
-  top: 615px;
-  left: 698px;
+  top: 709px;
+  left: 153px;
 }
 
 #previewModal .div {
@@ -1196,27 +1197,27 @@
 }
 
 #previewModal .line {
-  left: 150px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 150px;
 }
 
 #previewModal .line-2 {
-  left: 525px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 525px;
 }
 
 #previewModal .line-3 {
-  left: 900px;
   position: absolute;
   width: 350px;
   height: 3px;
   top: 72px;
+  left: 900px;
 }
 
 #previewModal .close-window {
@@ -1271,7 +1272,7 @@
   position: absolute;
   height: 30px;
   top: 149px;
-  left: 698px;
+  left: 779px;
   font-family: "Inter-SemiBold", Helvetica;
   font-weight: 600;
   color: #000814;
@@ -1282,11 +1283,247 @@
   white-space: nowrap;
 }
 
-#previewModal .preview-content {
+#previewModal .item-image-area {
   position: absolute;
-  top: 200px;
+  width: 521px;
+  height: 550px;
+  top: 124px;
   left: 150px;
+  object-fit: cover;
+}
+
+#previewModal .preview-details {
+  position: absolute;
+  top: 124px;
+  left: 779px;
+  width: 471px;
+}
+
+#previewModal h3 {
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 27px;
+  letter-spacing: 1.35px;
+  margin: 0;
+}
+
+#previewModal .text-wrapper-22 {
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #737373;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin: 10px 0;
+}
+
+#previewModal .rating-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#previewModal .star {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+#previewModal .text-wrapper-20 {
+  font-family: "Jaro-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#previewModal .text-wrapper-7 {
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000814;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+#previewModal .line-4,
+#previewModal .line-5 {
+  width: 471px;
+  height: 2px;
+  background-color: #000000;
+  margin: 20px 0;
+}
+
+#previewModal .text-wrapper-18 {
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+#previewModal .p {
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #737373;
+  font-size: 12px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+#previewModal .overlap-5,
+#previewModal .overlap-6 {
+  position: relative;
+  width: 179px;
+  height: 13px;
+  margin-bottom: 15px;
+}
+
+#previewModal .year-acquired,
+#previewModal .text-wrapper-13,
+#previewModal .weight,
+#previewModal .text-wrapper-14 {
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #737373;
+  font-size: 12px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+  margin: 0;
+}
+
+#previewModal .span {
+  font-weight: 700;
+}
+
+#previewModal .text-wrapper-12,
+#previewModal .text-wrapper-15,
+#previewModal .text-wrapper-16 {
+  font-family: "Inter-Light", Helvetica;
+  font-weight: 300;
+  color: #737373;
+  font-size: 12px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#previewModal .overlap-3 {
+  position: relative;
+  width: 180px;
+  height: 35px;
+  margin-top: 20px;
+}
+
+#previewModal .contact-owner {
+  background-color: #001d3d;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+#previewModal .text-wrapper-6 {
+  position: absolute;
+  top: 9px;
+  left: 38px;
+  font-family: "Inter-Black", Helvetica;
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#previewModal .text-wrapper-8 {
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000814;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+#previewModal .comment-section {
+  width: 471px;
+  height: 61px;
+  background-color: #0000000d;
+  border-radius: 5px;
+  position: relative;
+}
+
+#previewModal .overlap-7 {
+  position: absolute;
+  width: 23px;
+  height: 13px;
+  top: 4px;
+  left: 92px;
+  background-color: #001d3d;
+  border-radius: 10px;
+}
+
+#previewModal .text-wrapper-21 {
+  position: absolute;
+  width: 5px;
+  height: 6px;
+  top: 3px;
+  left: 9px;
   font-family: "Inter-Regular", Helvetica;
-  font-size: 16px;
-  color: #333;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+#previewModal .comment-input {
+  width: 127px;
+  top: 7px;
+  left: 14px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #737373;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: normal;
+  border: none;
+  background: transparent;
+}
+
+#previewModal .div-wrapper {
+  position: absolute;
+  width: 49px;
+  height: 19px;
+  top: 33px;
+  left: 413px;
+  background-color: #ffc300;
+  border-radius: 15px;
+}
+
+#previewModal .submit-comment {
+  position: absolute;
+  height: 12px;
+  top: 2px;
+  left: 7px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 10px;
+  letter-spacing: 0;
+  line-height: normal;
 }
