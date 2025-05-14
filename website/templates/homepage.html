@@ -426,7 +426,7 @@
         <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
       </div>
       <div class="rectangle-2">
-        <input type="text" id="otherNotes" placeholder="Enter notes" />
+        <input type="text" id="dimensions" placeholder="Enter dimensions" />
       </div>
       <div class="upload-file-group">
         <div class="overlap-group-2" id="receiptDropZone">
@@ -443,10 +443,10 @@
         </div>
       </div>
       <div class="rectangle-3">
-        <input type="text" id="dimensions" placeholder="Enter dimensions" />
+        <input type="text" id="weight" placeholder="Enter weight" />
       </div>
       <div class="rectangle-4">
-        <input type="text" id="weight" placeholder="Enter weight" />
+        <input type="text" id="otherNotes" placeholder="Enter notes" />
       </div>
       <div class="dropdown-menu">
         <div class="text-wrapper-13">Select type</div>
@@ -492,32 +492,37 @@
       <p class="text-wrapper-7" id="previewTradability">Available for trade</p>
       <hr class="line-4" />
       <h5 class="text-wrapper-18">Description:</h5>
-      <p class="p" id="previewDescription">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua...
-      </p>
-      <div class="overlap-5">
+      <p class="p" id="previewDescription">Lorem ipsum dolor sit amet...</p>
+      <h5 class="text-wrapper-18">Notes:</h5>
+      <p class="p" id="previewNotes">No additional notes</p>
+      <div class="detail-row">
         <p class="year-acquired"><span class="span">Year Acquired:</span></p>
         <span class="text-wrapper-12" id="previewYear">2024</span>
       </div>
-      <div class="overlap-6">
+      <div class="detail-row">
         <p class="text-wrapper-13">Dimensions:</p>
         <span class="text-wrapper-12" id="previewDimensions">6in x 4in</span>
       </div>
-      <p class="weight"><span class="span">Weight:</span> <span class="text-wrapper-16" id="previewWeight">357grams</span></p>
-      <p class="text-wrapper-14">Condition:</p>
-      <span class="text-wrapper-15" id="previewCondition">No Damage</span>
+      <div class="detail-row">
+        <p class="weight"><span class="span">Weight:</span></p>
+        <span class="text-wrapper-12" id="previewWeight">357grams</span>
+      </div>
+      <div class="detail-row">
+        <p class="text-wrapper-14">Condition:</p>
+        <span class="text-wrapper-12" id="previewCondition">No Damage</span>
+      </div>
       <div class="overlap-3">
         <div class="rectangle contact-owner"></div>
         <div class="text-wrapper-6">Contact Owner</div>
       </div>
       <hr class="line-5" />
       <h5 class="text-wrapper-8">Comments</h5>
-      <div class="comment-section overlap-group">
-        <div class="overlap-7">
+      <div class="comment-section">
+        <div class="comment-count">
           <div class="text-wrapper-21" id="commentCount">0</div>
+          <span>Comments</span>
         </div>
-        <input type="text" class="text-wrapper-5 comment-input" id="commentInput" placeholder="Add a comment..." />
+        <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment..." />
         <div class="div-wrapper">
           <div class="text-wrapper-4 submit-comment">Submit</div>
         </div>
@@ -527,338 +532,201 @@
 </div>
 <script>
   // Get DOM elements for message modal
-  const chatButton = document.getElementById('chatButton');
-  const messageModal = document.getElementById('messageModal');
-  const closeModal = document.getElementById('closeModal');
-  const messageInput = document.getElementById('messageInput');
+const chatButton = document.getElementById('chatButton');
+const messageModal = document.getElementById('messageModal');
+const closeModal = document.getElementById('closeModal');
+const messageInput = document.getElementById('messageInput');
 
-  // Get DOM elements for upload modals
-  const uploadButton = document.getElementById('uploadButton');
-  const basicInfoModal = document.getElementById('basicInfoModal');
-  const detailedInfoModal = document.getElementById('detailedInfoModal');
-  const previewModal = document.getElementById('previewModal');
-  const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
-  const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
-  const closePreviewModal = document.getElementById('closePreviewModal');
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('fileInput');
-  const receiptDropZone = document.getElementById('receiptDropZone');
-  const receiptInput = document.getElementById('receiptInput');
-  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
-  const shelfDropdown = document.getElementById('shelfDropdown');
-  const tradabilityToggle = document.getElementById('tradabilityToggle');
-  const conditionDropdown = document.querySelector('#detailedInfoModal .dropdown-menu');
-  let tradability = 'Enabled';
-  let currentItemId = null;
+// Get DOM elements for upload modals
+const uploadButton = document.getElementById('uploadButton');
+const basicInfoModal = document.getElementById('basicInfoModal');
+const detailedInfoModal = document.getElementById('detailedInfoModal');
+const previewModal = document.getElementById('previewModal');
+const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
+const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
+const closePreviewModal = document.getElementById('closePreviewModal');
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const receiptDropZone = document.getElementById('receiptDropZone');
+const receiptInput = document.getElementById('receiptInput');
+const itemTypeDropdown = document.getElementById('itemTypeDropdown');
+const shelfDropdown = document.getElementById('shelfDropdown');
+const tradabilityToggle = document.getElementById('tradabilityToggle');
+const conditionDropdown = document.querySelector('#detailedInfoModal .dropdown-menu');
+let tradability = 'Enabled';
+let currentItemId = null;
+let itemData = {};
 
-  // Function to get CSRF token
-  function getCsrfToken() {
-    return document.querySelector('input[name="csrfmiddlewaretoken"]').value;
-  }
+// Function to get CSRF token
+function getCsrfToken() {
+  return document.querySelector('input[name="csrfmiddlewaretoken"]').value;
+}
 
-  // Toggle message modal
-  chatButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    messageModal.style.display = 'flex';
-    messageInput.focus();
-  });
+// Toggle message modal
+chatButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  messageModal.style.display = 'flex';
+  messageInput.focus();
+});
 
-  closeModal.addEventListener('click', () => {
+closeModal.addEventListener('click', () => {
+  messageModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+  if (event.target === messageModal) {
     messageModal.style.display = 'none';
-  });
-
-  window.addEventListener('click', (event) => {
-    if (event.target === messageModal) {
-      messageModal.style.display = 'none';
-    }
-  });
-
-  messageInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      document.querySelector('.send-button').click();
-    }
-  });
-
-  // Open basic info modal
-  uploadButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    basicInfoModal.style.display = 'flex';
-    document.getElementById('itemName').focus();
-  });
-
-  // Close modals
-  [closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
-    closeButton.addEventListener('click', () => {
-      basicInfoModal.style.display = 'none';
-      detailedInfoModal.style.display = 'none';
-      previewModal.style.display = 'none';
-      resetForm();
-    });
-  });
-
-  window.addEventListener('click', (event) => {
-    if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
-      basicInfoModal.style.display = 'none';
-      detailedInfoModal.style.display = 'none';
-      previewModal.style.display = 'none';
-      resetForm();
-    }
-  });
-
-  // Drag and drop file upload (Basic Info)
-  dropZone.addEventListener('dragover', (event) => {
-    event.preventDefault();
-    dropZone.style.borderColor = '#003566';
-  });
-
-  dropZone.addEventListener('dragleave', (event) => {
-    event.preventDefault();
-    dropZone.style.borderColor = '#003566';
-  });
-
-  dropZone.addEventListener('drop', (event) => {
-    event.preventDefault();
-    dropZone.style.borderColor = '#003566';
-    const files = event.dataTransfer.files;
-    if (files.length > 0) {
-      fileInput.files = files;
-      handleFileUpload(files[0], dropZone);
-    }
-  });
-
-  fileInput.addEventListener('change', (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      handleFileUpload(files[0], dropZone);
-    }
-  });
-
-  // Drag and drop receipt upload (Detailed Info)
-  receiptDropZone.addEventListener('dragover', (event) => {
-    event.preventDefault();
-    receiptDropZone.style.borderColor = '#003566';
-  });
-
-  receiptDropZone.addEventListener('dragleave', (event) => {
-    event.preventDefault();
-    receiptDropZone.style.borderColor = '#003566';
-  });
-
-  receiptDropZone.addEventListener('drop', (event) => {
-    event.preventDefault();
-    receiptDropZone.style.borderColor = '#003566';
-    const files = event.dataTransfer.files;
-    if (files.length > 0) {
-      receiptInput.files = files;
-      handleFileUpload(files[0], receiptDropZone);
-    }
-  });
-
-  receiptInput.addEventListener('change', (event) => {
-    const files = event.target.files;
-    if (files.length > 0) {
-      handleFileUpload(files[0], receiptDropZone);
-    }
-  });
-
-  function handleFileUpload(file, dropZoneElement) {
-    const validTypes = ['image/jpeg', 'image/png'];
-    if (validTypes.includes(file.type)) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
-        dropZoneElement.style.backgroundSize = 'cover';
-        dropZoneElement.style.backgroundPosition = 'center';
-      };
-      reader.readAsDataURL(file);
-    } else {
-      alert('Please upload a JPG or PNG file.');
-    }
   }
+});
 
-  // Dropdown functionality
-  [itemTypeDropdown, shelfDropdown, conditionDropdown].forEach(dropdown => {
-    dropdown.addEventListener('click', () => {
-      const options = dropdown.querySelector('.dropdown-options');
-      options.style.display = options.style.display === 'block' ? 'none' : 'block';
-    });
-  });
-
-  document.querySelectorAll('.dropdown-options .option').forEach(option => {
-    option.addEventListener('click', (e) => {
-      const dropdown = e.target.closest('.dropdown-menu, .dropdown-menu-2');
-      dropdown.querySelector('.text-wrapper-13').textContent = e.target.textContent;
-      dropdown.querySelector('.dropdown-options').style.display = 'none';
-    });
-  });
-
-  window.addEventListener('click', (event) => {
-    if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
-      document.querySelectorAll('.dropdown-options').forEach(options => {
-        options.style.display = 'none';
-      });
-    }
-  });
-
-  // Tradability toggle
-  tradabilityToggle.addEventListener('click', (event) => {
-    const overlap2 = tradabilityToggle.querySelector('.overlap-2');
-    const overlap3 = tradabilityToggle.querySelector('.overlap-3');
-    if (tradability === 'Enabled') {
-      overlap2.style.backgroundColor = '#b9b9b9';
-      overlap3.style.backgroundColor = '#ffd60a';
-      overlap2.querySelector('.text-wrapper-14').style.color = '#b9b9b9';
-      overlap3.querySelector('.text-wrapper-15').style.color = '#003566';
-      tradability = 'Disabled';
-    } else {
-      overlap2.style.backgroundColor = '#ffd60a';
-      overlap3.style.backgroundColor = '#ffffff';
-      overlap2.querySelector('.text-wrapper-14').style.color = '#003566';
-      overlap3.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
-      tradability = 'Enabled';
-    }
-  });
-
-  // Reset form function
-  function resetForm() {
-    document.getElementById('itemName').value = '';
-    document.getElementById('itemDescription').value = '';
-    itemTypeDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-    shelfDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-    dropZone.style.backgroundImage = 'none';
-    tradability = 'Enabled';
-    tradabilityToggle.querySelector('.overlap-2').style.backgroundColor = '#ffd60a';
-    tradabilityToggle.querySelector('.overlap-3').style.backgroundColor = '#ffffff';
-    tradabilityToggle.querySelector('.text-wrapper-14').style.color = '#003566';
-    tradabilityToggle.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
-    document.getElementById('dateAcquired').value = '';
-    document.getElementById('otherNotes').value = '';
-    receiptDropZone.style.backgroundImage = 'none';
-    document.getElementById('dimensions').value = '';
-    document.getElementById('weight').value = '';
-    conditionDropdown.querySelector('.text-wrapper-13').textContent = 'Select type';
-    currentItemId = null;
+messageInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    document.querySelector('.send-button').click();
   }
+});
 
-  // Basic Info submission
-  document.querySelector('#basicInfoModal .overlap').addEventListener('click', async (event) => {
-    event.preventDefault();
-    
-    // Collect form data
-    const name = document.getElementById('itemName').value.trim();
-    const description = document.getElementById('itemDescription').value.trim();
-    const itemType = itemTypeDropdown.querySelector('.text-wrapper-13').textContent;
-    const shelf = shelfDropdown.querySelector('.text-wrapper-13').textContent;
+// Open basic info modal
+uploadButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  basicInfoModal.style.display = 'flex';
+  document.getElementById('itemName').focus();
+});
 
-    // Validate required fields
-    if (!name) {
-      alert('Please enter the item name.');
-      return;
-    }
-    if (!description) {
-      alert('Please enter the item description.');
-      return;
-    }
-    if (itemType === 'Select type') {
-      alert('Please select an item type.');
-      return;
-    }
-    if (shelf === 'Select type') {
-      alert('Please select a shelf.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('itemType', itemType);
-    formData.append('shelf', shelf);
-    formData.append('tradability', tradability);
-    if (fileInput.files[0]) formData.append('file', fileInput.files[0]);
-
-    try {
-      const response = await fetch("/upload-item/", {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'X-CSRFToken': getCsrfToken(),
-        },
-      });
-      const result = await response.json();
-      if (result.status === 'success') {
-        currentItemId = result.item_id;
-        basicInfoModal.style.display = 'none';
-        detailedInfoModal.style.display = 'flex';
-        document.getElementById('dateAcquired').focus();
-      } else {
-        alert('Error: ' + result.message);
-      }
-    } catch (error) {
-      console.error('Error uploading item:', error);
-      alert('An error occurred while uploading the item: ' + error.message);
-    }
-  });
-
-  // Detailed Info submission
-  document.querySelector('#detailedInfoModal .overlap').addEventListener('click', async (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('item_id', currentItemId);
-    formData.append('dateAcquired', document.getElementById('dateAcquired').value);
-    formData.append('otherNotes', document.getElementById('otherNotes').value);
-    formData.append('dimensions', document.getElementById('dimensions').value);
-    formData.append('weight', document.getElementById('weight').value);
-    formData.append('condition', conditionDropdown.querySelector('.text-wrapper-13').textContent);
-    if (receiptInput.files[0]) formData.append('receipt', receiptInput.files[0]);
-
-    try {
-      const response = await fetch("/upload-item/", {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'X-CSRFToken': getCsrfToken(),
-        },
-      });
-      const result = await response.json();
-      if (result.status === 'success') {
-        detailedInfoModal.style.display = 'none';
-        previewModal.style.display = 'flex';
-      } else {
-        alert('Error: ' + result.message);
-      }
-    } catch (error) {
-      console.error('Error updating item details:', error);
-      alert('An error occurred while updating the item details: ' + error.message);
-    }
-  });
-
-  // Back buttons
-  document.querySelector('#detailedInfoModal .overlap-group').addEventListener('click', (event) => {
-    event.preventDefault();
+// Close modals
+[closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
+  closeButton.addEventListener('click', () => {
+    basicInfoModal.style.display = 'none';
     detailedInfoModal.style.display = 'none';
-    basicInfoModal.style.display = 'flex';
-    document.getElementById('itemName').focus();
-  });
-
-  document.querySelector('#previewModal .overlap-group').addEventListener('click', (event) => {
-    event.preventDefault();
-    previewModal.style.display = 'none';
-    detailedInfoModal.style.display = 'flex';
-    document.getElementById('dateAcquired').focus();
-  });
-
-  // Final upload (placeholder for now)
-  document.querySelector('#previewModal .overlap').addEventListener('click', (event) => {
-    event.preventDefault();
-    alert('Item fully uploaded! (Placeholder)');
     previewModal.style.display = 'none';
     resetForm();
   });
-  // Store form data globally to pass between modals
-let itemData = {};
+});
 
-// Basic Info submission (modified to store data)
+window.addEventListener('click', (event) => {
+  if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
+    basicInfoModal.style.display = 'none';
+    detailedInfoModal.style.display = 'none';
+    previewModal.style.display = 'none';
+    resetForm();
+  }
+});
+
+// Drag and drop file upload (Basic Info)
+dropZone.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  dropZone.style.borderColor = '#003566';
+});
+
+dropZone.addEventListener('dragleave', (event) => {
+  event.preventDefault();
+  dropZone.style.borderColor = '#003566';
+});
+
+dropZone.addEventListener('drop', (event) => {
+  event.preventDefault();
+  dropZone.style.borderColor = '#003566';
+  const files = event.dataTransfer.files;
+  if (files.length > 0) {
+    fileInput.files = files;
+    handleFileUpload(files[0], dropZone);
+  }
+});
+
+fileInput.addEventListener('change', (event) => {
+  const files = event.target.files;
+  if (files.length > 0) {
+    handleFileUpload(files[0], dropZone);
+  }
+});
+
+// Drag and drop receipt upload (Detailed Info)
+receiptDropZone.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  receiptDropZone.style.borderColor = '#003566';
+});
+
+receiptDropZone.addEventListener('dragleave', (event) => {
+  event.preventDefault();
+  receiptDropZone.style.borderColor = '#003566';
+});
+
+receiptDropZone.addEventListener('drop', (event) => {
+  event.preventDefault();
+  receiptDropZone.style.borderColor = '#003566';
+  const files = event.dataTransfer.files;
+  if (files.length > 0) {
+    receiptInput.files = files;
+    handleFileUpload(files[0], receiptDropZone);
+  }
+});
+
+receiptInput.addEventListener('change', (event) => {
+  const files = event.target.files;
+  if (files.length > 0) {
+    handleFileUpload(files[0], receiptDropZone);
+  }
+});
+
+function handleFileUpload(file, dropZoneElement) {
+  const validTypes = ['image/jpeg', 'image/png'];
+  if (validTypes.includes(file.type)) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
+      dropZoneElement.style.backgroundSize = 'cover';
+      dropZoneElement.style.backgroundPosition = 'center';
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert('Please upload a JPG or PNG file.');
+  }
+}
+
+// Dropdown functionality
+[itemTypeDropdown, shelfDropdown, conditionDropdown].forEach(dropdown => {
+  dropdown.addEventListener('click', () => {
+    const options = dropdown.querySelector('.dropdown-options');
+    options.style.display = options.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+document.querySelectorAll('.dropdown-options .option').forEach(option => {
+  option.addEventListener('click', (e) => {
+    const dropdown = e.target.closest('.dropdown-menu, .dropdown-menu-2');
+    dropdown.querySelector('.text-wrapper-13').textContent = e.target.textContent;
+    dropdown.querySelector('.dropdown-options').style.display = 'none';
+  });
+});
+
+window.addEventListener('click', (event) => {
+  if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
+    document.querySelectorAll('.dropdown-options').forEach(options => {
+      options.style.display = 'none';
+    });
+  }
+});
+
+// Tradability toggle
+tradabilityToggle.addEventListener('click', (event) => {
+  const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+  const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+  if (tradability === 'Enabled') {
+    overlap2.style.backgroundColor = '#b9b9b9';
+    overlap3.style.backgroundColor = '#ffd60a';
+    overlap2.querySelector('.text-wrapper-14').style.color = '#b9b9b9';
+    overlap3.querySelector('.text-wrapper-15').style.color = '#003566';
+    tradability = 'Disabled';
+  } else {
+    overlap2.style.backgroundColor = '#ffd60a';
+    overlap3.style.backgroundColor = '#ffffff';
+    overlap2.querySelector('.text-wrapper-14').style.color = '#003566';
+    overlap3.querySelector('.text-wrapper-15').style.color = '#b9b9b9';
+    tradability = 'Enabled';
+  }
+});
+
+// Basic Info submission
 document.querySelector('#basicInfoModal .overlap').addEventListener('click', async (event) => {
   event.preventDefault();
   
@@ -927,7 +795,7 @@ document.querySelector('#basicInfoModal .overlap').addEventListener('click', asy
   }
 });
 
-// Detailed Info submission (modified to store data and populate preview)
+// Detailed Info submission
 document.querySelector('#detailedInfoModal .overlap').addEventListener('click', async (event) => {
   event.preventDefault();
 
@@ -973,7 +841,8 @@ document.querySelector('#detailedInfoModal .overlap').addEventListener('click', 
 
       // Populate preview modal
       document.getElementById('previewName').textContent = itemData.name;
-      document.getElementById('previewDescription').textContent = itemData.description;
+      document.getElementById('previewDescription').textContent = itemData.description || 'No description provided';
+      document.getElementById('previewNotes').textContent = itemData.otherNotes || 'No additional notes';
       document.getElementById('previewTradability').textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
       document.getElementById('previewYear').textContent = itemData.dateAcquired || 'Not specified';
       document.getElementById('previewDimensions').textContent = itemData.dimensions || 'Not specified';
@@ -1000,7 +869,7 @@ document.querySelector('#detailedInfoModal .overlap').addEventListener('click', 
   }
 });
 
-// Comment submission (placeholder)
+// Comment submission
 document.querySelector('#previewModal .submit-comment').addEventListener('click', (event) => {
   event.preventDefault();
   const comment = document.getElementById('commentInput').value.trim();
@@ -1013,6 +882,21 @@ document.querySelector('#previewModal .submit-comment').addEventListener('click'
   } else {
     alert('Please enter a comment.');
   }
+});
+
+// Back buttons
+document.querySelector('#detailedInfoModal .overlap-group').addEventListener('click', (event) => {
+  event.preventDefault();
+  detailedInfoModal.style.display = 'none';
+  basicInfoModal.style.display = 'flex';
+  document.getElementById('itemName').focus();
+});
+
+document.querySelector('#previewModal .overlap-group').addEventListener('click', (event) => {
+  event.preventDefault();
+  previewModal.style.display = 'none';
+  detailedInfoModal.style.display = 'flex';
+  document.getElementById('dateAcquired').focus();
 });
 
 // Final upload
@@ -1045,7 +929,7 @@ document.querySelector('#previewModal .overlap').addEventListener('click', async
   }
 });
 
-// Reset form (modified to clear itemData)
+// Reset form
 function resetForm() {
   document.getElementById('itemName').value = '';
   document.getElementById('itemDescription').value = '';

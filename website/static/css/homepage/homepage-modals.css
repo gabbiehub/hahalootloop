@@ -1305,7 +1305,7 @@
   color: #000000;
   font-size: 27px;
   letter-spacing: 1.35px;
-  margin: 0;
+  margin: 0 0 10px;
 }
 
 #previewModal .text-wrapper-22 {
@@ -1315,7 +1315,7 @@
   font-size: 11px;
   letter-spacing: 0;
   line-height: normal;
-  margin: 10px 0;
+  margin: 0 0 10px;
 }
 
 #previewModal .rating-section {
@@ -1355,7 +1355,7 @@
   width: 471px;
   height: 2px;
   background-color: #000000;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 #previewModal .text-wrapper-18 {
@@ -1365,7 +1365,7 @@
   font-size: 14px;
   letter-spacing: 0;
   line-height: normal;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 #previewModal .p {
@@ -1376,15 +1376,17 @@
   text-align: justify;
   letter-spacing: 0;
   line-height: normal;
-  margin-bottom: 20px;
+  margin: 0 0 15px;
 }
 
-#previewModal .overlap-5,
-#previewModal .overlap-6 {
+#previewModal .detail-row {
   position: relative;
-  width: 179px;
+  width: 471px;
   height: 13px;
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #previewModal .year-acquired,
@@ -1395,7 +1397,6 @@
   font-weight: 700;
   color: #737373;
   font-size: 12px;
-  text-align: justify;
   letter-spacing: 0;
   line-height: normal;
   margin: 0;
@@ -1405,26 +1406,20 @@
   font-weight: 700;
 }
 
-#previewModal .text-wrapper-12,
-#previewModal .text-wrapper-15,
-#previewModal .text-wrapper-16 {
+#previewModal .text-wrapper-12 {
   font-family: "Inter-Light", Helvetica;
   font-weight: 300;
   color: #737373;
   font-size: 12px;
-  text-align: right;
   letter-spacing: 0;
   line-height: normal;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 #previewModal .overlap-3 {
   position: relative;
   width: 180px;
   height: 35px;
-  margin-top: 20px;
+  margin: 15px 0;
 }
 
 #previewModal .contact-owner {
@@ -1452,10 +1447,9 @@
   font-weight: 600;
   color: #000814;
   font-size: 15px;
-  text-align: center;
   letter-spacing: 0;
   line-height: normal;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 #previewModal .comment-section {
@@ -1464,43 +1458,47 @@
   background-color: #0000000d;
   border-radius: 5px;
   position: relative;
+  padding: 10px;
 }
 
-#previewModal .overlap-7 {
+#previewModal .comment-count {
   position: absolute;
-  width: 23px;
-  height: 13px;
-  top: 4px;
-  left: 92px;
-  background-color: #001d3d;
-  border-radius: 10px;
+  top: 5px;
+  left: 14px;
+  display: flex;
+  align-items: center;
 }
 
 #previewModal .text-wrapper-21 {
-  position: absolute;
-  width: 5px;
-  height: 6px;
-  top: 3px;
-  left: 9px;
+  width: 23px;
+  height: 13px;
+  background-color: #001d3d;
+  border-radius: 10px;
+  color: #ffffff;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
-  color: #ffffff;
   font-size: 10px;
   text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
+  line-height: 13px;
+  margin-right: 5px;
+}
+
+#previewModal .comment-count span {
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #737373;
+  font-size: 13px;
 }
 
 #previewModal .comment-input {
-  width: 127px;
-  top: 7px;
+  position: absolute;
+  width: 300px;
+  top: 25px;
   left: 14px;
   font-family: "Inter-Medium", Helvetica;
   font-weight: 500;
   color: #737373;
   font-size: 13px;
-  letter-spacing: 0;
-  line-height: normal;
   border: none;
   background: transparent;
 }
