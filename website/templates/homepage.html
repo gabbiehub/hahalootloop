@@ -325,7 +325,6 @@
     <!-- Basic Information Modal -->
 <div class="modal" id="basicInfoModal">
   <div class="modal-content item-upload-page">
-    <span class="close-button" id="closeBasicInfoModal">×</span>
     <div class="overlap">
       <div class="rectangle"></div>
       <div class="text-wrapper">Next</div>
@@ -348,6 +347,7 @@
     <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
     <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
     <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
+    <img class="close-window" id="closeBasicInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
     <div class="text-wrapper-5">Basic Information</div>
     <div class="text-wrapper-6">Detailed Information</div>
     <div class="text-wrapper-7">Preview and Uploading</div>
@@ -397,7 +397,6 @@
   <!-- Detailed Information Modal -->
   <div class="modal" id="detailedInfoModal" style="display: none;">
     <div class="modal-content item-upload-page">
-      <span class="close-button" id="closeDetailedInfoModal">×</span>
       <div class="overlap">
         <div class="rectangle"></div>
         <div class="text-wrapper">Next</div>
@@ -408,10 +407,10 @@
         <div class="div">Back</div>
         <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
       </div>
-      <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
-      <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
+      <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
+      <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="yellow Line" />
       <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
-      <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+      <img class="close-window" id="closeDetailedInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
       <div class="text-wrapper-2">Basic Information</div>
       <div class="text-wrapper-3">Detailed Information</div>
       <div class="text-wrapper-4">Preview and Uploading</div>
@@ -464,7 +463,7 @@
   <!-- Preview and Uploading Modal -->
 <div class="modal" id="previewModal" style="display: none;">
   <div class="modal-content item-upload-page">
-    <span class="close-button" id="closePreviewModal">×</span>
+   <!--  <span class="close-button" id="closePreviewModal">×</span>-->
     <div class="overlap-group">
       <div class="rectangle"></div>
       <div class="div">Back</div>
@@ -475,10 +474,10 @@
       <div class="text-wrapper">Upload</div>
       <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
     </div>
-    <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+    <img class="line" src="{% static 'img/line-11.svg' %}" alt="Line" />
     <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
-    <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
-    <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+    <img class="line-3" src="{% static 'img/line-9.svg' %}" alt="Line" />
+    <img class="close-window" id="closePreviewModal" src="{% static 'img/close-window.png' %}" alt="Close" />
     <div class="text-wrapper-2">Basic Information</div>
     <div class="text-wrapper-3">Detailed Information</div>
     <div class="text-wrapper-4">Preview and Uploading</div>
