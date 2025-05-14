@@ -1463,8 +1463,8 @@
 
 #previewModal .comment-count {
   position: absolute;
-  top: 5px;
-  left: 14px;
+  top: -25px;
+  left: 85px;
   display: flex;
   align-items: center;
 }
