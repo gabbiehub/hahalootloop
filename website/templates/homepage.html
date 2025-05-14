@@ -353,7 +353,7 @@
     <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
     <img class="close-window" id="closeBasicInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
     <div class="text-wrapper-5">Basic Information</div>
-    <div class="text-wrapper-6">Detailed Information</div>
+      <div class="text-wrapper-6">Detailed Information</div>
     <div class="text-wrapper-7">Preview and Uploading</div>
     <div class="text-wrapper-8">Basic Information</div>
     <div class="text-wrapper-9">Name</div>
@@ -395,22 +395,25 @@
       <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
     </div>
     <div class="text-wrapper-16">Upload Photo</div>
-  </div>
+  
+    </div>
+    
 </div>
   <!--UPLOAD MODALS-->
   <!-- Detailed Information Modal -->
+<!-- Detailed Information Modal -->
 <!-- Detailed Information Modal -->
 <div class="modal" id="detailedInfoModal" style="display: none;">
   <div class="modal-content item-upload-page">
     <div class="overlap">
       <div class="rectangle"></div>
       <div class="text-wrapper">Next</div>
-      <img class="up" src="{% static 'img/image.png' %}" alt="Up Arrow" />
+      <img class="up" src="{% static 'img/up.png' %}" alt="Forward Arrow" />
     </div>
     <div class="overlap-group">
       <div class="rectangle"></div>
       <div class="div">Back</div>
-      <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
+      <img class="img" src="{% static 'img/back.png' %}" alt="Back Arrow" />
     </div>
     <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
     <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="Yellow Line" />
@@ -421,33 +424,35 @@
     <div class="text-wrapper-4">Preview and Uploading</div>
     <div class="text-wrapper-5">More Details</div>
     <img class="item-image-area" id="detailedImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
-    <div class="text-wrapper-6">Date Acquired</div>
-    <div class="text-wrapper-7">Other Notes</div>
-    <div class="text-wrapper-9">Dimensions</div>
-    <div class="text-wrapper-10">Weight</div>
-    <div class="text-wrapper-11">Condition</div>
-    <div class="overlap-2">
-      <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
-      <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
-    </div>
-    <div class="rectangle-2">
-      <input type="text" id="dimensions" placeholder="Enter dimensions" />
-    </div>
-    <div class="rectangle-3">
-      <input type="text" id="weight" placeholder="Enter weight" />
-    </div>
-    <div class="dropdown-menu" id="conditionDropdown">
-      <div class="text-wrapper-13">Select type</div>
-      <img class="vector-2" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
-      <div class="dropdown-options" style="display: none;">
-        <div class="option" data-value="New">New</div>
-        <div class="option" data-value="Like New">Like New</div>
-        <div class="option" data-value="Used">Used</div>
-        <div class="option" data-value="Damaged">Damaged</div>
+    <div class="fieldsss">
+      <div class="text-wrapper-6">Date Acquired</div>
+      <div class="text-wrapper-7">Other Notes</div>
+      <div class="text-wrapper-9">Dimensions</div>
+      <div class="text-wrapper-10">Weight</div>
+      <div class="text-wrapper-11">Condition</div>
+      <div class="overlap-2">
+        <img class="vector" src="{% static 'img/vector-14.svg' %}" alt="Dropdown Arrow" />
+        <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
       </div>
-    </div>
-    <div class="rectangle-4">
-      <textarea id="otherNotes" placeholder="Enter notes"></textarea>
+      <div class="rectangle-2">
+        <input type="text" id="dimensions" placeholder="Enter dimensions" />
+      </div>
+      <div class="rectangle-3">
+        <input type="text" id="weight" placeholder="Enter weight" />
+      </div>
+      <div class="dropdown-menu" id="conditionDropdown">
+        <div class="text-wrapper-13">Select type</div>
+        <img class="vector-2" src="{% static 'img/image.svg' %}" alt="Dropdown Arrow" />
+        <div class="dropdown-options" style="display: none;">
+          <div class="option" data-value="New">New</div>
+          <div class="option" data-value="Like New">Like New</div>
+          <div class="option" data-value="Used">Used</div>
+          <div class="option" data-value="Damaged">Damaged</div>
+        </div>
+      </div>
+      <div class="rectangle-4">
+        <textarea id="otherNotes" placeholder="Enter notes"></textarea>
+      </div>
     </div>
   </div>
 </div>

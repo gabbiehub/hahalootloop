@@ -299,7 +299,7 @@
 
 #basicInfoModal .text-wrapper-4 {
   top: 5px;
-  left: 14px;
+  left: 23px;
   font-family: "Jaro", Helvetica, sans-serif;
   font-weight: 400;
   color: #ffffff;
@@ -628,6 +628,12 @@
 }
 
 /* Detailed Information Modal */
+/* Detailed Information Modal */
+#detailedInfoModal .fieldsss {
+  padding-top: 20px; /* Reduced padding for smaller gap */
+  position: relative;
+}
+
 #detailedInfoModal .item-upload-page {
   width: 1400px;
   height: 800px;
@@ -645,8 +651,9 @@
   position: absolute;
   width: 100px;
   height: 35px;
-  top: 615px;
-  left: 1150px;
+  top: 650px; /* Positioned below Other Notes */
+  left: 1210px; /* Right side of Other Notes */
+  z-index: 10; /* Ensure visibility */
 }
 
 #detailedInfoModal .rectangle {
@@ -655,7 +662,7 @@
   height: 35px;
   top: 0;
   left: 0;
-  background-color: #ffc300;
+  background-color: #ffc300; /* Yellow to match Back button */
 }
 
 #detailedInfoModal .text-wrapper {
@@ -682,20 +689,34 @@
   position: absolute;
   width: 100px;
   height: 35px;
-  top: 615px;
-  left: 153px;
+  top: 650px; /* Positioned below Other Notes */
+  left: 779px; /* Left side of Other Notes */
+  background-color: #ffc300; /* Yellow to match Next button */
+  border-radius: 5px;
+  z-index: 10; /* Ensure visibility */
+  cursor: pointer;
+}
+
+#detailedInfoModal .overlap-group .rectangle {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  background-color: #ffc300; /* Match parent background */
 }
 
 #detailedInfoModal .div {
   position: absolute;
   top: 4px;
-  left: 42px;
+  left: 60%;
   font-family: "Jaro", Helvetica, sans-serif;
   font-weight: 400;
   color: #ffffff;
   font-size: 20px;
   letter-spacing: 0;
   line-height: normal;
+  transform: translateX(-50%); /* Center text */
 }
 
 #detailedInfoModal .img {
@@ -804,7 +825,7 @@
 
 #detailedInfoModal .text-wrapper-6 {
   position: absolute;
-  top: 150px;
+  top: 160px; /* Reduced to decrease gap */
   left: 779px;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 700;
@@ -818,7 +839,7 @@
   position: absolute;
   width: 250px;
   height: 35px;
-  top: 175px;
+  top: 185px; /* Adjusted to align with label */
   left: 779px;
   border: 1px solid #b9b9b9;
 }
@@ -848,7 +869,7 @@
 
 #detailedInfoModal .text-wrapper-9 {
   position: absolute;
-  top: 150px;
+  top: 160px; /* Adjusted to align with Date Acquired */
   left: 1061px;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 700;
@@ -862,7 +883,7 @@
   position: absolute;
   width: 250px;
   height: 35px;
-  top: 175px;
+  top: 185px; /* Adjusted to align with label */
   left: 1061px;
   border: 1px solid #b9b9b9;
 }
@@ -880,7 +901,7 @@
 
 #detailedInfoModal .text-wrapper-10 {
   position: absolute;
-  top: 235px;
+  top: 245px; /* Adjusted to maintain spacing */
   left: 779px;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 700;
@@ -894,7 +915,7 @@
   position: absolute;
   width: 250px;
   height: 35px;
-  top: 260px;
+  top: 270px; /* Adjusted to align with label */
   left: 779px;
   border: 1px solid #b9b9b9;
 }
@@ -912,7 +933,7 @@
 
 #detailedInfoModal .text-wrapper-11 {
   position: absolute;
-  top: 235px;
+  top: 245px; /* Adjusted to align with Weight */
   left: 1061px;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 700;
@@ -926,7 +947,7 @@
   position: absolute;
   width: 250px;
   height: 35px;
-  top: 260px;
+  top: 270px; /* Adjusted to align with label */
   left: 1061px;
   display: flex;
   align-items: center;
@@ -976,7 +997,7 @@
 
 #detailedInfoModal .text-wrapper-7 {
   position: absolute;
-  top: 320px;
+  top: 330px; /* Adjusted to maintain spacing */
   left: 779px;
   font-family: "Inter", Helvetica, sans-serif;
   font-weight: 700;
@@ -990,7 +1011,7 @@
   position: absolute;
   width: 532px;
   height: 255px;
-  top: 345px;
+  top: 355px; /* Adjusted to align with label */
   left: 779px;
   border: 1px solid #b9b9b9;
 }
@@ -1006,7 +1027,6 @@
   color: #333;
   resize: vertical;
 }
-
 /* Preview and Uploading Modal */
 #previewModal .item-upload-page {
   width: 1400px;
