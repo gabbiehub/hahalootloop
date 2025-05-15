@@ -26,10 +26,10 @@
 
 .modal-content.message .close-window {
   position: absolute;
-  width: 1.875rem; /* 30px in rem */
-  height: 2.875rem; /* 46px in rem */
-  top: 1.5625rem; /* 25px in rem */
-  left: 2.5rem; /* 40px in rem */
+  width: 2rem; /* 30px in rem */
+  height: 2rem; /* 46px in rem */
+  top: 4%; /* 25px in rem */
+  left: 2%; /* 40px in rem */
   cursor: pointer;
 }
 
@@ -49,6 +49,7 @@
 /* Updated sidebar to correctly connect with message area */
 .modal-content.message .sidebar {
   width: 33%; /* Width of sidebar */
+  top: 10%;
   min-width: 20rem; /* Minimum width to ensure content fits */
   height: 100%;
   background-color: #ffffff;
@@ -64,7 +65,8 @@
   width: 80%;
   max-width: 18.25rem; /* 292px in rem */
   height: 3rem; /* 48px in rem */
-  margin: 0 2.0625rem 0; /* 105px 33px 16px in rem */
+  margin: 1rem 2.0625rem 0.5rem 0; /* Adjusted: top 16px, left/right 33px, bottom 8px */
+  top: 0; /* Ensure it starts at the top */
 }
 
 .modal-content.message .div {
@@ -76,13 +78,15 @@
   line-height: normal;
 }
 
-/* Updated chat-list to fill sidebar properly */
+/* Updated chat-list to start after search bar */
 .modal-content.message .chat-list {
   flex: 1;
   overflow-y: auto;
   padding: 0 1rem;
   margin: 0.5rem 0;
   width: 100%;
+  position: relative;
+  top: 0; /* Remove absolute positioning offset */
 }
 
 .modal-content.message .chat-list::-webkit-scrollbar {
