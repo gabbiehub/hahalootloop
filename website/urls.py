@@ -18,7 +18,6 @@ urlpatterns = [
     path('chat/messages/', get_chat_messages, name='chat_messages'),
     path('upload-item/', upload_item, name='upload_item'),
     path('item-details/', TemplateView.as_view(template_name='item-details.html'), name='item_details'),
-    # Catch-all pattern (move to end if present)
-    #path('^(?P<path>.*)$', views.serve_static, name='static'),
+    path('category-results/<str:category>/', views.category_results, name='category_results'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
