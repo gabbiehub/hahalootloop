@@ -4,7 +4,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Category Results - Collector's Hub</title>
+    <title>Search Results - Collector's Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
@@ -27,8 +27,8 @@
         box-shadow: none !important;
       }
 
-      /* Style for the viewing category text */
-      .home-page .viewing-category {
+      /* Style for the search results header */
+      .home-page .search-results-header {
         position: relative;
         width: auto;
         margin: 5rem 4.5rem 0 4.5rem;
@@ -41,8 +41,8 @@
         white-space: nowrap;
       }
 
-      /* Adjust category title margin */
-      .home-page .category-title {
+      /* Adjust search query title margin */
+      .home-page .search-query-title {
         position: relative;
         width: auto;
         margin: 1rem 4.5rem 2rem 4.5rem;
@@ -81,10 +81,10 @@
         <div class="header-button">Upload Item</div>
       </div>
 
-      <!-- Category Results Section -->
+      <!-- Search Results Section -->
       <div class="main-content">
-        <div class="viewing-category" id="viewingCategory">You are viewing the Antiques category</div>
-        <div class="category-title" id="categoryTitle">Antiques</div>
+        <div class="search-results-header" id="searchResultsHeader">You are viewing results for</div>
+        <div class="search-query-title" id="searchQueryTitle">typewriter</div>
         <div class="recommended-container">
           <!-- Result Item 1 -->
           <div class="recommended-4">
@@ -108,34 +108,14 @@
           </div>
           <!-- Result Item 2 -->
           <div class="recommended-4">
-            <img class="recommended-4-image" src="{% static 'img/category-results/antique2.png' %}" alt="Antique 2" />
+            <img class="recommended-4-image" src="{% static 'img/search-results/typewriter2.png' %}" alt="Typewriter 2" />
             <div class="recommended-4-details">
-              <img class="gabriel-profile element" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
-              <div class="user-name text-wrapper-2">Gabriel Imperial</div>
+              <img class="sarah-profile element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Sarah Profile" />
+              <div class="user-name text-wrapper-2">Sarah Johnson</div>
               <div class="request-type text-wrapper">Showcase</div>
-              <p class="request-date div">02 / 03 / 2029</p>
+              <p class="request-date div">03 / 15 / 2029</p>
               <p class="request-description p">
-                19th-century pocket watch, gold-plated, with original engravings.
-              </p>
-            </div>
-            <div class="recommended-4-label">
-              <div class="group">
-                <div class="rectangle"></div>
-                <span>Rarity: Legendary</span>
-              </div>
-            </div>
-            <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-          </div>
-          <!-- Result Item 3 -->
-          <div class="recommended-4">
-            <img class="recommended-4-image" src="{% static 'img/category-results/antique3.png' %}" alt="Antique 3" />
-            <div class="recommended-4-details">
-              <img class="kathryn-profile element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
-              <div class="user-name text-wrapper-2">Kathryn Molaer</div>
-              <div class="request-type text-wrapper">Open for Trade</div>
-              <p class="request-date div">12 / 31 / 2028</p>
-              <p class="request-description p">
-                Antique porcelain vase from the Qing Dynasty, hand-painted.
+                1950s Remington typewriter, restored with original case.
               </p>
             </div>
             <div class="recommended-4-label">
@@ -146,16 +126,16 @@
             </div>
             <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
           </div>
-          <!-- Result Item 4 -->
+          <!-- Result Item 3 -->
           <div class="recommended-4">
-            <img class="recommended-4-image" src="{% static 'img/category-results/antique4.png' %}" alt="Antique 4" />
+            <img class="recommended-4-image" src="{% static 'img/search-results/typewriter3.png' %}" alt="Typewriter 3" />
             <div class="recommended-4-details">
-              <img class="mark-profile element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
-              <div class="user-name text-wrapper-2">Mark Africa</div>
+              <img class="michael-profile element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Michael Profile" />
+              <div class="user-name text-wrapper-2">Michael Brown</div>
               <div class="request-type text-wrapper">Wishlist</div>
-              <p class="request-date div">04 / 05 / 2027</p>
+              <p class="request-date div">06 / 20 / 2028</p>
               <p class="request-description p">
-                Looking for an antique gramophone to complete my collection.
+                Seeking a vintage typewriter for my collection, preferably pre-1940s.
               </p>
             </div>
             <div class="recommended-4-label">
@@ -347,15 +327,12 @@
 
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-          // Extract category from URL and update page title and viewing text
-          const urlPath = window.location.pathname; // e.g., "/category-results/antiques/"
-          const category = urlPath.split('/')[2]; // Extract "antiques"
-          const categoryTitle = document.getElementById('categoryTitle');
-          const viewingCategory = document.getElementById('viewingCategory');
-          if (category && categoryTitle && viewingCategory) {
-            const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
-            categoryTitle.textContent = formattedCategory; // Update title to "Antiques"
-            viewingCategory.textContent = `Viewing`;
+          // Extract search query from URL and update page title
+          const urlPath = window.location.pathname; // e.g., "/search-results/typewriter/"
+          const query = urlPath.split('/')[2]; // Extract "typewriter"
+          const searchQueryTitle = document.getElementById('searchQueryTitle');
+          if (query && searchQueryTitle) {
+            searchQueryTitle.textContent = decodeURIComponent(query); // Update title to "typewriter"
           }
 
           // Sidebar navigation: Redirect to homepage when home icon is clicked
@@ -364,6 +341,19 @@
             homeIcon.style.cursor = 'pointer';
             homeIcon.addEventListener('click', () => {
               window.location.href = '/';
+            });
+          }
+
+          // Search bar functionality: Redirect to search results page on Enter
+          const searchBar = document.querySelector('.search-bar');
+          if (searchBar) {
+            searchBar.addEventListener('keypress', (e) => {
+              if (e.key === 'Enter') {
+                const query = searchBar.value.trim();
+                if (query) {
+                  window.location.href = `/search-results/${encodeURIComponent(query)}/`;
+                }
+              }
             });
           }
 
@@ -428,17 +418,6 @@
             });
           });
         });
-    const searchBar = document.querySelector('.search-bar');
-    if (searchBar) {
-        searchBar.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                const query = searchBar.value.trim();
-            if (query) {
-                 window.location.href = `/search-results/${encodeURIComponent(query)}/`;
-            }
-            }
-        });
-    }
       </script>
     </div>
   </body>

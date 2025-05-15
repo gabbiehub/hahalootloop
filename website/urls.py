@@ -19,5 +19,6 @@ urlpatterns = [
     path('upload-item/', upload_item, name='upload_item'),
     path('item-details/', TemplateView.as_view(template_name='item-details.html'), name='item_details'),
     path('category-results/<str:category>/', views.category_results, name='category_results'),
+    path('search-results/<str:query>/', TemplateView.as_view(template_name='search-results.html'), name='search_results'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1348,6 +1348,17 @@
           });
         });
       });
+          const searchBar = document.querySelector('.search-bar');
+    if (searchBar) {
+        searchBar.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = searchBar.value.trim();
+            if (query) {
+                 window.location.href = `/search-results/${encodeURIComponent(query)}/`;
+            }
+            }
+        });
+    }
     </script>
   </body>
 </html>
