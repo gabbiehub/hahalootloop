@@ -122,3 +122,8 @@ def upload_item(request):
                 print("Create error:", str(e))
                 return JsonResponse({'status': 'error', 'message': f'Server error: {str(e)}'}, status=500)
     return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
+
+from django.shortcuts import render
+
+def category_results(request, category):
+    return render(request, 'category-results.html', {'category': category})

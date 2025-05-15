@@ -1,0 +1,424 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Search Results - Collector's Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage/homepage.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/homepage/homepage-modals.css' %}" />
+    <style>
+      /* Override box-shadow to remove it */
+      .home-page .main-content,
+      .home-page .recommended-container .recommended-4,
+      .home-page .favorites-container .favorite-1,
+      .home-page .trade-requests .trade-request-1,
+      .home-page .trade-requests .trade-request-2,
+      .home-page .trade-requests .trade-request-3,
+      .home-page .trade-requests .trade-request-4,
+      .home-page .showcase-group .showcase-1,
+      .home-page .showcase-group .showcase-2,
+      .home-page .showcase-group .showcase-3,
+      .home-page .showcase-group .showcase-4 {
+        box-shadow: none !important;
+      }
+
+      /* Style for the search results header */
+      .home-page .search-results-header {
+        position: relative;
+        width: auto;
+        margin: 5rem 4.5rem 0 4.5rem;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #666666;
+        font-size: clamp(1rem, 1.5vw, 1.125rem);
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+
+      /* Adjust search query title margin */
+      .home-page .search-query-title {
+        position: relative;
+        width: auto;
+        margin: 1rem 4.5rem 2rem 4.5rem;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #000000;
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="home-page">
+      <!-- Sidebar (same as homepage) -->
+      <div class="sidebar">
+        <div class="sidebar-home">
+          <div class="sidebar-highlight">
+            <img class="sidebar-highlight-icon" src="{% static 'img/homepage/nav bar select.png' %}" alt="Highlight" />
+          </div>
+          <img class="home-icon" src="{% static 'img/homepage/Home.png' %}" alt="Home Icon" />
+        </div>
+        <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat" data-modal="messageModal" />
+        <img class="settings-icon" src="{% static 'img/homepage/Settings.png' %}" alt="Settings Icon" />
+        <img class="notifications-icon" src="{% static 'img/homepage/Notif.png' %}" alt="Notifications Icon" />
+        <img class="user-profile" src="{% static 'img/homepage/Profile.png' %}" alt="User Profile" />
+      </div>
+      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
+
+      <!-- Header (same as homepage) -->
+      <div class="header">
+        <input class="search-bar" type="text" placeholder="Search items..." />
+        <img class="search-icon" src="{% static 'img/homepage/Search bar.png' %}" alt="Search Icon" />
+        <div class="header-button">Upload Item</div>
+      </div>
+
+      <!-- Search Results Section -->
+      <div class="main-content">
+        <div class="search-results-header" id="searchResultsHeader">You are viewing results for</div>
+        <div class="search-query-title" id="searchQueryTitle">typewriter</div>
+        <div class="recommended-container">
+          <!-- Result Item 1 -->
+          <div class="recommended-4">
+            <img class="recommended-4-image" src="{% static 'img/category-results/antique1.png' %}" alt="Antique 1" />
+            <div class="recommended-4-details">
+              <img class="john-profile element" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
+              <div class="user-name text-wrapper-2">John Maigue</div>
+              <div class="request-type text-wrapper">Open for Trade</div>
+              <p class="request-date div">01 / 01 / 2029</p>
+              <p class="request-description p">
+                Vintage typewriter from the 1920s, fully functional and in excellent condition.
+              </p>
+            </div>
+            <div class="recommended-4-label">
+              <div class="group">
+                <div class="rectangle"></div>
+                <span>Rarity: Mythic</span>
+              </div>
+            </div>
+            <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+          </div>
+          <!-- Result Item 2 -->
+          <div class="recommended-4">
+            <img class="recommended-4-image" src="{% static 'img/search-results/typewriter2.png' %}" alt="Typewriter 2" />
+            <div class="recommended-4-details">
+              <img class="sarah-profile element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Sarah Profile" />
+              <div class="user-name text-wrapper-2">Sarah Johnson</div>
+              <div class="request-type text-wrapper">Showcase</div>
+              <p class="request-date div">03 / 15 / 2029</p>
+              <p class="request-description p">
+                1950s Remington typewriter, restored with original case.
+              </p>
+            </div>
+            <div class="recommended-4-label">
+              <div class="group">
+                <div class="rectangle"></div>
+                <span>Rarity: Rare</span>
+              </div>
+            </div>
+            <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+          </div>
+          <!-- Result Item 3 -->
+          <div class="recommended-4">
+            <img class="recommended-4-image" src="{% static 'img/search-results/typewriter3.png' %}" alt="Typewriter 3" />
+            <div class="recommended-4-details">
+              <img class="michael-profile element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Michael Profile" />
+              <div class="user-name text-wrapper-2">Michael Brown</div>
+              <div class="request-type text-wrapper">Wishlist</div>
+              <p class="request-date div">06 / 20 / 2028</p>
+              <p class="request-description p">
+                Seeking a vintage typewriter for my collection, preferably pre-1940s.
+              </p>
+            </div>
+            <div class="recommended-4-label">
+              <div class="group">
+                <div class="rectangle"></div>
+                <span>Rarity: Common</span>
+              </div>
+            </div>
+            <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Modal (same as homepage) -->
+      <div class="modal" id="messageModal">
+        <div class="modal-content message">
+          <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+          <div class="text-wrapper">Chat</div>
+          <div class="sidebar">
+            <div class="search-bar">
+              <input type="text" placeholder="Search..." style="width: 100%; height: 100%; padding: 0.5rem;">
+            </div>
+            <div class="div">Recent Conversations</div>
+            <div class="chat-list">
+              <div class="chat-item active">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">KatsuraDa</div>
+                  <div class="chat-preview">Yes, nabili ko sila dun mismo sa...</div>
+                </div>
+                <div class="chat-time">8:57 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">GujuSinsi</div>
+                  <div class="chat-preview">You: hoyy hahah di naman fake y...</div>
+                </div>
+                <div class="chat-time">5:00 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 3.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">FindingDory</div>
+                  <div class="chat-preview unread">Bakit di mo ko pinapansin?</div>
+                </div>
+                <div class="chat-time">1:17 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">CollectorCat</div>
+                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
+                </div>
+                <div class="chat-time">1:10 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 5.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">HaikyuuLover</div>
+                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
+                </div>
+                <div class="chat-time">12:00 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">Coraline</div>
+                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
+                </div>
+                <div class="chat-time">8:00 am</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 7.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">akosiblueyyy</div>
+                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
+                </div>
+                <div class="chat-time">Feb. 14</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">gagagagagga</div>
+                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
+                </div>
+                <div class="chat-time">1:10 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">HaikyuuLover</div>
+                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
+                </div>
+                <div class="chat-time">12:00 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">Coraline</div>
+                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
+                </div>
+                <div class="chat-time">8:00 am</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">akosiblueyyy</div>
+                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
+                </div>
+                <div class="chat-time">Feb. 14</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-area">
+            <div class="sino-kausap">
+              <div class="overlap-6">
+                <img class="pfp-3" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile" />
+                <div class="text-wrapper-6">KatsuraDa</div>
+                <div class="text-wrapper-12">@zurajanai</div>
+                <div class="group-10">
+                  <div class="overlap-14">
+                    <div class="text-wrapper-13">View profile</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="message-opssen">
+              <div class="chat-bubble other-user">
+                <p class="hey-i-saw-your-2">
+                  Hey! I saw your collection. Ganda ng figurines mo ah. Matagal ka na nagko-collect?
+                </p>
+                <span class="message-time">06:00 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="hi-yes-medyo-matagal">
+                  Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng Jujutsu Kaisen characters
+                </p>
+                <span class="message-time">06:01 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="p">Si gojo ba favorite mo? dami mong gojo eh</p>
+                <span class="message-time">06:02 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-2">Oo, halata na nga eh HAHA</p>
+                <span class="message-time">06:03 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-3">si gojo rin favorite ko</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-4">madalas ka ba bumibili online?</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-5">Minsan sa online, pero minsan sa mga malls din kung meron</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-11">Ahh talaga ba? Nice</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="kita-ko-nga-meron-ka">
+                  kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind boxes?
+                </p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-11">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+            </div>
+            <div class="overlap-15">
+              <div class="overlap-16">
+                <input type="text" class="text-wrapper-14" placeholder="Write your message" />
+                <img class="attach" src="{% static 'img/homepage modals/attach.png' %}" alt="Attach" />
+                <img class="send-icon" src="{% static 'img/homepage modals/send.png' %}" alt="Send" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // Extract search query from URL and update page title
+          const urlPath = window.location.pathname; // e.g., "/search-results/typewriter/"
+          const query = urlPath.split('/')[2]; // Extract "typewriter"
+          const searchQueryTitle = document.getElementById('searchQueryTitle');
+          if (query && searchQueryTitle) {
+            searchQueryTitle.textContent = decodeURIComponent(query); // Update title to "typewriter"
+          }
+
+          // Sidebar navigation: Redirect to homepage when home icon is clicked
+          const homeIcon = document.querySelector('.sidebar-home');
+          if (homeIcon) {
+            homeIcon.style.cursor = 'pointer';
+            homeIcon.addEventListener('click', () => {
+              window.location.href = '/';
+            });
+          }
+
+          // Search bar functionality: Redirect to search results page on Enter
+          const searchBar = document.querySelector('.search-bar');
+          if (searchBar) {
+            searchBar.addEventListener('keypress', (e) => {
+              if (e.key === 'Enter') {
+                const query = searchBar.value.trim();
+                if (query) {
+                  window.location.href = `/search-results/${encodeURIComponent(query)}/`;
+                }
+              }
+            });
+          }
+
+          // Chat Modal Functionality
+          const chatModal = document.getElementById('messageModal');
+          const openChatButton = document.querySelector('.chat-icon');
+          const closeChatButton = chatModal.querySelector('.close-window');
+          const sendButton = chatModal.querySelector('.send-icon');
+          const chatInput = chatModal.querySelector('.chat-input input');
+          const chatMessages = chatModal.querySelector('.chat-messages');
+
+          if (openChatButton && chatModal && closeChatButton) {
+            openChatButton.style.cursor = 'pointer';
+            openChatButton.addEventListener('click', () => {
+              chatModal.style.display = 'flex';
+              document.body.style.overflow = 'hidden';
+              chatInput.focus();
+            });
+
+            closeChatButton.style.cursor = 'pointer';
+            closeChatButton.addEventListener('click', () => {
+              chatModal.style.display = 'none';
+              document.body.style.overflow = '';
+            });
+
+            chatModal.addEventListener('click', (e) => {
+              if (e.target === chatModal) {
+                chatModal.style.display = 'none';
+                document.body.style.overflow = '';
+              }
+            });
+
+            if (sendButton && chatInput && chatMessages) {
+              sendButton.style.cursor = 'pointer';
+              sendButton.addEventListener('click', () => {
+                const message = chatInput.value.trim();
+                if (message) {
+                  const messageDiv = document.createElement('div');
+                  messageDiv.classList.add('chat-bubble', 'current-user');
+                  messageDiv.innerHTML = `<p>${message}</p><span class="message-time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>`;
+                  chatMessages.appendChild(messageDiv);
+                  chatInput.value = '';
+                  chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+              });
+
+              chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                  sendButton.click();
+                }
+              });
+            }
+          }
+
+          // Redirect to item details page on result item click
+          const resultItems = document.querySelectorAll('.recommended-4');
+          resultItems.forEach((item) => {
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', (event) => {
+              event.preventDefault();
+              window.location.href = '/item-details/';
+            });
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
