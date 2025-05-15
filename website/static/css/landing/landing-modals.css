@@ -191,31 +191,35 @@
 .log-in-modal .text-wrapper-7 {
   position: absolute;
   width: 15.00vw;
-  top: 13.54vw;
+  height: 2.03vw; /* Match rectangle-2 height */
+  top: 13.54vw; /* Match rectangle-2 top */
   left: 4.48vw;
   font-family: "Inter-Medium", Helvetica;
   font-weight: 500;
   color: #000000;
   font-size: 0.68vw;
   letter-spacing: 0;
-  line-height: normal;
+  line-height: 2.03vw; /* Center text vertically */
   z-index: 10;
   padding: 0 0.52vw;
   box-sizing: border-box;
+  display: flex;
+  align-items: center; /* Center input vertically */
 }
 
 .log-in-modal .text-wrapper-7 input {
   border: 0;
   width: 100%;
+  height: 100%; /* Fill container */
   font-family: inherit;
   font-size: inherit;
   color: inherit;
   pointer-events: auto !important;
   z-index: 12 !important;
-  position: relative;
   background: transparent;
   padding: 0;
-  overflow: visible;
+  margin: 0;
+  line-height: inherit; /* Inherit from parent */
 }
 
 .log-in-modal .text-wrapper-7 input:focus {

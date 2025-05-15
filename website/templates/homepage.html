@@ -11,321 +11,443 @@
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <link rel="stylesheet" href="{% static 'css/homepage/homepage.css' %}" />
     <link rel="stylesheet" href="{% static 'css/homepage/homepage-modals.css' %}" />
-
   </head>
   <body>
     {% csrf_token %}
     <div class="home-page">
-      <div class="group-18 fixed-top">
-        <div class="rectangle-8"></div>
-        <div class="overlap-group-wrapper">
-          <div class="search-wrapper"><img class="search" src="{% static 'img/homepage/search.png' %}" alt="Search" /></div>
+      <div class="header">
+        <input class="search-bar" type="text" placeholder="Search items..." />
+        <img class="search-icon" src="{% static 'img/homepage/Search bar.png' %}" alt="Search Icon" />
+        <div class="header-button">Upload Item</div>
+      </div>
+      <div class="banner">
+        <div class="banner-content">
+          <img class="gojo-figurine-banner" src="{% static 'img/homepage/gojo figurine.png' %}" alt="Gojo Figurine Banner" />
+          <div class="banner-text">
+            <div class="banner-title">Gojo Figurine</div>
+            <div class="banner-button">Rarity: Legendary</div>
+            <div class="banner-description">
+              <div class="banner-subtitle">exercitation...</div>
+              <p class="banner-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="banner-navigation">
+          <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+          <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
         </div>
       </div>
-      <div class="overlap">
-        <div class="recommended-4">
-          <div class="recommended-4-details">
-            <div class="user-name">John Maigue</div>
-            <div class="request-type">Trade Request</div>
-            <p class="request-date">01 / 01 / 2029</p>
-            <p class="request-description">
-              This is the missing piece! My vintage typewriter collection won't be complete without it.
-            </p>
-          </div>
-          <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 4.png' %}" alt="Recommended 4" />
-          <div class="recommended-4-label">Rarity: Mythic</div>
-          <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-          <div class="recommended-4-gradient"></div>
-          <div class="recommended-4-circle"></div>
-          <img class="john-profile" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
-          <img class="recommended-4-forward" src="{% static 'img/homepage/yellow forward.png' %}" alt="Forward" />
-        </div>
+      <div class="category-container">
         <div class="category-antiques">
           <img class="antiques-icon" src="{% static 'img/homepage/antiques.png' %}" alt="Antiques Icon" />
           <div class="category-label">Antiques</div>
         </div>
         <div class="category-figurines">
-          <div class="category-label">Figurines</div>
           <img class="figurines-icon" src="{% static 'img/homepage/figurine.png' %}" alt="Figurines Icon" />
+          <div class="category-label">Figurines</div>
         </div>
         <div class="category-books">
-          <div class="category-label">Books</div>
           <img class="books-icon" src="{% static 'img/homepage/books.png' %}" alt="Books Icon" />
+          <div class="category-label">Books</div>
         </div>
         <div class="category-jewelry">
-          <div class="category-label">Jewelry</div>
           <img class="jewelry-icon" src="{% static 'img/homepage/jewelry.png' %}" alt="Jewelry Icon" />
+          <div class="category-label">Jewelry</div>
         </div>
         <div class="category-furniture">
-          <div class="category-label">Furniture</div>
           <img class="furniture-icon" src="{% static 'img/homepage/furniture.png' %}" alt="Furniture Icon" />
+          <div class="category-label">Furniture</div>
         </div>
         <div class="category-cars">
-          <div class="category-label">Cars</div>
           <img class="cars-icon" src="{% static 'img/homepage/cars.png' %}" alt="Cars Icon" />
+          <div class="category-label">Cars</div>
         </div>
         <div class="category-currency">
-          <div class="category-label">Currency</div>
           <img class="currency-icon" src="{% static 'img/homepage/currency.png' %}" alt="Currency Icon" />
+          <div class="category-label">Currency</div>
         </div>
         <div class="category-toys">
-          <div class="category-label">Toys</div>
           <img class="toys-icon" src="{% static 'img/homepage/toys.png' %}" alt="Toys Icon" />
+          <div class="category-label">Toys</div>
         </div>
-        <div class="banner">
-          <div class="banner-content">
-            <div class="banner-text">
-              <div class="banner-title">Gojo Figurine</div>
-              <div class="banner-button">Rarity: Legendary</div>
-              <div class="banner-description">
-                <div class="banner-subtitle">exercitation...</div>
-                <p class="banner-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                </p>
-              </div>
-            </div>
-            <img class="gojo-figurine-banner" src="{% static 'img/homepage/gojo figurine.png' %}" alt="Gojo Figurine Banner" />
-          </div>
-          <div class="banner-navigation">
-            <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
-            <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
-          </div>
-        </div>
+      </div>
+      <div class="overlap">
         <div class="section-title-recommended">Recommended</div>
-        <div class="section-title-favorites">Favorites</div>
-        <div class="recommended-1">
-          <div class="recommended-1-label">Rarity: Common</div>
-          <img class="recommended-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-        </div>
-        <div class="recommended-2">
-          <div class="recommended-2-label">Rarity: Rare</div>
-          <img class="recommended-2-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-        </div>
-        <div class="recommended-3">
-          <div class="recommended-3-label">Rarity: Legendary</div>
-          <img class="recommended-3-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-        </div>
-        <div class="favorite-1">
-          <div class="favorite-1-details">
-            <img class="mark-profile" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
-            <div class="favorite-1-status">Open for Trade</div>
-            <p class="favorite-1-date">04 / 05 / 2027</p>
-            <div class="favorite-1-text">
-              <p class="favorite-1-description">
-                Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original
-                box.
-              </p>
-              <div class="favorite-1-preference">Prefer to trade</div>
-            </div>
-            <div class="favorite-1-user"><div class="favorite-1-user-name">Mark Africa</div></div>
-            <img class="favorite-1-image" src="{% static 'img/homepage/sections/favorites.png' %}" alt="Favorite 1" />
-          </div>
-          <div class="favorite-1-label">Rarity: Rare</div>
-          <img class="favorite-1-rating" src="{% static 'img/homepage/sections/star.png' %}" alt="Star" />
-        </div>
-        <div class="favorite-2">
-          <img class="add-to-favorites" src="{% static 'img/homepage/plus.png' %}" alt="Add to Favorites" />
-          <div class="favorite-2-text">Add to your <br />favorites</div>
-        </div>
-        <div class="favorite-3">
-          <div class="favorite-3-user">Gabriel Imperial</div>
-          <div class="favorite-3-type">Trade Request</div>
-          <p class="favorite-3-date">02 / 03 / 2029</p>
-          <p class="favorite-3-description">
-            I've been hunting for this little guy forever! Anyone holding onto one of these?
-          </p>
-          <img class="gabriel-profile" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
-        </div>
-        <div class="favorite-4">
-          <div class="favorite-4-user">Kathryn Molaer</div>
-          <div class="favorite-4-type">Collection Showcase</div>
-          <p class="favorite-4-date">12 / 31 / 2028</p>
-          <p class="favorite-4-description">
-            Years of searching, countless stories within these pages—my library of treasures is finally complete!
-          </p>
-          <img class="kathryn-profile" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
-        </div>
-        <div class="favorite-5">
-          <div class="favorite-5-type">Wishlist</div>
-          <p class="favorite-5-date">04 / 05 / 2027</p>
-          <p class="favorite-5-description">
-            Thinking of getting this beauty for Grandpa—nothing like the classics to bring back golden memories!
-          </p>
-          <div class="favorite-5-user">Mark Africa</div>
-          <img class="mark-profile-2" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
-        </div>
-        <div class="trade-requests">
-          <div class="trade-request-1">
-            <div class="trade-request-1-details">
-              <div class="trade-request-1-user">John Maigue</div>
-              <div class="trade-request-1-type">Trade Request</div>
-              <p class="trade-request-1-date">01 / 01 / 2029</p>
-              <p class="trade-request-1-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-              </p>
-            </div>
-            <img class="trade-request-1-image" src="{% static 'img/homepage/sections/trade requests 1.png' %}" alt="Trade Request 1" />
-            <div class="trade-request-1-label">Rarity: Common</div>
-            <img class="trade-request-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-            <div class="trade-request-1-gradient"></div>
-            <div class="trade-request-1-circle"></div>
-            <img class="john-profile-2" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
-            <img class="trade-request-1-forward" src="{% static 'img/homepage/yellow forward.png' %}" alt="Forward" />
-          </div>
-          <div class="trade-request-2">
-            <div class="trade-request-2-label">Rarity: Legendary</div>
-            <img class="trade-request-2-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-          </div>
-          <div class="trade-request-3">
-            <div class="trade-request-3-label">Rarity: Mythic</div>
-            <img class="trade-request-3-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-          </div>
-          <div class="trade-request-4">
-            <div class="trade-request-4-label">Rarity: Rare</div>
-            <img class="trade-request-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-          </div>
-          <div class="trade-request-5">
-            <div class="trade-request-5-user">Gabriel Imperial</div>
-            <div class="trade-request-5-type">Trade Request</div>
-            <p class="trade-request-5-date">02 / 03 / 2029</p>
-            <p class="trade-request-5-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-            </p>
-            <img class="gabriel-profile-2" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
-          </div>
-          <div class="trade-request-6">
-            <div class="trade-request-6-user">Kathryn Molaer</div>
-            <div class="trade-request-6-type">Trade Request</div>
-            <p class="trade-request-6-date">12 / 31 / 2028</p>
-            <p class="trade-request-6-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-            </p>
-            <img class="kathryn-profile-2" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
-          </div>
-          <div class="trade-request-7">
-            <div class="trade-request-7-type">Trade Request</div>
-            <p class="trade-request-7-date">04 / 05 / 2027</p>
-            <p class="trade-request-7-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-            </p>
-            <div class="trade-request-7-user">Mark Africa</div>
-            <img class="mark-profile-3" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
-          </div>
-        </div>
-        <div class="section-title-trade-requests">Trade Requests</div>
-        <div class="showcases">
-          <div class="showcase-group">
-            <div class="showcase-1">
-              <div class="showcase-1-details">
-                <div class="showcase-1-type">Trade Request</div>
-                <p class="showcase-1-date">01 / 01 / 2029</p>
-                <p class="showcase-1-description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-                </p>
-                <div class="showcase-1-user">John Maigue</div>
-              </div>
-              <img class="showcase-1-image" src="{% static 'img/homepage/sections/collection showcase 1.png' %}" alt="Showcase 1" />
-              <div class="showcase-1-label">Rarity: Legendary</div>
-              <img class="showcase-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-              <div class="showcase-1-gradient"></div>
-              <div class="showcase-1-circle"></div>
-              <img class="john-profile-3" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
-              <img class="showcase-1-forward" src="{% static 'img/homepage/yellow forward.png' %}" alt="Forward" />
-            </div>
-            <div class="showcase-2">
-              <div class="showcase-2-label">Rarity: Common</div>
-              <img class="showcase-2-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-            </div>
-            <div class="showcase-3">
-              <div class="showcase-3-label">Rarity: Mythic</div>
-              <img class="showcase-3-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-            </div>
-            <div class="showcase-4">
-              <div class="showcase-4-label">Rarity: Rare</div>
-              <img class="showcase-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
-            </div>
-            <div class="showcase-5">
-              <div class="showcase-5-user">Gabriel Imperial</div>
-              <div class="showcase-5-type">Showcase</div>
-              <p class="showcase-5-date">02 / 03 / 2029</p>
-              <p class="showcase-5-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-              </p>
-              <img class="gabriel-profile-3" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
-            </div>
-            <div class="showcase-6">
-              <div class="showcase-6-user">Kathryn Molaer</div>
-              <div class="showcase-6-type">Showcase</div>
-              <p class="showcase-6-date">12 / 31 / 2028</p>
-              <p class="showcase-6-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-              </p>
-              <img class="kathryn-profile-3" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
-            </div>
-            <div class="showcase-7">
-              <div class="showcase-7-type">Showcase</div>
-              <p class="showcase-7-date">04 / 05 / 2027</p>
-              <p class="showcase-7-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
-              </p>
-              <div class="showcase-7-user">Mark Africa</div>
-              <img class="mark-profile-4" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
-            </div>
-          </div>
-          <div class="section-title-showcases">Collection Showcases</div>
-        </div>
-      </div>
-      <div class="upload-item-label">Upload Item:</div>
-      <div class="header">
-        <div class="header-button" id="uploadButton">Upload Item</div>
-        <div class="search-bar"><img class="search-icon" src="{% static 'img/homepage/search.png' %}" alt="Search Icon" /></div>
-      </div>
-      <div class="sidebar">
-        <div class="sidebar-home">
-          <div class="home-highlight home">
-            <img src="{% static 'img/homepage/nav bar select.png' %}" alt="Home Highlight" />
-          </div>
-          <img class="home-icon" src="{% static 'img/homepage/home.png' %}" alt="Home Icon" />
-        </div>
-        <button class="chat-button" id="chatButton" aria-label="Open chat">
-          <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat Icon" />
-        </button>
-        <img class="settings-icon" src="{% static 'img/homepage/settings.png' %}" alt="Settings Icon" />
-        <img class="notifications-icon" src="{% static 'img/homepage/notif.png' %}" alt="Notifications Icon" />
-        <a href="{% url 'profile' %}">
-          <img class="user-profile" src="{% static 'img/homepage/profile.png' %}" alt="User Profile" />
-        </a>
-      </div>
-      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
-      <!-- Message Modal -->
-      <div class="modal" id="messageModal">
-        <div class="modal-content">
-          <span class="close-button" id="closeModal">×</span>
-          <h2>Messages</h2>
-          <div class="chat-list">
-            <div class="chat-item">
-              <img src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" class="chat-profile" />
-              <div class="chat-details">
-                <div class="chat-user">John Maigue</div>
-                <div class="chat-preview">Hey, still got that Gojo figure?</div>
-              </div>
-            </div>
-            <div class="chat-item">
-              <img src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" class="chat-profile" />
-              <div class="chat-details">
-                <div class="chat-user">Mark Africa</div>
-                <div class="chat-preview">Interested in trading for a vintage coin?</div>
-              </div>
-            </div>
-          </div>
-          <div class="chat-input">
-            <input type="text" placeholder="Type a message..." id="messageInput" />
-            <button class="send-button">Send</button>
-          </div>
-        </div>
+        <div class="recommended-container">
+  <div class="recommended-4">
+    <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 1.png' %}" alt="Recommended 4" />
+    <div class="recommended-4-details">
+      <img class="john-profile element" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
+      <div class="user-name text-wrapper-2">John Maigue</div>
+      <div class="request-type text-wrapper">Trade Request</div>
+      <p class="request-date div">01 / 01 / 2029</p>
+      <p class="request-description p">
+        This is the missing piece! My vintage typewriter collection won’t be complete without it.
+      </p>
+    </div>
+    <div class="recommended-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Mythic</span>
       </div>
     </div>
+    <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="recommended-4">
+    <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 2.png' %}" alt="Recommended 2" />
+    <div class="recommended-4-details">
+      <img class="gabriel-profile element" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
+      <div class="user-name text-wrapper-2">Gabriel Imperial</div>
+      <div class="request-type text-wrapper">Trade Request</div>
+      <p class="request-date div">02 / 03 / 2029</p>
+      <p class="request-description p">
+        I’ve been hunting for this little guy forever! Anyone holding onto one of these?
+      </p>
+    </div>
+    <div class="recommended-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Rare</span>
+      </div>
+    </div>
+    <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="recommended-4">
+    <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 3.png' %}" alt="Recommended 3" />
+    <div class="recommended-4-details">
+      <img class="kathryn-profile element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
+      <div class="user-name text-wrapper-2">Kathryn Molaer</div>
+      <div class="request-type text-wrapper">Collection Showcase</div>
+      <p class="request-date div">12 / 31 / 2028</p>
+      <p class="request-description p">
+        Years of searching, countless stories within these pages—my library of treasures is finally complete!
+      </p>
+    </div>
+    <div class="recommended-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Legendary</span>
+      </div>
+    </div>
+    <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="recommended-4">
+    <img class="recommended-4-image" src="{% static 'img/homepage/sections/recommended 4.png' %}" alt="Recommended 1" />
+    <div class="recommended-4-details">
+      <img class="mark-profile element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
+      <div class="user-name text-wrapper-2">Mark Africa</div>
+      <div class="request-type text-wrapper">Wishlist</div>
+      <p class="request-date div">04 / 05 / 2027</p>
+      <p class="request-description p">
+        Thinking of getting this beauty for Grandpa—nothing like the classics to bring back golden memories!
+      </p>
+    </div>
+    <div class="recommended-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Common</span>
+      </div>
+    </div>
+    <img class="recommended-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="navigation-buttons">
+    <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+    <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
+  </div>
+</div>
+
+<div class="section-title-favorites">Favorites</div>
+<div class="favorites-container">
+  <div class="favorite-1">
+    <img class="favorite-1-image" src="{% static 'img/homepage/sections/favorites.png' %}" alt="Favorite 1" />
+    <div class="favorite-1-details">
+      <div class="favorite-1-user">
+        <img class="mark-profile element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
+        <div class="favorite-1-user-name">Mark Africa</div>
+      </div>
+      <div class="favorite-1-status">Open for Trade</div>
+      <p class="favorite-1-date">04 / 05 / 2027</p>
+      <div class="favorite-1-text">
+        <p class="favorite-1-description">
+          Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original box.
+        </p>
+        <div class="favorite-1-preference">Prefer to trade</div>
+      </div>
+    </div>
+    <div class="favorite-1-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Rare</span>
+      </div>
+    </div>
+    <img class="favorite-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="favorite-2">
+    <img class="add-to-favorites" src="{% static 'img/homepage/plus.png' %}" alt="Add to Favorites" />
+    <div class="favorite-2-text">Add to your <br />favorites</div>
+  </div>
+  <div class="navigation-buttons">
+    <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+    <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
+  </div>
+</div>
+
+<div class="section-title-trade-requests">Trade Requests</div>
+<div class="trade-requests">
+  <div class="trade-request-1">
+    <img class="trade-request-1-image" src="{% static 'img/homepage/sections/trade requests 1.png' %}" alt="Trade Request 1" />
+    <div class="trade-request-1-details">
+      <img class="john-profile-2 element" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
+      <div class="trade-request-1-user">John Maigue</div>
+      <div class="trade-request-1-type">Trade Request</div>
+      <p class="trade-request-1-date">01 / 01 / 2029</p>
+      <p class="trade-request-1-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="trade-request-1-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Common</span>
+      </div>
+    </div>
+    <img class="trade-request-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="trade-request-2">
+    <img class="trade-request-2-image" src="{% static 'img/homepage/sections/trade requests 2.png' %}" alt="Trade Request 2" />
+    <div class="trade-request-2-details">
+      <img class="gabriel-profile-2 element" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
+      <div class="trade-request-2-user">Gabriel Imperial</div>
+      <div class="trade-request-2-type">Trade Request</div>
+      <p class="trade-request-2-date">02 / 03 / 2029</p>
+      <p class="trade-request-2-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="trade-request-2-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Legendary</span>
+      </div>
+    </div>
+    <img class="trade-request-2-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="trade-request-3">
+    <img class="trade-request-3-image" src="{% static 'img/homepage/sections/trade requests 3.png' %}" alt="Trade Request 3" />
+    <div class="trade-request-3-details">
+      <img class="kathryn-profile-2 element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
+      <div class="trade-request-3-user">Kathryn Molaer</div>
+      <div class="trade-request-3-type">Trade Request</div>
+      <p class="trade-request-3-date">12 / 31 / 2028</p>
+      <p class="trade-request-3-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="trade-request-3-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Mythic</span>
+      </div>
+    </div>
+    <img class="trade-request-3-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="trade-request-4">
+    <img class="trade-request-4-image" src="{% static 'img/homepage/sections/trade requests 4.png' %}" alt="Trade Request 4" />
+    <div class="trade-request-4-details">
+      <img class="mark-profile-2 element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
+      <div class="trade-request-4-user">Mark Africa</div>
+      <div class="trade-request-4-type">Trade Request</div>
+      <p class="trade-request-4-date">04 / 05 / 2027</p>
+      <p class="trade-request-4-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="trade-request-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Rare</span>
+      </div>
+    </div>
+    <img class="trade-request-4-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="navigation-buttons">
+    <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+    <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
+  </div>
+</div>
+
+<div class="section-title-showcases">Collection Showcases</div>
+<div class="showcase-group">
+  <div class="showcase-1">
+    <img class="showcase-1-image" src="{% static 'img/homepage/sections/collection showcase 1.png' %}" alt="Showcase 1" />
+    <div class="showcase-1-details">
+      <img class="john-profile-3 element" src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" />
+      <div class="showcase-1-user">John Maigue</div>
+      <div class="showcase-1-type">Showcase</div>
+      <p class="showcase-1-date">01 / 01 / 2029</p>
+      <p class="showcase-1-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="showcase-1-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Legendary</span>
+      </div>
+    </div>
+    <img class="showcase-1-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="showcase-2">
+    <img class="showcase-2-image" src="{% static 'img/homepage/sections/collection showcase 2.png' %}" alt="Showcase 2" />
+    <div class="showcase-2-details">
+      <img class="gabriel-profile-3 element" src="{% static 'img/homepage/sections/gabriel profile.png' %}" alt="Gabriel Profile" />
+      <div class="showcase-2-user">Gabriel Imperial</div>
+      <div class="showcase-2-type">Showcase</div>
+      <p class="showcase-2-date">02 / 03 / 2029</p>
+      <p class="showcase-2-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="showcase-2-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Common</span>
+      </div>
+    </div>
+    <img class="showcase-2-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="showcase-3">
+    <img class="showcase-3-image" src="{% static 'img/homepage/sections/collection showcase 3.png' %}" alt="Showcase 3" />
+    <div class="showcase-3-details">
+      <img class="kathryn-profile-3 element" src="{% static 'img/homepage/sections/kathryn profile.png' %}" alt="Kathryn Profile" />
+      <div class="showcase-3-user">Kathryn Molaer</div>
+      <div class="showcase-3-type">Showcase</div>
+      <p class="showcase-3-date">12 / 31 / 2028</p>
+      <p class="showcase-3-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="showcase-3-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Mythic</span>
+      </div>
+    </div>
+    <img class="showcase-3-rating" src="{% static 'img/homepage/sections/rating.png' %}" alt="Rating" />
+  </div>
+  <div class="showcase-4">
+    <img class="showcase-4-image" src="{% static 'img/homepage/sections/collection showcase 4.png' %}" alt="Showcase 4" />
+    <div class="showcase-4-details">
+      <img class="mark-profile-3 element" src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" />
+      <div class="showcase-4-user">Mark Africa</div>
+      <div class="showcase-4-type">Showcase</div>
+      <p class="showcase-4-date">04 / 05 / 2027</p>
+      <p class="showcase-4-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in sollicitudin nibh.
+      </p>
+    </div>
+    <div class="showcase-4-label">
+      <div class="group">
+        <div class="rectangle"></div>
+        <span>Rarity: Rare</span>
+      </div>
+    </div>
+    <img class="showcase-4-rating" src="{% static 'img/homepage/sections/rating-3.png' %}" alt="Rating" />
+  </div>
+  <div class="navigation-buttons">
+    <div class="nav-back"><img class="nav-back-icon" src="{% static 'img/homepage/back.png' %}" alt="Navigation Back" /></div>
+    <div class="nav-forward"><img class="nav-forward-icon" src="{% static 'img/homepage/forward.png' %}" alt="Navigation Forward" /></div>
+  </div>
+</div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-home">
+          <div class="sidebar-highlight">
+            <img class="sidebar-highlight-icon" src="{% static 'img/homepage/nav bar select.png' %}" alt="Highlight" />
+          </div>
+          <img class="home-icon" src="{% static 'img/homepage/Home.png' %}" alt="Home Icon" />
+        </div>
+        <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat" data-modal="messageModal" />
+        <img class="settings-icon" src="{% static 'img/homepage/Settings.png' %}" alt="Settings Icon" />
+        <img class="notifications-icon" src="{% static 'img/homepage/Notif.png' %}" alt="Notifications Icon" />
+        <img class="user-profile" src="{% static 'img/homepage/Profile.png' %}" alt="User Profile" />
+      </div>
+      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
+
+      <!-- Message Modal -->
+      <div class="modal" id="messageModal">
+        <div class="modal-content message">
+          <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" />
+          <div class="text-wrapper">Chat</div>
+          <img class="search-bar" src="{% static 'img/homepage modals/search.png' %}" alt="Search" />
+          <div class="div">Last chats</div>
+          <div class="overlap">
+            <div class="sino-kausap">
+              <div class="overlap-6">
+                <img class="pfp-3" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile" />
+                <div class="text-wrapper-6">KatsuraDa</div>
+              </div>
+            </div>
+            <div class="message-opssen">
+              <div class="chat-bubble other-user">
+                <p class="hey-i-saw-your-2">
+                  Hey! I saw your collection. Ganda ng figurines mo ah. Matagal ka<br />na nagko-collect?
+                </p>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="hi-yes-medyo-matagal">
+                  Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng <br />Jujutsu Kaisen characters
+                </p>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="p">Si gojo ba favorite mo? dami mong gojo eh</p>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-2">Oo, halata na nga eh HAHA</p>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-3">si gojo rin favorite ko</p>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-4">madalas ka ba bumibili online?</p>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-5">Minsan sa online, pero minsan sa mga malls din kung meron</p>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-11">Ahh talaga ba? Nice</p>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="kita-ko-nga-meron-ka">
+                  kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind <br />boxes?
+                </p>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-11">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
+              </div>
+            </div>
+            <div class="text-wrapper-12">@zurajanai</div>
+            <div class="group-10">
+              <div class="overlap-14">
+                <div class="text-wrapper-13">View profile</div>
+              </div>
+            </div>
+          </div>
+          <div class="overlap-15">
+            <div class="overlap-16">
+              <input type="text" class="text-wrapper-14" placeholder="Write your message" />
+              <img class="attach" src="{% static 'img/homepage modals/attach.png' %}" alt="Attach" />
+            </div>
+            <img class="pfp-9" src="{% static 'img/homepage modals/pfp 7.png' %}" alt="Profile" />
+          </div>
+        </div>
+      </div>
+    
     <!-- Basic Information Modal -->
 <div class="modal" id="basicInfoModal">
   <div class="modal-content item-upload-page">
@@ -397,11 +519,10 @@
     <div class="text-wrapper-16">Upload Photo</div>
   
     </div>
-    
 </div>
+
   <!--UPLOAD MODALS-->
-  <!-- Detailed Information Modal -->
-<!-- Detailed Information Modal -->
+
 <!-- Detailed Information Modal -->
 <div class="modal" id="detailedInfoModal" style="display: none;">
   <div class="modal-content item-upload-page">
@@ -456,7 +577,7 @@
     </div>
   </div>
 </div>
-  <!-- Preview and Uploading Modal -->
+
 <!-- Preview and Uploading Modal -->
 <div class="modal" id="previewModal" style="display: none;">
   <div class="modal-content item-upload-page">
@@ -527,612 +648,567 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-  // Get DOM elements for message modal
-  const chatButton = document.getElementById('chatButton');
-  const messageModal = document.getElementById('messageModal');
-  const closeModal = document.getElementById('closeModal');
-  const messageInput = document.getElementById('messageInput');
+    // Chat Modal Functionality
+    const chatIcon = document.querySelector('.chat-icon');
+    const messageModal = document.getElementById('messageModal');
+    const closeMessageModal = messageModal?.querySelector('.close-window');
 
-  // Get DOM elements for upload modals
-  const uploadButton = document.getElementById('uploadButton');
-  const basicInfoModal = document.getElementById('basicInfoModal');
-  const detailedInfoModal = document.getElementById('detailedInfoModal');
-  const previewModal = document.getElementById('previewModal');
-  const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
-  const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
-  const closePreviewModal = document.getElementById('closePreviewModal');
-  const dropZone = document.getElementById('dropZone');
-  const fileInput = document.getElementById('fileInput');
-  const itemTypeDropdown = document.getElementById('itemTypeDropdown');
-  const shelfDropdown = document.getElementById('shelfDropdown');
-  const tradabilityToggle = document.getElementById('tradabilityToggle');
-  const conditionDropdown = document.getElementById('conditionDropdown');
-  let tradability = 'Enabled';
-  let currentItemId = null;
-  let itemData = {};
+    if (chatIcon && messageModal && closeMessageModal) {
+      chatIcon.style.cursor = 'pointer'; // Add cursor pointer for better UX
+      chatIcon.addEventListener('click', () => {
+        messageModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Disable background scrolling
+      });
 
-  // Function to get CSRF token
-  function getCsrfToken() {
-    const tokenElement = document.querySelector('input[name="csrfmiddlewaretoken"]');
-    if (!tokenElement) {
-      console.error('CSRF token element not found. Ensure <input name="csrfmiddlewaretoken"> exists.');
-      return '';
+      closeMessageModal.addEventListener('click', () => {
+        messageModal.style.display = 'none';
+        document.body.style.overflow = ''; // Re-enable background scrolling
+      });
+
+      // Close modal when clicking outside
+      messageModal.addEventListener('click', (e) => {
+        if (e.target === messageModal) {
+          messageModal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    } else {
+      console.warn('Chat modal elements missing:', {
+        chatIcon: !!chatIcon,
+        messageModal: !!messageModal,
+        closeMessageModal: !!closeMessageModal,
+      });
     }
-    return tokenElement.value;
-  }
 
-  // Toggle message modal
-  if (chatButton && messageModal && closeModal && messageInput) {
-    chatButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      messageModal.style.display = 'flex';
-      messageInput.focus();
-    });
+    // Get DOM elements for upload modals
+    const uploadButton = document.querySelector('.header-button'); // Adjusted to match "Upload Item" button
+    const basicInfoModal = document.getElementById('basicInfoModal');
+    const detailedInfoModal = document.getElementById('detailedInfoModal');
+    const previewModal = document.getElementById('previewModal');
+    const closeBasicInfoModal = document.getElementById('closeBasicInfoModal');
+    const closeDetailedInfoModal = document.getElementById('closeDetailedInfoModal');
+    const closePreviewModal = document.getElementById('closePreviewModal');
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const itemTypeDropdown = document.getElementById('itemTypeDropdown');
+    const shelfDropdown = document.getElementById('shelfDropdown');
+    const tradabilityToggle = document.getElementById('tradabilityToggle');
+    const conditionDropdown = document.getElementById('conditionDropdown');
+    let tradability = 'Enabled';
+    let currentItemId = null;
+    let itemData = {};
 
-    closeModal.addEventListener('click', () => {
-      messageModal.style.display = 'none';
+    // Function to get CSRF token
+    function getCsrfToken() {
+      const tokenElement = document.querySelector('input[name="csrfmiddlewaretoken"]');
+      if (!tokenElement) {
+        console.error('CSRF token element not found.');
+        return '';
+      }
+      return tokenElement.value;
+    }
+
+    // Open basic info modal
+    if (uploadButton && basicInfoModal) {
+      uploadButton.style.cursor = 'pointer';
+      uploadButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        basicInfoModal.style.display = 'flex';
+        const itemName = document.getElementById('itemName');
+        if (itemName) itemName.focus();
+      });
+    }
+
+    // Close modals
+    [closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach((closeButton) => {
+      if (closeButton) {
+        closeButton.style.cursor = 'pointer';
+        closeButton.addEventListener('click', () => {
+          if (basicInfoModal) basicInfoModal.style.display = 'none';
+          if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+          if (previewModal) previewModal.style.display = 'none';
+          resetForm();
+        });
+      }
     });
 
     window.addEventListener('click', (event) => {
-      if (event.target === messageModal) {
-        messageModal.style.display = 'none';
-      }
-    });
-
-    messageInput.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        const sendButton = document.querySelector('.send-button');
-        if (sendButton) sendButton.click();
-      }
-    });
-  } else {
-    console.warn('Message modal elements missing:', {
-      chatButton: !!chatButton,
-      messageModal: !!messageModal,
-      closeModal: !!closeModal,
-      messageInput: !!messageInput
-    });
-  }
-
-  // Open basic info modal
-  if (uploadButton && basicInfoModal) {
-    uploadButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      basicInfoModal.style.display = 'flex';
-      const itemName = document.getElementById('itemName');
-      if (itemName) itemName.focus();
-    });
-  } else {
-    console.warn('Upload button or basicInfoModal missing:', {
-      uploadButton: !!uploadButton,
-      basicInfoModal: !!basicInfoModal
-    });
-  }
-
-  // Close modals
-  [closeBasicInfoModal, closeDetailedInfoModal, closePreviewModal].forEach(closeButton => {
-    if (closeButton) {
-      closeButton.addEventListener('click', () => {
+      if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
         if (basicInfoModal) basicInfoModal.style.display = 'none';
         if (detailedInfoModal) detailedInfoModal.style.display = 'none';
         if (previewModal) previewModal.style.display = 'none';
         resetForm();
+      }
+    });
+
+    // Drag and drop file upload (Basic Info)
+    if (dropZone && fileInput) {
+      dropZone.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropZone.style.borderColor = '#003566';
       });
-    }
-  });
 
-  window.addEventListener('click', (event) => {
-    if (event.target === basicInfoModal || event.target === detailedInfoModal || event.target === previewModal) {
-      if (basicInfoModal) basicInfoModal.style.display = 'none';
-      if (detailedInfoModal) detailedInfoModal.style.display = 'none';
-      if (previewModal) previewModal.style.display = 'none';
-      resetForm();
-    }
-  });
+      dropZone.addEventListener('dragleave', (event) => {
+        event.preventDefault();
+        dropZone.style.borderColor = '#003566';
+      });
 
-  // Drag and drop file upload (Basic Info)
-  if (dropZone && fileInput) {
-    dropZone.addEventListener('dragover', (event) => {
-      event.preventDefault();
-      dropZone.style.borderColor = '#003566';
-    });
-
-    dropZone.addEventListener('dragleave', (event) => {
-      event.preventDefault();
-      dropZone.style.borderColor = '#003566';
-    });
-
-    dropZone.addEventListener('drop', (event) => {
-      event.preventDefault();
-      dropZone.style.borderColor = '#003566';
-      const files = event.dataTransfer.files;
-      if (files.length > 0) {
-        fileInput.files = files;
-        handleFileUpload(files[0], dropZone);
-      }
-    });
-
-    fileInput.addEventListener('change', (event) => {
-      const files = event.target.files;
-      if (files.length > 0) {
-        handleFileUpload(files[0], dropZone);
-      }
-    });
-  } else {
-    console.warn('File upload elements missing:', {
-      dropZone: !!dropZone,
-      fileInput: !!fileInput
-    });
-  }
-
-  function handleFileUpload(file, dropZoneElement) {
-    const validTypes = ['image/jpeg', 'image/png'];
-    if (!validTypes.includes(file.type)) {
-      alert('Please upload a JPG or PNG file.');
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
-      dropZoneElement.style.backgroundSize = 'cover';
-      dropZoneElement.style.backgroundPosition = 'center';
-      // Hide upload text and icon
-      const pfp = dropZoneElement.querySelector('.pfp');
-      const overlap3 = dropZoneElement.querySelector('.overlap-3');
-      const textWrapper15 = dropZoneElement.querySelector('.text-wrapper-15');
-      const divWrapper = dropZoneElement.querySelector('.div-wrapper');
-      if (pfp) pfp.style.display = 'none';
-      if (overlap3) overlap3.style.display = 'none';
-      if (textWrapper15) textWrapper15.style.display = 'none';
-      if (divWrapper) divWrapper.style.display = 'none';
-    };
-    reader.readAsDataURL(file);
-  }
-
-  // Dropdown functionality
-  const dropdowns = [itemTypeDropdown, shelfDropdown, conditionDropdown].filter(d => d);
-  dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (event) => {
-      event.stopPropagation();
-      const options = dropdown.querySelector('.dropdown-options');
-      if (options) {
-        options.style.display = options.style.display === 'block' ? 'none' : 'block';
-      } else {
-        console.warn(`Dropdown options not found for ${dropdown.id}`);
-      }
-    });
-
-    const options = dropdown.querySelectorAll('.dropdown-options .option');
-    options.forEach(option => {
-      option.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const textWrapper = dropdown.querySelector('.text-wrapper-13');
-        if (textWrapper) {
-          textWrapper.textContent = e.target.textContent;
-        }
-        const optionsContainer = e.target.closest('.dropdown-options');
-        if (optionsContainer) {
-          optionsContainer.style.display = 'none';
+      dropZone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropZone.style.borderColor = '#003566';
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+          fileInput.files = files;
+          handleFileUpload(files[0], dropZone);
         }
       });
-    });
-  });
 
-  // Close dropdowns when clicking outside
-  window.addEventListener('click', (event) => {
-    if (!event.target.closest('.dropdown-menu') && !event.target.closest('.dropdown-menu-2')) {
-      document.querySelectorAll('.dropdown-options').forEach(options => {
+      fileInput.addEventListener('change', (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+          handleFileUpload(files[0], dropZone);
+        }
+      });
+    }
+
+    function handleFileUpload(file, dropZoneElement) {
+      const validTypes = ['image/jpeg', 'image/png'];
+      if (!validTypes.includes(file.type)) {
+        alert('Please upload a JPG or PNG file.');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        dropZoneElement.style.backgroundImage = `url(${e.target.result})`;
+        dropZoneElement.style.backgroundSize = 'cover';
+        dropZoneElement.style.backgroundPosition = 'center';
+        const pfp = dropZoneElement.querySelector('.pfp');
+        const div = dropZoneElement.querySelector('.div');
+        const textWrapper3 = dropZoneElement.querySelector('.text-wrapper-3');
+        const divWrapper = dropZoneElement.querySelector('.div-wrapper');
+        if (pfp) pfp.style.display = 'none';
+        if (div) div.style.display = 'none';
+        if (textWrapper3) textWrapper3.style.display = 'none';
+        if (divWrapper) divWrapper.style.display = 'none';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Dropdown functionality
+    const dropdowns = [itemTypeDropdown, shelfDropdown, conditionDropdown].filter((d) => d);
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const options = dropdown.querySelector('.dropdown-options');
+        if (options) {
+          options.style.display = options.style.display === 'block' ? 'none' : 'block';
+        }
+      });
+
+      const options = dropdown.querySelectorAll('.dropdown-options .option');
+      options.forEach((option) => {
+        option.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const textWrapper = dropdown.querySelector('.text-wrapper-13');
+          if (textWrapper) {
+            textWrapper.textContent = e.target.textContent;
+          }
+          const optionsContainer = e.target.closest('.dropdown-options');
+          if (optionsContainer) {
+            optionsContainer.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-options').forEach((options) => {
         options.style.display = 'none';
       });
-    }
-  });
-
-  // Tradability toggle
-  if (tradabilityToggle) {
-    tradabilityToggle.addEventListener('click', (event) => {
-      event.preventDefault();
-      const overlap2 = tradabilityToggle.querySelector('.overlap-2');
-      const overlap3 = tradabilityToggle.querySelector('.overlap-3');
-      const text14 = overlap2 ? overlap2.querySelector('.text-wrapper-14') : null;
-      const text15 = overlap3 ? overlap3.querySelector('.text-wrapper-15') : null;
-      
-      if (tradability === 'Enabled') {
-        if (overlap2) overlap2.style.backgroundColor = '#ffffff';
-        if (overlap3) overlap3.style.backgroundColor = '#ffd60a';
-        if (text14) text14.style.color = '#b9b9b9';
-        if (text15) text15.style.color = '#003566';
-        tradability = 'Disabled';
-      } else {
-        if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
-        if (overlap3) overlap3.style.backgroundColor = '#ffffff';
-        if (text14) text14.style.color = '#003566';
-        if (text15) text15.style.color = '#b9b9b9';
-        tradability = 'Enabled';
-      }
     });
-  } else {
-    console.warn('tradabilityToggle element not found');
-  }
 
-  // Basic Info submission
-  const basicNextButton = document.querySelector('#basicInfoModal .overlap');
-  if (basicNextButton) {
-    basicNextButton.addEventListener('click', async (event) => {
-      event.preventDefault();
-      
-      if (!basicInfoModal || !detailedInfoModal) {
-        console.error('Modal elements missing:', {
-          basicInfoModal: !!basicInfoModal,
-          detailedInfoModal: !!detailedInfoModal
-        });
-        alert('Error: Modal elements not found. Please check that <div id="basicInfoModal"> and <div id="detailedInfoModal"> exist in the HTML.');
-        return;
-      }
+    // Tradability toggle
+    if (tradabilityToggle) {
+      tradabilityToggle.style.cursor = 'pointer';
+      tradabilityToggle.addEventListener('click', () => {
+        const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+        const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+        const text14 = overlap2?.querySelector('.text-wrapper-14');
+        const text15 = overlap3?.querySelector('.text-wrapper-15');
 
-      // Collect form data
+        if (tradability === 'Enabled') {
+          if (overlap2) overlap2.style.backgroundColor = '#ffffff';
+          if (overlap3) overlap3.style.backgroundColor = '#ffd60a';
+          if (text14) text14.style.color = '#b9b9b9';
+          if (text15) text15.style.color = '#003566';
+          tradability = 'Disabled';
+        } else {
+          if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
+          if (overlap3) overlap3.style.backgroundColor = '#ffffff';
+          if (text14) text14.style.color = '#003566';
+          if (text15) text15.style.color = '#b9b9b9';
+          tradability = 'Enabled';
+        }
+      });
+    }
+
+    // Basic Info submission
+    const basicNextButton = document.querySelector('#basicInfoModal .overlap');
+    if (basicNextButton) {
+      basicNextButton.style.cursor = 'pointer';
+      basicNextButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const itemName = document.getElementById('itemName');
+        const itemDescription = document.getElementById('itemDescription');
+        const itemType = itemTypeDropdown?.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+        const shelf = shelfDropdown?.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+
+        if (!itemName?.value.trim()) {
+          alert('Please enter the item name.');
+          return;
+        }
+        if (!itemDescription?.value.trim()) {
+          alert('Please enter the item description.');
+          return;
+        }
+        if (itemType === 'Select type') {
+          alert('Please select an item type.');
+          return;
+        }
+        if (shelf === 'Select type') {
+          alert('Please select a shelf.');
+          return;
+        }
+        if (!fileInput?.files[0]) {
+          alert('Please upload an item image.');
+          return;
+        }
+
+        itemData = {
+          name: itemName.value.trim(),
+          description: itemDescription.value.trim(),
+          itemType,
+          shelf,
+          tradability,
+          file: fileInput.files[0],
+        };
+
+        const formData = new FormData();
+        formData.append('name', itemData.name);
+        formData.append('description', itemData.description);
+        formData.append('itemType', itemData.itemType);
+        formData.append('shelf', itemData.shelf);
+        formData.append('tradability', itemData.tradability);
+        formData.append('file', itemData.file);
+
+        try {
+          const response = await fetch('/upload-item/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-CSRFToken': getCsrfToken(),
+            },
+          });
+          const result = await response.json();
+          if (result.status === 'success') {
+            currentItemId = result.item_id;
+            if (basicInfoModal) basicInfoModal.style.display = 'none';
+            if (detailedInfoModal) detailedInfoModal.style.display = 'flex';
+            const dateAcquired = document.getElementById('dateAcquired');
+            if (dateAcquired) dateAcquired.focus();
+
+            if (itemData.file) {
+              const detailedImage = document.getElementById('detailedImage');
+              if (detailedImage) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                  detailedImage.src = e.target.result;
+                };
+                reader.readAsDataURL(itemData.file);
+              }
+            }
+          } else {
+            alert('Error: ' + result.message);
+          }
+        } catch (error) {
+          console.error('Error uploading item:', error);
+          alert('An error occurred while uploading the item.');
+        }
+      });
+    }
+
+    // Detailed Info submission
+    const detailedNextButton = document.querySelector('#detailedInfoModal .overlap');
+    if (detailedNextButton) {
+      detailedNextButton.style.cursor = 'pointer';
+      detailedNextButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const dateAcquired = document.getElementById('dateAcquired');
+        const otherNotes = document.getElementById('otherNotes');
+        const dimensions = document.getElementById('dimensions');
+        const weight = document.getElementById('weight');
+        const condition = conditionDropdown?.querySelector('.text-wrapper-13')?.textContent || 'Select type';
+
+        itemData = {
+          ...itemData,
+          dateAcquired: dateAcquired?.value || '',
+          otherNotes: otherNotes?.value || '',
+          dimensions: dimensions?.value || '',
+          weight: weight?.value || '',
+          condition,
+        };
+
+        const formData = new FormData();
+        formData.append('item_id', currentItemId);
+        formData.append('dateAcquired', itemData.dateAcquired);
+        formData.append('otherNotes', itemData.otherNotes);
+        formData.append('dimensions', itemData.dimensions);
+        formData.append('weight', itemData.weight);
+        formData.append('condition', itemData.condition);
+
+        try {
+          const response = await fetch('/upload-item/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-CSRFToken': getCsrfToken(),
+            },
+          });
+          const result = await response.json();
+          if (result.status === 'success') {
+            if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+            if (previewModal) previewModal.style.display = 'flex';
+
+            const previewName = document.getElementById('previewName');
+            const previewDescription = document.getElementById('previewDescription');
+            const previewNotes = document.getElementById('previewNotes');
+            const previewTradability = document.getElementById('previewTradability');
+            const previewYear = document.getElementById('previewYear');
+            const previewDimensions = document.getElementById('previewDimensions');
+            const previewWeight = document.getElementById('previewWeight');
+            const previewCondition = document.getElementById('previewCondition');
+            const previewAuthor = document.getElementById('previewAuthor');
+            const previewRating = document.getElementById('previewRating');
+            const commentCount = document.getElementById('commentCount');
+
+            if (previewName) previewName.textContent = itemData.name;
+            if (previewDescription) previewDescription.textContent = itemData.description || 'No description provided';
+            if (previewNotes) previewNotes.textContent = itemData.otherNotes || 'No additional notes';
+            if (previewTradability) previewTradability.textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
+            if (previewYear) previewYear.textContent = itemData.dateAcquired || 'Not specified';
+            if (previewDimensions) previewDimensions.textContent = itemData.dimensions || 'Not specified';
+            if (previewWeight) previewWeight.textContent = itemData.weight || 'Not specified';
+            if (previewCondition) previewCondition.textContent = itemData.condition !== 'Select type' ? itemData.condition : 'Not specified';
+            if (previewAuthor) previewAuthor.textContent = 'Current User';
+            if (previewRating) previewRating.textContent = '4.5';
+            if (commentCount) commentCount.textContent = '0';
+
+            if (itemData.file) {
+              const previewImage = document.getElementById('previewImage');
+              if (previewImage) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                  previewImage.src = e.target.result;
+                };
+                reader.readAsDataURL(itemData.file);
+              }
+            }
+          } else {
+            alert('Error: ' + result.message);
+          }
+        } catch (error) {
+          console.error('Error updating item details:', error);
+          alert('An error occurred while updating the item details.');
+        }
+      });
+    }
+
+    // Comment submission
+    const submitCommentButton = document.querySelector('#previewModal .submit-comment');
+    if (submitCommentButton) {
+      submitCommentButton.style.cursor = 'pointer';
+      submitCommentButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const commentInput = document.getElementById('commentInput');
+        const comment = commentInput?.value.trim();
+        if (comment) {
+          commentInput.value = '';
+          const commentCount = document.getElementById('commentCount');
+          if (commentCount) {
+            commentCount.textContent = parseInt(commentCount.textContent) + 1;
+          }
+          alert('Comment submitted! (Placeholder)');
+        } else {
+          alert('Please enter a comment.');
+        }
+      });
+    }
+
+    // Back buttons
+    const detailedBackButton = document.querySelector('#detailedInfoModal .overlap-group');
+    if (detailedBackButton) {
+      detailedBackButton.style.cursor = 'pointer';
+      detailedBackButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (detailedInfoModal) detailedInfoModal.style.display = 'none';
+        if (basicInfoModal) basicInfoModal.style.display = 'flex';
+        const itemName = document.getElementById('itemName');
+        if (itemName) itemName.focus();
+
+        if (itemData.file) {
+          const detailedImage = document.getElementById('detailedImage');
+          if (detailedImage) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              detailedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(itemData.file);
+          }
+        }
+      });
+    }
+
+    const previewBackButton = document.querySelector('#previewModal .overlap-group');
+    if (previewBackButton) {
+      previewBackButton.style.cursor = 'pointer';
+      previewBackButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        if (previewModal) previewModal.style.display = 'none';
+        if (detailedInfoModal) detailedInfoModal.style.display = 'flex';
+        const dateAcquired = document.getElementById('dateAcquired');
+        if (dateAcquired) dateAcquired.focus();
+
+        if (itemData.file) {
+          const detailedImage = document.getElementById('detailedImage');
+          if (detailedImage) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              detailedImage.src = e.target.result;
+            };
+            reader.readAsDataURL(itemData.file);
+          }
+        }
+      });
+    }
+
+    // Final upload
+    const previewNextButton = document.querySelector('#previewModal .overlap');
+    if (previewNextButton) {
+      previewNextButton.style.cursor = 'pointer';
+      previewNextButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData();
+        formData.append('item_id', currentItemId);
+        formData.append('final_submit', true);
+
+        try {
+          const response = await fetch('/upload-item/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'X-CSRFToken': getCsrfToken(),
+            },
+          });
+          const result = await response.json();
+          if (result.status === 'success') {
+            alert('Item successfully uploaded!');
+            if (previewModal) previewModal.style.display = 'none';
+            resetForm();
+          } else {
+            alert('Error: ' + result.message);
+          }
+        } catch (error) {
+          console.error('Error finalizing upload:', error);
+          alert('An error occurred while finalizing the upload.');
+        }
+      });
+    }
+
+    // Reset form
+    function resetForm() {
       const itemName = document.getElementById('itemName');
       const itemDescription = document.getElementById('itemDescription');
-      if (!itemName || !itemDescription || !itemTypeDropdown || !shelfDropdown || !fileInput) {
-        console.error('Form elements missing:', {
-          itemName: !!itemName,
-          itemDescription: !!itemDescription,
-          itemTypeDropdown: !!itemTypeDropdown,
-          shelfDropdown: !!shelfDropdown,
-          fileInput: !!fileInput
-        });
-        alert('Error: Form elements not found. Please check IDs: itemName, itemDescription, itemTypeDropdown, shelfDropdown, fileInput.');
-        return;
-      }
-
-      const name = itemName.value.trim();
-      const description = itemDescription.value.trim();
-      const itemType = itemTypeDropdown.querySelector('.text-wrapper-13')?.textContent || 'Select type';
-      const shelf = shelfDropdown.querySelector('.text-wrapper-13')?.textContent || 'Select type';
-
-      // Validate required fields
-      if (!name) {
-        alert('Please enter the item name.');
-        return;
-      }
-      if (!description) {
-        alert('Please enter the item description.');
-        return;
-      }
-      if (itemType === 'Select type') {
-        alert('Please select an item type.');
-        return;
-      }
-      if (shelf === 'Select type') {
-        alert('Please select a shelf.');
-        return;
-      }
-      if (!fileInput.files[0]) {
-        alert('Please upload an item image.');
-        return;
-      }
-
-      // Store data
-      itemData = {
-        name,
-        description,
-        itemType,
-        shelf,
-        tradability,
-        file: fileInput.files[0]
-      };
-
-      const formData = new FormData();
-      formData.append('name', name);
-      formData.append('description', description);
-      formData.append('itemType', itemType);
-      formData.append('shelf', shelf);
-      formData.append('tradability', tradability);
-      formData.append('file', fileInput.files[0]);
-
-      try {
-        const response = await fetch("/upload-item/", {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'X-CSRFToken': getCsrfToken(),
-          },
-        });
-        const result = await response.json();
-        if (result.status === 'success') {
-          currentItemId = result.item_id;
-          basicInfoModal.style.display = 'none';
-          detailedInfoModal.style.display = 'flex';
-          const dateAcquired = document.getElementById('dateAcquired');
-          if (dateAcquired) dateAcquired.focus();
-
-          // Display item image in detailedInfoModal
-          if (itemData.file) {
-            const detailedImage = document.getElementById('detailedImage');
-            if (detailedImage) {
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                detailedImage.src = e.target.result;
-              };
-              reader.readAsDataURL(itemData.file);
-            } else {
-              console.warn('detailedImage element not found');
-            }
-          }
-        } else {
-          alert('Error: ' + result.message);
-        }
-      } catch (error) {
-        console.error('Error uploading item:', error);
-        alert('An error occurred while uploading the item: ' + error.message);
-      }
-    });
-  } else {
-    console.error('Basic Info Next button not found. Ensure <div class="overlap"> exists inside #basicInfoModal.');
-  }
-
-  // Detailed Info submission
-  const detailedNextButton = document.querySelector('#detailedInfoModal .overlap');
-  if (detailedNextButton) {
-    detailedNextButton.addEventListener('click', async (event) => {
-      event.preventDefault();
-
-      // Collect detailed info
       const dateAcquired = document.getElementById('dateAcquired');
       const otherNotes = document.getElementById('otherNotes');
       const dimensions = document.getElementById('dimensions');
       const weight = document.getElementById('weight');
-      const condition = conditionDropdown?.querySelector('.text-wrapper-13')?.textContent || 'Select type';
 
-      // Update itemData
-      itemData = {
-        ...itemData,
-        dateAcquired: dateAcquired?.value || '',
-        otherNotes: otherNotes?.value || '',
-        dimensions: dimensions?.value || '',
-        weight: weight?.value || '',
-        condition
-      };
+      if (itemName) itemName.value = '';
+      if (itemDescription) itemDescription.value = '';
+      if (itemTypeDropdown) {
+        const itemTypeText = itemTypeDropdown.querySelector('.text-wrapper-13');
+        if (itemTypeText) itemTypeText.textContent = 'Select type';
+      }
+      if (shelfDropdown) {
+        const shelfText = shelfDropdown.querySelector('.text-wrapper-13');
+        if (shelfText) shelfText.textContent = 'Select type';
+      }
+      if (dropZone) {
+        dropZone.style.backgroundImage = 'none';
+        const pfp = dropZone.querySelector('.pfp');
+        const div = dropZone.querySelector('.div');
+        const textWrapper3 = dropZone.querySelector('.text-wrapper-3');
+        const divWrapper = dropZone.querySelector('.div-wrapper');
+        if (pfp) pfp.style.display = 'block';
+        if (div) div.style.display = 'block';
+        if (textWrapper3) textWrapper3.style.display = 'block';
+        if (divWrapper) divWrapper.style.display = 'block';
+      }
+      tradability = 'Enabled';
+      if (tradabilityToggle) {
+        const overlap2 = tradabilityToggle.querySelector('.overlap-2');
+        const overlap3 = tradabilityToggle.querySelector('.overlap-3');
+        const text14 = overlap2?.querySelector('.text-wrapper-14');
+        const text15 = overlap3?.querySelector('.text-wrapper-15');
+        if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
+        if (overlap3) overlap3.style.backgroundColor = '#ffffff';
+        if (text14) text14.style.color = '#003566';
+        if (text15) text15.style.color = '#b9b9b9';
+      }
+      if (dateAcquired) dateAcquired.value = '';
+      if (otherNotes) otherNotes.value = '';
+      if (dimensions) dimensions.value = '';
+      if (weight) weight.value = '';
+      if (conditionDropdown) {
+        const conditionText = conditionDropdown.querySelector('.text-wrapper-13');
+        if (conditionText) conditionText.textContent = 'Select type';
+      }
+      currentItemId = null;
+      itemData = {};
+      const detailedImage = document.getElementById('detailedImage');
+      const previewImage = document.getElementById('previewImage');
+      if (detailedImage) detailedImage.src = '{% static "img/item-image-area.png" %}';
+      if (previewImage) previewImage.src = '{% static "img/item-image-area.png" %}';
+    }
 
-      const formData = new FormData();
-      formData.append('item_id', currentItemId);
-      formData.append('dateAcquired', itemData.dateAcquired);
-      formData.append('otherNotes', itemData.otherNotes);
-      formData.append('dimensions', itemData.dimensions);
-      formData.append('weight', itemData.weight);
-      formData.append('condition', itemData.condition);
+    // Redirect to item details page on post click
+    const postClasses = [
+      'recommended-4',
+      'favorite-1',
+      'trade-request-1',
+      'trade-request-2',
+      'trade-request-3',
+      'trade-request-4',
+      'showcase-1',
+      'showcase-2',
+      'showcase-3',
+      'showcase-4',
+    ];
 
-      try {
-        const response = await fetch("/upload-item/", {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'X-CSRFToken': getCsrfToken(),
-          },
+    postClasses.forEach((className) => {
+      const posts = document.querySelectorAll(`.${className}`);
+      posts.forEach((post) => {
+        post.style.cursor = 'pointer';
+        post.addEventListener('click', (event) => {
+          event.preventDefault();
+          window.location.href = '/item-details/';
         });
-        const result = await response.json();
-        if (result.status === 'success') {
-          if (detailedInfoModal) detailedInfoModal.style.display = 'none';
-          if (previewModal) previewModal.style.display = 'flex';
-
-          // Populate preview modal
-          const previewName = document.getElementById('previewName');
-          const previewDescription = document.getElementById('previewDescription');
-          const previewNotes = document.getElementById('previewNotes');
-          const previewTradability = document.getElementById('previewTradability');
-          const previewYear = document.getElementById('previewYear');
-          const previewDimensions = document.getElementById('previewDimensions');
-          const previewWeight = document.getElementById('previewWeight');
-          const previewCondition = document.getElementById('previewCondition');
-          const previewAuthor = document.getElementById('previewAuthor');
-          const previewRating = document.getElementById('previewRating');
-          const commentCount = document.getElementById('commentCount');
-
-          if (previewName) previewName.textContent = itemData.name;
-          if (previewDescription) previewDescription.textContent = itemData.description || 'No description provided';
-          if (previewNotes) previewNotes.textContent = itemData.otherNotes || 'No additional notes';
-          if (previewTradability) previewTradability.textContent = itemData.tradability === 'Enabled' ? 'Available for trade' : 'Not available for trade';
-          if (previewYear) previewYear.textContent = itemData.dateAcquired || 'Not specified';
-          if (previewDimensions) previewDimensions.textContent = itemData.dimensions || 'Not specified';
-          if (previewWeight) previewWeight.textContent = itemData.weight || 'Not specified';
-          if (previewCondition) previewCondition.textContent = itemData.condition !== 'Select type' ? itemData.condition : 'Not specified';
-          if (previewAuthor) previewAuthor.textContent = 'Current User'; // Replace with backend user data
-          if (previewRating) previewRating.textContent = '4.5'; // Placeholder
-          if (commentCount) commentCount.textContent = '0'; // Placeholder
-
-          // Display uploaded image
-          if (itemData.file) {
-            const previewImage = document.getElementById('previewImage');
-            if (previewImage) {
-              const reader = new FileReader();
-              reader.onload = (e) => {
-                previewImage.src = e.target.result;
-              };
-              reader.readAsDataURL(itemData.file);
-            }
-          }
-        } else {
-          alert('Error: ' + result.message);
-        }
-      } catch (error) {
-        console.error('Error updating item details:', error);
-        alert('An error occurred while updating the item details: ' + error.message);
-      }
-    });
-  }
-
-  // Comment submission
-  const submitCommentButton = document.querySelector('#previewModal .submit-comment');
-  if (submitCommentButton) {
-    submitCommentButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      const commentInput = document.getElementById('commentInput');
-      if (!commentInput) {
-        console.error('Comment input not found');
-        return;
-      }
-      const comment = commentInput.value.trim();
-      if (comment) {
-        console.log('Comment submitted:', comment);
-        commentInput.value = '';
-        const commentCount = document.getElementById('commentCount');
-        if (commentCount) {
-          commentCount.textContent = parseInt(commentCount.textContent) + 1;
-        }
-        alert('Comment submitted! (Placeholder)');
-      } else {
-        alert('Please enter a comment.');
-      }
-    });
-  }
-
-  // Back buttons
-  const detailedBackButton = document.querySelector('#detailedInfoModal .overlap-group');
-  if (detailedBackButton) {
-    detailedBackButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (detailedInfoModal) detailedInfoModal.style.display = 'none';
-      if (basicInfoModal) basicInfoModal.style.display = 'flex';
-      const itemName = document.getElementById('itemName');
-      if (itemName) itemName.focus();
-    });
-  }
-
-  const previewBackButton = document.querySelector('#previewModal .overlap-group');
-  if (previewBackButton) {
-    previewBackButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      if (previewModal) previewModal.style.display = 'none';
-      if (detailedInfoModal) detailedInfoModal.style.display = 'flex';
-      const dateAcquired = document.getElementById('dateAcquired');
-      if (dateAcquired) dateAcquired.focus();
-
-      // Re-display item image in detailedInfoModal
-      if (itemData.file) {
-        const detailedImage = document.getElementById('detailedImage');
-        if (detailedImage) {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            detailedImage.src = e.target.result;
-          };
-          reader.readAsDataURL(itemData.file);
-        }
-      }
-    });
-  }
-
-  // Final upload
-  const previewNextButton = document.querySelector('#previewModal .overlap');
-  if (previewNextButton) {
-    previewNextButton.addEventListener('click', async (event) => {
-      event.preventDefault();
-
-      const formData = new FormData();
-      formData.append('item_id', currentItemId);
-      formData.append('final_submit', true);
-
-      try {
-        const response = await fetch("/upload-item/", {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'X-CSRFToken': getCsrfToken(),
-          },
-        });
-        const result = await response.json();
-        if (result.status === 'success') {
-          alert('Item successfully uploaded!');
-          if (previewModal) previewModal.style.display = 'none';
-          resetForm();
-        } else {
-          alert('Error: ' + result.message);
-        }
-      } catch (error) {
-        console.error('Error finalizing upload:', error);
-        alert('An error occurred while finalizing the upload: ' + error.message);
-      }
-    });
-  }
-
-  // Reset form
-  function resetForm() {
-    const itemName = document.getElementById('itemName');
-    const itemDescription = document.getElementById('itemDescription');
-    const dateAcquired = document.getElementById('dateAcquired');
-    const otherNotes = document.getElementById('otherNotes');
-    const dimensions = document.getElementById('dimensions');
-    const weight = document.getElementById('weight');
-    
-    if (itemName) itemName.value = '';
-    if (itemDescription) itemDescription.value = '';
-    if (itemTypeDropdown) {
-      const itemTypeText = itemTypeDropdown.querySelector('.text-wrapper-13');
-      if (itemTypeText) itemTypeText.textContent = 'Select type';
-    }
-    if (shelfDropdown) {
-      const shelfText = shelfDropdown.querySelector('.text-wrapper-13');
-      if (shelfText) shelfText.textContent = 'Select type';
-    }
-    if (dropZone) {
-      dropZone.style.backgroundImage = 'none';
-      const pfp = dropZone.querySelector('.pfp');
-      const overlap3 = dropZone.querySelector('.overlap-3');
-      const textWrapper15 = dropZone.querySelector('.text-wrapper-15');
-      const divWrapper = dropZone.querySelector('.div-wrapper');
-      if (pfp) pfp.style.display = 'block';
-      if (overlap3) overlap3.style.display = 'block';
-      if (textWrapper15) textWrapper15.style.display = 'block';
-      if (divWrapper) divWrapper.style.display = 'block';
-    }
-    tradability = 'Enabled';
-    if (tradabilityToggle) {
-      const overlap2 = tradabilityToggle.querySelector('.overlap-2');
-      const overlap3 = tradabilityToggle.querySelector('.overlap-3');
-      const text14 = overlap2 ? overlap2.querySelector('.text-wrapper-14') : null;
-      const text15 = overlap3 ? overlap3.querySelector('.text-wrapper-15') : null;
-      if (overlap2) overlap2.style.backgroundColor = '#ffd60a';
-      if (overlap3) overlap3.style.backgroundColor = '#ffffff';
-      if (text14) text14.style.color = '#003566';
-      if (text15) text15.style.color = '#b9b9b9';
-    }
-    if (dateAcquired) dateAcquired.value = '';
-    if (otherNotes) otherNotes.value = '';
-    if (dimensions) dimensions.value = '';
-    if (weight) weight.value = '';
-    if (conditionDropdown) {
-      const conditionText = conditionDropdown.querySelector('.text-wrapper-13');
-      if (conditionText) conditionText.textContent = 'Select type';
-    }
-    currentItemId = null;
-    itemData = {};
-    const detailedImage = document.getElementById('detailedImage');
-    const previewImage = document.getElementById('previewImage');
-    if (detailedImage) detailedImage.src = '{% static "img/item-image-area.png" %}';
-    if (previewImage) previewImage.src = '{% static "img/item-image-area.png" %}';
-  }
-
-  // Redirect to item details page on post click
-  const postClasses = [
-    'recommended-1', 'recommended-2', 'recommended-3', 'recommended-4',
-    'favorite-1', 'favorite-3', 'favorite-4', 'favorite-5',
-    'trade-request-1', 'trade-request-2', 'trade-request-3', 'trade-request-4',
-    'trade-request-5', 'trade-request-6', 'trade-request-7',
-    'showcase-1', 'showcase-2', 'showcase-3', 'showcase-4',
-    'showcase-5', 'showcase-6', 'showcase-7'
-  ];
-
-  postClasses.forEach(className => {
-    const post = document.querySelector(`.${className}`);
-    if (post) {
-      post.addEventListener('click', (event) => {
-        event.preventDefault();
-        // Redirect to static item details page
-        // Backend: Update to include item ID, e.g., `/item-details/${itemId}/`
-        window.location.href = '/item-details/';
       });
-    }
+    });
   });
-});
 </script>
   </body>
 </html>
