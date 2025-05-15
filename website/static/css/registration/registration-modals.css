@@ -1,168 +1,213 @@
-/* Username Modal */
-.username {
-    width: 550px;
-    height: 715px;
+/* Email Form Submit Button */
+#emailForm .arrow-wrapper {
+    position: absolute;
+    width: 7.98%; /* 45/564 */
+    height: 4.17vh; /* 45/1080 */
+    top: 56.02vh; /* 605/1080 */
+    left: 44.68%; /* 252/564 */
     background-color: #ffffff;
-    overflow: hidden;
-    display: none;
-    position: fixed;
-    top: 47.5%;
-    left: 65.22%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-  
-  .username .overlap {
-    position: relative;
-    width: 556px;
-    height: 715px;
-  }
-  
-  .username .group {
-    position: absolute;
-    width: 556px;
-    height: 715px;
-    top: 0;
-    left: 0;
-  }
-  
-  .username .overlap-group {
-    position: relative;
-    width: 550px;
-    height: 715px;
+    border: 0.0625rem solid; /* 1/16 */
+    border-color: #737373;
+    padding: 0;
+    cursor: pointer;
+}
+
+#emailForm .arrow-wrapper button {
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
-  }
-  
-  .username .rectangle {
-    position: absolute;
-    width: 396px;
-    height: 43px;
-    top: 216px;
-    left: 78px;
-    border: 1px solid;
-    border-color: #000814;
-    pointer-events: none;
-    z-index: 9;
-  }
-  
-  .username .text-wrapper {
-    position: absolute;
-    width: 255px;
-    top: 104px;
-    left: 147px;
-    font-family: "Inter-Bold", Helvetica;
-    font-weight: 700;
-    color: #000814;
-    font-size: 24px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .username .div {
-    position: absolute;
-    width: 282px;
-    top: 148px;
-    left: 135px;
-    opacity: 0.7;
-    font-family: "Inter-SemiBold", Helvetica;
-    font-weight: 600;
-    color: #737373;
-    font-size: 16px;
-    text-align: center;
-    letter-spacing: 0;
-    line-height: normal;
-  }
-  
-  .username .text-wrapper-2 {
-    position: absolute;
-    width: 123px;
-    top: 195px;
-    left: 88px;
-    font-family: "Inter-Medium", Helvetica;
-    font-weight: 500;
-    color: #000814;
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: normal;
-    white-space: nowrap;
-  }
-  
-  .username .arrow-wrapper {
-    position: absolute;
-    width: 45px;
-    height: 45px;
-    top: 605px;
-    left: 252px;
-    background-color: #ffffff;
-    border: 1px solid;
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #737373;
     padding: 0;
     cursor: pointer;
     background: none;
     outline: none;
-  }
-  
-  .username .arrow {
+}
+
+#emailForm .arrow {
     position: absolute;
-    width: 19px;
-    height: 15px;
-    top: 14px;
-    left: 12px;
-  }
-  
-  .username .overlap-group-wrapper {
+    width: 50%; /* 19/564 */
+    height: 1.39vh; /* 15/1080 */
+    top: 1.30vh; /* 14/1080 */
+    left: 25%; /* 12/564 */
+}
+
+/* Username Modal */
+.username {
+    width: 29.38vw; /* 564/1920 */
+    height: 66.20vh; /* 715/1080 */
+    max-width: 35rem;
+    min-width: 20rem;
+    background-color: #ffffff;
+    overflow: hidden;
+    display: none;
     position: absolute;
-    width: 156px;
-    height: 13px;
-    top: 272px;
-    left: 44px;
-  }
-  
-  .username .overlap-group-2 {
+    top: 16.85vh; /* 182/1080 */
+    left: 61.88vw; /* 1188/1920 */
+    z-index: 1000;
+}
+
+.username .overlap {
     position: relative;
-    width: 154px;
-    height: 13px;
-  }
-  
-  .username .text-wrapper-3 {
+    width: 100%;
+    height: 100%;
+}
+
+.username .group {
     position: absolute;
-    width: 154px;
+    width: 100%;
+    height: 100%;
     top: 0;
-    left: 55px;
+    left: 0;
+}
+
+.username .overlap-group {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.username .rectangle {
+    position: absolute;
+    width: 70.21%; /* 396/564 */
+    height: 5vh; /* 43/715 */
+    top: 28vh; /* 216/715 */
+    left: 13.83%; /* 78/564 */
+    border: 0.0625rem solid; /* 1/16 */
+    border-color: #000814;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.username .text-wrapper {
+    position: absolute;
+    width: 100%; /* 255/564 */
+    top: 14.55vh; /* 104/715 */
+    left: 0; /* 147/564 */
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #000814;
+    font-size: 1.5rem; /* 24/16 */
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.username .div {
+    position: absolute;
+    width: 50.00%; /* 282/564 */
+    top: 19vh; /* 148/715 */
+    left: 23.94%; /* 135/564 */
+    opacity: 0.7;
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #737373;
+    font-size: 1rem; /* 16/16 */
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.username .text-wrapper-2 {
+    position: absolute;
+    width: 21.81%; /* 123/564 */
+    top: 25vh; /* 195/715 */
+    left: 15.60%; /* 88/564 */
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #000814;
+    font-size: 1rem; /* 16/16 */
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.username .arrow-wrapper {
+    position: absolute;
+    width: 7.98%; /* 45/564 */
+    height: 4.17vh; /* 45/1080 */
+    top: 56.02vh; /* 605/1080 */
+    left: 44.68%; /* 252/564 */
+    background-color: #ffffff;
+    border: 0.0625rem solid; /* 1/16 */
+    border-color: #737373;
+    padding: 0;
+    cursor: pointer;
+}
+
+.username .next-button {
+    width: 10%;
+    height: 4.5vh;
+    background-color: #ffffff;
+    border: 0.1rem solid; /* 1/16 */
+    border-color: #737373;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    outline: none;
+}
+
+.username .arrow {
+    position: absolute;
+    width: 50%; /* 19/564 */
+    height: 1.39vh; /* 15/1080 */
+    top: 1.30vh; /* 14/1080 */
+    left: 25%; /* 12/564 */
+}
+
+.username .overlap-group-wrapper {
+    position: absolute;
+    width: 27.66%; /* 156/564 */
+    height: 1.82vh; /* 13/715 */
+    top: 34vh; /* 272/715 */
+    left: 7.80%; /* 44/564 */
+}
+
+.username .overlap-group-2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.username .text-wrapper-3 {
+    position: absolute;
+    width: 100%;
+    top: 0.1vh;
+    left: 35.71%; /* 55/154 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     text-align: left;
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .username .left {
+}
+
+.username .left {
     position: absolute;
-    width: 28px;
-    height: 13px;
+    width: 17.95%; /* 28/156 */
+    height: 100%;
     top: 0;
-    left: 30px;
-  }
-  
-  .username .text-wrapper-4 {
+    left: 19.23%; /* 30/156 */
+}
+
+.username .text-wrapper-4 {
     position: absolute;
-    width: 396px;
-    top: 230px;
-    left: 78px;
+    width: 70.21%; /* 396/564 */
+    top: 30vh; /* 230/715 */
+    left: 13.83%; /* 78/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #d9d9d9;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
     line-height: normal;
-    padding: 0 10px;
+    padding: 0 0.625rem; /* 10/16 */
     box-sizing: border-box;
-  }
-  
-  .username .text-wrapper-4 input[type="text"] {
+}
+
+.username .text-wrapper-4 input[type="text"] {
     border: none;
     background: transparent;
     outline: none;
@@ -172,185 +217,191 @@
     font-family: inherit;
     font-size: inherit;
     color: #000814;
-  }
-  
-  .username .text-wrapper-4 input[type="text"]::placeholder {
+}
+
+.username .text-wrapper-4 input[type="text"]::placeholder {
     color: #d9d9d9;
-  }
-  
-  /* Password Modal */
-  .password {
-    width: 550px;
-    height: 715px;
+}
+
+/* Password Modal */
+.password {
+    width: 29.38vw; /* 564/1920 */
+    height: 66.20vh; /* 715/1080 */
+    max-width: 35rem;
+    min-width: 20rem;
     background-color: #ffffff;
     overflow: hidden;
     display: none;
-    position: fixed;
-    top: 47.5%;
-    left: 65.22%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-
-  .password .overlap {
-    position: relative;
-    width: 556px;
-    height: 715px;
-  }
-
-  .password .group {
     position: absolute;
-    width: 556px;
-    height: 715px;
+    top: 16.85vh; /* 182/1080 */
+    left: 61.88vw; /* 1188/1920 */
+    z-index: 1000;
+}
+
+.password .overlap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.password .group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-  }
+}
 
-  .password .overlap-group {
+.password .overlap-group {
     position: relative;
-    width: 550px;
-    height: 715px;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
-  }
+}
 
-  .password .rectangle {
+.password .rectangle {
     position: absolute;
-    width: 396px;
-    height: 43px;
-    top: 204px;
-    left: 78px;
-    border: 1px solid;
+    width: 70.21%; /* 396/564 */
+    height: 5vh; /* 43/715 */
+    top: 19.5vh; /* 204/715 */
+    left: 13.83%; /* 78/564 */
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #000814;
     pointer-events: none;
     z-index: 9;
-  }
+}
 
-  .password .text-wrapper {
+.password .text-wrapper {
     position: absolute;
-    width: 255px;
-    top: 104px;
-    left: 147px;
+    width: 100%; /* 255/564 */
+    top: 8vh; /* 104/715 */
+    left: 0; /* 147/564 */
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000814;
-    font-size: 24px;
+    font-size: 1.5rem; /* 24/16 */
     text-align: center;
     letter-spacing: 0;
     line-height: normal;
-  }
+}
 
-  .password .div {
+.password .div {
     position: absolute;
-    width: 282px;
-    top: 148px;
-    left: 135px;
+    width: 50%; /* 282/564 */
+    top: 12vh; /* 148/715 */
+    left: 23.94%; /* 135/564 */
     opacity: 0.7;
     font-family: "Inter-SemiBold", Helvetica;
     font-weight: 600;
     color: #737373;
-    font-size: 16px;
+    font-size: 1rem; /* 16/16 */
     text-align: center;
     letter-spacing: 0;
     line-height: normal;
-  }
+}
 
-  .password .text-wrapper-2 {
+.password .text-wrapper-2 {
     position: absolute;
-    width: 123px;
-    top: 182px;
-    left: 88px;
+    width: 21.81%; /* 123/564 */
+    top: 17vh; /* 182/715 */
+    left: 15.60%; /* 88/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #000814;
-    font-size: 16px;
+    font-size: 1rem; /* 16/16 */
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
-  }
+}
 
-  .password .overlap-group-wrapper {
+.password .overlap-group-wrapper {
     position: absolute;
-    width: 156px;
-    height: 13px;
-    top: 445px; 
-    left: 41px; 
-  }
+    width: 27.66%; /* 156/564 */
+    height: 1.82vh; /* 13/715 */
+    top: 47vh; /* 445/715 */
+    left: 7.27%; /* 41/564 */
+}
 
-  .password .overlap-group-2 {
+.password .overlap-group-2 {
     position: relative;
-    width: 154px;
-    height: 13px;
-  }
+    width: 100%;
+    height: 100%;
+}
 
-  .password .text-wrapper-3 {
+.password .text-wrapper-3 {
     position: absolute;
-    width: 154px;
+    width: 100%;
     top: 0;
-    left: 55px; 
+    left: 35.71%; /* 55/154 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
-    text-align: left; 
+    font-size: 0.625rem; /* 10/16 */
+    text-align: left;
     letter-spacing: 0;
     line-height: normal;
-  }
+}
 
-  .password .left {
+.password .left {
     position: absolute;
-    width: 28px;
-    height: 13px;
+    width: 18.18%; /* 28/154 */
+    height: 100%;
     top: 0;
-    left: 30px;
-  }
+    left: 19.48%; /* 30/154 */
+}
 
-  .password .navigation-wrapper {
+.password .arrow-wrapper {
     position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    top: 605px; 
-    left: 252px; 
-  }
-
-  .password .next {
-    width: 45px;
-    height: 45px;
+    width: 7.98%; /* 45/564 */
+    height: 4.17vh; /* 45/1080 */
+    top: 56.02vh; /* 605/1080 */
+    left: 44.68%; /* 252/564 */
     background-color: #ffffff;
-    border: 1px solid;
+    border: 0.0625rem solid; /* 1/16 */
+    border-color: #737373;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.password .next-button {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #737373;
     padding: 0;
     cursor: pointer;
     background: none;
     outline: none;
-  }
+}
 
-  .password .arrow {
+.password .arrow {
     position: absolute;
-    width: 19px;
-    height: 15px;
-    top: 14px;
-    left: 12px; 
-  }
+    width: 50%; /* 19/564 */
+    height: 1.39vh; /* 15/1080 */
+    top: 1.30vh; /* 14/1080 */
+    left: 25%; /* 12/564 */
+}
 
-  .password .text-wrapper-4 {
+.password .text-wrapper-4 {
     position: absolute;
-    width: 396px;
-    height: 43px;
-    top: 204px;
-    left: 78px;
+    width: 70%; /* 396/564 */
+    height: 5vh; /* 43/715 */
+    top: 20vh; /* 204/715 */
+    left: 13.83%; /* 78/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #d9d9d9;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
-    line-height: 43px; /* Center placeholder vertically */
-    padding: 0 10px;
+    line-height: normal;
+    padding: 0 0.625rem; /* 10/16 */
     box-sizing: border-box;
     z-index: 10;
-  }
+}
 
-  .password .text-wrapper-4 input[type="password"] {
+.password .text-wrapper-4 input[type="password"] {
     border: none;
     background: transparent;
     outline: none;
@@ -361,58 +412,56 @@
     font-family: inherit;
     font-size: inherit;
     color: #000814;
-    line-height: 43px; /* Match parent */
-  }
+}
 
-  .password .text-wrapper-4 input[type="password"]::placeholder {
+.password .text-wrapper-4 input[type="password"]::placeholder {
     color: #d9d9d9;
-    line-height: 43px;
-  }
+}
 
-  .password .rectangle-2 {
+.password .rectangle-2 {
     position: absolute;
-    width: 396px;
-    height: 43px;
-    top: 388px;
-    left: 78px;
-    border: 1px solid;
+    width: 70.21%; /* 396/564 */
+    height: 5vh; /* 43/715 */
+    top: 40vh; /* 388/715 */
+    left: 13.83%; /* 78/564 */
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #000814;
     pointer-events: none;
     z-index: 9;
-  }
+}
 
-  .password .text-wrapper-5 {
+.password .text-wrapper-5 {
     position: absolute;
-    width: 214px;
-    top: 366px;
-    left: 88px;
+    width: 38.83%; /* 214/564 */
+    top: 37vh; /* 366/715 */
+    left: 15.60%; /* 88/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #000814;
-    font-size: 16px;
+    font-size: 1rem; /* 16/16 */
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
-  }
+}
 
-  .password .text-wrapper-6 {
+.password .text-wrapper-6 {
     position: absolute;
-    width: 396px;
-    height: 43px;
-    top: 388px;
-    left: 78px;
+    width: 70.21%; /* 396/564 */
+    height: 5vh; /* 43/715 */
+    top: 40vh; /* 388/715 */
+    left: 13.83%; /* 78/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #d9d9d9;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
-    line-height: 43px; /* Center placeholder vertically */
-    padding: 0 10px;
+    line-height: normal;
+    padding: 0 0.625rem; /* 10/16 */
     box-sizing: border-box;
     z-index: 10;
-  }
+}
 
-  .password .text-wrapper-6 input[type="password"] {
+.password .text-wrapper-6 input[type="password"] {
     border: none;
     background: transparent;
     outline: none;
@@ -423,80 +472,66 @@
     font-family: inherit;
     font-size: inherit;
     color: #000814;
-    line-height: 43px; /* Match parent */
-  }
+}
 
-  .password .text-wrapper-6 input[type="password"]::placeholder {
+.password .text-wrapper-6 input[type="password"]::placeholder {
     color: #d9d9d9;
-    line-height: 43px;
-  }
+}
 
-  .password .group-2 {
+.password .group-2 {
     position: absolute;
-    width: 269px;
-    height: 18px;
-    top: 259px;
-    left: 78px;
-  }
+    width: 47.52%; /* 268/564 */
+    height: 2.52vh; /* 18/715 */
+    top: 26vh; /* 259/715 */
+    left: 13.83%; /* 78/564 */
+}
 
-  .password .close-window {
+.password .close-window {
     position: absolute;
-    width: 17px;
-    height: 13px;
-    top: 2px;
+    width: 3.01%; /* 17/564 */
+    height: 1.82vh; /* 13/715 */
+    top: 0.28vh; /* 2/715 */
     left: 0;
-  }
+}
 
-  .password .p {
+.password .p {
     position: absolute;
-    width: 247px;
+    width: 87.69%; /* 235/268 */
     top: 0;
-    left: 22px;
+    left: 8.21%; /* 22/268 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #737373;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
+}
 
-  .password .group-3 {
+.password .group-3 {
     position: absolute;
-    width: 269px;
-    height: 18px;
-    top: 278px;
-    left: 78px;
-  }
+    width: 47.52%; /* 268/564 */
+    height: 2.52vh; /* 18/715 */
+    top: 29vh; /* 277/715 */
+    left: 13.83%; /* 78/564 */
+}
 
-  .password .group-4 {
+.password .group-4 {
     position: absolute;
-    width: 444px;
-    height: 18px;
-    top: 297px;
-    left: 78px;
-  }
+    width: 78.72%; /* 444/564 */
+    height: 2.52vh; /* 18/715 */
+    top: 32vh; /* 295/715 */
+    left: 13.83%; /* 78/564 */
+}
 
-  .password .text-wrapper-7 {
+.password .text-wrapper-7 {
     position: absolute;
-    width: 422px;
+    width: 95.05%; /* 422/444 */
     top: 0;
-    left: 22px;
+    left: 4.95%; /* 22/444 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #737373;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  /* Modal Overlay */
-  .modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    z-index: 999;
-  }
+}

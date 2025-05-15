@@ -1,8 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 .registration-page {
-    width: 1920px;
-    height: 1080px;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-image: url('/static/img/registration/big blue bg.png');
     background-size: cover;
     background-position: center;
@@ -10,317 +12,366 @@
     position: absolute;
     top: 0;
     left: 0;
-    overflow: hidden;
     margin: 0;
-  }
-  
-  .registration-page .overlap {
+    overflow: hidden;
+}
+
+.registration-page .overlap {
     position: relative;
-    height: 1080px;
-  }
-  
-  .registration-page .group {
+    height: 100vh;
+    width: 100%;
+    max-height: 100vh;
+}
+
+.registration-page .group {
     position: absolute;
-    width: 564px;
-    height: 715px;
-    top: 182px;
-    left: 1188px;
-  }
-  
-  .registration-page .overlap-group {
+    width: 29.38vw; /* 564/1920 */
+    max-width: 35rem;
+    min-width: 20rem;
+    height: 66.20vh; /* 715/1080 */
+    top: 16.85vh; /* 182/1080 */
+    left: 61.88vw; /* 1188/1920 */
+}
+
+.registration-page .overlap-group {
     position: relative;
-    width: 550px;
-    height: 715px;
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
-  }
-  
-  .registration-page .div-wrapper {
+}
+
+.registration-page .email-content,
+.registration-page .username-content {
+    width: 100%;
+    height: 100%;
+}
+
+.registration-page .div-wrapper {
     position: absolute;
-    width: 380px;
-    height: 43px;
-    top: 204px;
-    left: 78px;
-    border: 1px solid;
+    width: 67.38%; /* 380/564 */
+    height: 4.01vh; /* 43/1080 */
+    top: 22vh; /* 204/1080 */
+    left: 13.83%; /* 78/564 */
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #000814;
-  }
-  
-  .registration-page .text-wrapper {
+}
+
+.registration-page .text-wrapper {
     position: absolute;
-    width: 300px;
-    top: 14px;
-    left: 10px; 
+    width: 53.19%; /* 300/564 */
+    top: 1.30vh; /* 14/1080 */
+    left: 1.77%; /* 10/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #000000;
-    font-size: 13px;
+    font-size: 0.8125rem; /* 13/16 */
     letter-spacing: 0;
     line-height: normal;
-    padding: 0 10px; 
+    padding: 0 0.625rem; /* 10/16 */
     box-sizing: border-box;
-  }
-  
-  .registration-page .text-wrapper[type="email"] {
+}
+
+.registration-page .text-wrapper[type="email"],
+.registration-page .text-wrapper[type="text"] {
     border: none;
     background: transparent;
     outline: none;
-    width: 90%; 
+    width: 90%;
     padding: 0;
-    overflow: visible; 
-  }
-  
-  .registration-page .div {
+    overflow: visible;
+}
+
+.registration-page .div {
     position: absolute;
-    width: 250px;
-    top: 104px;
-    left: 147px;
+    width: 44.33%; /* 250/564 */
+    top: 9.63vh; /* 104/1080 */
+    left: 26.06%; /* 147/564 */
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     color: #000814;
-    font-size: 24px;
+    font-size: 1.3rem; /* 24/16 */
     text-align: center;
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .p {
+}
+
+.registration-page .p {
     position: absolute;
-    width: 282px;
-    top: 148px;
-    left: 135px;
+    width: 50.00%; /* 282/564 */
+    top: 13.70vh; /* 148/1080 */
+    left: 23.94%; /* 135/564 */
     opacity: 0.7;
     font-family: "Inter-SemiBold", Helvetica;
     font-weight: 600;
     color: #737373;
-    font-size: 16px;
+    font-size: 1rem; /* 16/16 */
     text-align: center;
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .text-wrapper-2 {
+}
+
+.registration-page .text-wrapper-2 {
     position: absolute;
-    width: 374px;
-    top: 252px;
-    left: 100px;
+    width: 66.31%; /* 374/564 */
+    top: 41%; /* 252/1080 */
+    left: 17.73%; /* 100/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000000e6;
-    font-size: 12px;
+    font-size: 0.75rem; /* 12/16 */
     letter-spacing: 0;
-    line-height: 12px;
-  }
-  
-  .registration-page .text-wrapper-3 {
-    position: absolute;
-    width: 54px;
-    top: 182px;
-    left: 88px;
+    line-height: 0.75rem;
+}
+
+.registration-page .username-content .text-wrapper-2 {
+    width: 50%; /* 54/564 */
+    top: 19vh; /* 182/1080 */
+    left: 15.60%; /* 88/564 */
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #000814;
-    font-size: 16px;
+    font-size: 1rem; /* 16/16 */
+    line-height: normal;
+}
+
+.registration-page .text-wrapper-3 {
+    position: absolute;
+    width: 50%; /* 54/564 */
+    top: 19vh; /* 182/1080 */
+    left: 15.60%; /* 88/564 */
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #000814;
+    font-size: 1rem; /* 16/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .rectangle {
+}
+
+.registration-page .rectangle {
     position: absolute;
-    width: 11px;
-    height: 11px;
-    top: 260px;
-    left: 82px;
-  }
-  
-  .registration-page .text-wrapper-4 {
+    width: 1.95%; /* 11/564 */
+    height: 1.02vh; /* 11/1080 */
+    top: 42%; /* 260/1080 */
+    left: 14.54%; /* 82/564 */
+}
+
+.registration-page .text-wrapper-4 {
     position: absolute;
-    width: 79px;
-    top: 322px;
-    left: 235px;
+    width: 14.01%; /* 79/564 */
+    top: 50%; /* 322/1080 */
+    left: 41.67%; /* 235/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     text-align: center;
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .google-button {
+}
+
+.registration-page .google-button {
     position: absolute;
-    width: 100px;
-    height: 32px;
-    top: 361px;
-    left: 98px;
-  }
-  
-  .registration-page .overlap-group-2 {
+    width: 17.73%; /* 100/564 */
+    height: 2.96vh; /* 32/1080 */
+    top: 58%; /* 361/1080 */
+    left: 17.38%; /* 98/564 */
+}
+
+.registration-page .overlap-group-2 {
     position: relative;
-    width: 98px;
-    height: 32px;
-  }
-  
-  .registration-page .text-wrapper-5 {
+    width: 100%;
+    height: 100%;
+}
+
+.registration-page .text-wrapper-5 {
     position: absolute;
-    width: 37px;
-    top: 10px;
-    left: 41px;
+    width: 6.56%; /* 37/564 */
+    top: 0.93vh; /* 10/1080 */
+    left: 25%; /* 41/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .google {
+}
+
+.registration-page .google {
     position: absolute;
-    width: 18px;
-    height: 18px;
-    top: 8px;
-    left: 12px;
-  }
-  
-  .registration-page .rectangle-2 {
+    width: 23%; /* 18/564 */
+    height: 1.67vh; /* 18/1080 */
+    top: 0.74vh; /* 8/1080 */
+    left: 2.13%; /* 12/564 */
+}
+
+.registration-page .rectangle-2 {
     position: absolute;
-    width: 98px;
-    height: 32px;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    border: 1px solid;
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #000814;
-  }
-  
-  .registration-page .fb-button {
+}
+
+.registration-page .fb-button {
     position: absolute;
-    width: 100px;
-    height: 32px;
-    top: 361px;
-    left: 226px;
-  }
-  
-  .registration-page .text-wrapper-6 {
+    width: 17.73%; /* 100/564 */
+    height: 2.96vh; /* 32/1080 */
+    top: 58%; /* 361/1080 */
+    left: 40.07%; /* 226/564 */
+}
+
+.registration-page .text-wrapper-6 {
     position: absolute;
-    width: 52px;
-    top: 10px;
-    left: 31px;
+    width: 9.22%; /* 52/564 */
+    top: 0.93vh; /* 10/1080 */
+    left: 25%; /* 31/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .facebook {
+}
+
+.registration-page .facebook {
     position: absolute;
-    width: 24px;
-    height: 20px;
-    top: 7px;
-    left: 7px;
-  }
-  
-  .registration-page .apple-id-button {
+    width: 23%; /* 24/564 */
+    height: 1.85vh; /* 20/1080 */
+    top: 0.65vh; /* 7/1080 */
+    left: 1.24%; /* 7/564 */
+}
+
+.registration-page .apple-id-button {
     position: absolute;
-    width: 100px;
-    height: 32px;
-    top: 361px;
-    left: 353px;
-  }
-  
-  .registration-page .text-wrapper-7 {
+    width: 17.73%; /* 100/564 */
+    height: 2.96vh; /* 32/1080 */
+    top: 58%; /* 361/1080 */
+    left: 62.77%; /* 353/564 */
+}
+
+.registration-page .text-wrapper-7 {
     position: absolute;
-    width: 44px;
-    top: 10px;
-    left: 37px;
+    width: 50%; /* 44/564 */
+    top: 0.93vh; /* 10/1080 */
+    left: 25%; /* 37/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .ple {
+}
+
+.registration-page .ple {
     position: absolute;
-    width: 19px;
-    height: 20px;
-    top: 7px;
-    left: 12px;
-  }
-  
-  .registration-page .line {
-    left: 92px;
+    width: 23%; /* 19/564 */
+    height: 1.85vh; /* 20/1080 */
+    top: 0.65vh; /* 7/1080 */
+    left: 2.13%; /* 12/564 */
+}
+
+.registration-page .line {
+    left: 16.31%; /* 92/564 */
     position: absolute;
-    width: 133px;
-    height: 1px;
-    top: 329px;
+    width: 23.58%; /* 133/564 */
+    height: 0.09vh; /* 1/1080 */
+    top: 52%; /* 329/1080 */
     object-fit: cover;
-  }
-  
-  .registration-page .img {
-    left: 323px;
+}
+
+.registration-page .img {
+    left: 57.45%; /* 323/564 */
     position: absolute;
-    width: 133px;
-    height: 1px;
-    top: 329px;
+    width: 23.58%; /* 133/564 */
+    height: 0.09vh; /* 1/1080 */
+    top: 52%; /* 329/1080 */
     object-fit: cover;
-  }
-  
-  .registration-page .arrow-wrapper {
+}
+
+.registration-page .arrow-wrapper {
     position: absolute;
-    width: 45px;
-    height: 45px;
-    top: 605px;
-    left: 252px;
+    width: 7.98%; /* 45/564 */
+    height: 4.17vh; /* 45/1080 */
+    top: 56.02vh; /* 605/1080 */
+    left: 44.68%; /* 252/564 */
     background-color: #ffffff;
-    border: 1px solid;
+    border: 0.0625rem solid; /* 1/16 */
     border-color: #737373;
-  }
-  
-  .registration-page .arrow {
+}
+
+.registration-page .arrow-wrapper button {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.registration-page .arrow {
     position: absolute;
-    width: 19px;
-    height: 15px;
-    top: 14px;
-    left: 12px;
-  }
-  
-  .registration-page .already-have-an {
+    width: 50%; /* 19/564 */
+    height: 1.39vh; /* 15/1080 */
+    top: 1.30vh; /* 14/1080 */
+    left: 25%; /* 12/564 */
+}
+
+.registration-page .already-have-an {
     position: absolute;
-    width: 177px;
-    top: 657px;
-    left: 186px;
+    width: 100%; /* 177/564 */
+    top: 60.83vh; /* 657/1080 */
+    left: 32%; /* 186/564 */
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     letter-spacing: 0;
     line-height: normal;
-  }
-  
-  .registration-page .span {
+}
+
+.registration-page .span {
     font-family: "Inter-Regular", Helvetica;
     font-weight: 400;
     color: #000814;
-    font-size: 10px;
+    font-size: 0.625rem; /* 10/16 */
     letter-spacing: 0;
-  }
-  
-  .registration-page .text-wrapper-8 {
+}
+
+.registration-page .text-wrapper-8 {
     text-decoration: underline;
-  }
-  
-  .registration-page .text-wrapper-9 {
+}
+
+.registration-page .text-wrapper-9 {
     font-family: "Inter-Bold", Helvetica;
     font-weight: 700;
     text-decoration: underline;
-  }
-  
-  .registration-page .black-white-modern {
+}
+
+.registration-page .black-white-modern {
     position: absolute;
-    width: 135px;
-    height: 135px;
-    top: 60px;
-    left: 60px;
+    width: 7.03vw; /* 135/1920 */
+    height: 12.50vh; /* 135/1080 */
+    top: 5.56vh; /* 60/1080 */
+    left: 3.13vw; /* 60/1920 */
     object-fit: cover;
-  }
+}
+
+.registration-page .overlap-group-wrapper {
+    position: absolute;
+    width: 31.38%; /* 177/564 */
+    top: 60.83vh; /* 657/1080 */
+    left: 32.98%; /* 186/564 */
+}
+
+.registration-page .overlap-group-2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.registration-page .username-content .overlap-group-wrapper {
+    top: 38vh; /* 272/715 */
+}

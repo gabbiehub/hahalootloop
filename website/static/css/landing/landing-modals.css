@@ -791,7 +791,7 @@
   height: 2.97vw;
   top: 17.55vw;
   left: 5.31vw;
-  z-index: 10;
+  z-index: 20;
 }
 
 .enter-code-modal .honeycomb,
@@ -835,16 +835,19 @@
   border: none;
   outline: none;
   box-shadow: none;
-  background-image: url("/static/img/landing modals/honeycomb.png");
+  background-image: url("/static/img/modals/honeycomb.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
   font-size: 1.25vw;
   text-align: center;
   color: #000814;
   z-index: 11;
   pointer-events: auto;
   overflow: visible;
+  box-sizing: border-box;
+  fallback: #f0f0f0;
 }
 
 .enter-code-modal .honeycomb input:focus,
@@ -920,7 +923,7 @@
   position: absolute;
   width: 11.67vw;
   height: 1.67vw;
-  top: 23.59vw;
+  top: 24.59vw;
   left: 6.20vw;
   z-index: 10;
 }
@@ -980,7 +983,7 @@
 .reset-password-modal .text-wrapper-44 {
   position: absolute;
   width: 7.40vw;
-  top: 19.38vw;
+  top: 19.71vw;
   left: 4.48vw;
   font-family: "Inter-Medium", Helvetica;
   font-weight: 500;
@@ -1008,7 +1011,7 @@
   position: absolute;
   width: 15.00vw;
   height: 2.03vw;
-  top: 20.57vw;
+  top: 21.07vw;
   left: 4.48vw;
   border: 0.05vw solid;
   border-color: #000814;
@@ -1031,7 +1034,7 @@
   position: absolute;
   width: 1.46vw;
   height: 1.04vw;
-  top: 21.09vw;
+  top: 21.59vw;
   left: 17.71vw;
   z-index: 10;
   background-image: url("../img/modals/Hide.png");
@@ -1053,7 +1056,7 @@
   position: absolute;
   width: 8.13vw;
   height: 0.68vw;
-  top: 26.56vw;
+  top: 27.56vw;
   left: 8.13vw;
   cursor: pointer;
   z-index: 10;
@@ -1110,7 +1113,7 @@
 }
 
 .reset-password-modal .div-4 {
-  top: 20.57vw;
+  top: 21.07vw;
   left: 4.48vw;
 }
 

@@ -36,7 +36,7 @@
                     <div class="google-button">
                         <div class="overlap-group-2">
                             <div class="text-wrapper-5">Google</div>
-                            <img class="google" src="{% static 'img/modals/google.png' %}" alt="Google" />
+                            <img class="google" src="{% static 'img/landing modals/google.png' %}" alt="Google" />
                             <div class="rectangle-2"></div>
                         </div>
                     </div>
@@ -44,14 +44,14 @@
                         <div class="overlap-group-2">
                             <div class="text-wrapper-6">Facebook</div>
                             <div class="rectangle-2"></div>
-                            <img class="facebook" src="{% static 'img/modals/facebook.png' %}" alt="Facebook" />
+                            <img class="facebook" src="{% static 'img/landing modals/facebook.png' %}" alt="Facebook" />
                         </div>
                     </div>
                     <div class="apple-id-button">
                         <div class="overlap-group-2">
                             <div class="text-wrapper-7">Apple ID</div>
                             <div class="rectangle-2"></div>
-                            <img class="ple" src="{% static 'img/modals/apple.png' %}" alt="Apple ID" />
+                            <img class="ple" src="{% static 'img/landing modals/apple.png' %}" alt="Apple ID" />
                         </div>
                     </div>
                     <img class="line" src="{% static 'img/registration/line.png' %}" alt="Line Divider" />
@@ -67,33 +67,30 @@
             <img class="black-white-modern" src="{% static 'img/registration/logo white outline.png' %}" alt="Lootloop Logo" />
         </div>
 
-        <!-- Modal Overlay -->
-        <div class="modal-overlay" id="modalOverlay"></div>
-
         <!-- Username Modal -->
         <div class="username" id="usernameModal">
             <div class="overlap">
                 <div class="group">
-                    <div class="overlap-group">
-                        <div class="rectangle"></div>
-                        <div class="text-wrapper">Choose a username.</div>
-                        <div class="div">Make sure it’s unique.</div>
-                        <div class="text-wrapper-2">Username</div>
-                        <button class="arrow-wrapper next-button" form="usernameForm" aria-label="Next to Password">
-                            <img class="arrow" src="{% static 'img/registration/arrow.png' %}" alt="Next" />
-                        </button>
-                        <div class="overlap-group-wrapper">
-                            <div class="overlap-group-2">
-                                <div class="text-wrapper-3">Go back</div>
-                                <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-wrapper-4">
                     <form id="usernameForm" method="POST" action="{% url 'set_username' %}">
                         {% csrf_token %}
-                        <input type="text" name="username" placeholder="lootloop" required aria-label="Username" />
+                        <div class="overlap-group">
+                            <div class="rectangle"></div>
+                            <div class="text-wrapper">Choose a username.</div>
+                            <div class="div">Make sure it’s unique.</div>
+                            <div class="text-wrapper-2">Username</div>
+                            <div class="overlap-group-wrapper">
+                                <div class="overlap-group-2">
+                                    <div class="text-wrapper-3">Go back</div>
+                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
+                                </div>
+                            </div>
+                            <div class="text-wrapper-4">
+                                <input type="text" name="username" placeholder="lootloop" required aria-label="Username" />
+                            </div>
+                            <button type="submit" class="arrow-wrapper next-button" form="usernameForm" aria-label="Next to Password">
+                                <img class="arrow" src="{% static 'img/arrow.png' %}" alt="Next" />
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -103,46 +100,46 @@
         <div class="password" id="passwordModal">
             <div class="overlap">
                 <div class="group">
-                    <div class="overlap-group">
-                        <div class="rectangle"></div>
-                        <div class="text-wrapper">Choose a password.</div>
-                        <p class="div">Make sure it’s a good one.</p>
-                        <div class="text-wrapper-2">Password</div>
-                        <div class="overlap-group-wrapper">
-                            <div class="overlap-group-2">
-                                <div class="text-wrapper-3">Go back</div>
-                                <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
+                    <form id="passwordForm" method="POST" action="{% url 'set_password' %}">
+                        {% csrf_token %}
+                        <div class="overlap-group">
+                            <div class="rectangle"></div>
+                            <div class="text-wrapper">Create a password.</div>
+                            <div class="div">Make it strong.</div>
+                            <div class="text-wrapper-2">Password</div>
+                            <div class="text-wrapper-4">
+                                <input type="password" name="password" placeholder="Enter password" required aria-label="Password" />
+                            </div>
+                            <div class="rectangle-2"></div>
+                            <div class="text-wrapper-5">Confirm Password</div>
+                            <div class="text-wrapper-6">
+                                <input type="password" name="confirm_password" placeholder="Confirm password" required aria-label="Confirm Password" />
+                            </div>
+                            <div class="group-2">
+                                <div class="p">At least 8 characters</div>
+                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
+                            </div>
+                            <div class="group-3">
+                                <div class="p">1 Uppercase letter</div>
+                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
+                            </div>
+                            <div class="group-4">
+                                <div class="text-wrapper-7">1 Special character & 1 number</div>
+                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
+                            </div>
+                            <div class="overlap-group-wrapper">
+                                <div class="overlap-group-2">
+                                    <div class="text-wrapper-3">Go back</div>
+                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
+                                </div>
+                            </div>
+                            <div class="arrow-wrapper">
+                                <button type="submit" class="next-button" form="passwordForm" aria-label="Submit Password">
+                                    <img class="arrow" src="{% static 'img/arrow.png' %}" alt="Submit" />
+                                </button>
                             </div>
                         </div>
-                        <div class="navigation-wrapper">
-                            <button type="submit" form="passwordForm" class="next" aria-label="Submit Password">
-                                <img class="arrow" src="{% static 'img/registration/arrow.png' %}" alt="Submit" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <form id="passwordForm" method="POST" action="{% url 'set_password' %}">
-                    {% csrf_token %}
-                    <div class="text-wrapper-4">
-                        <input type="password" name="password" placeholder="LOotL00P123!!!" required aria-label="Password" />
-                    </div>
-                    <div class="text-wrapper-5">Confirm Password</div>
-                    <div class="text-wrapper-6">
-                        <input type="password" name="confirm_password" placeholder="LOotL00P123!!!" required aria-label="Confirm Password" />
-                    </div>
-                </form>
-                <div class="rectangle-2"></div>
-                <div class="group-2">
-                    <img class="close-window" src="{% static 'img/registration/close.png' %}" alt="Check" />
-                    <p class="p">Must be Okay strength or better.</p>
-                </div>
-                <div class="group-3">
-                    <img class="close-window" src="{% static 'img/registration/close.png' %}" alt="Check" />
-                    <p class="p">Password is at least 8 characters long.</p>
-                </div>
-                <div class="group-4">
-                    <img class="close-window" src="{% static 'img/registration/close.png' %}" alt="Check" />
-                    <p class="text-wrapper-7">Password includes two of the following: letter, number, or symbol.</p>
+                    </form>
                 </div>
             </div>
         </div>
