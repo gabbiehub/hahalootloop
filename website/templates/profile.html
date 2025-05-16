@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}" />
@@ -12,7 +12,7 @@
       <div class="overlap">
         <div class="overlap-group">
           <img class="image" src="{% static 'img/profile/banner.png' %}" />
-          <div class="box">
+          <div class="box nav-box">
             <div class="nav">
               <div class="overlap-group">
                 <div class="rectangle"></div>
@@ -25,64 +25,63 @@
           </div>
           <div class="prof-info">
             <div class="box">
-              <div class="prof-info">
-                <p class="text-wrapper">
-                  Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I love
-                  hunting for rare gems. Always open to trading, so let’s help each other complete our collections!
-                </p>
-                <div class="group">
-                  <div class="overlap">
-                    <div class="following">
-                      <div class="overlap-group">
-                        <div class="div">14</div>
-                        <div class="text-wrapper-2">Following</div>
-                      </div>
+              <p class="text-wrapper">
+                Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I love
+                hunting for rare gems. Always open to trading, so let’s help each other complete our collections!
+              </p>
+              <div class="group">
+                <div class="overlap">
+                  <div class="following">
+                    <div class="overlap-group">
+                      <div class="div">14</div>
+                      <div class="text-wrapper-2">Following</div>
                     </div>
-                    <div class="followers">
-                      <div class="overlap-2">
-                        <div class="div">8</div>
-                        <div class="text-wrapper-3">Followers</div>
-                      </div>
+                  </div>
+                  <div class="followers">
+                    <div class="overlap-2">
+                      <div class="div">8</div>
+                      <div class="text-wrapper-3">Followers</div>
                     </div>
-                    <div class="trades">
-                      <div class="overlap-3">
-                        <div class="text-wrapper-4">3</div>
-                        <div class="overlap-group-wrapper">
-                          <div class="overlap-group-2">
-                            <div class="text-wrapper-5">Trades</div>
-                            <img class="eva-question-mark" src="{% static 'img/profile/more info.png' %}" />
-                          </div>
+                  </div>
+                  <div class="trades">
+                    <div class="overlap-3">
+                      <div class="text-wrapper-4">3</div>
+                      <div class="overlap-group-wrapper">
+                        <div class="overlap-group-2">
+                          <div class="text-wrapper-5">Trades</div>
+                          <img class="eva-question-mark" src="{% static 'img/profile/more info.png' %}" />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <img class="majesticons-share" src="{% static 'img/profile/share.png' %}" />
-                <div class="overlap-4">
-                  <div class="group-2">
-                    <div class="div-wrapper">
-                      <div class="overlap-group-3">
-                        <div class="rectangle"></div>
-                        <div class="text-wrapper-6">Edit profile</div>
-                      </div>
-                    </div>
-                    <div class="overlap-wrapper">
-                      <div class="overlap-5"><div class="text-wrapper-7">Sign out</div></div>
+              </div>
+              <img class="majesticons-share" src="{% static 'img/profile/share.png' %}" />
+              <div class="overlap-4">
+                <div class="group-2">
+                  <div class="div-wrapper">
+                    <div class="overlap-group-3">
+                      <div class="rectangle"></div>
+                      <div class="text-wrapper-6">Edit profile</div>
                     </div>
                   </div>
-                  <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" />
-                  <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" />
+                  <div class="overlap-wrapper">
+                    <div class="overlap-5"><div class="text-wrapper-7">Sign out</div></div>
+                  </div>
                 </div>
-                <div class="overlap-6">
-                  <div class="text-wrapper-8">TreasureHunter</div>
-                  <div class="text-wrapper-9">@otaku</div>
-                </div>
-                <img class="line" src="{% static 'img/profile/line.png' %}" />
-                <img class="img" src="{% static 'img/profile/line.png' %}" />
-                <img class="a" src="{% static 'img/profile/profile big.png' %}" />
+                <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" />
+                <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" />
               </div>
+              <div class="overlap-6">
+                <div class="text-wrapper-8">TreasureHunter</div>
+                <div class="text-wrapper-9">@otaku</div>
+              </div>
+              <img class="line" src="{% static 'img/profile/line.png' %}" />
+              <img class="img" src="{% static 'img/profile/line.png' %}" />
+              <img class="a" src="{% static 'img/profile/profile big.png' %}" />
             </div>
           </div>
+        </div>
         <div class="frame">
           <div class="fb">
             <div class="post">
@@ -142,7 +141,6 @@
                 <img class="line-3" src="{% static 'img/profile/line.png' %}" />
                 <img class="line-4" src="{% static 'img/profile/line.png' %}" />
               </div>
-              <img class="line-5" src="{% static 'img/profile/line.png' %}" />
             </div>
           </div>
         </div>
