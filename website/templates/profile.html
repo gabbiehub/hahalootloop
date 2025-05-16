@@ -9,6 +9,202 @@
   </head>
   <body>
     <div class="user-profile-page">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-home">
+          <a href="{% url 'homepage' %}">
+            <img class="home-icon" src="{% static 'img/homepage/Home.png' %}" alt="Home Icon" />
+          </a>
+        </div>
+        <button class="chat-button" id="chatButton" aria-label="Open chat">
+          <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat Icon" />
+        </button>
+        <img class="settings-icon" src="{% static 'img/homepage/Settings.png' %}" alt="Settings Icon" />
+        <img class="notifications-icon" src="{% static 'img/homepage/Notif.png' %}" alt="Notifications Icon" />
+        <div class="sidebar-profile">
+          <a href="{% url 'profile' %}">
+            <img class="user-profile" src="{% static 'img/homepage/Profile.png' %}" alt="User Profile" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Message Modal -->
+      <div class="modal" id="messageModal">
+        <div class="modal-content message">
+          <img class="close-window" src="{% static 'img/close-window.png' %}" alt="Close" id="closeMessageModal" />
+          <div class="text-wrapper">Chat</div>
+          <div class="sidebar">
+            <div class="search-bar">
+              <input type="text" placeholder="Search..." style="width: 100%; height: 100%; padding: 0.5rem;">
+            </div>
+            <div class="div">Recent Conversations</div>
+            <div class="chat-list">
+              <div class="chat-item active">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">KatsuraDa</div>
+                  <div class="chat-preview">Yes, nabili ko sila dun mismo sa...</div>
+                </div>
+                <div class="chat-time">8:57 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">GujuSinsi</div>
+                  <div class="chat-preview">You: hoyy hahah di naman fake y...</div>
+                </div>
+                <div class="chat-time">5:00 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 3.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">FindingDory</div>
+                  <div class="chat-preview unread">Bakit di mo ko pinapansin?</div>
+                </div>
+                <div class="chat-time">1:17 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">CollectorCat</div>
+                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
+                </div>
+                <div class="chat-time">1:10 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 5.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">HaikyuuLover</div>
+                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
+                </div>
+                <div class="chat-time">12:00 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">Coraline</div>
+                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
+                </div>
+                <div class="chat-time">8:00 am</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 7.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">akosiblueyyy</div>
+                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
+                </div>
+                <div class="chat-time">Feb. 14</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">gagagagagga</div>
+                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
+                </div>
+                <div class="chat-time">1:10 pm</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">HaikyuuLover</div>
+                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
+                </div>
+                <div class="chat-time">12:00 pm</div>
+                <div class="chat-unread"></div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">Coraline</div>
+                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
+                </div>
+                <div class="chat-time">8:00 am</div>
+              </div>
+              <div class="chat-item">
+                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
+                <div class="chat-info">
+                  <div class="chat-name">akosiblueyyy</div>
+                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
+                </div>
+                <div class="chat-time">Feb. 14</div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-area">
+            <div class="sino-kausap">
+              <div class="overlap-6">
+                <img class="pfp-3" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile" />
+                <div class="text-wrapper-6">KatsuraDa</div>
+                <div class="text-wrapper-12">@zurajanai</div>
+                <div class="group-10">
+                  <div class="overlap-14">
+                    <div class="text-wrapper-13">View profile</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="message-opssen">
+              <div class="chat-bubble other-user">
+                <p class="hey-i-saw-your-2">
+                  Hey! I saw your collection. Ganda ng figurines mo ah. Matagal ka na nagko-collect?
+                </p>
+                <span class="message-time">06:00 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="hi-yes-medyo-matagal">
+                  Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng Jujutsu Kaisen characters
+                </p>
+                <span class="message-time">06:01 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="p">Si gojo ba favorite mo? dami mong gojo eh</p>
+                <span class="message-time">06:02 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-2">Oo, halata na nga eh HAHA</p>
+                <span class="message-time">06:03 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-3">si gojo rin favorite ko</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-4">madalas ka ba bumibili online?</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-5">Minsan sa online, pero minsan sa mga malls din kung meron</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="text-wrapper-11">Ahh talaga ba? Nice</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble other-user">
+                <p class="kita-ko-nga-meron-ka">
+                  kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind boxes?
+                </p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+              <div class="chat-bubble current-user">
+                <p class="text-wrapper-11">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
+                <span class="message-time">06:04 PM</span>
+              </div>
+            </div>
+            <div class="overlap-15">
+              <div class="overlap-16">
+                <input type="text" class="text-wrapper-14" placeholder="Write your message" />
+                <img class="attach" src="{% static 'img/homepage modals/attach.png' %}" alt="Attach" />
+                <img class="send-icon" src="{% static 'img/homepage modals/send.png' %}" alt="Send" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
       <div class="overlap">
         <div class="overlap-group">
           <img class="image" src="{% static 'img/profile/banner.png' %}" />
@@ -25,10 +221,10 @@
           </div>
           <div class="prof-info">
             <div class="box">
-              <p class="text-wrapper">
+              <div class="text-wrapper">
                 Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I love
                 hunting for rare gems. Always open to trading, so let’s help each other complete our collections!
-              </p>
+              </div>
               <div class="group">
                 <div class="overlap">
                   <div class="following">
@@ -66,11 +262,15 @@
                     </div>
                   </div>
                   <div class="overlap-wrapper">
-                    <div class="overlap-5"><div class="text-wrapper-7">Sign out</div></div>
+                    <div class="overlap-5">
+                      <div class="text-wrapper-7">Sign out</div>
+                    </div>
                   </div>
                 </div>
                 <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" />
-                <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" />
+                <button class="signout-button" onclick="window.location.href='/'">
+                  <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" alt="Sign Out" />
+                </button>
               </div>
               <div class="overlap-6">
                 <div class="text-wrapper-8">TreasureHunter</div>
@@ -144,6 +344,77 @@
             </div>
           </div>
         </div>
+
+        <div class="wishes" id="wishlistFrame" style="display: none;">
+          <!-- Copy the .wishes content from user-wishlist-page.html -->
+          <div class="wish-group">
+            <div class="gojo-wish">
+              <img class="image-2" src="{% static 'img/image.png' %}" />
+              <div class="description">
+                <p class="p">
+                  Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original box.
+                  Prefer to trade for another JJK figure, but open to offers!
+                </p>
+                <div class="group-4">
+                  <div class="text-wrapper-16">Mark Africa</div>
+                  <img class="element" src="{% static 'img/1.png' %}" />
+                  <div class="text-wrapper-17">Open for Trade</div>
+                </div>
+                <div class="group-5">
+                  <div class="overlap-group-6">
+                    <div class="text-wrapper-18">Remove</div>
+                    <div class="line-wrapper"><img class="line-2" src="{% static 'img/image.svg' %}" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-wrapper-19">Wanted Items</div>
+            <div class="text-wrapper-20">Available for Trade</div>
+            <div class="text-wrapper-21">Community Picks</div>
+            <div class="megumin">
+              <div class="description-2">
+                <p class="p">
+                  Looking for the Megumin Figma with the Explosion pose! If you have an extra or know where I can find one,
+                  message me!
+                </p>
+                <div class="group-6">
+                  <div class="text-wrapper-22">Gabriel Imperial</div>
+                  <img class="element" src="{% static 'img/5.png' %}" />
+                </div>
+                <div class="text-wrapper-23">Trade Request</div>
+                <div class="group-7">
+                  <div class="overlap-group-6">
+                    <div class="text-wrapper-18">Remove</div>
+                    <div class="img-wrapper"><img class="line-2" src="{% static 'img/line-19-2.svg' %}" /></div>
+                  </div>
+                </div>
+              </div>
+              <div class="carbon-no-image-wrapper"><img class="carbon-no-image" src="{% static 'img/carbon-no-image.svg' %}" /></div>
+            </div>
+            <div class="hirono">
+              <img class="image-3" src="{% static 'img/image-3.png' %}" />
+              <div class="description-3">
+                <p class="text-wrapper-24">
+                  Looking for the Megumin Figma with the Explosion pose! If you have an extra or know where I can find one,
+                  message me!
+                </p>
+                <div class="group-8">
+                  <div class="text-wrapper-22">Gabriel Imperial</div>
+                  <img class="element" src="{% static 'img/5-2.png' %}" />
+                </div>
+                <div class="text-wrapper-25">Trade Request</div>
+                <div class="group-9">
+                  <div class="overlap-group-6">
+                    <div class="text-wrapper-18">Remove</div>
+                    <div class="group-10"><img class="line-2" src="{% static 'img/line-19.svg' %}" /></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-wrapper-26">Looks like this list is empty. Time to find some collectibles!</p>
+          </div>
+        </div>
+
         <div class="latest-updates">
           <div class="overlap-12">
             <div class="overlap-13">
@@ -247,7 +518,7 @@
           </div>
         </div>
       </div>
-      <div class="transparent-icon-wrapper"><img class="transparent-icon" src="{% static 'img/logo.png' %}" /></div>
     </div>
+    <script src="{% static 'js/profile.js' %}"></script>
   </body>
 </html>

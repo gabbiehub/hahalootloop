@@ -206,9 +206,9 @@ body {
 .home-page .category-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 7rem; /* More spacing */
+  gap: 6rem; /* More spacing */
   justify-content: center;
-  margin: 3rem auto; /* Centered with auto margins */
+  margin: 2rem auto; /* Centered with auto margins */
   width: 90%; /* Reduced width to create space within .main-content */
 }
 
