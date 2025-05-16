@@ -1,116 +1,88 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
-    <title>Collector's Hub - Profile</title>
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/homepage/homepage-modals.css' %}" />
   </head>
   <body>
     <div class="user-profile-page">
-      <div class="sidebar">
-        <div class="sidebar-home">
-          <a href="/">
-            <img class="home-icon" src="{% static 'img/homepage/home.png' %}" alt="Home Icon" />
-          </a>
-        </div>
-        <button class="chat-button" id="chatButton" aria-label="Open chat">
-          <img class="chat-icon" src="{% static 'img/homepage/chat room.png' %}" alt="Chat Icon" />
-        </button>
-        <img class="settings-icon" src="{% static 'img/homepage/settings.png' %}" alt="Settings Icon" />
-        <img class="notifications-icon" src="{% static 'img/homepage/notif.png' %}" alt="Notifications Icon" />
-        <div class="sidebar-profile">
-          <div class="profile-highlight">
-            <img src="{% static 'img/homepage/nav bar select.png' %}" alt="Profile Highlight" />
-          </div>
-          <img class="user-profile" src="{% static 'img/homepage/profile.png' %}" alt="User Profile" />
-        </div>
-      </div>
-      <img class="logo" src="{% static 'img/logo 2.png' %}" alt="Logo" />
       <div class="overlap">
         <div class="overlap-group">
-          <img class="image" src="{% static 'img/profile/banner.png' %}" alt="Cover Image" />
+          <img class="image" src="{% static 'img/profile/banner.png' %}" />
+          <div class="box">
+            <div class="nav">
+              <div class="overlap-group">
+                <div class="rectangle"></div>
+                <div class="text-wrapper">Home</div>
+              </div>
+              <div class="div">Wishlist</div>
+              <div class="text-wrapper-2">History</div>
+              <div class="text-wrapper-3">Collections</div>
+            </div>
+          </div>
           <div class="prof-info">
-            <p class="text-wrapper">
-              Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I
-              love hunting for rare gems. Always open to trading, so let's help each other complete our collections!
-            </p>
-            <div class="group">
-              <div class="div">
-                <div class="following">
-                  <div class="overlap-group-2">
-                    <div class="text-wrapper-2">14</div>
-                    <div class="text-wrapper-3">Following</div>
-                  </div>
-                </div>
-                <div class="followers">
-                  <div class="overlap-2">
-                    <div class="text-wrapper-2">8</div>
-                    <div class="text-wrapper-4">Followers</div>
-                  </div>
-                </div>
-                <div class="trades">
-                  <div class="overlap-3">
-                    <div class="text-wrapper-5">3</div>
-                    <div class="overlap-group-wrapper">
-                      <div class="overlap-group-3">
-                        <div class="text-wrapper-6">Trades</div>
-                        <img class="eva-question-mark" src="{% static 'img/profile/more info.png' %}" alt="Question Mark" />
+            <div class="box">
+              <div class="prof-info">
+                <p class="text-wrapper">
+                  Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I love
+                  hunting for rare gems. Always open to trading, so let’s help each other complete our collections!
+                </p>
+                <div class="group">
+                  <div class="overlap">
+                    <div class="following">
+                      <div class="overlap-group">
+                        <div class="div">14</div>
+                        <div class="text-wrapper-2">Following</div>
+                      </div>
+                    </div>
+                    <div class="followers">
+                      <div class="overlap-2">
+                        <div class="div">8</div>
+                        <div class="text-wrapper-3">Followers</div>
+                      </div>
+                    </div>
+                    <div class="trades">
+                      <div class="overlap-3">
+                        <div class="text-wrapper-4">3</div>
+                        <div class="overlap-group-wrapper">
+                          <div class="overlap-group-2">
+                            <div class="text-wrapper-5">Trades</div>
+                            <img class="eva-question-mark" src="{% static 'img/profile/more info.png' %}" />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <img class="majesticons-share" src="{% static 'img/profile/share.png' %}" alt="Share Icon" />
-            <div class="overlap-4">
-              <div class="group-2">
-                <div class="div-wrapper">
-                  <div class="overlap-group-4">
-                    <div class="rectangle"></div>
-                    <div class="text-wrapper-7">Edit profile</div>
+                <img class="majesticons-share" src="{% static 'img/profile/share.png' %}" />
+                <div class="overlap-4">
+                  <div class="group-2">
+                    <div class="div-wrapper">
+                      <div class="overlap-group-3">
+                        <div class="rectangle"></div>
+                        <div class="text-wrapper-6">Edit profile</div>
+                      </div>
+                    </div>
+                    <div class="overlap-wrapper">
+                      <div class="overlap-5"><div class="text-wrapper-7">Sign out</div></div>
+                    </div>
                   </div>
+                  <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" />
+                  <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" />
                 </div>
-                <div class="overlap-wrapper">
-                  <div class="overlap-5"><div class="text-wrapper-8">Sign out</div></div>
+                <div class="overlap-6">
+                  <div class="text-wrapper-8">TreasureHunter</div>
+                  <div class="text-wrapper-9">@otaku</div>
                 </div>
+                <img class="line" src="{% static 'img/profile/line.png' %}" />
+                <img class="img" src="{% static 'img/profile/line.png' %}" />
+                <img class="a" src="{% static 'img/profile/profile big.png' %}" />
               </div>
-              <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" alt="Edit Icon" />
-              <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" alt="Signout Icon" />
             </div>
-            <div class="overlap-6">
-              <div class="text-wrapper-9">TreasureHunter</div>
-              <div class="text-wrapper-10">@otaku</div>
-            </div>
-            <img class="line" src="{% static 'img/profile/line.png' %}" alt="Line" />
-            <img class="img" src="{% static 'img/profile/line.png' %}" alt="Line" />
-            <img class="a" src="{% static 'img/profile/profile big.png' %}" alt="Profile Picture" />
           </div>
-        </div>
-        <div class="nav">
-          <div class="nav-item active" data-tab="home">
-            <div class="nav-highlight">
-              <img src="{% static 'img/homepage/nav bar select.png' %}" alt="Highlight" />
-            </div>
-            <img class="nav-icon" src="{% static 'img/homepage/home.png' %}" alt="Home Icon" />
-            <span class="nav-text">Home</span>
-          </div>
-          <div class="nav-item" data-tab="wishlist">
-            <img class="nav-icon" src="{% static 'img/profile/wishlist.png' %}" alt="Wishlist Icon" />
-            <span class="nav-text">Wishlist</span>
-          </div>
-          <div class="nav-item" data-tab="collections">
-            <img class="nav-icon" src="{% static 'img/profile/collections.png' %}" alt="Collections Icon" />
-            <span class="nav-text">Collections</span>
-          </div>
-          <div class="nav-item" data-tab="history">
-            <img class="nav-icon" src="{% static 'img/profile/history.png' %}" alt="History Icon" />
-            <span class="nav-text">History</span>
-          </div>
-        </div>
         <div class="frame">
           <div class="fb">
             <div class="post">
@@ -118,35 +90,35 @@
                 <div class="overlap-8">
                   <div class="text-wrapper-11">TreasureHunter</div>
                   <div class="text-wrapper-12">1 March at 4:30</div>
-                  <img class="a-2" src="{% static 'img/profile/profile small.png' %}" alt="Post Profile Picture" />
+                  <img class="a-2" src="{% static 'img/profile/profile small.png' %}" />
                 </div>
                 <p class="p">
                   Just added another piece to my collection. My shelf is running out of space, but my heart is full. 🥹✨
                 </p>
                 <div class="group-3">
                   <div class="overlap-group-5">
-                    <img class="image-2" src="{% static 'img/profile/post 1.png' %}" alt="Post Image 1" />
-                    <img class="image-3" src="{% static 'img/profile/post 2.png' %}" alt="Post Image 2" />
+                    <img class="image-2" src="{% static 'img/profile/post 1.png' %}" />
+                    <img class="image-3" src="{% static 'img/profile/post 2.png' %}" />
                   </div>
                 </div>
                 <div class="group-4">
                   <div class="text-wrapper-13">1</div>
                   <div class="text-wrapper-14">0</div>
                   <div class="text-wrapper-15">0</div>
-                  <img class="facebook-like" src="{% static 'img/profile/like.png' %}" alt="Like Icon" />
-                  <img class="facebook-like-2" src="{% static 'img/profile/dislike.png' %}" alt="Like Icon 2" />
-                  <img class="mdi-comment" src="{% static 'img/profile/comment.png' %}" alt="Comment Icon" />
+                  <img class="facebook-like" src="{% static 'img/profile/like.png' %}" />
+                  <img class="facebook-like-2" src="{% static 'img/profile/dislike.png' %}" />
+                  <img class="mdi-comment" src="{% static 'img/profile/comment.png' %}" />
                 </div>
-                <img class="oi-ellipses" src="{% static 'img/profile/menu.png' %}" alt="More Options" />
+                <img class="oi-ellipses" src="{% static 'img/profile/menu.png' %}" />
               </div>
             </div>
-            <img class="line-2" src="{% static 'img/profile/line.png' %}" alt="Line" />
+            <img class="line-2" src="{% static 'img/profile/line.png' %}" />
             <div class="frame-2">
               <div class="highlights">
-                <img class="image-4" src="{% static 'img/profile/Highlight 1.png' %}" alt="Highlight 1" />
-                <img class="image-5" src="{% static 'img/profile/Highlight 2.png' %}" alt="Highlight 2" />
-                <img class="image-6" src="{% static 'img/profile/Highlight 3.png' %}" alt="Highlight 3" />
-                <img class="image-7" src="{% static 'img/profile/Highlight 4.png' %}" alt="Highlight 4" />
+                <img class="image-4" src="{% static 'img/profile/highlight 1.png' %}" />
+                <img class="image-5" src="{% static 'img/profile/highlight 2.png' %}" />
+                <img class="image-6" src="{% static 'img/profile/highlight 3.png' %}" />
+                <img class="image-7" src="{% static 'img/profile/highlight 4.png' %}" />
               </div>
               <div class="text-wrapper-16">Highlights</div>
             </div>
@@ -155,22 +127,22 @@
                 <div class="rectangle-2"></div>
                 <div class="rectangle-3"></div>
                 <div class="group-6">
-                  <img class="vector" src="{% static 'img/profile/attachment.png' %}" alt="Vector Icon" />
-                  <img class="group-7" src="{% static 'img/profile/photo.png' %}" alt="Group Icon" />
-                  <img class="vector-2" src="{% static 'img/profile/video.png' %}" alt="Vector Icon 2" />
+                  <img class="vector" src="{% static 'img/profile/attachment.png' %}" />
+                  <img class="group-7" src="{% static 'img/profile/photo.png' %}" />
+                  <img class="vector-2" src="{% static 'img/profile/video.png' %}" />
                 </div>
-                <img class="a-3" src="{% static 'img/profile/profile small.png' %}" alt="Post Profile Picture" />
+                <img class="a-3" src="{% static 'img/profile/profile small.png' %}" />
                 <div class="rectangle-4"></div>
-                <p class="text-wrapper-17">What's new in your collection, TreasureHunter?</p>
+                <p class="text-wrapper-17">What’s new in your collection, TreasureHunter?</p>
               </div>
             </div>
             <div class="group-8">
               <div class="overlap-10">
                 <div class="text-wrapper-18">No more posts.</div>
-                <img class="line-3" src="{% static 'img/profile/line.png' %}" alt="Line" />
-                <img class="line-4" src="{% static 'img/profile/line.png' %}" alt="Line" />
+                <img class="line-3" src="{% static 'img/profile/line.png' %}" />
+                <img class="line-4" src="{% static 'img/profile/line.png' %}" />
               </div>
-              <img class="line-5" src="{% static 'img/profile/line.png' %}" alt="Line" />
+              <img class="line-5" src="{% static 'img/profile/line.png' %}" />
             </div>
           </div>
         </div>
@@ -184,27 +156,27 @@
                     <p class="text-wrapper-24">akosiblueyyy shared a post:<br />"Fate/Stay Night collectors...</p>
                     <div class="text-wrapper-25">1 hour ago</div>
                   </div>
-                  <img class="img-2" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Bluey Profile" />
+                  <img class="img-2" src="{% static 'img/homepage modals/pfp 6.png' %}" />
                 </div>
                 <div class="katsu">
                   <div class="overlap-15">
-                    <p class="text-wrapper-24">KatsuraDa posted an update:<br />"Finally got my hands on th..."</p>
+                    <p class="text-wrapper-24">KatsuraDa posted an update:<br />"Finally got my hands on th...”</p>
                     <div class="text-wrapper-25">Just Now</div>
                   </div>
-                  <img class="img-2" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Katsu Profile" />
+                  <img class="img-2" src="{% static 'img/homepage modals/pfp 2.png' %}" />
                 </div>
-                <img class="line-6" src="{% static 'img/profile/line.png' %}" alt="Line" />
+                <img class="line-6" src="{% static 'img/profile/line.png' %}" />
               </div>
             </div>
             <div class="dory">
               <div class="text-wrapper-26">findingdory posted an update.</div>
               <div class="text-wrapper-27">1 hour ago</div>
-              <img class="img-2" src="{% static 'img/homepage modals/pfp 3.png' %}" alt="Dory Profile" />
+              <img class="img-2" src="{% static 'img/homepage modals/pfp 3.png' %}" />
             </div>
             <div class="cora">
               <div class="text-wrapper-28">Coraline posted an update.</div>
               <div class="text-wrapper-29">4 hours ago</div>
-              <img class="pfp" src="{% static 'img/homepage modals/pfp 5.png' %}" alt="Cora Profile" />
+              <img class="pfp" src="{% static 'img/homepage modals/pfp 5.png' %}" />
             </div>
           </div>
         </div>
@@ -225,7 +197,7 @@
                     <div class="overlap-17"><div class="text-wrapper-33">Remove</div></div>
                   </div>
                 </div>
-                <img class="img-2" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Asunta Profile" />
+                <img class="img-2" src="{% static 'img/homepage modals/pfp 1.png' %}" />
               </div>
               <div class="ruleth">
                 <div class="text-wrapper-34">areyouleth</div>
@@ -240,9 +212,9 @@
                     <div class="overlap-17"><div class="text-wrapper-33">Remove</div></div>
                   </div>
                 </div>
-                <img class="img-2" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Ruleth Profile" />
+                <img class="img-2" src="{% static 'img/homepage modals/pfp 4.png' %}" />
               </div>
-              <img class="line-7" src="{% static 'img/homepage modals/line.png' %}" alt="Line" />
+              <img class="line-7" src="{% static 'img/profile/line.png' %}" />
             </div>
             <div class="pat">
               <div class="text-wrapper-35">TheIronPat</div>
@@ -257,7 +229,7 @@
                   <div class="overlap-17"><div class="text-wrapper-33">Remove</div></div>
                 </div>
               </div>
-              <img class="img-2" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Pat Profile" />
+              <img class="img-2" src="{% static 'img/homepage modals/pfp 2.png' %}" />
             </div>
             <div class="dha">
               <div class="text-wrapper-36">AMDHASiRUSWAN?</div>
@@ -272,39 +244,12 @@
                   <div class="overlap-17"><div class="text-wrapper-33">Remove</div></div>
                 </div>
               </div>
-              <img class="img-2" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Dha Profile" />
+              <img class="img-2" src="{% static 'img/homepage modals/pfp 6.png' %}" />
             </div>
           </div>
         </div>
       </div>
-      <!-- Message Modal -->
-      <div class="modal" id="messageModal">
-        <div class="modal-content">
-          <span class="close-button" id="closeModal">×</span>
-          <h2>Messages</h2>
-          <div class="chat-list">
-            <div class="chat-item">
-              <img src="{% static 'img/homepage/sections/john profile.png' %}" alt="John Profile" class="chat-profile" />
-              <div class="chat-details">
-                <div class="chat-user">John Maigue</div>
-                <div class="chat-preview">Hey, still got that Gojo figure?</div>
-              </div>
-            </div>
-            <div class="chat-item">
-              <img src="{% static 'img/homepage/sections/mark profile.png' %}" alt="Mark Profile" class="chat-profile" />
-              <div class="chat-details">
-                <div class="chat-user">Mark Africa</div>
-                <div class="chat-preview">Interested in trading for a vintage coin?</div>
-              </div>
-            </div>
-          </div>
-          <div class="chat-input">
-            <input type="text" placeholder="Type a message..." id="messageInput" />
-            <button class="send-button">Send</button>
-          </div>
-        </div>
-      </div>
+      <div class="transparent-icon-wrapper"><img class="transparent-icon" src="{% static 'img/logo.png' %}" /></div>
     </div>
-    <script src="{% static 'js/modal.js' %}"></script>
   </body>
 </html>
