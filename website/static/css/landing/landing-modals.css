@@ -2,6 +2,8 @@
 .log-in-modal {
   width: 43.07vw;
   height: 28.80vw;
+  min-width: 600px;
+  min-height: 400px;
   display: none;
   position: fixed;
   top: 50%;
@@ -1165,8 +1167,15 @@
 
 .log-in-modal .error {
     color: red;
-    font-size: 14px;
+    font-size: 0.8vw;
     margin-bottom: 10px;
     text-align: center;
     display: none;
+    position: absolute;
+    top: 7.5vw; /* Position between the description (6.20vw) and email input (9.84vw) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    z-index: 20; /* Ensure it’s above other elements */
+    background-color: rgba(255, 255, 255, 0.9); /* Slight background to ensure readability */
 }

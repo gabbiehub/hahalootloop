@@ -66,6 +66,14 @@ document.addEventListener('DOMContentLoaded', function () {
         errorMessage.className = 'error';
         errorMessage.style.color = 'red';
         errorMessage.style.display = 'none';
+        errorMessage.style.textAlign = 'center';
+        errorMessage.style.position = 'absolute';
+        errorMessage.style.top = '7.5vw';
+        errorMessage.style.left = '50%';
+        errorMessage.style.transform = 'translateX(-50%)';
+        errorMessage.style.width = '90%';
+        errorMessage.style.zIndex = '20';
+        errorMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
         loginForm.prepend(errorMessage);
     }
 
@@ -153,13 +161,11 @@ document.addEventListener('DOMContentLoaded', function () {
     codeInputs.forEach((input, index) => {
         if (input) {
             input.addEventListener('input', function () {
-                // If a character is entered and it's not the last input
                 if (this.value.length === 1 && index < codeInputs.length - 1) {
                     codeInputs[index + 1].focus();
                 }
             });
 
-            // Handle backspace to move to previous input
             input.addEventListener('keydown', function (e) {
                 if (e.key === 'Backspace' && this.value.length === 0 && index > 0) {
                     codeInputs[index - 1].focus();
@@ -168,107 +174,118 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle login form submission (for both button click and Enter key)
+    // Handle login form submission
     if (loginForm && loginSubmitButton) {
-    const handleLoginSubmit = function (e) {
-        e.preventDefault();
-        console.log('Login form submitted');
+        const handleLoginSubmit = function (e) {
+            e.preventDefault(); // Explicitly prevent default form submission
+            console.log('Login form submitted');
 
-        // Verify input elements
-        const emailLoginInput = loginForm?.querySelector('input[name="email"]');
-        const passwordLoginInput = loginForm?.querySelector('input[name="password"]');
-        console.log('emailLoginInput:', emailLoginInput);
-        console.log('passwordLoginInput:', passwordLoginInput);
-
-        // Get input values
-        const email = emailLoginInput?.value.trim();
-        const password = passwordLoginInput?.value.trim();
-        const csrfToken = loginForm.querySelector('input[name="csrfmiddlewaretoken"]')?.value;
-
-        // Debug input values
-        console.log('Email value:', email);
-        console.log('Password value:', password);
-        console.log('CSRF Token:', csrfToken);
-
-        // Client-side validation
-        if (!email) {
-            console.warn('Empty email input');
-            errorMessage.textContent = 'Please enter an email address.';
-            errorMessage.style.display = 'block';
-            emailLoginInput?.focus();
-            return;
-        }
-        if (!/\S+@\S+\.\S+/.test(email)) {
-            console.warn('Invalid email format');
-            errorMessage.textContent = 'Please enter a valid email address.';
-            errorMessage.style.display = 'block';
-            emailLoginInput?.focus();
-            return;
-        }
-        if (!password) {
-            console.warn('Empty password input');
-            errorMessage.textContent = 'Please enter a password.';
-            errorMessage.style.display = 'block';
-            passwordLoginInput?.focus();
-            return;
-        }
-
-        // Prepare data for AJAX request
-        const data = { email, password };
-        console.log('Submitting login data (before stringify):', data);
-        const jsonData = JSON.stringify(data);
-        console.log('Submitting login data (after stringify):', jsonData);
-
-        loginSubmitButton.disabled = true;
-        loginSubmitButton.innerHTML = 'Signing in...';
-
-        fetch(loginForm.action, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken
-            },
-            body: jsonData
-        })
-        .then(response => {
-            console.log('Login response status:', response.status);
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
+            const emailLoginInput = loginForm.querySelector('input[name="email"]');
+            const passwordLoginInput = loginForm.querySelector('input[name="password"]');
+            let errorMessage = loginModal.querySelector('.error');
+            if (!errorMessage) {
+                errorMessage = createErrorElement();
             }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Login response data:', data);
-            if (data.success) {
-                console.log('Login successful, redirecting to:', data.redirect);
-                errorMessage.style.display = 'none';
-                hideModal(loginModal);
-                window.location.href = data.redirect || '/homepage/';
-            } else {
-                console.warn('Login failed:', data.error);
-                errorMessage.textContent = data.error || 'Failed to log in.';
+
+            const email = emailLoginInput.value.trim();
+            const password = passwordLoginInput.value.trim();
+            const csrfToken = loginForm.querySelector('input[name="csrfmiddlewaretoken"]').value;
+
+            console.log('Email:', email);
+            console.log('Password:', password);
+            console.log('CSRF Token:', csrfToken);
+
+            errorMessage.style.display = 'none';
+
+            if (!email || !password) {
+                errorMessage.textContent = 'Email and password are required.';
                 errorMessage.style.display = 'block';
-                emailLoginInput?.focus();
+                emailLoginInput.focus();
+                return;
             }
-        })
-        .catch(error => {
-            console.error('Login fetch error:', error);
-            errorMessage.textContent = `An error occurred: ${error.message}`;
-            errorMessage.style.display = 'block';
-            emailLoginInput?.focus();
-        })
-        .finally(() => {
-            loginSubmitButton.disabled = false;
-            loginSubmitButton.innerHTML = '<div class="overlap-group"><div class="text-wrapper-9">Sign in</div></div>';
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.style.display = 'block';
+                emailLoginInput.focus();
+                return;
+            }
+
+            loginSubmitButton.disabled = true;
+            loginSubmitButton.innerHTML = 'Signing in...';
+
+            const formData = new FormData(loginForm); // Use FormData to match Django's request.POST
+
+            fetch(loginForm.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken
+                },
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Request failed');
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data.success) {
+                    window.location.href = data.redirect || '/homepage/';
+                } else {
+                    errorMessage.textContent = data.error || 'Invalid email or password.';
+                    errorMessage.style.display = 'block';
+                    loginModal.style.display = 'block'; // Ensure modal stays open
+                    modalOverlay.style.display = 'block'; // Ensure overlay stays visible
+                    emailLoginInput.focus();
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                errorMessage.textContent = error.message || 'An error occurred.';
+                errorMessage.style.display = 'block';
+                loginModal.style.display = 'block'; // Ensure modal stays open
+                modalOverlay.style.display = 'block'; // Ensure overlay stays visible
+                emailLoginInput.focus();
+            })
+            .finally(() => {
+                loginSubmitButton.disabled = false;
+                loginSubmitButton.innerHTML = '<div class="overlap-group"><div class="text-wrapper-9">Sign in</div></div>';
+            });
+        };
+
+        function createErrorElement() {
+            const el = document.createElement('p');
+            el.className = 'error';
+            el.style.color = 'red';
+            el.style.display = 'none';
+            el.style.textAlign = 'center';
+            el.style.position = 'absolute';
+            el.style.top = '7.5vw';
+            el.style.left = '50%';
+            el.style.transform = 'translateX(-50%)';
+            el.style.width = '90%';
+            el.style.zIndex = '20';
+            el.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            loginForm.prepend(el);
+            return el;
+        }
+
+        // Attach event listeners
+        loginSubmitButton.addEventListener('click', handleLoginSubmit);
+        loginForm.addEventListener('submit', handleLoginSubmit); // Ensure form submit event is handled
+
+        // Prevent Enter key from submitting the form directly
+        loginForm.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleLoginSubmit(e);
+            }
         });
-    };
-
-    // Attach to button click
-    loginSubmitButton.addEventListener('click', handleLoginSubmit);
-
-    // Attach to Enter key on form
-    loginForm.addEventListener('submit', handleLoginSubmit);
     } else {
-        console.warn('Login form or submit button missing. Login functionality may not work.');
+        console.warn('Login form or submit button missing.');
     }
 });
