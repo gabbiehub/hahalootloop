@@ -2,189 +2,212 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Script loaded at:', new Date().toISOString());
 
     // Get elements
-    const emailForm = document.querySelector('#emailForm');
+    const registrationForm = document.querySelector('#registrationForm');
+    const emailModal = document.querySelector('#emailModal');
     const usernameModal = document.querySelector('#usernameModal');
-    const usernameForm = document.querySelector('#usernameForm');
     const passwordModal = document.querySelector('#passwordModal');
-    const passwordForm = document.querySelector('#passwordForm');
-    const modalOverlay = document.querySelector('#modalOverlay');
-    const usernameGoBack = usernameModal?.querySelector('.overlap-group-wrapper');
-    const passwordGoBack = passwordModal?.querySelector('.overlap-group-wrapper');
-    const usernameInput = usernameForm?.querySelector('input[name="username"]');
-    const passwordInput = passwordForm?.querySelector('input[name="password"]');
-    const emailSubmitButton = emailForm?.querySelector('.arrow-wrapper button');
+    const emailInput = registrationForm?.querySelector('input[name="email"]');
+    const usernameInput = registrationForm?.querySelector('input[name="username"]');
+    const passwordInput = registrationForm?.querySelector('input[name="password"]');
+    const confirmPasswordInput = registrationForm?.querySelector('input[name="confirm_password"]');
+    const nextButtons = registrationForm?.querySelectorAll('button[data-next-modal]');
+    const backButtons = registrationForm?.querySelectorAll('img[data-prev-modal]');
 
     // Debug: Log element existence
-    console.log('emailForm:', emailForm);
+    console.log('registrationForm:', registrationForm);
+    console.log('emailModal:', emailModal);
     console.log('usernameModal:', usernameModal);
-    console.log('usernameForm:', usernameForm);
     console.log('passwordModal:', passwordModal);
-    console.log('emailSubmitButton:', emailSubmitButton);
+    console.log('emailInput:', emailInput);
+    console.log('usernameInput:', usernameInput);
+    console.log('passwordInput:', passwordInput);
+    console.log('confirmPasswordInput:', confirmPasswordInput);
+    console.log('nextButtons:', nextButtons.length, nextButtons);
+    console.log('backButtons:', backButtons.length, backButtons);
 
-    // Initialize modal states
-    if (usernameModal) usernameModal.style.display = 'none';
-    if (passwordModal) passwordModal.style.display = 'none';
-    if (modalOverlay) modalOverlay.style.display = 'none';
+    // Check for missing elements
+    if (!registrationForm || !emailModal || !usernameModal || !passwordModal) {
+        console.error('Critical elements missing. Check HTML IDs: registrationForm, emailModal, usernameModal, passwordModal');
+        alert('Error: Registration form or modals not found. Please check the page structure.');
+        return;
+    }
+    if (!nextButtons.length) {
+        console.warn('No next buttons found. Check buttons with data-next-modal.');
+    }
+    if (!backButtons.length) {
+        console.warn('No back buttons found. Check images with data-prev-modal.');
+    }
 
-    // Show username modal on email form submission
-    if (emailForm) {
-        emailForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            console.log('Email form submit event triggered');
-            const emailInput = emailForm.querySelector('input[name="email"]');
-            if (!emailInput) {
-                console.error('Email input not found');
-                alert('Email input not found.');
-                return;
-            }
-            const email = emailInput.value.trim();
-            if (email === '') {
-                console.warn('Empty email input');
-                alert('Please enter an email address.');
-                return;
-            }
-            if (!/\S+@\S+\.\S+/.test(email)) {
-                console.warn('Invalid email format');
-                alert('Please enter a valid email address.');
-                return;
-            }
-            if (usernameModal) {
-                console.log('Showing username modal');
-                usernameModal.style.display = 'block';
-                usernameModal.setAttribute('aria-hidden', 'false');
-                emailForm.style.display = 'none';
-                if (usernameInput) usernameInput.focus();
-                console.log('Username modal displayed');
-            } else {
-                console.error('Username modal not found');
-                alert('Error: Username modal not found.');
-            }
+    // Modal sequence
+    const modalSequence = ['emailModal', 'usernameModal', 'passwordModal'];
+
+    // Function to show a specific modal and hide others
+    function showModal(modalId) {
+        console.log('Showing modal:', modalId);
+        const modals = [emailModal, usernameModal, passwordModal];
+        modals.forEach(modal => {
+            modal.style.display = modal.id === modalId ? 'block' : 'none';
+            console.log(`${modal.id}: display=${modal.style.display}`);
         });
 
-        // Fallback: Handle button click explicitly
-        if (emailSubmitButton) {
-            emailSubmitButton.addEventListener('click', function (event) {
-                console.log('Email submit button(clicked');
-                emailForm.dispatchEvent(new Event('submit', { cancelable: true }));
+        // Focus on input
+        if (modalId === 'emailModal' && emailInput) emailInput.focus();
+        if (modalId === 'usernameModal' && usernameInput) usernameInput.focus();
+        if (modalId === 'passwordModal' && passwordInput) passwordInput.focus();
+    }
+
+    // Initialize: Show email modal
+    showModal('emailModal');
+
+    // Handle next button clicks
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const nextModalId = button.getAttribute('data-next-modal');
+            const currentModalId = modalSequence.find(id => {
+                const modal = document.querySelector(`#${id}`);
+                return modal.style.display === 'block';
             });
-        }
-    } else {
-        console.error('Email form not found');
-    }
 
-    // Revert to email form on username modal "Go back"
-    if (usernameGoBack) {
-        usernameGoBack.addEventListener('click', function () {
-            if (usernameModal) {
-                usernameModal.style.display = 'none';
-                usernameModal.setAttribute('aria-hidden', 'true');
-            }
-            if (emailForm) {
-                emailForm.style.display = 'block';
-                const emailInput = emailForm.querySelector('input[name="email"]');
-                if (emailInput) emailInput.focus();
-            }
-            console.log('Reverted to email form from username modal');
-        });
-    }
+            console.log('Next button clicked. Current:', currentModalId, 'Next:', nextModalId);
 
-    // Handle username form submission (direct to password modal)
-    if (usernameForm) {
-        usernameForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            console.log('Username form submitted');
-            if (!usernameInput) {
-                console.error('Username input not found');
-                alert('Username input not found.');
-                return;
-            }
-            const username = usernameInput.value.trim();
-            if (username === '') {
-                console.warn('Empty username input');
-                alert('Please enter a username.');
-                return;
-            }
-            if (usernameModal) {
-                console.log('Hiding username modal');
-                usernameModal.style.display = 'none';
-                usernameModal.setAttribute('aria-hidden', 'true');
-            }
-            if (passwordModal) {
-                console.log('Showing password modal');
-                passwordModal.style.display = 'block';
-                passwordModal.setAttribute('aria-hidden', 'false');
-                if (passwordInput) passwordInput.focus();
-                console.log('Password modal displayed');
-            } else {
-                console.error('Password modal not found');
-                alert('Error: Password modal not found.');
-            }
-        });
-    }
-
-    // Revert to username modal on password modal "Go back"
-    if (passwordGoBack) {
-        passwordGoBack.addEventListener('click', function () {
-            if (passwordModal) {
-                passwordModal.style.display = 'none';
-                passwordModal.setAttribute('aria-hidden', 'true');
-            }
-            if (usernameModal) {
-                usernameModal.style.display = 'block';
-                usernameModal.setAttribute('aria-hidden', 'false');
-                if (usernameInput) usernameInput.focus();
-            }
-            console.log('Reverted to username modal from password modal');
-        });
-    }
-
-    // Handle password form submission
-    if (passwordForm) {
-        passwordForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            console.log('Password form submitted');
-            if (!passwordInput) {
-                console.error('Password input not found');
-                alert('Password input not found.');
-                return;
-            }
-            const password = passwordInput.value.trim();
-            const confirmPassword = passwordForm.querySelector('input[name="confirm_password"]').value.trim();
-            if (password === '' || confirmPassword === '') {
-                console.warn('Empty password inputs');
-                alert('Please enter and confirm your password.');
-                return;
-            }
-            if (password !== confirmPassword) {
-                console.warn('Passwords do not match');
-                alert('Passwords do not match.');
-                return;
-            }
-            const formData = new FormData(passwordForm);
-            fetch(passwordForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
-                },
-            })
-            .then(response => {
-                console.log('Password submission response:', response);
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    console.log('Password submitted, redirecting to:', data.redirect);
-                    window.location.href = data.redirect || '/homepage/';
-                } else {
-                    console.warn('Password submission failed:', data.error);
-                    alert(data.error || 'Failed to set password.');
+            // Validate input before moving
+            if (currentModalId === 'emailModal') {
+                const email = emailInput?.value.trim();
+                if (!email) {
+                    console.warn('Empty email input');
+                    alert('Please enter an email address.');
+                    return;
                 }
-            })
-            .catch(error => {
-                console.error('Password submission error:', error);
-                alert('An error occurred while submitting the password.');
-            });
+                if (!/\S+@\S+\.\S+/.test(email)) {
+                    console.warn('Invalid email format');
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+            } else if (currentModalId === 'usernameModal') {
+                const username = usernameInput?.value.trim();
+                if (!username) {
+                    console.warn('Empty username input');
+                    alert('Please enter a username.');
+                    return;
+                }
+            }
+
+            // Transition to next modal
+            if (nextModalId && modalSequence.includes(nextModalId)) {
+                showModal(nextModalId);
+            } else {
+                console.error('Invalid next modal ID:', nextModalId);
+                alert('Error: Cannot navigate to next step.');
+            }
         });
-    }
+    });
+
+    // Handle back button clicks
+    backButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const prevModalId = button.getAttribute('data-prev-modal');
+            console.log('Back button clicked. Previous:', prevModalId);
+            if (prevModalId && modalSequence.includes(prevModalId)) {
+                showModal(prevModalId);
+            } else {
+                console.error('Invalid previous modal ID:', prevModalId);
+                alert('Error: Cannot navigate back.');
+            }
+        });
+    });
+
+    // Handle form submission
+    registrationForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        console.log('Form submitted');
+
+        const email = emailInput?.value.trim();
+        const username = usernameInput?.value.trim();
+        const password = passwordInput?.value.trim();
+        const confirmPassword = confirmPasswordInput?.value.trim();
+
+        // Client-side validation (inspired by Riot's strict checks)
+        if (!email) {
+            alert('Please enter an email address.');
+            showModal('emailModal');
+            return;
+        }
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            alert('Please enter a valid email address.');
+            showModal('emailModal');
+            return;
+        }
+        if (!username) {
+            alert('Please enter a username.');
+            showModal('usernameModal');
+            return;
+        }
+        if (!password || !confirmPassword) {
+            alert('Please enter and confirm your password.');
+            showModal('passwordModal');
+            return;
+        }
+        if (password !== confirmPassword) {
+            alert('Passwords do not match.');
+            showModal('passwordModal');
+            return;
+        }
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters.');
+            showModal('passwordModal');
+            return;
+        }
+        if (!/[A-Z]/.test(password)) {
+            alert('Password must include at least one uppercase letter.');
+            showModal('passwordModal');
+            return;
+        }
+        if (!/[0-9]/.test(password) || !/[!@#$%^&*]/.test(password)) {
+            alert('Password must include at least one number and one special character.');
+            showModal('passwordModal');
+            return;
+        }
+
+        const formData = new FormData(registrationForm);
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+
+        fetch(registrationForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': formData.get('csrfmiddlewaretoken'),
+            },
+        })
+        .then(response => {
+            console.log('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response data:', data);
+            if (data.success) {
+                console.log('Registration successful, redirecting to:', data.redirect);
+                window.location.href = data.redirect || '/homepage/';
+            } else {
+                console.warn('Registration failed:', data.error);
+                alert(data.error || 'Failed to register.');
+                if (data.error.includes('email')) {
+                    showModal('emailModal');
+                } else if (data.error.includes('username')) {
+                    showModal('usernameModal');
+                } else {
+                    showModal('passwordModal');
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            alert(`An error occurred: ${error.message}`);
+            showModal('passwordModal');
+        });
+    });
 });

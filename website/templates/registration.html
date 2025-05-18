@@ -9,139 +9,88 @@
     <link rel="stylesheet" href="{% static 'css/registration/registration.css' %}">
     <link rel="stylesheet" href="{% static 'css/registration/registration-modals.css' %}">
 </head>
-<body style="overflow: hidden;">
+<body>
     <div class="registration-page">
         <div class="overlap">
             <div class="group">
                 <div class="overlap-group">
-                    <form id="emailForm" method="POST" action="{% url 'set_username' %}">
+                    <form id="registrationForm" method="POST" action="{% url 'register_user' %}">
                         {% csrf_token %}
-                        <div class="div-wrapper">
-                            <input type="email" class="text-wrapper" name="email" placeholder="loot@loop.com" required aria-label="Email address" />
-                        </div>
-                        <div class="div">What’s your email?</div>
-                        <p class="p">Don’t worry we won’t tell anyone.</p>
-                        <p class="text-wrapper-2">
-                            Allow Lootloop to send me notifications about updates, events and other contents.
-                        </p>
-                        <div class="text-wrapper-3">E-mail</div>
-                        <img class="rectangle" src="{% static 'img/registration/rectangle.png' %}" alt="Checkbox" />
-                        <div class="arrow-wrapper">
-                            <button type="submit" aria-label="Submit email">
-                                <img class="arrow" src="{% static 'img/registration/arrow.png' %}" alt="Submit Arrow" />
-                            </button>
-                        </div>
-                    </form>
-                    <div class="text-wrapper-4">Or Sign up with</div>
-                    <div class="google-button">
-                        <div class="overlap-group-2">
-                            <div class="text-wrapper-5">Google</div>
-                            <img class="google" src="{% static 'img/landing modals/google.png' %}" alt="Google" />
-                            <div class="rectangle-2"></div>
-                        </div>
-                    </div>
-                    <div class="fb-button">
-                        <div class="overlap-group-2">
-                            <div class="text-wrapper-6">Facebook</div>
-                            <div class="rectangle-2"></div>
-                            <img class="facebook" src="{% static 'img/landing modals/facebook.png' %}" alt="Facebook" />
-                        </div>
-                    </div>
-                    <div class="apple-id-button">
-                        <div class="overlap-group-2">
-                            <div class="text-wrapper-7">Apple ID</div>
-                            <div class="rectangle-2"></div>
-                            <img class="ple" src="{% static 'img/landing modals/apple.png' %}" alt="Apple ID" />
-                        </div>
-                    </div>
-                    <img class="line" src="{% static 'img/registration/line.png' %}" alt="Line Divider" />
-                    <img class="img" src="{% static 'img/registration/line.png' %}" alt="Line Divider" />
-                    <p class="already-have-an">
-                        <span class="span">Already have an account?</span>
-                        <span class="text-wrapper-8"> </span>
-                        <span class="text-wrapper-9"><a href="{% url 'landing' %}">Sign in.</a></span>
-                        <span class="text-wrapper-8"> </span>
-                    </p>
-                </div>
-            </div>
-            <img class="black-white-modern" src="{% static 'img/registration/logo white outline.png' %}" alt="Lootloop Logo" />
-        </div>
-
-        <!-- Username Modal -->
-        <div class="username" id="usernameModal">
-            <div class="overlap">
-                <div class="group">
-                    <form id="usernameForm" method="POST" action="{% url 'set_username' %}">
-                        {% csrf_token %}
-                        <div class="overlap-group">
-                            <div class="rectangle"></div>
-                            <div class="text-wrapper">Choose a username.</div>
-                            <div class="div">Make sure it’s unique.</div>
-                            <div class="text-wrapper-2">Username</div>
-                            <div class="overlap-group-wrapper">
-                                <div class="overlap-group-2">
-                                    <div class="text-wrapper-3">Go back</div>
-                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
-                                </div>
+                        <!-- Email Modal -->
+                        <div class="modal email-modal" id="emailModal">
+                            <div class="modal-content">
+                                <h2>What’s your email?</h2>
+                                <p>Don’t worry, we won’t tell anyone.</p>
+                                <input type="email" name="email" placeholder="loot@loop.com" required aria-label="Email address" />
+                                <p>
+                                    <input type="checkbox" id="notifications" name="notifications">
+                                    <label for="notifications">Allow Lootloop to send me notifications about updates, events, and other content.</label>
+                                </p>
+                                <button type="button" class="next-button" data-next-modal="usernameModal" aria-label="Next to Username">
+                                    <img class="arrow" src="{% static 'img/registration/arrow.png' %}" alt="Next Arrow" />
+                                </button>
                             </div>
-                            <div class="text-wrapper-4">
+                        </div>
+                        <!-- Username Modal -->
+                        <div class="modal username-modal" id="usernameModal" style="display: none;">
+                            <div class="modal-content">
+                                <h2>Choose a username</h2>
+                                <p>Make sure it’s unique.</p>
                                 <input type="text" name="username" placeholder="lootloop" required aria-label="Username" />
-                            </div>
-                            <button type="submit" class="arrow-wrapper next-button" form="usernameForm" aria-label="Next to Password">
-                                <img class="arrow" src="{% static 'img/arrow.png' %}" alt="Next" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Password Modal -->
-        <div class="password" id="passwordModal">
-            <div class="overlap">
-                <div class="group">
-                    <form id="passwordForm" method="POST" action="{% url 'set_password' %}">
-                        {% csrf_token %}
-                        <div class="overlap-group">
-                            <div class="rectangle"></div>
-                            <div class="text-wrapper">Create a password.</div>
-                            <div class="div">Make it strong.</div>
-                            <div class="text-wrapper-2">Password</div>
-                            <div class="text-wrapper-4">
-                                <input type="password" name="password" placeholder="Enter password" required aria-label="Password" />
-                            </div>
-                            <div class="rectangle-2"></div>
-                            <div class="text-wrapper-5">Confirm Password</div>
-                            <div class="text-wrapper-6">
-                                <input type="password" name="confirm_password" placeholder="Confirm password" required aria-label="Confirm Password" />
-                            </div>
-                            <div class="group-2">
-                                <div class="p">At least 8 characters</div>
-                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
-                            </div>
-                            <div class="group-3">
-                                <div class="p">1 Uppercase letter</div>
-                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
-                            </div>
-                            <div class="group-4">
-                                <div class="text-wrapper-7">1 Special character & 1 number</div>
-                                <img class="close-window" src="{% static 'img/close.png' %}" alt="Check" />
-                            </div>
-                            <div class="overlap-group-wrapper">
-                                <div class="overlap-group-2">
-                                    <div class="text-wrapper-3">Go back</div>
-                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" />
+                                <div class="back-button">
+                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" data-prev-modal="emailModal" />
+                                    <span>Go back</span>
                                 </div>
+                                <button type="button" class="next-button" data-next-modal="passwordModal" aria-label="Next to Password">
+                                    <img class="arrow" src="{% static 'img/arrow.png' %}" alt="Next" />
+                                </button>
                             </div>
-                            <div class="arrow-wrapper">
-                                <button type="submit" class="next-button" form="passwordForm" aria-label="Submit Password">
+                        </div>
+                        <!-- Password Modal -->
+                        <div class="modal password-modal" id="passwordModal" style="display: none;">
+                            <div class="modal-content">
+                                <h2>Create a password</h2>
+                                <p>Make it strong.</p>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Enter password" required aria-label="Password" />
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required aria-label="Confirm Password" />
+                                <ul class="password-requirements">
+                                    <li>At least 8 characters</li>
+                                    <li>1 Uppercase letter</li>
+                                    <li>1 Special character & 1 number</li>
+                                </ul>
+                                <div class="back-button">
+                                    <img class="left" src="{% static 'img/left.png' %}" alt="Go back" data-prev-modal="usernameModal" />
+                                    <span>Go back</span>
+                                </div>
+                                <button type="submit" class="next-button" aria-label="Submit Registration">
                                     <img class="arrow" src="{% static 'img/arrow.png' %}" alt="Submit" />
                                 </button>
                             </div>
                         </div>
                     </form>
+                    <div class="social-signup">
+                        <p>Or Sign up with</p>
+                        <button class="google-button">
+                            <img src="{% static 'img/landing modals/google.png' %}" alt="Google" />
+                            Google
+                        </button>
+                        <button class="fb-button">
+                            <img src="{% static 'img/landing modals/facebook.png' %}" alt="Facebook" />
+                            Facebook
+                        </button>
+                        <button class="apple-id-button">
+                            <img src="{% static 'img/landing modals/apple.png' %}" alt="Apple ID" />
+                            Apple ID
+                        </button>
+                    </div>
+                    <p class="already-have-an">
+                        Already have an account? <a href="{% url 'landing' %}">Sign in.</a>
+                    </p>
                 </div>
             </div>
+            <img class="logo" src="{% static 'img/registration/logo white outline.png' %}" alt="Lootloop Logo" />
         </div>
     </div>
     <script src="{% static 'js/registration-modals.js' %}"></script>

@@ -1,4 +1,14 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Item
+from datetime import datetime
+
+from django.http import JsonResponse
+from django.contrib.auth.models import User
+from .models import Item
+from datetime import datetime
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 def landing(request):
     return render(request, 'landing.html')
@@ -9,7 +19,7 @@ def registration(request):
 def login(request):
     if request.method == 'POST':
         return redirect('homepage') 
-    return render(request, 'login.html')
+    return render(request, 'landing.html')
 
 def forgot_password(request):
     if request.method == 'POST':
@@ -22,37 +32,76 @@ def reset_password(request):
         return redirect('landing')
     return render(request, 'reset_password.html')
 
-def set_username(request):
-    if request.method == 'POST':
-        return redirect('registration')
-    return redirect('registration')
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.db import IntegrityError
+import re
 
-def set_password(request):
-    if request.method == 'POST':
-        return redirect('homepage')
-    return redirect('registration')
+def register_user(request):
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Invalid request method.'}, status=405)
+    
+    try:
+        print(f"POST data: {request.POST}")
+        email = request.POST.get('email')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        
+        # Validate inputs
+        if not all([email, username, password, confirm_password]):
+            return JsonResponse({'success': False, 'error': 'Missing required fields.'}, status=400)
+        if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
+            return JsonResponse({'success': False, 'error': 'Invalid email format.'}, status=400)
+        if password != confirm_password:
+            return JsonResponse({'success': False, 'error': 'Passwords do not match.'}, status=400)
+        if len(password) < 8:
+            return JsonResponse({'success': False, 'error': 'Password must be at least 8 characters.'}, status=400)
+        if not any(c.isupper() for c in password):
+            return JsonResponse({'success': False, 'error': 'Password must include an uppercase letter.'}, status=400)
+        if not (any(c.isdigit() for c in password) and any(c in '!@#$%^&*' for c in password)):
+            return JsonResponse({'success': False, 'error': 'Password must include a number and special character.'}, status=400)
+        
+        # Check for existing user
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({'success': False, 'error': 'Username already taken.'}, status=400)
+        if User.objects.filter(email=email).exists():
+            return JsonResponse({'success': False, 'error': 'Email already registered.'}, status=400)
+        
+        # Create user
+        user = User.objects.create_user(username=username, email=email, password=password)
+        user.save()
+        
+        # Log the user in
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+        
+        return JsonResponse({'success': True, 'redirect': '/homepage/'})
+    
+    except IntegrityError:
+        return JsonResponse({'success': False, 'error': 'Username or email already exists.'}, status=400)
+    except Exception as e:
+        print(f"Unexpected error: {str(e)}")
+        return JsonResponse({'success': False, 'error': f'Server error: {str(e)}'}, status=500)
 
+@login_required
 def homepage(request):
-    return render(request, 'homepage.html')
+    return render(request, 'homepage.html', {'user': request.user})
 
 def profile_view(request):
-    return render(request, 'profile.html')
+    return render(request, 'profile.html', {'user': request.user})
 
 def get_chat_messages(request):
-    return render(request, 'chat_messages.html')
+    return render(request, 'chat_messages.html', {'user': request.user})
 
-#upload item modal
-from django.contrib.auth.decorators import login_required
-from .models import Item
-from django.http import JsonResponse
-from datetime import datetime
+def logout_view(request):
+    logout(request)  # Ends the user authentication session
+    request.session.flush()  # Clears all session data
+    return redirect('login')
 
-from django.http import JsonResponse
-from django.contrib.auth.models import User
-from .models import Item
-from datetime import datetime
-
-# @login_required  # Already commented out
 def upload_item(request):
     if request.method == 'POST':
         print("POST data:", request.POST)
@@ -127,3 +176,5 @@ from django.shortcuts import render
 
 def category_results(request, category):
     return render(request, 'category-results.html', {'category': category})
+
+

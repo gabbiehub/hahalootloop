@@ -1,25 +1,17 @@
 from django.urls import path
-from website.views import landing, registration, login, forgot_password, reset_password, set_username, set_password, homepage, profile_view, get_chat_messages, upload_item
-from django.conf import settings
-from django.views.generic import TemplateView  # Add this import
-from . import views  # Existing views import
-from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
-    path('', landing, name='landing'),
-    path('registration/', registration, name='registration'),
-    path('login/', login, name='login'),
-    path('forgot-password/', forgot_password, name='forgot_password'),
-    path('reset-password/', reset_password, name='reset_password'),
-    path('set-username/', set_username, name='set_username'),
-    path('set-password/', set_password, name='set_password'),
-    path('homepage/', homepage, name='homepage'),
-    path('profile/', profile_view, name='profile'),
-    path('chat/messages/', get_chat_messages, name='chat_messages'),
-    path('upload-item/', upload_item, name='upload_item'),
-    path('item-details/', TemplateView.as_view(template_name='item-details.html'), name='item_details'),
+    path('', views.landing, name='landing'),
+    path('registration/', views.registration, name='registration'),
+    path('login/', views.login, name='login'),
+    path('forgot-password/', views.forgot_password, name='forgot_password'),
+    path('reset-password/', views.reset_password, name='reset_password'),
+    path('register-user/', views.register_user, name='register_user'),
+    path('homepage/', views.homepage, name='homepage'),
+    path('profile/', views.profile_view, name='profile'),
+    path('chat-messages/', views.get_chat_messages, name='chat_messages'),
+    path('logout/', views.logout_view, name='logout'),
+    path('upload-item/', views.upload_item, name='upload_item'),
     path('category-results/<str:category>/', views.category_results, name='category_results'),
-    path('search-results/<str:query>/', TemplateView.as_view(template_name='search-results.html'), name='search_results'),
-    # path('recommended/', views.recommended_items, name='recommended_items'),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
