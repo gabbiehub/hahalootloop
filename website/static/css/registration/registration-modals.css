@@ -609,7 +609,7 @@
 .next-button {
     position:fixed;
     top:75%;
-    left:50%;
+    left:47%;
     background: none;
     border: none;
     cursor: pointer;
@@ -644,19 +644,24 @@
 /* Social signup */
 .social-signup {
     text-align: center;
-    margin-top: 20px;
+    position:fixed;
+    margin-top: 25%;
 }
 
 .social-signup p {
+    position:relative;
+    left:250%;
+    margin-top:100%;
     font-size: 0.9em;
     color: #666;
 }
 
 .social-signup button {
+    position: static;
     display: inline-flex;
     align-items: center;
     padding: 10px 20px;
-    margin: 5px;
+    margin-top: 70px;
     border: 1px solid #ccc;
     border-radius: 4px;
     background: #fff;
@@ -695,8 +700,7 @@
 
 .overlap-group {
     position:fixed;
-    left:100%;
-    top:0%;
+    height:0;
 }
 /* Logo */
 .logo {
@@ -706,4 +710,13 @@
     display: block;
     margin: 20px auto;
     max-width: 150px;
+}
+
+.social-signup button img {
+    margin: -7px
+}
+
+p.already-have-an {
+    margin-top: 60px;
+    margin-left: 30px;
 }

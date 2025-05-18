@@ -162,8 +162,8 @@ document.addEventListener('DOMContentLoaded', function () {
             showModal('passwordModal');
             return;
         }
-        if (!/[0-9]/.test(password) || !/[!@#$%^&*]/.test(password)) {
-            alert('Password must include at least one number and one special character.');
+        if (!/[0-9]/.test(password) || !/[!@#$%^&*-]/.test(password)) {
+            alert('Password must include at least one number and one special character (!@#$%^&*-).');
             showModal('passwordModal');
             return;
         }

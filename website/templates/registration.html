@@ -72,17 +72,17 @@
                     </form>
                     <div class="social-signup">
                         <p>Or Sign up with</p>
-                        <button class="google-button">
+                        <button style="margin-left:100px;" class="google-button">
                             <img src="{% static 'img/landing modals/google.png' %}" alt="Google" />
-                            Google
+                            <p style="margin-left:25px; color:black">Google</p>
                         </button>
-                        <button class="fb-button">
+                        <button style="margin-left:200px;" class="fb-button">
                             <img src="{% static 'img/landing modals/facebook.png' %}" alt="Facebook" />
-                            Facebook
+                            <p style="margin-left:25px; color:black">Facebook</p>
                         </button>
-                        <button class="apple-id-button">
+                        <button style="margin-left:300px;" class="apple-id-button">
                             <img src="{% static 'img/landing modals/apple.png' %}" alt="Apple ID" />
-                            Apple ID
+                            <p style="margin-left:25px; color:black"> AppleID</p>
                         </button>
                     </div>
                     <p class="already-have-an">
@@ -90,7 +90,9 @@
                     </p>
                 </div>
             </div>
+            <a href="{% url 'landing' %}">
             <img class="logo" src="{% static 'img/registration/logo white outline.png' %}" alt="Lootloop Logo" />
+        </a>
         </div>
     </div>
     <script src="{% static 'js/registration-modals.js' %}"></script>
