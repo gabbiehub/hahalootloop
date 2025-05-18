@@ -128,3 +128,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Session expires when browser closes
 SESSION_COOKIE_AGE = 1209600  # 2 weeks (in seconds), as a fallback
 SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
 SESSION_SAVE_EVERY_REQUEST = True  # Updates session cookie on every request
+
+AUTHENTICATION_BACKENDS = [
+    'website.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

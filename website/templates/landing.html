@@ -200,13 +200,13 @@
             <p class="p">Enter your details to log in to your account.</p>
             <form id="loginForm" method="POST" action="{% url 'login' %}">
                 {% csrf_token %}
-                <div class="text-wrapper">E-mail</div>
+                <div class="text-wrapper">Username</div>
                 <div class="div">
-                    <input type="email" name="email" placeholder="loot@loop.com" required aria-label="Email address" required/>
+                    <input type="text" name="email" placeholder="LootLooper" required aria-label="Email address" />
                 </div>
                 <div class="text-wrapper-6">Password</div>
                 <div class="text-wrapper-7">
-                    <input type="password" name="password" placeholder="lootloop123aa" required aria-label="Password" required/>
+                    <input type="password" name="password" placeholder="lootloop123aa" required aria-label="Password" />
                 </div>
             </form>
             <div class="text-wrapper-2" id="forgotPasswordLink" role="button" aria-label="Forgot password">Forgot your password?</div>

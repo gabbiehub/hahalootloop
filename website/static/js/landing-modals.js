@@ -20,8 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeResetModal = document.getElementById('closeResetModal');
     const returnToLoginFromReset = document.getElementById('returnToLoginFromReset');
 
-    // Get login form for Enter key handling
+    // Get login form and submit button
     const loginForm = document.getElementById('loginForm');
+    const loginSubmitButton = document.querySelector('.sign-up[aria-label="Submit login"]');
+    const emailLoginInput = loginForm?.querySelector('input[name="email"]');
+    const passwordLoginInput = loginForm?.querySelector('input[name="password"]');
+
+    // Debug: Log login element existence
+    console.log('loginForm:', loginForm);
+    console.log('loginSubmitButton:', loginSubmitButton);
+    console.log('emailLoginInput:', emailLoginInput);
+    console.log('passwordLoginInput:', passwordLoginInput);
 
     // Function to show a modal and overlay
     function showModal(modal) {
@@ -50,14 +59,27 @@ document.addEventListener('DOMContentLoaded', function () {
         hideModal(resetPasswordModal);
     }
 
+    // Create or get error message element
+    let errorMessage = loginModal.querySelector('.error');
+    if (!errorMessage) {
+        errorMessage = document.createElement('p');
+        errorMessage.className = 'error';
+        errorMessage.style.color = 'red';
+        errorMessage.style.display = 'none';
+        loginForm.prepend(errorMessage);
+    }
+
     // Login Modal: Open
     loginButton.addEventListener('click', function () {
         showModal(loginModal);
+        errorMessage.style.display = 'none'; // Clear previous errors
+        emailLoginInput?.focus();
     });
 
     // Login Modal: Close
     closeLoginModal.addEventListener('click', function () {
         hideModal(loginModal);
+        errorMessage.style.display = 'none';
     });
 
     // Forgot Password: Open from Login Modal
@@ -116,13 +138,14 @@ document.addEventListener('DOMContentLoaded', function () {
     modalOverlay.addEventListener('click', function (e) {
         if (e.target === modalOverlay) {
             hideAllModals();
+            errorMessage.style.display = 'none';
         }
     });
 
     // Auto-focus for Enter Code Modal honeycomb inputs
     const codeInputs = [
         document.querySelector('.enter-code-modal .honeycomb input'),
-        document.querySelector('.enter-code-modal .honeycomb-3 input'), // Fixed typo
+        document.querySelector('.enter-code-modal .honeycomb-3 input'),
         document.querySelector('.enter-code-modal .img input'),
         document.querySelector('.enter-code-modal .honeycomb-2 input')
     ];
@@ -145,11 +168,107 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle Enter key for login form to redirect to homepage
-    loginForm.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            window.location.href = '/homepage/';
+    // Handle login form submission (for both button click and Enter key)
+    if (loginForm && loginSubmitButton) {
+    const handleLoginSubmit = function (e) {
+        e.preventDefault();
+        console.log('Login form submitted');
+
+        // Verify input elements
+        const emailLoginInput = loginForm?.querySelector('input[name="email"]');
+        const passwordLoginInput = loginForm?.querySelector('input[name="password"]');
+        console.log('emailLoginInput:', emailLoginInput);
+        console.log('passwordLoginInput:', passwordLoginInput);
+
+        // Get input values
+        const email = emailLoginInput?.value.trim();
+        const password = passwordLoginInput?.value.trim();
+        const csrfToken = loginForm.querySelector('input[name="csrfmiddlewaretoken"]')?.value;
+
+        // Debug input values
+        console.log('Email value:', email);
+        console.log('Password value:', password);
+        console.log('CSRF Token:', csrfToken);
+
+        // Client-side validation
+        if (!email) {
+            console.warn('Empty email input');
+            errorMessage.textContent = 'Please enter an email address.';
+            errorMessage.style.display = 'block';
+            emailLoginInput?.focus();
+            return;
         }
-    });
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            console.warn('Invalid email format');
+            errorMessage.textContent = 'Please enter a valid email address.';
+            errorMessage.style.display = 'block';
+            emailLoginInput?.focus();
+            return;
+        }
+        if (!password) {
+            console.warn('Empty password input');
+            errorMessage.textContent = 'Please enter a password.';
+            errorMessage.style.display = 'block';
+            passwordLoginInput?.focus();
+            return;
+        }
+
+        // Prepare data for AJAX request
+        const data = { email, password };
+        console.log('Submitting login data (before stringify):', data);
+        const jsonData = JSON.stringify(data);
+        console.log('Submitting login data (after stringify):', jsonData);
+
+        loginSubmitButton.disabled = true;
+        loginSubmitButton.innerHTML = 'Signing in...';
+
+        fetch(loginForm.action, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken
+            },
+            body: jsonData
+        })
+        .then(response => {
+            console.log('Login response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Login response data:', data);
+            if (data.success) {
+                console.log('Login successful, redirecting to:', data.redirect);
+                errorMessage.style.display = 'none';
+                hideModal(loginModal);
+                window.location.href = data.redirect || '/homepage/';
+            } else {
+                console.warn('Login failed:', data.error);
+                errorMessage.textContent = data.error || 'Failed to log in.';
+                errorMessage.style.display = 'block';
+                emailLoginInput?.focus();
+            }
+        })
+        .catch(error => {
+            console.error('Login fetch error:', error);
+            errorMessage.textContent = `An error occurred: ${error.message}`;
+            errorMessage.style.display = 'block';
+            emailLoginInput?.focus();
+        })
+        .finally(() => {
+            loginSubmitButton.disabled = false;
+            loginSubmitButton.innerHTML = '<div class="overlap-group"><div class="text-wrapper-9">Sign in</div></div>';
+        });
+    };
+
+    // Attach to button click
+    loginSubmitButton.addEventListener('click', handleLoginSubmit);
+
+    // Attach to Enter key on form
+    loginForm.addEventListener('submit', handleLoginSubmit);
+    } else {
+        console.warn('Login form or submit button missing. Login functionality may not work.');
+    }
 });

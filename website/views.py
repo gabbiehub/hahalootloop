@@ -9,6 +9,7 @@ from .models import Item
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.contrib.auth import logout
 
 def landing(request):
     return render(request, 'landing.html')
@@ -16,10 +17,72 @@ def landing(request):
 def registration(request):
     return render(request, 'registration.html')
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
-        return redirect('homepage') 
-    return render(request, 'landing.html')
+        try:
+            # Try to parse JSON body
+            if request.content_type == 'application/json':
+                data = json.loads(request.body)
+                email = data.get('email')
+                password = data.get('password')
+            else:
+                # Handle form-encoded data
+                email = request.POST.get('email')
+                password = request.POST.get('password')
+
+            if not email or not password:
+                return JsonResponse({
+                    'success': False,
+                    'error': 'Email and password are required.'
+                }, status=400)
+
+            # Authenticate user (use email as username)
+            user = authenticate(request, username=email, password=password)
+
+            if user is not None:
+                login(request, user)
+                return JsonResponse({
+                    'success': True,
+                    'message': 'Login successful',
+                    'redirect': '/homepage/'
+                })
+            else:
+                return JsonResponse({
+                    'success': False,
+                    'error': 'Invalid email or password.'
+                }, status=400)
+        except json.JSONDecodeError:
+            # If JSON parsing fails, try form data
+            email = request.POST.get('email')
+            password = request.POST.get('password')
+            if not email or not password:
+                return JsonResponse({
+                    'success': False,
+                    'error': 'Email and password are required.'
+                }, status=400)
+            user = authenticate(request, username=email, password=password)
+            if user is not None:
+                login(request, user)
+                return JsonResponse({
+                    'success': True,
+                    'message': 'Login successful',
+                    'redirect': '/homepage/'
+                })
+            else:
+                return JsonResponse({
+                    'success': False,
+                    'error': 'Invalid email or password.'
+                }, status=400)
+        except Exception as e:
+            print(f"Login error: {str(e)}")
+            return JsonResponse({
+                'success': False,
+                'error': f'Server error: {str(e)}'
+            }, status=500)
+    return JsonResponse({
+        'success': False,
+        'error': 'Invalid request method.'
+    }, status=405)
 
 def forgot_password(request):
     if request.method == 'POST':
@@ -32,10 +95,7 @@ def reset_password(request):
         return redirect('landing')
     return render(request, 'reset_password.html')
 
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
-from django.http import JsonResponse
 from django.db import IntegrityError
 import re
 
