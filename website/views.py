@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Item
+from .models import Item, UserProfile
 from datetime import datetime
 
 from django.http import JsonResponse
@@ -43,6 +43,7 @@ def reset_password(request):
 from django.contrib.auth import authenticate, login
 from django.db import IntegrityError
 import re
+import logging
 
 def register_user(request):
     if request.method != 'POST':
@@ -96,9 +97,26 @@ def register_user(request):
 def homepage(request):
     return render(request, 'homepage.html', {'user': request.user})
 
+logger = logging.getLogger(__name__)
+
 @login_required
 def profile_view(request):
-    return render(request, 'profile.html', {'user': request.user})
+    user = request.user
+    items = Item.objects.filter(user=user).order_by('-created_at')
+    logger.info(f"User {user.username} has {items.count()} items")
+    user_profile = UserProfile.objects.filter(user=user).first()
+    following_count = user_profile.following.count()
+    followers_count = user_profile.followers.count()
+    trades_count = Item.objects.filter(user=user, tradability=True).count()
+    context = {
+        'user': user,
+        'items': items,
+        'user_profile': user_profile,
+        'following_count': following_count,
+        'followers_count': followers_count,
+        'trades_count': trades_count,
+    }
+    return render(request, 'profile.html', context)
 
 @login_required
 def get_chat_messages(request):
@@ -210,5 +228,25 @@ def item_detail_view(request, item_id):
         return render(request, 'item-details.html', {'item': item})
     except Item.DoesNotExist:
         return render(request, 'item-details.html', {'error': 'Item not found'}, status=404)
+    
+logger = logging.getLogger(__name__)
+
+@login_required
+def update_bio(request):
+    if request.method == 'POST':
+        bio = request.POST.get('bio', '').strip()
+        try:
+            user_profile = UserProfile.objects.get(user=request.user)
+            user_profile.bio = bio
+            user_profile.save()
+            logger.info(f"Updated bio for {request.user.username}")
+            return JsonResponse({'status': 'success', 'message': 'Bio updated successfully', 'bio': bio})
+        except UserProfile.DoesNotExist:
+            logger.error(f"No UserProfile found for {request.user.username}")
+            return JsonResponse({'status': 'error', 'message': 'User profile not found'}, status=404)
+        except Exception as e:
+            logger.error(f"Error updating bio for {request.user.username}: {str(e)}")
+            return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
+    return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
 
 

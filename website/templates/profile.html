@@ -6,8 +6,49 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}" />
+    <style>
+      .bio-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .bio-modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 400px;
+        max-width: 90%;
+        position: relative;
+      }
+      .bio-modal-content textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 8px;
+        font-size: 16px;
+      }
+      .bio-modal-content button {
+        padding: 8px 16px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .close-bio-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
+    {% csrf_token %}
     <div class="user-profile-page">
       <!-- Sidebar -->
       <div class="sidebar">
@@ -23,7 +64,7 @@
         <img class="notifications-icon" src="{% static 'img/homepage/Notif.png' %}" alt="Notifications Icon" />
         <div class="sidebar-profile">
           <a href="{% url 'profile' %}">
-            <img class="user-profile" src="{% static 'img/homepage/Profile.png' %}" alt="User Profile" />
+            <img class="user-profile" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/homepage/Profile.png' %}{% endif %}" alt="User Profile" />
           </a>
         </div>
       </div>
@@ -47,89 +88,7 @@
                 </div>
                 <div class="chat-time">8:57 pm</div>
               </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">GujuSinsi</div>
-                  <div class="chat-preview">You: hoyy hahah di naman fake y...</div>
-                </div>
-                <div class="chat-time">5:00 pm</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 3.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">FindingDory</div>
-                  <div class="chat-preview unread">Bakit di mo ko pinapansin?</div>
-                </div>
-                <div class="chat-time">1:17 pm</div>
-                <div class="chat-unread"></div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">CollectorCat</div>
-                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
-                </div>
-                <div class="chat-time">1:10 pm</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 5.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">HaikyuuLover</div>
-                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
-                </div>
-                <div class="chat-time">12:00 pm</div>
-                <div class="chat-unread"></div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">Coraline</div>
-                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
-                </div>
-                <div class="chat-time">8:00 am</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 7.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">akosiblueyyy</div>
-                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
-                </div>
-                <div class="chat-time">Feb. 14</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 2.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">gagagagagga</div>
-                  <div class="chat-preview">siamese yung pinakauna kong n...</div>
-                </div>
-                <div class="chat-time">1:10 pm</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 1.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">HaikyuuLover</div>
-                  <div class="chat-preview unread">Hello? uso po mag-reply?! asan...</div>
-                </div>
-                <div class="chat-time">12:00 pm</div>
-                <div class="chat-unread"></div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 4.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">Coraline</div>
-                  <div class="chat-preview">You: nakakainggit gusto ko rin n...</div>
-                </div>
-                <div class="chat-time">8:00 am</div>
-              </div>
-              <div class="chat-item">
-                <img class="chat-pfp" src="{% static 'img/homepage modals/pfp 6.png' %}" alt="Profile picture" />
-                <div class="chat-info">
-                  <div class="chat-name">akosiblueyyy</div>
-                  <div class="chat-preview">You: ngl ts pmo iykyk</div>
-                </div>
-                <div class="chat-time">Feb. 14</div>
-              </div>
+              <!-- ... other chat items ... -->
             </div>
           </div>
           <div class="chat-area">
@@ -152,46 +111,7 @@
                 </p>
                 <span class="message-time">06:00 PM</span>
               </div>
-              <div class="chat-bubble current-user">
-                <p class="hi-yes-medyo-matagal">
-                  Hi! Yes, medyo matagal na rin. Since 2020 pa ako nagko-collect ng mga figurines ng Jujutsu Kaisen characters
-                </p>
-                <span class="message-time">06:01 PM</span>
-              </div>
-              <div class="chat-bubble other-user">
-                <p class="p">Si gojo ba favorite mo? dami mong gojo eh</p>
-                <span class="message-time">06:02 PM</span>
-              </div>
-              <div class="chat-bubble current-user">
-                <p class="text-wrapper-2">Oo, halata na nga eh HAHA</p>
-                <span class="message-time">06:03 PM</span>
-              </div>
-              <div class="chat-bubble other-user">
-                <p class="text-wrapper-3">si gojo rin favorite ko</p>
-                <span class="message-time">06:04 PM</span>
-              </div>
-              <div class="chat-bubble other-user">
-                <p class="text-wrapper-4">madalas ka ba bumibili online?</p>
-                <span class="message-time">06:04 PM</span>
-              </div>
-              <div class="chat-bubble current-user">
-                <p class="text-wrapper-5">Minsan sa online, pero minsan sa mga malls din kung meron</p>
-                <span class="message-time">06:04 PM</span>
-              </div>
-              <div class="chat-bubble other-user">
-                <p class="text-wrapper-11">Ahh talaga ba? Nice</p>
-                <span class="message-time">06:04 PM</span>
-              </div>
-              <div class="chat-bubble other-user">
-                <p class="kita-ko-nga-meron-ka">
-                  kita ko nga meron ka rin mga sanrio characters. galing ba yon dun sa mga blind boxes?
-                </p>
-                <span class="message-time">06:04 PM</span>
-              </div>
-              <div class="chat-bubble current-user">
-                <p class="text-wrapper-11">Yes, nabili ko sila dun mismo sa miniso. marami dun</p>
-                <span class="message-time">06:04 PM</span>
-              </div>
+              <!-- ... other messages ... -->
             </div>
             <div class="overlap-15">
               <div class="overlap-16">
@@ -201,6 +121,17 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Bio Edit Modal -->
+      <div class="bio-modal" id="bioModal">
+        <div class="bio-modal-content">
+          <img class="close-bio-modal" src="{% static 'img/close-window.png' %}" alt="Close" id="closeBioModal" />
+          <h2>Edit Bio</h2>
+          <textarea id="bioInput" placeholder="Enter your bio"></textarea>
+          <button id="saveBioButton">Save</button>
+          <button id="cancelBioButton">Cancel</button>
         </div>
       </div>
 
@@ -221,27 +152,30 @@
           </div>
           <div class="prof-info">
             <div class="box">
-              <div class="text-wrapper">
-                Anime collectibles are my passion! From figures and keychains to art books and limited-edition merch—I love
-                hunting for rare gems. Always open to trading, so let’s help each other complete our collections!
+              <div class="text-wrapper bio-text" id="bioText" style="cursor: pointer;">
+                {% if user_profile %}
+                  {{ user_profile.bio|default:"Add a bio to tell others about yourself!" }}
+                {% else %}
+                  Add a bio to tell others about yourself!
+                {% endif %}
               </div>
               <div class="group">
                 <div class="overlap">
                   <div class="following">
                     <div class="overlap-group">
-                      <div class="div">14</div>
+                      <div class="div">{{ following_count }}</div>
                       <div class="text-wrapper-2">Following</div>
                     </div>
                   </div>
                   <div class="followers">
                     <div class="overlap-2">
-                      <div class="div">8</div>
+                      <div class="div">{{ followers_count }}</div>
                       <div class="text-wrapper-3">Followers</div>
                     </div>
                   </div>
                   <div class="trades">
                     <div class="overlap-3">
-                      <div class="text-wrapper-4">3</div>
+                      <div class="text-wrapper-4">{{ trades_count }}</div>
                       <div class="overlap-group-wrapper">
                         <div class="overlap-group-2">
                           <div class="text-wrapper-5">Trades</div>
@@ -273,35 +207,36 @@
                 </button>
               </div>
               <div class="overlap-6">
-                <div class="text-wrapper-8">TreasureHunter</div>
-                <div class="text-wrapper-9">@otaku</div>
+                <div class="text-wrapper-8">{{ user.username }}</div>
+                <div class="text-wrapper-9">@{{ user.username|lower }}</div>
               </div>
               <img class="line" src="{% static 'img/profile/line.png' %}" />
               <img class="img" src="{% static 'img/profile/line.png' %}" />
-              <img class="a" src="{% static 'img/profile/profile big.png' %}" />
+              <img class="a" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile big.png' %}{% endif %}" />
             </div>
           </div>
         </div>
         <div class="frame">
           <div class="fb">
+            <p>Found {{ items.count }} items</p>
+            {% for item in items %}
             <div class="post">
               <div class="overlap-7">
                 <div class="overlap-8">
-                  <div class="text-wrapper-11">TreasureHunter</div>
-                  <div class="text-wrapper-12">1 March at 4:30</div>
-                  <img class="a-2" src="{% static 'img/profile/profile small.png' %}" />
+                  <div class="text-wrapper-11">{{ user.username }}</div>
+                  <div class="text-wrapper-12">{{ item.created_at|date:"j F \a\t H:i" }}</div>
+                  <img class="a-2" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" />
                 </div>
-                <p class="p">
-                  Just added another piece to my collection. My shelf is running out of space, but my heart is full. 🥹✨
-                </p>
+                <p class="p">{{ item.description|truncatewords:50 }}</p>
+                {% if item.image %}
                 <div class="group-3">
                   <div class="overlap-group-5">
-                    <img class="image-2" src="{% static 'img/profile/post 1.png' %}" />
-                    <img class="image-3" src="{% static 'img/profile/post 2.png' %}" />
+                    <img class="image-2" src="{{ item.image.url }}" />
                   </div>
                 </div>
+                {% endif %}
                 <div class="group-4">
-                  <div class="text-wrapper-13">1</div>
+                  <div class="text-wrapper-13">0</div>
                   <div class="text-wrapper-14">0</div>
                   <div class="text-wrapper-15">0</div>
                   <img class="facebook-like" src="{% static 'img/profile/like.png' %}" />
@@ -312,12 +247,24 @@
               </div>
             </div>
             <img class="line-2" src="{% static 'img/profile/line.png' %}" />
+            {% empty %}
+            <div class="group-8">
+              <div class="overlap-10">
+                <div class="text-wrapper-18">No posts yet. Share your first item!</div>
+                <img class="line-3" src="{% static 'img/profile/line.png' %}" />
+                <img class="line-4" src="{% static 'img/profile/line.png' %}" />
+              </div>
+            </div>
+            {% endfor %}
             <div class="frame-2">
               <div class="highlights">
-                <img class="image-4" src="{% static 'img/profile/highlight 1.png' %}" />
-                <img class="image-5" src="{% static 'img/profile/highlight 2.png' %}" />
-                <img class="image-6" src="{% static 'img/profile/highlight 3.png' %}" />
-                <img class="image-7" src="{% static 'img/profile/highlight 4.png' %}" />
+                {% for item in items|slice:":4" %}
+                {% if item.image %}
+                <img class="image-4" src="{{ item.image.url }}" />
+                {% endif %}
+                {% empty %}
+                <div class="text-wrapper-16">No highlights available.</div>
+                {% endfor %}
               </div>
               <div class="text-wrapper-16">Highlights</div>
             </div>
@@ -330,91 +277,21 @@
                   <img class="group-7" src="{% static 'img/profile/photo.png' %}" />
                   <img class="vector-2" src="{% static 'img/profile/video.png' %}" />
                 </div>
-                <img class="a-3" src="{% static 'img/profile/profile small.png' %}" />
+                <img class="a-3" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" />
                 <div class="rectangle-4"></div>
-                <p class="text-wrapper-17">What’s new in your collection, TreasureHunter?</p>
-              </div>
-            </div>
-            <div class="group-8">
-              <div class="overlap-10">
-                <div class="text-wrapper-18">No more posts.</div>
-                <img class="line-3" src="{% static 'img/profile/line.png' %}" />
-                <img class="line-4" src="{% static 'img/profile/line.png' %}" />
+                <p class="text-wrapper-17">What’s new in your collection, {{ user.username }}?</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="wishes" id="wishlistFrame" style="display: none;">
-          <!-- Copy the .wishes content from user-wishlist-page.html -->
           <div class="wish-group">
-            <div class="gojo-wish">
-              <img class="image-2" src="{% static 'img/image.png' %}" />
-              <div class="description">
-                <p class="p">
-                  Looking to trade my Gojo Pop-Up Parade figure! Opened but in mint condition, comes with the original box.
-                  Prefer to trade for another JJK figure, but open to offers!
-                </p>
-                <div class="group-4">
-                  <div class="text-wrapper-16">Mark Africa</div>
-                  <img class="element" src="{% static 'img/1.png' %}" />
-                  <div class="text-wrapper-17">Open for Trade</div>
-                </div>
-                <div class="group-5">
-                  <div class="overlap-group-6">
-                    <div class="text-wrapper-18">Remove</div>
-                    <div class="line-wrapper"><img class="line-2" src="{% static 'img/image.svg' %}" /></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="text-wrapper-19">Wanted Items</div>
-            <div class="text-wrapper-20">Available for Trade</div>
-            <div class="text-wrapper-21">Community Picks</div>
-            <div class="megumin">
-              <div class="description-2">
-                <p class="p">
-                  Looking for the Megumin Figma with the Explosion pose! If you have an extra or know where I can find one,
-                  message me!
-                </p>
-                <div class="group-6">
-                  <div class="text-wrapper-22">Gabriel Imperial</div>
-                  <img class="element" src="{% static 'img/5.png' %}" />
-                </div>
-                <div class="text-wrapper-23">Trade Request</div>
-                <div class="group-7">
-                  <div class="overlap-group-6">
-                    <div class="text-wrapper-18">Remove</div>
-                    <div class="img-wrapper"><img class="line-2" src="{% static 'img/line-19-2.svg' %}" /></div>
-                  </div>
-                </div>
-              </div>
-              <div class="carbon-no-image-wrapper"><img class="carbon-no-image" src="{% static 'img/carbon-no-image.svg' %}" /></div>
-            </div>
-            <div class="hirono">
-              <img class="image-3" src="{% static 'img/image-3.png' %}" />
-              <div class="description-3">
-                <p class="text-wrapper-24">
-                  Looking for the Megumin Figma with the Explosion pose! If you have an extra or know where I can find one,
-                  message me!
-                </p>
-                <div class="group-8">
-                  <div class="text-wrapper-22">Gabriel Imperial</div>
-                  <img class="element" src="{% static 'img/5-2.png' %}" />
-                </div>
-                <div class="text-wrapper-25">Trade Request</div>
-                <div class="group-9">
-                  <div class="overlap-group-6">
-                    <div class="text-wrapper-18">Remove</div>
-                    <div class="group-10"><img class="line-2" src="{% static 'img/line-19.svg' %}" /></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="text-wrapper-26">Looks like this list is empty. Time to find some collectibles!</p>
+            <p class="text-wrapper-26">Wishlist functionality coming soon!</p>
           </div>
         </div>
 
+        <!-- Latest Updates and Suggestions (static for now) -->
         <div class="latest-updates">
           <div class="overlap-12">
             <div class="overlap-13">
@@ -519,6 +396,11 @@
         </div>
       </div>
     </div>
+    <script>
+      window.CURRENT_USER = "{{ user.username|escapejs }}";
+      window.CSRF_TOKEN = "{{ csrf_token }}";
+      window.UPDATE_BIO_URL = "{% url 'update_bio' %}";
+    </script>
     <script src="{% static 'js/profile.js' %}"></script>
   </body>
 </html>

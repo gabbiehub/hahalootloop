@@ -44,3 +44,18 @@ class Item(models.Model):
 
     def __str__(self):
         return f"{self.name} by {self.user.username}" 
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(blank=True)
+    profile_picture = models.ImageField(upload_to='profiles/', null=True, blank=True)
+    following = models.ManyToManyField('self', symmetrical=False, related_name='followers', blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s profile"
+
+    def following_count(self):
+        return self.following.count()
+
+    def followers_count(self):
+        return self.followers.count()
