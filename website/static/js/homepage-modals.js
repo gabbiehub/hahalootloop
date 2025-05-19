@@ -243,7 +243,7 @@ const chatModal = document.getElementById('messageModal');
                         alert('Please enter the item description.');
                         return;
                     }
-                    if (itemType === 'Select type' || !['ELECTRONICS', 'FURNITURE', 'CLOTHING', 'OTHER'].includes(itemType)) {
+                    if (itemType === 'Select type' || !['Antiques', 'Figurines', 'Books','Jewelry','Furniture','Cars','Currency','Toys'].includes(itemType)) {
                         alert('Please select a valid item type.');
                         return;
                     }
