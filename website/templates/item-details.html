@@ -38,9 +38,9 @@
             gap: 15px;
         }
         .preview-details h3 {
-            font-family: "Inter", Helvetica, sans-serif;
-            font-weight: 700;
-            font-size: 24px;
+            font-family: "Jaro", Helvetica, sans-serif;
+            font-weight: 300;
+            font-size: 40px;
             color: #000814;
             margin: 0;
         }
@@ -230,11 +230,6 @@
             color: #ffffff;
             font-size: 16px;
         }
-        #previewName {
-            font-family: "Jaro";
-            font-size: 40px;
-            font-weight: 300;
-        }
     </style>
 </head>
 <body>
@@ -242,23 +237,23 @@
         <div class="back-button-text">Back</div>
     </div>
     <div class="item-details-page">
-        <img class="item-image-area" src="{{ item.image.url|default:'/static/img/item-image-area.png' }}" alt="Item Image" />
+        <img class="item-image-area" src="{{ item.image.url|default:'/static/img/item-image-area.png' }}" alt="{{ item.name|default:'Item Image' }}" />
         <div class="preview-details">
-            <h3 id="previewName">{{ item.name }}</h3>
-            <p class="text-wrapper-22" id="previewAuthor">{{ item.user.username }}</p>
+            <h3 id="previewName">{{ item.name|default:"Item Name" }}</h3>
+            <p class="text-wrapper-22" id="previewAuthor">{{ item.user.username|default:"Unknown User" }}</p>
             <div class="rating-section">
                 <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
                 <span class="text-wrapper-20" id="previewRating">{{ item.rating|default:"Not rated" }}</span>
             </div>
-            <p class="text-wrapper-7" id="previewTradability">{{ item.tradability|yesno:"Available for trade,Not available for trade" }}</p>
+            <p class="text-wrapper-7" id="previewTradability">{{ item.tradable|yesno:"Available for trade,Not available for trade" }}</p>
             <hr class="line-4" />
             <h5 class="text-wrapper-18">Description:</h5>
-            <p class="p" id="previewDescription">{{ item.description }}</p>
+            <p class="p" id="previewDescription">{{ item.description|default:"No description provided" }}</p>
             <h5 class="text-wrapper-18">Notes:</h5>
-            <p class="p" id="previewNotes">{{ item.other_notes|default:"No additional notes" }}</p>
+            <p class="p" id="previewNotes">{{ item.notes|default:"No additional notes" }}</p>
             <div class="detail-row">
                 <p class="year-acquired"><span class="span">Year Acquired:</span></p>
-                <span class="text-wrapper-12" id="previewYear">{{ item.date_acquired.year|default:"N/A" }}</span>
+                <span class="text-wrapper-12" id="previewYear">{{ item.date_acquired|date:"Y"|default:"N/A" }}</span>
             </div>
             <div class="detail-row">
                 <p class="text-wrapper-13">Dimensions:</p>

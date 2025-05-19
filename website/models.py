@@ -27,7 +27,7 @@ class Item(models.Model):
     ]
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='items')
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=255, unique=True)  # Added unique=True
     description = models.TextField()
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     rarity = models.CharField(max_length=20, choices=RARITY_CHOICES, null=True, blank=True)

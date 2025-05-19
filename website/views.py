@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Item, UserProfile
 from datetime import datetime
@@ -95,7 +95,23 @@ def register_user(request):
 
 @login_required
 def homepage(request):
-    return render(request, 'homepage.html', {'user': request.user})
+    # Fetch random items for Recommended, excluding current user's items
+    recommended_items = Item.objects.exclude(user=request.user).order_by('?')[:4]
+    # Fetch tradable items for Favorites, excluding current user's items
+    favorite_items = Item.objects.exclude(user=request.user).filter(tradability=True)[:1]
+    # Fetch tradable items for Trade Requests, excluding current user's items
+    trade_request_items = Item.objects.exclude(user=request.user).filter(tradability=True)[:4]
+    # Fetch non-tradable items for Collection Showcases, excluding current user's items
+    showcase_items = Item.objects.exclude(user=request.user).filter(tradability=False)[:4]
+
+    context = {
+        'recommended_items': recommended_items,
+        'favorite_items': favorite_items,
+        'trade_request_items': trade_request_items,
+        'showcase_items': showcase_items,
+        'user': request.user,
+    }
+    return render(request, 'homepage.html', context)
 
 logger = logging.getLogger(__name__)
 
@@ -222,14 +238,12 @@ def category_results(request, category):
     return render(request, 'category-results.html', {'category': category})
 
 @login_required
-def item_detail_view(request, item_id):
-    try:
-        item = Item.objects.get(id=item_id)
-        return render(request, 'item-details.html', {'item': item})
-    except Item.DoesNotExist:
-        return render(request, 'item-details.html', {'error': 'Item not found'}, status=404)
-    
-logger = logging.getLogger(__name__)
+def item_details(request, item_name):
+    item = get_object_or_404(Item, name=item_name)
+    context = {
+        'item': item,
+    }
+    return render(request, 'item-details.html', context)
 
 @login_required
 def update_bio(request):

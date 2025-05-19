@@ -14,6 +14,6 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout'),
     path('upload_item/', views.upload_item, name='upload_item'),
     path('category-results/<str:category>/', views.category_results, name='category_results'),
-    path('item/<int:item_id>/', views.item_detail_view, name='item_detail'),
+    path('item/<str:item_name>/', views.item_details, name='item_details'),
     path('update-bio/', views.update_bio, name='update_bio'),
 ]
