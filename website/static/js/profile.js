@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Edit profile clicked');
       window.location.href = '{% url "edit_profile" %}';
     });
-  }
 
   // Sign out button click
   const signOutBtn = document.querySelector('.text-wrapper-7');
@@ -132,30 +131,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Add this after the existing navigation buttons
-    const wishlistNavBtn = document.querySelector('.div'); // Matches the "Wishlist" text in nav
-    const contentContainer = document.querySelector('.content-container');
-    const profileFrame = document.querySelector('#profileFrame');
-    const wishlistFrame = document.querySelector('#wishlistFrame');
+  // (Removed duplicate variable declarations and logic. The logic below already handles wishlist navigation.)
 
-    if (wishlistNavBtn && contentContainer && profileFrame && wishlistFrame) {
-    wishlistNavBtn.addEventListener('click', () => {
-        console.log('Wishlist button clicked'); // Debug
-        profileFrame.classList.remove('active');
-        wishlistFrame.style.display = 'block';
-        wishlistFrame.classList.add('active');
-        // Optional: Scroll to top of wishes
-        wishlistFrame.scrollTop = 0;
+  // Wishlist Navigation Logic
+  const wishlistBtn2 = document.querySelector('.div'); // Matches the "Wishlist" text in nav
+  const contentContainer = document.querySelector('.content-container');
+  const profileFrame = document.querySelector('#profileFrame');
+  const wishlistFrame = document.querySelector('#wishlistFrame');
+
+  if (wishlistBtn2 && contentContainer && profileFrame && wishlistFrame) {
+    wishlistBtn2.addEventListener('click', () => {
+      console.log('Wishlist button clicked'); // Debug
+      profileFrame.classList.remove('active');
+      wishlistFrame.style.display = 'block';
+      wishlistFrame.classList.add('active');
+      // Optional: Scroll to top of wishes
+      wishlistFrame.scrollTop = 0;
     });
 
     // Restore profile frame when clicking other nav items (e.g., Home)
-    const homeBtn = document.querySelector('.text-wrapper');
-    if (homeBtn) {
-        homeBtn.addEventListener('click', () => {
+    const homeBtn2 = document.querySelector('.text-wrapper');
+    if (homeBtn2) {
+      homeBtn2.addEventListener('click', () => {
         console.log('Home button clicked');
         wishlistFrame.classList.remove('active');
         wishlistFrame.style.display = 'none';
         profileFrame.classList.add('active');
-        });
+      });
     }
-    }
+  }
+}
 });
