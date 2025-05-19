@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <title>Collector's Hub - Item Details</title>
@@ -10,333 +10,313 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
     <style>
-      body {
-        padding-top: 5%;
-        margin: 0;
-        font-family: "Inter", Helvetica, sans-serif;
-        background-color: #ffffff;
-      }
-      
-      .item-details-page {
-        width: 100%;
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
-        display: flex;
-        gap: 30px;
-        box-sizing: border-box;
-      }
-      .item-image-area {
-        width: 500px;
-        height: 500px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-      .preview-details {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-      }
-      .preview-details h3 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 700;
-        font-size: 24px;
-        color: #000814;
-        margin: 0;
-      }
-      .text-wrapper-22 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        color: #737373;
-        margin: 0;
-      }
-      .rating-section {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .star {
-        width: 20px;
-        height: 20px;
-      }
-      .text-wrapper-20 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-size: 16px;
-        color: #003566;
-      }
-      .text-wrapper-7 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 600;
-        font-size: 16px;
-        color: #ffd60a;
-        margin: 0;
-      }
-      .line-4,
-      .line-5 {
-        border: none;
-        border-top: 1px solid #b9b9b9;
-        margin: 15px 0;
-      }
-      .text-wrapper-18 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 600;
-        font-size: 18px;
-        color: #000814;
-        margin: 0;
-      }
-      .p {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        color: #333;
-        margin: 8px 0;
-      }
-      .detail-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-family: "Inter", Helvetica, sans-serif;
-        font-size: 18px;
-      }
-      .detail-row p {
-        font-weight: 700;
-        color: #737373;
-        margin: 0;
-        font-size: 18px;
-      }
-      .detail-row .span {
-        font-weight: 700;
-        color: #737373;
-        font-size: 18px;
-      }
-      .text-wrapper-12 {
-        font-weight: 400;
-        color: #333;
-        font-size: 18px;
-      }
-      .overlap-3 {
-        width: 200px;
-        height: 40px;
-        position: relative;
-        cursor: pointer;
-      }
-      .contact-owner {
-        width: 100%;
-        height: 100%;
-        background-color: #001d3f;
-        border-radius: 6px;
-      }
-      .text-wrapper-6 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-family: "Jaro", Helvetica, sans-serif;
-        font-weight: 400;
-        color: #ffffff;
-        font-size: 18px;
-        text-align: center;
-      }
-      .text-wrapper-8 {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 600;
-        font-size: 18px;
-        color: #000814;
-        margin: 0;
-      }
-      .comment-section {
-        width: 471px;
-        height: 61px;
-        background-color: #0000000d;
-        border-radius: 5px;
-        position: relative;
-        padding: 10px;
-      }
-      .comment-count {
-        position: absolute;
-        top: -30px;
-        left: 100px;
-        display: flex;
-        align-items: center;
-      }
-      .text-wrapper-21 {
-        width: 23px;
-        height: 13px;
-        background-color: #001d3d;
-        border-radius: 10px;
-        color: #ffffff;
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 400;
-        font-size: 10px;
-        text-align: center;
-        line-height: 13px;
-        margin-right: 5px;
-      }
-      .comment-count span {
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 500;
-        color: #737373;
-        font-size: 13px;
-      }
-      .comment-input {
-        position: absolute;
-        width: 300px;
-        top: 25px;
-        left: 14px;
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 500;
-        color: #737373;
-        font-size: 13px;
-        border: none;
-        background: transparent;
-      }
-      .div-wrapper {
-        position: absolute;
-        width: 49px;
-        height: 19px;
-        top: 33px;
-        left: 413px;
-        background-color: #ffc300;
-        border-radius: 15px;
-      }
-      .submit-comment {
-        position: absolute;
-        height: 12px;
-        top: 2px;
-        left: 7px;
-        font-family: "Inter", Helvetica, sans-serif;
-        font-weight: 500;
-        color: #ffffff;
-        font-size: 10px;
-        letter-spacing: 0;
-        line-height: normal;
-      }
-      .back-button {
-        width: 100px;
-        height: 35px;
-        background-color: #ffd60a;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        position: fixed;
-        top: 15px;
-        left: 15px;
-      }
-      .back-button-text {
-        font-family: "Jaro", Helvetica, sans-serif;
-        font-weight: 400;
-        color: #ffffff;
-        font-size: 16px;
-      }
-
-      #previewName {
-        font-family: "Jaro";
-        font-size: 40px;
-        font-weight: 300;
-      }
+        body {
+            padding-top: 5%;
+            margin: 0;
+            font-family: "Inter", Helvetica, sans-serif;
+            background-color: #ffffff;
+        }
+        .item-details-page {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 30px;
+            box-sizing: border-box;
+        }
+        .item-image-area {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .preview-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .preview-details h3 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #000814;
+            margin: 0;
+        }
+        .text-wrapper-22 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #737373;
+            margin: 0;
+        }
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .star {
+            width: 20px;
+            height: 20px;
+        }
+        .text-wrapper-20 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-size: 16px;
+            color: #003566;
+        }
+        .text-wrapper-7 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #ffd60a;
+            margin: 0;
+        }
+        .line-4, .line-5 {
+            border: none;
+            border-top: 1px solid #b9b9b9;
+            margin: 15px 0;
+        }
+        .text-wrapper-18 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #000814;
+            margin: 0;
+        }
+        .p {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #333;
+            margin: 8px 0;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: "Inter", Helvetica, sans-serif;
+            font-size: 18px;
+        }
+        .detail-row p {
+            font-weight: 700;
+            color: #737373;
+            margin: 0;
+            font-size: 18px;
+        }
+        .detail-row .span {
+            font-weight: 700;
+            color: #737373;
+            font-size: 18px;
+        }
+        .text-wrapper-12 {
+            font-weight: 400;
+            color: #333;
+            font-size: 18px;
+        }
+        .overlap-3 {
+            width: 200px;
+            height: 40px;
+            position: relative;
+            cursor: pointer;
+        }
+        .contact-owner {
+            width: 100%;
+            height: 100%;
+            background-color: #001d3f;
+            border-radius: 6px;
+        }
+        .text-wrapper-6 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Jaro", Helvetica, sans-serif;
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 18px;
+            text-align: center;
+        }
+        .text-wrapper-8 {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #000814;
+            margin: 0;
+        }
+        .comment-section {
+            width: 471px;
+            height: 61px;
+            background-color: #0000000d;
+            border-radius: 5px;
+            position: relative;
+            padding: 10px;
+        }
+        .comment-count {
+            position: absolute;
+            top: -30px;
+            left: 100px;
+            display: flex;
+            align-items: center;
+        }
+        .text-wrapper-21 {
+            width: 23px;
+            height: 13px;
+            background-color: #001d3d;
+            border-radius: 10px;
+            color: #ffffff;
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 400;
+            font-size: 10px;
+            text-align: center;
+            line-height: 13px;
+            margin-right: 5px;
+        }
+        .comment-count span {
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 500;
+            color: #737373;
+            font-size: 13px;
+        }
+        .comment-input {
+            position: absolute;
+            width: 300px;
+            top: 25px;
+            left: 14px;
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 500;
+            color: #737373;
+            font-size: 13px;
+            border: none;
+            background: transparent;
+        }
+        .div-wrapper {
+            position: absolute;
+            width: 49px;
+            height: 19px;
+            top: 33px;
+            left: 413px;
+            background-color: #ffc300;
+            border-radius: 15px;
+        }
+        .submit-comment {
+            position: absolute;
+            height: 12px;
+            top: 2px;
+            left: 7px;
+            font-family: "Inter", Helvetica, sans-serif;
+            font-weight: 500;
+            color: #ffffff;
+            font-size: 10px;
+            letter-spacing: 0;
+            line-height: normal;
+        }
+        .back-button {
+            width: 100px;
+            height: 35px;
+            background-color: #ffd60a;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+        }
+        .back-button-text {
+            font-family: "Jaro", Helvetica, sans-serif;
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        #previewName {
+            font-family: "Jaro";
+            font-size: 40px;
+            font-weight: 300;
+        }
     </style>
-  </head>
-  <body>
-    <div class="back-button" onclick="window.location.href='/homepage/'">
-      <div class="back-button-text">Back</div>
+</head>
+<body>
+    <div class="back-button" onclick="window.location.href='{% url '/homepage/' %}'">
+        <div class="back-button-text">Back</div>
     </div>
     <div class="item-details-page">
-      <img class="item-image-area" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
-      <!-- Backend: Replace src with {{ item.image_url }} -->
-      <div class="preview-details">
-        <h3 id="previewName">Jujutsu Kaisen Satoru Gojo Past Edition</h3>
-        <!-- Backend: Replace text with {{ item.name }} -->
-        <p class="text-wrapper-22" id="previewAuthor">Current User</p>
-        <!-- Backend: Replace text with {{ item.author }} -->
-        <div class="rating-section">
-          <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
-          <span class="text-wrapper-20" id="previewRating">4.5</span>
-          <!-- Backend: Replace text with {{ item.rating }} -->
+        <img class="item-image-area" src="{{ item.image.url|default:'/static/img/item-image-area.png' }}" alt="Item Image" />
+        <div class="preview-details">
+            <h3 id="previewName">{{ item.name }}</h3>
+            <p class="text-wrapper-22" id="previewAuthor">{{ item.user.username }}</p>
+            <div class="rating-section">
+                <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
+                <span class="text-wrapper-20" id="previewRating">{{ item.rating|default:"Not rated" }}</span>
+            </div>
+            <p class="text-wrapper-7" id="previewTradability">{{ item.tradability|yesno:"Available for trade,Not available for trade" }}</p>
+            <hr class="line-4" />
+            <h5 class="text-wrapper-18">Description:</h5>
+            <p class="p" id="previewDescription">{{ item.description }}</p>
+            <h5 class="text-wrapper-18">Notes:</h5>
+            <p class="p" id="previewNotes">{{ item.other_notes|default:"No additional notes" }}</p>
+            <div class="detail-row">
+                <p class="year-acquired"><span class="span">Year Acquired:</span></p>
+                <span class="text-wrapper-12" id="previewYear">{{ item.date_acquired.year|default:"N/A" }}</span>
+            </div>
+            <div class="detail-row">
+                <p class="text-wrapper-13">Dimensions:</p>
+                <span class="text-wrapper-12" id="previewDimensions">{{ item.dimensions|default:"N/A" }}</span>
+            </div>
+            <div class="detail-row">
+                <p class="weight"><span class="span">Weight:</span></p>
+                <span class="text-wrapper-12" id="previewWeight">{{ item.weight|default:"N/A" }}</span>
+            </div>
+            <div class="detail-row">
+                <p class="text-wrapper-14">Condition:</p>
+                <span class="text-wrapper-12" id="previewCondition">{{ item.condition|default:"N/A" }}</span>
+            </div>
+            <div class="overlap-3">
+                <div class="rectangle contact-owner"></div>
+                <div class="text-wrapper-6">Contact Owner</div>
+            </div>
+            <hr class="line-5" />
+            <h5 class="text-wrapper-8">Comments</h5>
+            <div class="comment-section">
+                <div class="comment-count">
+                    <div class="text-wrapper-21" id="commentCount">0</div>
+                </div>
+                <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment..." />
+                <div class="div-wrapper">
+                    <div class="text-wrapper-4 submit-comment">Submit</div>
+                </div>
+            </div>
         </div>
-        <p class="text-wrapper-7" id="previewTradability">Available for trade</p>
-        <!-- Backend: Replace text with {{ item.tradability }} -->
-        <hr class="line-4" />
-        <h5 class="text-wrapper-18">Description:</h5>
-        <p class="p" id="previewDescription">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <!-- Backend: Replace text with {{ item.description }} -->
-        <h5 class="text-wrapper-18">Notes:</h5>
-        <p class="p" id="previewNotes">No additional notes</p>
-        <!-- Backend: Replace text with {{ item.notes }} -->
-        <div class="detail-row">
-          <p class="year-acquired"><span class="span">Year Acquired:</span></p>
-          <span class="text-wrapper-12" id="previewYear">2024</span>
-          <!-- Backend: Replace text with {{ item.year_acquired }} -->
-        </div>
-        <div class="detail-row">
-          <p class="text-wrapper-13">Dimensions:</p>
-          <span class="text-wrapper-12" id="previewDimensions">6in x 4in</span>
-          <!-- Backend: Replace text with {{ item.dimensions }} -->
-        </div>
-        <div class="detail-row">
-          <p class="weight"><span class="span">Weight:</span></p>
-          <span class="text-wrapper-12" id="previewWeight">357grams</span>
-          <!-- Backend: Replace text with {{ item.weight }} -->
-        </div>
-        <div class="detail-row">
-          <p class="text-wrapper-14">Condition:</p>
-          <span class="text-wrapper-12" id="previewCondition">No Damage</span>
-          <!-- Backend: Replace text with {{ item.condition }} -->
-        </div>
-        <div class="overlap-3">
-          <div class="rectangle contact-owner"></div>
-          <div class="text-wrapper-6">Contact Owner</div>
-        </div>
-        <!-- Backend: Add onclick to initiate chat with {{ item.owner_id }} -->
-        <hr class="line-5" />
-        <h5 class="text-wrapper-8">Comments</h5>
-        <div class="comment-section">
-          <div class="comment-count">
-            <div class="text-wrapper-21" id="commentCount">0</div>
-          </div>
-          <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment..." />
-          <div class="div-wrapper">
-            <div class="text-wrapper-4 submit-comment">Submit</div>
-          </div>
-        </div>
-      </div>
     </div>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Comment submission
-        const submitCommentButton = document.querySelector('.submit-comment');
-        if (submitCommentButton) {
-          submitCommentButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const commentInput = document.getElementById('commentInput');
-            if (!commentInput) {
-              console.error('Comment input not found');
-              return;
-            }
-            const comment = commentInput.value.trim();
-            if (comment) {
-              console.log('Comment submitted:', comment);
-              commentInput.value = '';
-              const commentCount = document.getElementById('commentCount');
-              if (commentCount) {
-                commentCount.textContent = parseInt(commentCount.textContent) + 1;
-              }
-              alert('Comment submitted! (Placeholder)');
-              // Backend: Send comment to server with item ID
-              // Example: fetch('/add-comment/', { method: 'POST', body: { item_id: {{ item.id }}, comment } })
+        document.addEventListener('DOMContentLoaded', () => {
+            const submitCommentButton = document.querySelector('.submit-comment');
+            if (submitCommentButton) {
+                submitCommentButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const commentInput = document.getElementById('commentInput');
+                    if (!commentInput) {
+                        console.error('Comment input not found');
+                        return;
+                    }
+                    const comment = commentInput.value.trim();
+                    if (comment) {
+                        console.log('Comment submitted:', comment);
+                        commentInput.value = '';
+                        const commentCount = document.getElementById('commentCount');
+                        if (commentCount) {
+                            commentCount.textContent = parseInt(commentCount.textContent) + 1;
+                        }
+                        alert('Comment submitted! (Placeholder)');
+                    } else {
+                        alert('Please enter a comment.');
+                    }
+                });
             } else {
-              alert('Please enter a comment.');
+                console.error('Submit comment button not found');
             }
-          });
-        } else {
-          console.error('Submit comment button not found');
-        }
-      });
+        });
     </script>
-  </body>
+</body>
 </html>

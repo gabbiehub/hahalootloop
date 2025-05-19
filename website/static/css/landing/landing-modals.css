@@ -104,6 +104,11 @@
   line-height: normal;
 }
 
+#error{
+  margin-top:15px;
+  color:red;
+}
+
 .log-in-modal .text-wrapper-2 {
   position: absolute;
   top: 16.09vw;

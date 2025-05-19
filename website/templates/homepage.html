@@ -16,6 +16,8 @@
     {% csrf_token %}
     <div class="home-page">
       <div class="header">
+        
+        <!--<h2>Welcome, {{ user.username }}!</h2>-->
         <input class="search-bar" type="text" placeholder="Search items..." />
         <img class="search-icon" src="{% static 'img/homepage/Search bar.png' %}" alt="Search Icon" />
         <div class="header-button">Upload Item</div>
@@ -564,198 +566,206 @@
       </div>
     
       <!-- Basic Information Modal -->
-      <div class="modal" id="basicInfoModal">
+    <div class="modal" id="basicInfoModal">
         <div class="modal-content item-upload-page">
-          <div class="overlap">
-            <div class="rectangle"></div>
-            <div class="text-wrapper">Next</div>
-            <img class="up" src="{% static 'img/up.png' %}" alt="Up Arrow" />
-          </div>
-          <div class="upload-file-group">
-            <div class="overlap-group" id="dropZone">
-              <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
-              <div class="div">
-                <p class="drag-drop-to-upload">Drag & drop to upload</p>
-                <div class="text-wrapper-2">Files supported: JPG, PNG</div>
-              </div>
-              <div class="text-wrapper-3">or</div>
-              <div class="div-wrapper">
-                <input type="file" id="fileInput" class="hidden-file-input" accept="image/jpeg,image/png" />
-                <div class="text-wrapper-4" onclick="document.getElementById('fileInput').click()">Upload File</div>
-              </div>
-            </div>
-          </div>
-          <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
-          <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
-          <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
-          <img class="close-window" id="closeBasicInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
-          <div class="text-wrapper-5">Basic Information</div>
-          <div class="text-wrapper-6">Detailed Information</div>
-          <div class="text-wrapper-7">Preview and Uploading</div>
-          <div class="text-wrapper-8">Basic Information</div>
-          <div class="text-wrapper-9">Name</div>
-          <div class="text-wrapper-10">Description</div>
-          <div class="text-wrapper-11">Item Type</div>
-          <p class="p">Create shelf or add to existing</p>
-          <div class="text-wrapper-12">Tradability</div>
-          <div class="rectangle-2">
-            <input type="text" id="itemName" placeholder="Enter item name" />
-          </div>
-          <div class="rectangle-3">
-            <textarea id="itemDescription" placeholder="Describe your item"></textarea>
-          </div>
-          <div class="dropdown-menu" id="itemTypeDropdown">
-            <div class="text-wrapper-13">Select type</div>
-            <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
-            <div class="dropdown-options" style="display: none;">
-              <div class="option" data-value="Antiques">Antiques</div>
-              <div class="option" data-value="Figurines">Figurines</div>
-              <div class="option" data-value="Books">Books</div>
-              <div class="option" data-value="Jewelry">Jewelry</div>
-              <div class="option" data-value="Furniture">Furniture</div>
-              <div class="option" data-value="Cars">Cars</div>
-              <div class="option" data-value="Currency">Currency</div>
-              <div class="option" data-value="Toys">Toys</div>
-            </div>
-          </div>
-          <div class="dropdown-menu-2" id="shelfDropdown">
-            <div class="text-wrapper-13">Select type</div>
-            <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
-            <div class="dropdown-options" style="display: none;">
-              <div class="option" data-value="Create New">Create New</div>
-              <div class="option" data-value="Existing Shelf 1">Existing Shelf 1</div>
-              <div class="option" data-value="Existing Shelf 2">Existing Shelf 2</div>
-            </div>
-          </div>
-          <div class="component" id="tradabilityToggle">
-            <div class="overlap-2"><div class="text-wrapper-14">Enabled</div></div>
-            <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
-          </div>
-          <div class="text-wrapper-16">Upload Photo</div>
+            <form id="basicInfoForm">
+                {% csrf_token %}
+                <div class="overlap">
+                    <div class="rectangle"></div>
+                    <div class="text-wrapper">Next</div>
+                    <img class="up" src="{% static 'img/up.png' %}" alt="Up Arrow" />
+                </div>
+                <div class="upload-file-group">
+                    <div class="overlap-group" id="dropZone">
+                        <img class="pfp" src="{% static 'img/pfp-8-1.png' %}" alt="Upload Icon" />
+                        <div class="div">
+                            <p class="drag-drop-to-upload">Drag & drop to upload</p>
+                            <div class="text-wrapper-2">Files supported: JPG, PNG</div>
+                        </div>
+                        <div class="text-wrapper-3">or</div>
+                        <div class="div-wrapper">
+                            <input type="file" id="fileInput" class="hidden-file-input" accept="image/jpeg,image/png" />
+                            <div class="text-wrapper-4" onclick="document.getElementById('fileInput').click()">Upload File</div>
+                        </div>
+                    </div>
+                </div>
+                <img class="line" src="{% static 'img/line-9.svg' %}" alt="Line" />
+                <img class="img" src="{% static 'img/line-10.svg' %}" alt="Line" />
+                <img class="line-2" src="{% static 'img/line-11.svg' %}" alt="Line" />
+                <img class="close-window" id="closeBasicInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
+                <div class="text-wrapper-5">Basic Information</div>
+                <div class="text-wrapper-6">Detailed Information</div>
+                <div class="text-wrapper-7">Preview and Uploading</div>
+                <div class="text-wrapper-8">Basic Information</div>
+                <div class="text-wrapper-9">Name</div>
+                <div class="text-wrapper-10">Description</div>
+                <div class="text-wrapper-11">Item Type</div>
+                <p class="p">Create shelf or add to existing</p>
+                <div class="text-wrapper-12">Tradability</div>
+                <div class="rectangle-2">
+                    <input type="text" id="itemName" name="name" placeholder="Enter item name" />
+                </div>
+                <div class="rectangle-3">
+                    <textarea id="itemDescription" name="description" placeholder="Describe your item"></textarea>
+                </div>
+                <div class="dropdown-menu" id="itemTypeDropdown">
+                  <div class="text-wrapper-13">Select type</div>
+                    <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
+                    <div class="dropdown-options" style="display: none;">
+                    <div class="option" data-value="Antiques">Antiques</div>
+                    <div class="option" data-value="Figurines">Figurines</div>
+                    <div class="option" data-value="Books">Books</div>
+                    <div class="option" data-value="Jewelry">Jewelry</div>
+                    <div class="option" data-value="Furniture">Furniture</div>
+                    <div class="option" data-value="Cars">Cars</div>
+                    <div class="option" data-value="Currency">Currency</div>
+                    <div class="option" data-value="Toys">Toys</div>
+                  </div>
+                </div>
+                <div class="dropdown-menu-2" id="shelfDropdown">
+                    <div class="text-wrapper-13">Select type</div>
+                    <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
+                    <div class="dropdown-options" style="display: none;">
+                        <div class="option" data-value="Create New">Create New</div>
+                        <div class="option" data-value="Shelf 1">Shelf 1</div>
+                        <div class="option" data-value="Shelf 2">Shelf 2</div>
+                    </div>
+                </div>
+                <div class="component" id="tradabilityToggle">
+                    <div class="overlap-2"><div class="text-wrapper-14">Enabled</div></div>
+                    <div class="overlap-3"><div class="text-wrapper-15">Disabled</div></div>
+                </div>
+                <div class="text-wrapper-16">Upload Photo</div>
+            </form>
         </div>
-      </div>
+    </div>
 
-      <!-- Detailed Information Modal -->
-      <div class="modal" id="detailedInfoModal" style="display: none;">
+    <!-- Detailed Information Modal -->
+    <div class="modal" id="detailedInfoModal" style="display: none;">
         <div class="modal-content item-upload-page">
-          <div class="overlap">
-            <div class="rectangle"></div>
-            <div class="text-wrapper">Next</div>
-            <img class="up" src="{% static 'img/up.png' %}" alt="Forward Arrow" />
-          </div>
-          <div class="overlap-group">
-            <div class="rectangle"></div>
-            <div class="div">Back</div>
-            <img class="img" src="{% static 'img/back.png' %}" alt="Back Arrow" />
-          </div>
-          <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
-          <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="Yellow Line" />
-          <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
-          <img class="close-window" id="closeDetailedInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
-          <div class="text-wrapper-2">Basic Information</div>
-          <div class="text-wrapper-3">Detailed Information</div>
-          <div class="text-wrapper-4">Preview and Uploading</div>
-          <div class="text-wrapper-5">More Details</div>
-          <img class="item-image-area" id="detailedImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
-          <div class="fieldsss">
-            <div class="text-wrapper-6">Date Acquired</div>
-            <div class="text-wrapper-7">Other Notes</div>
-            <div class="text-wrapper-9">Dimensions</div>
-            <div class="text-wrapper-10">Weight</div>
-            <div class="text-wrapper-11">Condition</div>
-            <div class="overlap-2">
-              <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
-              <input type="text" id="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
-            </div>
-            <div class="rectangle-2">
-              <input type="text" id="dimensions" placeholder="Enter dimensions" />
-            </div>
-            <div class="rectangle-3">
-              <input type="text" id="weight" placeholder="Enter weight" />
-            </div>
-            <div class="dropdown-menu" id="conditionDropdown">
-              <div class="text-wrapper-13">Select type</div>
-              <img class="vector-2" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
-              <div class="dropdown-options" style="display: none;">
-                <div class="option" data-value="New">New</div>
-                <div class="option" data-value="Like New">Like New</div>
-                <div class="option" data-value="Used">Used</div>
-                <div class="option" data-value="Damaged">Damaged</div>
-              </div>
-            </div>
-            <div class="rectangle-4">
-              <textarea id="otherNotes" placeholder="Enter notes"></textarea>
-            </div>
-          </div>
+            <form id="detailedInfoForm">
+                {% csrf_token %}
+                <div class="overlap">
+                    <div class="rectangle"></div>
+                    <div class="text-wrapper">Next</div>
+                    <img class="up" src="{% static 'img/up.png' %}" alt="Forward Arrow" />
+                </div>
+                <div class="overlap-group">
+                    <div class="rectangle"></div>
+                    <div class="div">Back</div>
+                    <img class="img" src="{% static 'img/back.png' %}" alt="Back Arrow" />
+                </div>
+                <img class="line" src="{% static 'img/line-10.svg' %}" alt="Line" />
+                <img class="line-2" src="{% static 'img/line-9.svg' %}" alt="Yellow Line" />
+                <img class="line-3" src="{% static 'img/line-11.svg' %}" alt="Line" />
+                <img class="close-window" id="closeDetailedInfoModal" src="{% static 'img/close-window.png' %}" alt="Close" />
+                <div class="text-wrapper-2">Basic Information</div>
+                <div class="text-wrapper-3">Detailed Information</div>
+                <div class="text-wrapper-4">Preview and Uploading</div>
+                <div class="text-wrapper-5">More Details</div>
+                <img class="item-image-area" id="detailedImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
+                <div class="fieldsss">
+                    <div class="text-wrapper-6">Date Acquired</div>
+                    <div class="text-wrapper-7">Other Notes</div>
+                    <div class="text-wrapper-9">Dimensions</div>
+                    <div class="text-wrapper-10">Weight</div>
+                    <div class="text-wrapper-11">Condition</div>
+                    <div class="overlap-2">
+                        <img class="vector" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
+                        <input type="text" id="dateAcquired" name="dateAcquired" class="text-wrapper-12" placeholder="mm/dd/yyyy" />
+                    </div>
+                    <div class="rectangle-2">
+                        <input type="text" id="dimensions" name="dimensions" placeholder="Enter dimensions" />
+                    </div>
+                    <div class="rectangle-3">
+                        <input type="text" id="weight" name="weight" placeholder="Enter weight" />
+                    </div>
+                    <div class="dropdown-menu" id="conditionDropdown">
+                        <div class="text-wrapper-13">Select type</div>
+                        <img class="vector-2" src="{% static 'img/dropdown.png' %}" alt="Dropdown Arrow" />
+                        <div class="dropdown-options" style="display: none;">
+                            <div class="option" data-value="New">New</div>
+                            <div class="option" data-value="Like New">Like New</div>
+                            <div class="option" data-value="Used">Used</div>
+                            <div class="option" data-value="Damaged">Damaged</div>
+                        </div>
+                    </div>
+                    <div class="rectangle-4">
+                        <textarea id="otherNotes" name="otherNotes" placeholder="Enter notes"></textarea>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
 
-      <!-- Preview and Uploading Modal -->
-      <div class="modal" id="previewModal" style="display: none;">
+    <!-- Preview and Uploading Modal -->
+    <div class="modal" id="previewModal" style="display: none;">
         <div class="modal-content item-upload-page">
-          <div class="overlap">
-            <div class="rectangle"></div>
-            <div class="text-wrapper">Upload</div>
-            <img class="up" src="{% static 'img/upload.png' %}" alt="Upload Arrow" />
-          </div>
-          <div class="overlap-group">
-            <div class="rectangle"></div>
-            <div class="div">Back</div>
-            <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
-          </div>
-          <img class="line" src="{% static 'img/line-11.svg' %}" alt="Line" />
-          <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
-          <img class="line-3" src="{% static 'img/line-9.svg' %}" alt="Line" />
-          <img class="close-window" id="closePreviewModal" src="{% static 'img/close-window.png' %}" alt="Close" />
-          <div class="text-wrapper-2">Basic Information</div>
-          <div class="text-wrapper-3">Detailed Information</div>
-          <div class="text-wrapper-4">Preview and Uploading</div>
-          <img class="item-image-area" id="previewImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
-          <div class="preview-details">
-            <h3 id="previewName">Jujutsu Kaisen Satoru Gojo Past Edition</h3>
-            <p class="text-wrapper-22" id="previewAuthor">Author Name</p>
-            <div class="rating-section">
-              <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
-              <span class="text-wrapper-20" id="previewRating">4.5</span>
-            </div>
-            <p class="text-wrapper-7" id="previewTradability">Available for trade</p>
-            <hr class="line-4" />
-            <h5 class="text-wrapper-18">Description:</h5>
-            <p class="p" id="previewDescription">Lorem ipsum dolor sit amet...</p>
-            <h5 class="text-wrapper-18">Notes:</h5>
-            <p class="p" id="previewNotes">No additional notes</p>
-            <div class="detail-row">
-              <p class="year-acquired"><span class="span">Year Acquired:</span></p>
-              <span class="text-wrapper-12" id="previewYear">2024</span>
-            </div>
-            <div class="detail-row">
-              <p class="text-wrapper-13">Dimensions:</p>
-              <span class="text-wrapper-12" id="previewDimensions">6in x 4in</span>
-            </div>
-            <div class="detail-row">
-              <p class="weight"><span class="span">Weight:</span></p>
-              <span class="text-wrapper-12" id="previewWeight">357grams</span>
-            </div>
-            <div class="detail-row">
-              <p class="text-wrapper-14">Condition:</p>
-              <span class="text-wrapper-12" id="previewCondition">No Damage</span>
-            </div>
-            <div class="overlap-3">
-              <div class="rectangle contact-owner"></div>
-              <div class="text-wrapper-6">Contact Owner</div>
-            </div>
-            <hr class="line-5" />
-            <h5 class="text-wrapper-8">Comments</h5>
-            <div class="comment-section">
-              <div class="comment-count">
-                <div class="text-wrapper-21" id="commentCount">0</div>
-              </div>
-              <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment..." />
-              <div class="div-wrapper">
-                <div class="text-wrapper-4 submit-comment">Submit</div>
-              </div>
-            </div>
-          </div>
+            <form id="previewForm">
+                {% csrf_token %}
+                <div class="overlap">
+                    <div class="rectangle"></div>
+                    <div class="text-wrapper">Upload</div>
+                    <img class="up" src="{% static 'img/upload.png' %}" alt="Upload Arrow" />
+                </div>
+                <div class="overlap-group">
+                    <div class="rectangle"></div>
+                    <div class="div">Back</div>
+                    <img class="img" src="{% static 'img/up.png' %}" alt="Back Arrow" />
+                </div>
+                <img class="line" src="{% static 'img/line-11.svg' %}" alt="Line" />
+                <img class="line-2" src="{% static 'img/line-10.svg' %}" alt="Line" />
+                <img class="line-3" src="{% static 'img/line-9.svg' %}" alt="Line" />
+                <img class="close-window" id="closePreviewModal" src="{% static 'img/close-window.png' %}" alt="Close" />
+                <div class="text-wrapper-2">Basic Information</div>
+                <div class="text-wrapper-3">Detailed Information</div>
+                <div class="text-wrapper-4">Preview and Uploading</div>
+                <img class="item-image-area" id="previewImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
+                <div class="preview-details">
+                    <h3 id="previewName">Item Name</h3>
+                    <p class="text-wrapper-22" id="previewAuthor">{{ user.username }}</p>
+                    <div class="rating-section">
+                        <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
+                        <span class="text-wrapper-20" id="previewRating">Not rated</span>
+                    </div>
+                    <p class="text-wrapper-7" id="previewTradability">Not available for trade</p>
+                    <hr class="line-4" />
+                    <h5 class="text-wrapper-18">Description:</h5>
+                    <p class="p" id="previewDescription">No description provided</p>
+                    <h5 class="text-wrapper-18">Notes:</h5>
+                    <p class="p" id="previewNotes">No additional notes</p>
+                    <div class="detail-row">
+                        <p class="year-acquired"><span class="span">Year Acquired:</span></p>
+                        <span class="text-wrapper-12" id="previewYear">Not specified</span>
+                    </div>
+                    <div class="detail-row">
+                        <p class="text-wrapper-13">Dimensions:</p>
+                        <span class="text-wrapper-12" id="previewDimensions">Not specified</span>
+                    </div>
+                    <div class="detail-row">
+                        <p class="weight"><span class="span">Weight:</span></p>
+                        <span class="text-wrapper-12" id="previewWeight">Not specified</span>
+                    </div>
+                    <div class="detail-row">
+                        <p class="text-wrapper-14">Condition:</p>
+                        <span class="text-wrapper-12" id="previewCondition">Not specified</span>
+                    </div>
+                    <div class="overlap-3">
+                        <div class="rectangle contact-owner"></div>
+                        <div class="text-wrapper-6">Contact Owner</div>
+                    </div>
+                    <hr class="line-5" />
+                    <h5 class="text-wrapper-8">Comments</h5>
+                    <div class="comment-section">
+                        <div class="comment-count">
+                            <div class="text-wrapper-21" id="commentCount">0</div>
+                        </div>
+                        <input type="text" class="comment-input" id="commentInput" placeholder="Add a comment..." />
+                        <div class="div-wrapper">
+                            <div class="text-wrapper-4 submit-comment">Submit</div>
+                        </div>
+                    </div>
+                  </div>
         </div>
       </div>
     </div>

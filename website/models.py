@@ -26,7 +26,7 @@ class Item(models.Model):
         ('Damaged', 'Damaged'),
     ]
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='items')
     name = models.CharField(max_length=100)
     description = models.TextField()
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
@@ -43,4 +43,4 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} by {self.user.username}" 
