@@ -243,11 +243,7 @@ const chatModal = document.getElementById('messageModal');
                         alert('Please enter the item description.');
                         return;
                     }
-<<<<<<< HEAD
                     if (itemType === 'Select type' || !['Antiques', 'Figurines', 'Books', 'Jewelry', 'Furniture', 'Cars', 'Currency', 'Toys'].includes(itemType)) {
-=======
-                    if (itemType === 'Select type' || !['Antiques', 'Figurines', 'Books','Jewelry','Furniture','Cars','Currency','Toys'].includes(itemType)) {
->>>>>>> 33998d555bc42e8d7628c4ec59d6efcd5e01b049
                         alert('Please select a valid item type.');
                         return;
                     }
