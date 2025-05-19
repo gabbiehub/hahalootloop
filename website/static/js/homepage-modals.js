@@ -243,7 +243,7 @@ const chatModal = document.getElementById('messageModal');
                         alert('Please enter the item description.');
                         return;
                     }
-                    if (itemType === 'Select type' || !['ELECTRONICS', 'FURNITURE', 'CLOTHING', 'OTHER'].includes(itemType)) {
+                    if (itemType === 'Select type' || !['Antiques', 'Figurines', 'Books', 'Jewelry', 'Furniture', 'Cars', 'Currency', 'Toys'].includes(itemType)) {
                         alert('Please select a valid item type.');
                         return;
                     }
@@ -274,7 +274,7 @@ const chatModal = document.getElementById('messageModal');
                     formData.append('file', itemData.file);
 
                     try {
-                        const response = await fetch('{% url '/upload_item/' %}', {
+                        const response = await fetch('/upload_item/', {
                             method: 'POST',
                             body: formData,
                             headers: {
@@ -341,7 +341,7 @@ const chatModal = document.getElementById('messageModal');
                     formData.append('condition', itemData.condition);
 
                     try {
-                        const response = await fetch('{% url '/upload_item/' %}', {
+                        const response = await fetch('/upload_item/', {
                             method: 'POST',
                             body: formData,
                             headers: {
@@ -477,7 +477,7 @@ const chatModal = document.getElementById('messageModal');
                     formData.append('final_submit', 'true');
 
                     try {
-                        const response = await fetch('{% url '/upload_item/' %}', {
+                        const response = await fetch('/upload_item/', {
                             method: 'POST',
                             body: formData,
                             headers: {

@@ -723,7 +723,7 @@
                 <img class="item-image-area" id="previewImage" src="{% static 'img/item-image-area.png' %}" alt="Item Image" />
                 <div class="preview-details">
                     <h3 id="previewName">Item Name</h3>
-                    <p class="text-wrapper-22" id="previewAuthor">{{ user.username }}</p>
+                    <p class="text-wrapper-22" id="previewAuthor">{{ item.user.username }}</p>
                     <div class="rating-section">
                         <img class="star" src="{% static 'img/star.png' %}" alt="Star" />
                         <span class="text-wrapper-20" id="previewRating">Not rated</span>
