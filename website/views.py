@@ -240,6 +240,7 @@ def category_results(request, category):
 @login_required
 def item_details(request, item_name):
     item = get_object_or_404(Item, name=item_name)
+    logger.debug("Item details for: %s", item_name)
     context = {
         'item': item,
     }

@@ -584,7 +584,7 @@ const chatModal = document.getElementById('messageModal');
                     post.style.cursor = 'pointer';
                     post.addEventListener('click', (event) => {
                         event.preventDefault();
-                        window.location.href = '{% url "item_detail" 1 %}'; // Replace with dynamic item ID
+                        window.location.href = '{% url 'item_details' item.name %}'; // Replace with dynamic item ID
                     });
                 });
             });
