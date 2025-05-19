@@ -141,109 +141,124 @@
           <img class="image" src="{% static 'img/profile/banner.png' %}" />
           <div class="box nav-box">
             <div class="nav">
-              <div class="overlap-group">
+              <div class="nav-item active" id="homeTab">
                 <div class="rectangle"></div>
-                <div class="text-wrapper">Home</div>
+                <span class="nav-text">Home</span>
               </div>
-              <div class="div">Wishlist</div>
-              <div class="text-wrapper-2">History</div>
-              <div class="text-wrapper-3">Collections</div>
+              <div class="nav-item" id="wishlistTab">
+                <span class="nav-text">Wishlist</span>
+              </div>
+              <div class="nav-item" id="historyTab">
+                <span class="nav-text">History</span>
+              </div>
+              <div class="nav-item" id="collectionsTab">
+                <span class="nav-text">Collections</span>
+              </div>
             </div>
           </div>
           <div class="prof-info">
-            <div class="box">
-              <div class="text-wrapper bio-text" id="bioText" style="cursor: pointer;">
-                {% if user_profile %}
-                  {{ user_profile.bio|default:"Add a bio to tell others about yourself!" }}
-                {% else %}
-                  Add a bio to tell others about yourself!
-                {% endif %}
-              </div>
-              <div class="group">
-                <div class="overlap">
-                  <div class="following">
-                    <div class="overlap-group">
-                      <div class="div">{{ following_count }}</div>
-                      <div class="text-wrapper-2">Following</div>
-                    </div>
+            <div class="profile-container">
+              <img class="profile-pic" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile big.png' %}{% endif %}" alt="Profile Picture" />
+              <div class="user-info">
+                <div class="username">{{ user.username }}</div>
+                <div class="handle">@{{ user.username|lower }}</div>
+                <div class="bio" id="bioText" style="cursor: pointer;">
+                  {% if user_profile %}
+                    {{ user_profile.bio|default:"Add a bio to tell others about yourself!" }}
+                  {% else %}
+                    Add a bio to tell others about yourself!
+                  {% endif %}
+                </div>
+                <div class="counts">
+                  <div class="count-item">
+                    <span class="count-number">{{ following_count }}</span>
+                    <span class="count-label">Following</span>
                   </div>
-                  <div class="followers">
-                    <div class="overlap-2">
-                      <div class="div">{{ followers_count }}</div>
-                      <div class="text-wrapper-3">Followers</div>
-                    </div>
+                  <div class="count-item">
+                    <span class="count-number">{{ followers_count }}</span>
+                    <span class="count-label">Followers</span>
                   </div>
-                  <div class="trades">
-                    <div class="overlap-3">
-                      <div class="text-wrapper-4">{{ trades_count }}</div>
-                      <div class="overlap-group-wrapper">
-                        <div class="overlap-group-2">
-                          <div class="text-wrapper-5">Trades</div>
-                          <img class="eva-question-mark" src="{% static 'img/profile/more info.png' %}" />
-                        </div>
-                      </div>
-                    </div>
+                  <div class="count-item">
+                    <span class="count-number">{{ trades_count }}</span>
+                    <span class="count-label">Trades</span>
+                    <img class="info-icon" src="{% static 'img/profile/more info.png' %}" alt="More Info" />
                   </div>
                 </div>
-              </div>
-              <img class="majesticons-share" src="{% static 'img/profile/share.png' %}" />
-              <div class="overlap-4">
-                <div class="group-2">
-                  <div class="div-wrapper">
-                    <div class="overlap-group-3">
-                      <div class="rectangle"></div>
-                      <div class="text-wrapper-6">Edit profile</div>
-                    </div>
-                  </div>
-                  <div class="overlap-wrapper">
-                    <div class="overlap-5">
-                      <div class="text-wrapper-7">Sign out</div>
-                    </div>
-                  </div>
+                <div class="actions">
+                  <button class="action-button edit-profile">
+                    <img src="{% static 'img/profile/edit.png' %}" alt="Edit" />
+                    Edit profile
+                  </button>
+                  <button class="action-button signout" onclick="window.location.href='/logout/'">
+                    <img src="{% static 'img/profile/signout.png' %}" alt="Sign Out" />
+                    Sign out
+                  </button>
+                  <button class="action-button share">
+                    <img src="{% static 'img/profile/share.png' %}" alt="Share" />
+                  </button>
                 </div>
-                <img class="mi-edit" src="{% static 'img/profile/edit.png' %}" />
-                <button class="signout-button" onclick="window.location.href='/'">
-                  <img class="uil-signout" src="{% static 'img/profile/signout.png' %}" alt="Sign Out" />
-                </button>
               </div>
-              <div class="overlap-6">
-                <div class="text-wrapper-8">{{ user.username }}</div>
-                <div class="text-wrapper-9">@{{ user.username|lower }}</div>
-              </div>
-              <img class="line" src="{% static 'img/profile/line.png' %}" />
-              <img class="img" src="{% static 'img/profile/line.png' %}" />
-              <img class="a" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile big.png' %}{% endif %}" />
             </div>
           </div>
         </div>
         <div class="frame">
+          <!-- Group-5 Section -->
+          <div class="group-5">
+            <div class="post-input-container">
+              <img class="profile-pic" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" alt="Profile Picture" />
+              <input type="text" class="post-input" placeholder="What's new in your collection, {{ user.username }}?" />
+            </div>
+            <div class="icon-bar">
+              <img class="icon attachment" src="{% static 'img/profile/attachment.png' %}" alt="Attach" />
+              <img class="icon photo" src="{% static 'img/profile/photo.png' %}" alt="Photo" />
+              <img class="icon video" src="{% static 'img/profile/video.png' %}" alt="Video" />
+            </div>
+          </div>
+          
+          <!-- Highlights Section -->
+          <div class="highlights">
+            <div class="text-wrapper-16">Highlights</div>
+            {% for item in items|slice:":4" %}
+            {% if item.image %}
+            <img class="image-4" src="{{ item.image.url }}" />
+            {% endif %}
+            {% empty %}
+            <div class="text-wrapper-16">No highlights available.</div>
+            {% endfor %}
+          </div>
+          
+          <!-- Posts Section -->
+          <hr style="width:95%; border:1px solid black;">
           <div class="fb">
-            <p>Found {{ items.count }} items</p>
             {% for item in items %}
             <div class="post">
-              <div class="overlap-7">
-                <div class="overlap-8">
-                  <div class="text-wrapper-11">{{ user.username }}</div>
-                  <div class="text-wrapper-12">{{ item.created_at|date:"j F \a\t H:i" }}</div>
-                  <img class="a-2" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" />
+              <div class="post-header">
+                <img class="profile-pic" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" alt="Profile Picture" />
+                <div class="user-details">
+                  <span class="username">{{ user.username }}</span>
+                  <span class="timestamp">{{ item.created_at|date:"j F \a\t H:i" }}</span>
                 </div>
-                <p class="p">{{ item.description|truncatewords:50 }}</p>
-                {% if item.image %}
-                <div class="group-3">
-                  <div class="overlap-group-5">
-                    <img class="image-2" src="{{ item.image.url }}" />
-                  </div>
+                <img class="menu-icon" src="{% static 'img/profile/menu.png' %}" alt="Menu" />
+              </div>
+              <p class="post-description">{{ item.description|truncatewords:50 }}</p>
+              {% if item.image %}
+              <div class="post-image">
+                <img src="{{ item.image.url }}" alt="Post Image" />
+              </div>
+              {% endif %}
+              <div class="post-actions">
+                <div class="action-item">
+                  <img src="{% static 'img/profile/like.png' %}" alt="Like" />
+                  <span>0</span>
                 </div>
-                {% endif %}
-                <div class="group-4">
-                  <div class="text-wrapper-13">0</div>
-                  <div class="text-wrapper-14">0</div>
-                  <div class="text-wrapper-15">0</div>
-                  <img class="facebook-like" src="{% static 'img/profile/like.png' %}" />
-                  <img class="facebook-like-2" src="{% static 'img/profile/dislike.png' %}" />
-                  <img class="mdi-comment" src="{% static 'img/profile/comment.png' %}" />
+                <div class="action-item">
+                  <img src="{% static 'img/profile/dislike.png' %}" alt="Dislike" />
+                  <span>0</span>
                 </div>
-                <img class="oi-ellipses" src="{% static 'img/profile/menu.png' %}" />
+                <div class="action-item">
+                  <img src="{% static 'img/profile/comment.png' %}" alt="Comment" />
+                  <span>0</span>
+                </div>
               </div>
             </div>
             <img class="line-2" src="{% static 'img/profile/line.png' %}" />
@@ -256,36 +271,10 @@
               </div>
             </div>
             {% endfor %}
-            <div class="frame-2">
-              <div class="highlights">
-                {% for item in items|slice:":4" %}
-                {% if item.image %}
-                <img class="image-4" src="{{ item.image.url }}" />
-                {% endif %}
-                {% empty %}
-                <div class="text-wrapper-16">No highlights available.</div>
-                {% endfor %}
-              </div>
-              <div class="text-wrapper-16">Highlights</div>
-            </div>
-            <div class="group-5">
-              <div class="overlap-9">
-                <div class="rectangle-2"></div>
-                <div class="rectangle-3"></div>
-                <div class="group-6">
-                  <img class="vector" src="{% static 'img/profile/attachment.png' %}" />
-                  <img class="group-7" src="{% static 'img/profile/photo.png' %}" />
-                  <img class="vector-2" src="{% static 'img/profile/video.png' %}" />
-                </div>
-                <img class="a-3" src="{% if user_profile and user_profile.profile_picture %}{{ user_profile.profile_picture.url }}{% else %}{% static 'img/profile/profile small.png' %}{% endif %}" />
-                <div class="rectangle-4"></div>
-                <p class="text-wrapper-17">What’s new in your collection, {{ user.username }}?</p>
-              </div>
-            </div>
           </div>
         </div>
 
-        <div class="wishes" id="wishlistFrame" style="display: none;">
+        <div class="wishes" id="wishlistContent" style="display: none;">
           <div class="wish-group">
             <p class="text-wrapper-26">Wishlist functionality coming soon!</p>
           </div>

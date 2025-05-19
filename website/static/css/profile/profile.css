@@ -605,12 +605,31 @@
   display: none;
 }
 
+.user-profile-page .highlights {
+  position: relative;
+  width: 94.27%;
+  max-width: 756px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 40px 0; /* Increased bottom margin to separate from posts */
+  left: 2.91%;
+}
+
+.user-profile-page .image-4 {
+  position: relative;
+  width: 21.10%;
+  max-width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
 .user-profile-page .fb {
   position: relative;
   width: 94.27%;
   max-width: 756px;
-  height: auto; /* Allow dynamic height */
-  top: 1.32%;
+  height: auto;
   left: 2.91%;
   display: flex;
   flex-direction: column;
@@ -618,20 +637,21 @@
 }
 
 .user-profile-page .post {
-  position: relative; /* Remove absolute positioning */
-  width: 96.70%;
+  position: relative;
+  width: 100%;
   max-width: 731px;
-  height: auto; /* Allow dynamic height */
+  height: auto;
   max-height: 632px;
-  margin-bottom: 20px; /* Space between posts */
+  margin: 0;
+  padding: 15px;
+  background-color: #f2efef;
+  border-radius: 5px;
 }
 
 .user-profile-page .overlap-7 {
   position: relative;
-  width: 95%;
+  width: 100%;
   height: auto;
-  background-color: #f2efef;
-  padding: 10px;
 }
 
 .user-profile-page .overlap-8 {
@@ -696,7 +716,7 @@
 }
 
 .user-profile-page .group-3 {
-  position: absolute;
+  position: relative;
   width: 92%;
   height: auto;
   top: 22%;
@@ -821,43 +841,20 @@
 .user-profile-page .line-2 {
   position: relative;
   width: 95%;
-  height: 0.07%;
   margin: 10px auto;
-  object-fit: cover;
+  opacity:0.2;
 }
 
+/* Remove unused frame-2 */
 .user-profile-page .frame-2 {
-  position: relative;
-  width: 100%;
-  max-width: 736px;
-  height: auto;
-  margin-top: 20px;
-}
-
-.user-profile-page .highlights {
-  position: relative;
-  width: 95%;
-  max-width: 711px;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.user-profile-page .image-4 {
-  position: relative;
-  width: 21.10%;
-  max-width: 150px;
-  height: 150px;
-  object-fit: cover;
+  display: none;
 }
 
 /* Remove unused image classes */
 .user-profile-page .image-5,
 .user-profile-page .image-6,
 .user-profile-page .image-7 {
-  display: none; /* Remove unused classes */
+  display: none;
 }
 
 .user-profile-page .text-wrapper-16 {
@@ -876,9 +873,10 @@
   position: relative;
   width: 95%;
   max-width: 752px;
-  height: auto;
-  max-height: 121px;
-  margin-top: 20px;
+  margin-top: 35vh; /* Adjusted to ensure it sits below the nav-box */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .user-profile-page .overlap-9 {
@@ -1879,7 +1877,6 @@
     width: 100%;
     max-width: 756px;
     height: auto;
-    top: 0;
     left: 0;
     margin: 0 auto;
   }
@@ -1896,6 +1893,7 @@
     max-width: 100%;
     height: auto;
     margin: 20px auto;
+    left: 0;
   }
 
   .user-profile-page .image-4 {
@@ -1926,4 +1924,558 @@
   .user-profile-page .transparent-icon-wrapper {
     display: none;
   }
+}
+.user-profile-page .group-5 {
+  position: relative;
+  width: 95%;
+  max-width: 752px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-profile-page .post-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.user-profile-page .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+}
+
+.user-profile-page .post-input {
+  flex-grow: 1;
+  border: none;
+  background: none;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.user-profile-page .icon-bar {
+  background-color: #021d3d;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.user-profile-page .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Remove old styles for .overlap-9 and its children */
+.user-profile-page .overlap-9,
+.user-profile-page .rectangle-2,
+.user-profile-page .rectangle-3,
+.user-profile-page .group-6,
+.user-profile-page .vector,
+.user-profile-page .group-7,
+.user-profile-page .vector-2,
+.user-profile-page .rectangle-4,
+.user-profile-page .text-wrapper-17 {
+  display: none;
+}
+
+.user-profile-page .nav-box {
+  position: absolute;
+  width: 42.81vw;
+  height: 4.07vh;
+  max-width: 814px;
+  max-height: 44px;
+  top: 26vh;
+  left: 23%;
+  z-index: 10;
+}
+
+.user-profile-page .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.user-profile-page .nav .nav-item {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile-page .nav .nav-item.active {
+  background-color: #ffcc07; /* Yellow background for active tab */
+}
+
+.user-profile-page .nav .rectangle {
+  display: none; /* Remove the separate rectangle since the background is now on the nav-item */
+}
+
+.user-profile-page .nav .nav-text {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1.25rem;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+/* Remove old absolute positioning styles */
+.user-profile-page .nav .nav-item:nth-child(2),
+.user-profile-page .nav .nav-item:nth-child(3),
+.user-profile-page .nav .nav-item:nth-child(4),
+.user-profile-page .nav .text-wrapper,
+.user-profile-page .nav .div,
+.user-profile-page .nav .text-wrapper-2,
+.user-profile-page .nav .text-wrapper-3 {
+  position: static;
+  width: auto;
+  top: auto;
+  left: auto;
+}
+
+.user-profile-page .fb {
+  position: relative;
+  width: 95%;
+  max-width: 752px;
+  margin-top: 20px;
+}
+
+.user-profile-page .post {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page .post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .post-header .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile-page .post-header .user-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-page .post-header .username {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.25rem;
+}
+
+.user-profile-page .post-header .timestamp {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 0.875rem;
+}
+
+.user-profile-page .post-header .menu-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-profile-page .post-description {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .post-image {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .post-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.user-profile-page .post-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.user-profile-page .post-actions .action-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-profile-page .post-actions .action-item img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-profile-page .post-actions .action-item span {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* Remove old styles */
+.user-profile-page .overlap-7,
+.user-profile-page .overlap-8,
+.user-profile-page .text-wrapper-11,
+.user-profile-page .text-wrapper-12,
+.user-profile-page .a-2,
+.user-profile-page .p,
+.user-profile-page .group-3,
+.user-profile-page .overlap-group-5,
+.user-profile-page .image-2,
+.user-profile-page .group-4,
+.user-profile-page .text-wrapper-13,
+.user-profile-page .text-wrapper-14,
+.user-profile-page .text-wrapper-15,
+.user-profile-page .facebook-like,
+.user-profile-page .facebook-like-2,
+.user-profile-page .mdi-comment,
+.user-profile-page .oi-ellipses {
+  position: static;
+  top: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+}
+
+.user-profile-page .fb {
+  position: relative;
+  width: 95%;
+  max-width: 752px;
+  margin-top: 20px;
+}
+
+.user-profile-page .post {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page .post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .post-header .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile-page .post-header .user-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-page .post-header .username {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.25rem;
+}
+
+.user-profile-page .post-header .timestamp {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 0.875rem;
+}
+
+.user-profile-page .post-header .menu-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-profile-page .post-description {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.user-profile-page .post-image {
+  width: 100%;
+  margin-bottom: 10px;
+  aspect-ratio: 16 / 9; /* Enforce 16:9 ratio */
+  overflow: hidden; /* Hide any overflow to crop the image */
+  border-radius: 8px;
+}
+
+.user-profile-page .post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop the image to fit the container */
+  object-position: center; /* Center the image for cropping */
+}
+
+.user-profile-page .post-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.user-profile-page .post-actions .action-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-profile-page .post-actions .action-item img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.user-profile-page .post-actions .action-item span {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1rem;
+}
+
+.user-profile-page .prof-info {
+  position: absolute;
+  width: 100%;
+  top: 13.89vh;
+  left: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.user-profile-page .profile-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.user-profile-page .profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page .user-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-profile-page .username {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+  line-height: normal;
+}
+
+.user-profile-page .handle {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.user-profile-page .bio {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 1rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.user-profile-page .counts {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.user-profile-page .count-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.user-profile-page .count-number {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.5rem;
+}
+
+.user-profile-page .count-label {
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #737373;
+  font-size: 1rem;
+}
+
+.user-profile-page .count-item .info-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  right: -20px;
+}
+
+.user-profile-page .actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.user-profile-page .action-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.user-profile-page .action-button.edit-profile {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.user-profile-page .action-button.edit-profile:hover {
+  background-color: #f0f0f0;
+}
+
+.user-profile-page .action-button.signout {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.user-profile-page .action-button.signout:hover {
+  background-color: #f0f0f0;
+}
+
+.user-profile-page .action-button.share {
+  background-color: transparent;
+  padding: 8px;
+}
+
+.user-profile-page .action-button img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Remove old styles */
+.user-profile-page .prof-info .box,
+.user-profile-page .text-wrapper.bio-text,
+.user-profile-page .prof-info .group,
+.user-profile-page .prof-info .overlap,
+.user-profile-page .following,
+.user-profile-page .following .overlap-group,
+.user-profile-page .following .div,
+.user-profile-page .following .text-wrapper-2,
+.user-profile-page .followers,
+.user-profile-page .followers .overlap-2,
+.user-profile-page .followers .div,
+.user-profile-page .followers .text-wrapper-3,
+.user-profile-page .trades,
+.user-profile-page .trades .overlap-3,
+.user-profile-page .trades .text-wrapper-4,
+.user-profile-page .trades .overlap-group-wrapper,
+.user-profile-page .trades .overlap-group-2,
+.user-profile-page .trades .text-wrapper-5,
+.user-profile-page .trades .eva-question-mark,
+.user-profile-page .majesticons-share,
+.user-profile-page .overlap-4,
+.user-profile-page .group-2,
+.user-profile-page .div-wrapper,
+.user-profile-page .overlap-group-3,
+.user-profile-page .rectangle,
+.user-profile-page .text-wrapper-6,
+.user-profile-page .overlap-wrapper,
+.user-profile-page .overlap-5,
+.user-profile-page .text-wrapper-7,
+.user-profile-page .mi-edit,
+.user-profile-page .signout-button,
+.user-profile-page .uil-signout,
+.user-profile-page .overlap-6,
+.user-profile-page .text-wrapper-8,
+.user-profile-page .text-wrapper-9,
+.user-profile-page .line,
+.user-profile-page .prof-info .img,
+.user-profile-page .a {
+  position: static;
+  top: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+}
+
+.user-info{
+  margin-top:70%;
+  margin-left:-60%;
+}
+
+.post-input-container .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
