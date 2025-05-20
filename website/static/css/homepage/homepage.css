@@ -767,15 +767,7 @@ body {
   box-shadow: 0 0 0.3rem rgba(102, 102, 102, 0.5);
 }
 
-.home-page .search-icon {
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  top: 50%;
-  right: 0.5rem;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
+
 
 /* Modal safeguards */
 #messageModal,
@@ -787,4 +779,9 @@ body {
   transform: none !important;
   zoom: 1 !important;
   overflow: auto;
+}
+
+.search-icon {
+  position:static;
+  margin-left:-50%;
 }
